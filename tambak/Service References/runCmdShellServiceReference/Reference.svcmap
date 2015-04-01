@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7adfd108-6b18-4f78-8874-fd33788a6998" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/RunCmdShell.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RunCmdShell.xsd" MetadataType="Schema" ID="1777d52b-8e8e-4900-880a-b40ba08be9c5" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/RunCmdShell.svc?xsd=xsd0" />
+    <MetadataFile FileName="RunCmdShell1.xsd" MetadataType="Schema" ID="214703b8-9409-460d-a4c7-bb3db03283b6" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/RunCmdShell.svc?xsd=xsd1" />
+    <MetadataFile FileName="RunCmdShell.wsdl" MetadataType="Wsdl" ID="7018cd63-6a03-41b8-8010-82398793f28a" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/RunCmdShell.svc?wsdl" />
+    <MetadataFile FileName="RunCmdShell.disco" MetadataType="Disco" ID="788be488-59ea-4cc9-bf38-82cc2be022d2" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/RunCmdShell.svc?disco" />
+    <MetadataFile FileName="RunCmdShell1.wsdl" MetadataType="Wsdl" ID="4c3f6af0-c142-4155-af0a-829b967fba36" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/RunCmdShell.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

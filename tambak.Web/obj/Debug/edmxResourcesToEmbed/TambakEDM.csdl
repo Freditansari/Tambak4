@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPLModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CPLEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Contacts" EntityType="CPLModel.Contact" />
+    <EntitySet Name="Products" EntityType="CPLModel.Product" />
+    <EntitySet Name="ProductsDetails" EntityType="CPLModel.ProductsDetail" />
+    <EntitySet Name="sysdiagrams" EntityType="CPLModel.sysdiagram" />
+    <EntitySet Name="Tasks" EntityType="CPLModel.Task" />
+    <AssociationSet Name="FK_Tasks_Contacts" Association="CPLModel.FK_Tasks_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsDetails_Products" Association="CPLModel.FK_ProductsDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductsDetails" EntitySet="ProductsDetails" />
+    </AssociationSet>
+    <EntitySet Name="Ponds" EntityType="CPLModel.Pond" />
+    <AssociationSet Name="FK_Tasks_Ponds" Association="CPLModel.FK_Tasks_Ponds">
+      <End Role="Pond" EntitySet="Ponds" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <EntitySet Name="PondConsumptionsLogs" EntityType="CPLModel.PondConsumptionsLog" />
+    <EntitySet Name="PondsProductionCycles" EntityType="CPLModel.PondsProductionCycle" />
+    <EntitySet Name="ProductPurchaseLogs" EntityType="CPLModel.ProductPurchaseLog" />
+    <EntitySet Name="ResultNotes" EntityType="CPLModel.ResultNote" />
+    <AssociationSet Name="FK_PondConsumptionsLog_Ponds" Association="CPLModel.FK_PondConsumptionsLog_Ponds">
+      <End Role="Pond" EntitySet="Ponds" />
+      <End Role="PondConsumptionsLog" EntitySet="PondConsumptionsLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondConsumptionsLog_PondsProductionCycle" Association="CPLModel.FK_PondConsumptionsLog_PondsProductionCycle">
+      <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
+      <End Role="PondConsumptionsLog" EntitySet="PondConsumptionsLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondConsumptionsLog_Products" Association="CPLModel.FK_PondConsumptionsLog_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PondConsumptionsLog" EntitySet="PondConsumptionsLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondsProductionCycle_Ponds" Association="CPLModel.FK_PondsProductionCycle_Ponds">
+      <End Role="Pond" EntitySet="Ponds" />
+      <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_PondsProductionCycle" Association="CPLModel.FK_Tasks_PondsProductionCycle">
+      <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPurchaseLog_Products" Association="CPLModel.FK_ProductPurchaseLog_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductPurchaseLog" EntitySet="ProductPurchaseLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultNote_ResultNote" Association="CPLModel.FK_ResultNote_ResultNote">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="ResultNote" EntitySet="ResultNotes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Company" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="jobTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BusinessPhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="homePhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MobilePhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="fax" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="zip" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="WebPage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="archive" Type="Boolean" />
+    <NavigationProperty Name="Tasks" Relationship="CPLModel.FK_Tasks_Contacts" FromRole="Contacts" ToRole="Tasks" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SKU" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ProductName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Product_Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="qtyperunit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Uom" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UnitInStock" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="UnitInOrder" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReorderLevel" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="ProductsDetails" Relationship="CPLModel.FK_ProductsDetails_Products" FromRole="Products" ToRole="ProductsDetails" />
+    <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_Products" FromRole="Product" ToRole="PondConsumptionsLog" />
+    <NavigationProperty Name="ProductPurchaseLogs" Relationship="CPLModel.FK_ProductPurchaseLog_Products" FromRole="Product" ToRole="ProductPurchaseLog" />
+  </EntityType>
+  <EntityType Name="ProductsDetail">
+    <Key>
+      <PropertyRef Name="ProductTrxID" />
+    </Key>
+    <Property Name="ProductTrxID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Ordered" Type="Int32" />
+    <Property Name="received" Type="Int32" />
+    <Property Name="sold" Type="Int32" />
+    <Property Name="shrinkage" Type="Int32" />
+    <Property Name="trxDate" Type="Int32" />
+    <Property Name="UserID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Product" Relationship="CPLModel.FK_ProductsDetails_Products" FromRole="ProductsDetails" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Priority" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="CompletePercentage" Type="Double" />
+    <Property Name="assignedTo" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Attachments" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PondID" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="plannedManHours" Type="Double" />
+    <Property Name="ProductionCycleID" Type="Int32" />
+    <NavigationProperty Name="Contact" Relationship="CPLModel.FK_Tasks_Contacts" FromRole="Tasks" ToRole="Contacts" />
+    <NavigationProperty Name="Pond" Relationship="CPLModel.FK_Tasks_Ponds" FromRole="Task" ToRole="Pond" />
+    <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_Tasks_PondsProductionCycle" FromRole="Task" ToRole="PondsProductionCycle" />
+    <NavigationProperty Name="ResultNotes" Relationship="CPLModel.FK_ResultNote_ResultNote" FromRole="Task" ToRole="ResultNote" />
+  </EntityType>
+  <Association Name="FK_Tasks_Contacts">
+    <End Role="Contacts" Type="CPLModel.Contact" Multiplicity="1" />
+    <End Role="Tasks" Type="CPLModel.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="assignedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsDetails_Products">
+    <End Role="Products" Type="CPLModel.Product" Multiplicity="1" />
+    <End Role="ProductsDetails" Type="CPLModel.ProductsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductsDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Pond">
+    <Key>
+      <PropertyRef Name="PondID" />
+    </Key>
+    <Property Type="Int32" Name="PondID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PondDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PondSize" />
+    <Property Type="String" Name="PondUOM" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PondLocation" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tasks" Relationship="CPLModel.FK_Tasks_Ponds" FromRole="Pond" ToRole="Task" />
+    <Property Type="Int32" Name="pondSize" />
+    <Property Type="String" Name="pondUOM" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_Ponds" FromRole="Pond" ToRole="PondConsumptionsLog" />
+    <NavigationProperty Name="PondsProductionCycles" Relationship="CPLModel.FK_PondsProductionCycle_Ponds" FromRole="Pond" ToRole="PondsProductionCycle" />
+  </EntityType>
+  <Association Name="FK_Tasks_Ponds">
+    <End Type="CPLModel.Pond" Role="Pond" Multiplicity="0..1" />
+    <End Type="CPLModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pond">
+        <PropertyRef Name="PondID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="PondID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PondConsumptionsLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Type="Int32" Name="LogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="Int32" Name="Usage" Nullable="false" />
+    <Property Type="String" Name="UOM" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LogDate" Precision="3" />
+    <Property Type="String" Name="userId" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PondID" />
+    <Property Type="Int32" Name="ProductionCycleID" />
+    <NavigationProperty Name="Pond" Relationship="CPLModel.FK_PondConsumptionsLog_Ponds" FromRole="PondConsumptionsLog" ToRole="Pond" />
+    <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_PondConsumptionsLog_PondsProductionCycle" FromRole="PondConsumptionsLog" ToRole="PondsProductionCycle" />
+    <NavigationProperty Name="Product" Relationship="CPLModel.FK_PondConsumptionsLog_Products" FromRole="PondConsumptionsLog" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="PondsProductionCycle">
+    <Key>
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Type="Int32" Name="ProductionCycleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="StartDate" Precision="3" />
+    <Property Type="DateTime" Name="EndDate" Precision="3" />
+    <Property Type="Boolean" Name="isInProduction" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PondID" Nullable="false" />
+    <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="PondConsumptionsLog" />
+    <NavigationProperty Name="Pond" Relationship="CPLModel.FK_PondsProductionCycle_Ponds" FromRole="PondsProductionCycle" ToRole="Pond" />
+    <NavigationProperty Name="Tasks" Relationship="CPLModel.FK_Tasks_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="ProductPurchaseLog">
+    <Key>
+      <PropertyRef Name="PurchaseLogID" />
+    </Key>
+    <Property Type="Int32" Name="PurchaseLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="batchID" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Currency" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="PurchasePrice" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="Decimal" Name="Total" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Shipping" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="tax" Precision="19" Scale="4" />
+    <Property Type="String" Name="Requester" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="userID" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" Precision="3" />
+    <Property Type="Boolean" Name="isDelivered" />
+    <Property Type="String" Name="location" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ExpireDate" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="CPLModel.FK_ProductPurchaseLog_Products" FromRole="ProductPurchaseLog" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ResultNote">
+    <Key>
+      <PropertyRef Name="resultID" />
+    </Key>
+    <Property Type="Int32" Name="resultID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ResultNote1" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="taskID" />
+    <Property Type="DateTime" Name="entryDate" Precision="3" />
+    <Property Type="String" Name="UserId" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Task" Relationship="CPLModel.FK_ResultNote_ResultNote" FromRole="ResultNote" ToRole="Task" />
+  </EntityType>
+  <Association Name="FK_PondConsumptionsLog_Ponds">
+    <End Type="CPLModel.Pond" Role="Pond" Multiplicity="0..1" />
+    <End Type="CPLModel.PondConsumptionsLog" Role="PondConsumptionsLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pond">
+        <PropertyRef Name="PondID" />
+      </Principal>
+      <Dependent Role="PondConsumptionsLog">
+        <PropertyRef Name="PondID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondConsumptionsLog_PondsProductionCycle">
+    <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="0..1" />
+    <End Type="CPLModel.PondConsumptionsLog" Role="PondConsumptionsLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycle">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="PondConsumptionsLog">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondConsumptionsLog_Products">
+    <End Type="CPLModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CPLModel.PondConsumptionsLog" Role="PondConsumptionsLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PondConsumptionsLog">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondsProductionCycle_Ponds">
+    <End Type="CPLModel.Pond" Role="Pond" Multiplicity="1" />
+    <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pond">
+        <PropertyRef Name="PondID" />
+      </Principal>
+      <Dependent Role="PondsProductionCycle">
+        <PropertyRef Name="PondID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_PondsProductionCycle">
+    <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="0..1" />
+    <End Type="CPLModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycle">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPurchaseLog_Products">
+    <End Type="CPLModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CPLModel.ProductPurchaseLog" Role="ProductPurchaseLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductPurchaseLog">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultNote_ResultNote">
+    <End Type="CPLModel.Task" Role="Task" Multiplicity="0..1" />
+    <End Type="CPLModel.ResultNote" Role="ResultNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="ResultNote">
+        <PropertyRef Name="taskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

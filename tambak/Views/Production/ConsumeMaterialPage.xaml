@@ -1,0 +1,96 @@
+﻿<sdk:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" x:Class="tambak.Views.Production.ConsumeMaterialPage"
+           mc:Ignorable="d"
+           d:DesignWidth="1366" d:DesignHeight="599"
+           Title="Consume Materials">
+    <Grid x:Name="LayoutRoot">
+
+        <sdk:TabControl HorizontalAlignment="Left" Height="599" VerticalAlignment="Top" Width="1366">
+            <sdk:TabItem Header="Consume Material">
+                <Grid>
+                    <Button x:Name="SelectProductButton" Content="Select Products" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="126" Click="SelectProductButton_Click"/>
+                    <sdk:DataGrid x:Name="SelectedProductDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="312" Margin="16,63,0,0" VerticalAlignment="Top" Width="360" SelectionChanged="SelectedProductDataGrid_SelectionChanged">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="productIDColumn1" Binding="{Binding ProductID, Mode=OneWay}" Header="Product ID" IsReadOnly="True" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="productNameColumn1" Binding="{Binding ProductName}" Header="Product Name" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="sKUColumn1" Binding="{Binding SKU}" Header="SKU" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="uomColumn1" Binding="{Binding Uom}" Header="Uom" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="product_DescriptionColumn1" Binding="{Binding Product_Description}" Header="Product Description" Width="SizeToHeader"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <riaControls:DomainDataSource x:Name="pondConsumptionsLogDomainDataSource" AutoLoad="False" Height="0" LoadedData="pondConsumptionsLogDomainDataSource_LoadedData" QueryName="GetPondConsumptionsLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:PondConsumptionsLog, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PondConsumptionLogDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=pondConsumptionsLogDomainDataSource}" HorizontalAlignment="Left" Margin="404,92,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Pond Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="pondDescriptionComboBox" Grid.Column="1" DisplayMemberPath="PondDescription" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Data, ElementName=pondDomainDataSource}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="pondDescriptionComboBox_SelectionChanged">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <sdk:DatePicker x:Name="logDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" SelectedDate="{Binding LogDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
+                        <sdk:Label Content="Note:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                        <TextBox x:Name="noteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="68" Margin="3,3,0,-42" Grid.Row="12" Text="{Binding Note, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+                        <!--<TextBox x:Name="pondIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding PondID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+                        <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                        <!--<TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+                        <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Qty:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                        <TextBox x:Name="qtyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Qty, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="UOM:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                        <TextBox x:Name="uOMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding UOM, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="pondDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondDomainDataSource_LoadedData" QueryName="GetPondsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Pond, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PondsDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <!--<Grid x:Name="grid2" DataContext="{Binding Data, ElementName=pondDomainDataSource}" HorizontalAlignment="Left" Margin="419,66,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                       
+                       
+                    </Grid>-->
+                    <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="575,317,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" IsEnabled="False"/>
+                    <Button x:Name="newBatchButton" Content="New Batch" HorizontalAlignment="Left" Margin="451,317,0,0" VerticalAlignment="Top" Width="75" Click="newBatchButton_Click"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="16,42,0,0" TextWrapping="Wrap" Text="Select Product:" VerticalAlignment="Top" Width="360"/>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+
+    </Grid>
+</sdk:Page>

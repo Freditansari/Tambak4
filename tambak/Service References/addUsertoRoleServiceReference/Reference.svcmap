@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fcf69319-1fe1-45ed-bf4e-89ff6a83eec5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/addUsertoRoleSVC.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="addUsertoRoleSVC.wsdl" MetadataType="Wsdl" ID="1333c8c0-ee1e-4ed4-9d14-ebd58f52046f" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addUsertoRoleSVC.svc?wsdl" />
+    <MetadataFile FileName="addUsertoRoleSVC1.wsdl" MetadataType="Wsdl" ID="ff1fbcde-b916-489b-b8d2-3aa5c578d5fd" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addUsertoRoleSVC.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="addUsertoRoleSVC.xsd" MetadataType="Schema" ID="23091371-0d0f-4885-8ce0-e11892cb1704" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addUsertoRoleSVC.svc?xsd=xsd1" />
+    <MetadataFile FileName="addUsertoRoleSVC1.xsd" MetadataType="Schema" ID="b06626c1-af8f-4ab2-9388-c60c21ab4dcb" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addUsertoRoleSVC.svc?xsd=xsd0" />
+    <MetadataFile FileName="addUsertoRoleSVC.disco" MetadataType="Disco" ID="d50e5f10-784c-4b0f-a06d-b0261fa79fe5" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addUsertoRoleSVC.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

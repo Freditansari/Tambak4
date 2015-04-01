@@ -1,0 +1,130 @@
+﻿<navigation:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="tambak.Views.Inventory.POControl"
+           mc:Ignorable="d"
+           d:DesignWidth="1360" d:DesignHeight="580"
+           Title="POControl Page">
+    <Grid x:Name="LayoutRoot">
+
+        <riaControls:DomainDataSource x:Name="pDOControlDomainDataSource" AutoLoad="True" Height="0" LoadedData="pDOControlDomainDataSource_LoadedData_1" QueryName="GetPDOControlsQuery" Width="0" d:DesignData="{d:DesignInstance Web:PDOControl, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PDOControlDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+    
+        <Button x:Name="NewPOButton" Content="New PO" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="68" Height="59" Click="NewPOButton_Click"/>
+        <Button x:Name="UpdatePoButton" Content="Update" HorizontalAlignment="Left" Margin="107,10,0,0" VerticalAlignment="Top" Width="68" Height="59" Click="UpdatePoButton_Click"/>
+
+        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=pDOControlDomainDataSource}" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Accounting Notes:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+            <TextBox x:Name="accountingNotesTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding AccountingNotes, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Buy Price:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+            <TextBox x:Name="buyPriceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding BuyPrice, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <sdk:DatePicker x:Name="dateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" SelectedDate="{Binding Date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="Inventory ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="inventoryIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding InventoryID, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Inventory Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="inventoryNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding InventoryName, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="No PDO:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="noPDOTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding NoPDO, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Ordered Quantity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="orderedQuantityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding OrderedQuantity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Received Notes:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+            <TextBox x:Name="receivedNotesTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding ReceivedNotes, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Received Quantity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+            <TextBox x:Name="receivedQuantityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding ReceivedQuantity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="UOM:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="uOMTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding UOM, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="is Closed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+            <CheckBox x:Name="isClosedCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isClosed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+            <sdk:Label Content="is Ordered:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+            <CheckBox x:Name="isOrderedCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isOrdered, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+            <sdk:Label Content="is Paid:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+            <CheckBox x:Name="isPaidCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isPaid, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="506" Margin="282,74,0,0" VerticalAlignment="Top" Width="1078">
+            <telerik:RadGridView x:Name="pDOControlRadGridView" ColumnWidth="*" Margin="0,0,10,10" SelectionChanged="pDOControlRadGridView_SelectionChanged" ItemsSource="{Binding Data, ElementName=pDOControlDomainDataSource}" AutoGenerateColumns="False">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn UniqueName="iDColumn" DataMemberBinding="{Binding ID, Mode=OneWay}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="noPDOColumn" DataMemberBinding="{Binding NoPDO}" Header="No PDO" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="Date" DataMemberBinding="{Binding Date}" Header="Date" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="inventoryIDColumn" DataMemberBinding="{Binding InventoryID}" Header="Inventory ID" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="inventoryNameColumn" DataMemberBinding="{Binding InventoryName}" Header="Inventory Name" Width="SizeToHeader"/>
+                    
+                    <telerik:GridViewDataColumn UniqueName="orderedQuantityColumn" DataMemberBinding="{Binding OrderedQuantity}" Header="Ordered Quantity" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="uOMColumn" DataMemberBinding="{Binding UOM}" Header="UOM" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="buyPriceColumn" DataMemberBinding="{Binding BuyPrice}" Header="Buy Price" Width="SizeToHeader"/>
+                    
+                    <telerik:GridViewDataColumn UniqueName="receivedQuantityColumn" DataMemberBinding="{Binding ReceivedQuantity}" Header="Received Quantity" Width="SizeToHeader"/>
+                    
+                    
+                    <telerik:GridViewCheckBoxColumn UniqueName="isOrderedColumn" DataMemberBinding="{Binding isOrdered}" Header="is Ordered" Width="SizeToHeader"/>
+                    <telerik:GridViewCheckBoxColumn UniqueName="isPaidColumn" DataMemberBinding="{Binding isPaid}" Header="is Paid" Width="SizeToHeader"/>
+                    <telerik:GridViewCheckBoxColumn UniqueName="isClosedColumn" DataMemberBinding="{Binding isClosed}" Header="is Closed" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="receivedNotesColumn" DataMemberBinding="{Binding ReceivedNotes}" Header="Received Notes" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="accountingNotesColumn" DataMemberBinding="{Binding AccountingNotes}" Header="Accounting Notes" Width="SizeToHeader"/>
+
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding Id}" Header="Id" UniqueName="FirstName" />-->
+                    <!--<telerik:GridViewDataColumn UniqueName="accountingNotesColumn" DataMemberBinding="{Binding AccountingNotes}" Header="Accounting Notes" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="buyPriceColumn" DataMemberBinding="{Binding BuyPrice}" Header="Buy Price" Width="SizeToHeader"/>
+                    <telerik:GridViewCheckBoxColumn UniqueName="isClosedColumn" DataMemberBinding="{Binding isClosed}" Header="is Closed" Width="SizeToHeader"/>-->
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <telerik:RadGridView x:Name="pDOControlRadGridView2" ColumnWidth="*" Margin="0,0,10,10" SelectionChanged="pDOControlRadGridView_SelectionChanged" ItemsSource="{Binding Data, ElementName=pDOControlDomainDataSource}" AutoGenerateColumns="False">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn UniqueName="iDColumn" DataMemberBinding="{Binding ID, Mode=OneWay}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="noPDOColumn" DataMemberBinding="{Binding NoPDO}" Header="No PDO" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="Date" DataMemberBinding="{Binding Date}" Header="Date" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="inventoryIDColumn" DataMemberBinding="{Binding InventoryID}" Header="Inventory ID" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="inventoryNameColumn" DataMemberBinding="{Binding InventoryName}" Header="Inventory Name" Width="SizeToHeader"/>
+
+                    <telerik:GridViewDataColumn UniqueName="orderedQuantityColumn" DataMemberBinding="{Binding OrderedQuantity}" Header="Ordered Quantity" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="uOMColumn" DataMemberBinding="{Binding UOM}" Header="UOM" Width="SizeToHeader"/>
+                    <!--<telerik:GridViewDataColumn UniqueName="buyPriceColumn" DataMemberBinding="{Binding BuyPrice}" Header="Buy Price" Width="SizeToHeader"/>-->
+
+                    <telerik:GridViewDataColumn UniqueName="receivedQuantityColumn" DataMemberBinding="{Binding ReceivedQuantity}" Header="Received Quantity" Width="SizeToHeader"/>
+
+
+                    <telerik:GridViewCheckBoxColumn UniqueName="isOrderedColumn" DataMemberBinding="{Binding isOrdered}" Header="is Ordered" Width="SizeToHeader"/>
+                    <telerik:GridViewCheckBoxColumn UniqueName="isPaidColumn" DataMemberBinding="{Binding isPaid}" Header="is Paid" Width="SizeToHeader"/>
+                    <telerik:GridViewCheckBoxColumn UniqueName="isClosedColumn" DataMemberBinding="{Binding isClosed}" Header="is Closed" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="receivedNotesColumn" DataMemberBinding="{Binding ReceivedNotes}" Header="Received Notes" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="accountingNotesColumn" DataMemberBinding="{Binding AccountingNotes}" Header="Accounting Notes" Width="SizeToHeader"/>
+
+                    <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding Id}" Header="Id" UniqueName="FirstName" />-->
+                    <!--<telerik:GridViewDataColumn UniqueName="accountingNotesColumn" DataMemberBinding="{Binding AccountingNotes}" Header="Accounting Notes" Width="SizeToHeader"/>
+                    <telerik:GridViewDataColumn UniqueName="buyPriceColumn" DataMemberBinding="{Binding BuyPrice}" Header="Buy Price" Width="SizeToHeader"/>
+                    <telerik:GridViewCheckBoxColumn UniqueName="isClosedColumn" DataMemberBinding="{Binding isClosed}" Header="is Closed" Width="SizeToHeader"/>-->
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+
+    </Grid>
+</navigation:Page>

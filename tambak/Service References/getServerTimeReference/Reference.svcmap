@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="86359f3c-ed40-416e-abc2-4fa64d225caa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/GetServerTime.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GetServerTime.xsd" MetadataType="Schema" ID="d38e759f-532c-44e0-808d-ec166e196594" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/GetServerTime.svc?xsd=xsd1" />
+    <MetadataFile FileName="GetServerTime.wsdl" MetadataType="Wsdl" ID="cbc724f0-c3db-4169-a053-be1a6f2cb95c" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/GetServerTime.svc?wsdl" />
+    <MetadataFile FileName="GetServerTime.disco" MetadataType="Disco" ID="95123788-a232-4383-8947-6750b135c0d8" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/GetServerTime.svc?disco" />
+    <MetadataFile FileName="GetServerTime1.xsd" MetadataType="Schema" ID="bb53c793-6633-407b-9fb3-399d5ca6e1b3" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/GetServerTime.svc?xsd=xsd0" />
+    <MetadataFile FileName="GetServerTime1.wsdl" MetadataType="Wsdl" ID="16a4d789-a7e9-408e-a3c7-2392052c9d6b" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/GetServerTime.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

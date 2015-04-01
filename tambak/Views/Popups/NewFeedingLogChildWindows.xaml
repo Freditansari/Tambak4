@@ -1,0 +1,159 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" mc:Ignorable="d" x:Class="tambak.Views.Popups.NewFeedingLogChildWindows"
+           Width="1194.642" Height="554.388" 
+           Title="Feeding Logs">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" VerticalAlignment="Top" />
+        <riaControls:DomainDataSource x:Name="feedingLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="feedingLogDomainDataSource_LoadedData_1" QueryName="GetFeedingLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:FeedingLog, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:FeedingLogsDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <riaControls:DomainDataSource x:Name="pondDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondDomainDataSource_LoadedData_1" QueryName="GetPondsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Pond, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PondsDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <sdk:DataGrid x:Name="pondDataGrid" AutoGenerateColumns="False" ColumnWidth="*" ItemsSource="{Binding Data, ElementName=pondDomainDataSource}" Margin="282,0,466,342" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="pondDataGrid_SelectionChanged">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn x:Name="pondIDColumn" Binding="{Binding PondID, Mode=OneWay}" Header="Pond ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn x:Name="pondDescriptionColumn" Binding="{Binding PondDescription}" Header="Pond Description" Width="SizeToHeader"/>
+                
+                <!--<sdk:DataGridTextColumn x:Name="pondLocationColumn" Binding="{Binding PondLocation}" Header="Pond Location" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="pondSizeColumn" Binding="{Binding pondSize}" Header="pond Size" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="pondUOMColumn" Binding="{Binding pondUOM}" Header="pond UOM" Width="SizeToHeader"/>-->
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <riaControls:DomainDataSource x:Name="pondsProductionCycleDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondsProductionCycleDomainDataSource_LoadedData_1" QueryName="GetPondsProductionCyclesQuery" Width="0" d:DesignData="{d:DesignInstance Web:PondsProductionCycle, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PondsProductionCycleDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <sdk:DataGrid x:Name="pondsProductionCycleDataGrid" AutoGenerateColumns="False" ColumnWidth="*" ItemsSource="{Binding Data, ElementName=pondsProductionCycleDomainDataSource}" Margin="283,155,465,200" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="pondsProductionCycleDataGrid_SelectionChanged" SelectedIndex="0">
+            <sdk:DataGrid.Columns>
+                <!--<sdk:DataGridTextColumn x:Name="densityColumn" Binding="{Binding Density}" Header="Density" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTemplateColumn x:Name="endDateColumn" Header="End Date" Width="SizeToHeader">-->
+                    <!--<sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+                <!--<sdk:DataGridTextColumn x:Name="fryOriginColumn" Binding="{Binding FryOrigin}" Header="Fry Origin" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn x:Name="noteColumn" Binding="{Binding Note}" Header="Note" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn x:Name="numberOfFryColumn" Binding="{Binding NumberOfFry}" Header="Number Of Fry" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn x:Name="pondIDColumn1" Binding="{Binding PondID}" Header="Pond ID" Width="SizeToHeader"/>-->
+                <sdk:DataGridTextColumn x:Name="productionCycleIDColumn" Binding="{Binding ProductionCycleID, Mode=OneWay}" Header="Production Cycle ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <!--<sdk:DataGridTemplateColumn x:Name="startDateColumn" Header="Start Date" Width="SizeToHeader">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+                <sdk:DataGridTextColumn x:Name="technicianColumn" Binding="{Binding Technician}" Header="Technician" Width="SizeToHeader"/>
+                <sdk:DataGridCheckBoxColumn x:Name="isInProductionColumn" Binding="{Binding isInProduction}" Header="is In Production" Width="SizeToHeader"/>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <sdk:DataGrid x:Name="feedingLogDataGrid" AutoGenerateColumns="False" Margin="4,293,26,3" RowDetailsVisibilityMode="VisibleWhenSelected" SelectedIndex="0">
+            <sdk:DataGrid.Columns>
+                <!--<sdk:DataGridTextColumn x:Name="cummulativeFeedColumn" Binding="{Binding CummulativeFeed}" Header="Cummulative Feed" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="feedLogIDColumn" Binding="{Binding FeedLogID, Mode=OneWay}" Header="Feed Log ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTemplateColumn x:Name="logDateColumn" Header="Log Date" Width="SizeToHeader">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker SelectedDate="{Binding LogDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+                <!--<sdk:DataGridTextColumn x:Name="productionCycleIDColumn1" Binding="{Binding ProductionCycleID}" Header="Production Cycle ID" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="userIDColumn" Binding="{Binding UserID}" Header="User ID" Width="SizeToHeader"/>-->
+                <sdk:DataGridTextColumn x:Name="feedGivenColumn" Binding="{Binding feedGiven}" Header="feed Given" Width="SizeToHeader"/>
+                <!--<sdk:DataGridTextColumn x:Name="feedPerDayColumn" Binding="{Binding feedPerDay}" Header="feed Per Day" Width="SizeToHeader"/>-->
+                <sdk:DataGridTextColumn x:Name="feedTypeColumn" Binding="{Binding feedType}" Header="feed Type" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn x:Name="waterLevelColumn" Binding="{Binding waterLevel}" Header="water Level" Width="SizeToHeader"/>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData_1" QueryName="GetProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:ProductDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <!--<sdk:DataGrid x:Name="productDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="727,40,10,207" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="productDataGrid_SelectionChanged" SelectedIndex="-1">-->
+        <sdk:DataGrid x:Name="productDataGrid" AutoGenerateColumns="False" Margin="727,40,10,207" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="productDataGrid_SelectionChanged" SelectedIndex="-1">
+            <sdk:DataGrid.Columns>
+                <!--<sdk:DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID, Mode=OneWay}" Header="Product ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                <sdk:DataGridTextColumn x:Name="productNameColumn" Binding="{Binding ProductName}" Header="Product Name" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn x:Name="product_DescriptionColumn" Binding="{Binding Product_Description}" Header="Product Description" Width="SizeToHeader"/>
+                <!--<sdk:DataGridTextColumn x:Name="purchasePriceColumn" Binding="{Binding PurchasePrice}" Header="Purchase Price" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="reorderLevelColumn" Binding="{Binding ReorderLevel}" Header="Reorder Level" Width="SizeToHeader"/>-->
+                <sdk:DataGridTextColumn x:Name="sKUColumn" Binding="{Binding SKU}" Header="SKU" Width="SizeToHeader"/>
+                <!--<sdk:DataGridTextColumn x:Name="salePriceColumn" Binding="{Binding SalePrice}" Header="Sale Price" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="unitInOrderColumn" Binding="{Binding UnitInOrder}" Header="Unit In Order" Width="SizeToHeader"/>-->
+                <!--<sdk:DataGridTextColumn x:Name="unitInStockColumn" Binding="{Binding UnitInStock}" Header="Unit In Stock" Width="SizeToHeader"/>-->
+                <sdk:DataGridTextColumn x:Name="uomColumn" Binding="{Binding Uom}" Header="Uom" Width="SizeToHeader"/>
+                <!--<sdk:DataGridTextColumn x:Name="qtyperunitColumn" Binding="{Binding qtyperunit}" Header="qtyperunit" Width="SizeToHeader"/>-->
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <TextBlock HorizontalAlignment="Left" Margin="727,10,0,0" TextWrapping="Wrap" Text="SKU: " VerticalAlignment="Top"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="23" Margin="760,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" TextChanged="TextBox_TextChanged_1"/>
+        <Button x:Name="removeButton" Content="Remove" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="removeButton_Click" IsEnabled="False"/>
+        <Button x:Name="addButton" Content="Add Record" HorizontalAlignment="Left" Margin="939,13,0,0" Grid.Row="1" Width="75" Click="addButton_Click_1"/>
+        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=feedingLogDomainDataSource}" HorizontalAlignment="Left" Margin="2,1,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Cummulative Feed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="cummulativeFeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CummulativeFeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="Feed Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="feedLogIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding FeedLogID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="Product ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="productIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding ProductID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="User ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="userIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding UserID, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="feed Given:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="feedGivenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding feedGiven, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="feed Per Day:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+            <TextBox x:Name="feedPerDayTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding feedPerDay, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="feed Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+            <TextBox x:Name="feedTypeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding feedType, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="water Level:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+            <TextBox x:Name="waterLevelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding waterLevel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=feedingLogDomainDataSource}" HorizontalAlignment="Left" Margin="4,258,0,0" VerticalAlignment="Top" Width="244">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <sdk:DatePicker x:Name="logDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="60,3,-56,3" Grid.Row="0" SelectedDate="{Binding LogDate, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D839CDEE-F9CF-4F16-89D5-B426BF1AD473}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tambak</RootNamespace>
+    <AssemblyName>tambak</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>tambak.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>tambak.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>..\tambak.Web\tambak.Web.csproj</LinkedServerProject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input" />
+    <Reference Include="System.ServiceModel.DomainServices.Client" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web" />
+    <Reference Include="System.ServiceModel.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.DomainServices, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.ReportViewer.Silverlight, Version=9.0.15.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Telerik\Reporting Q1 2015\Bin\Telerik.ReportViewer.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="telerik.windows.controls.data, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCSL\2014.3.1202.1050\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCSL\2014.3.1202.1050\Telerik.Windows.Controls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.ScheduleView, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCSL\2014.3.1202.1050\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCSL\2014.3.1202.1050\Telerik.Windows.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Scheduling.Core, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCSL\2014.3.1202.1050\Telerik.Windows.Scheduling.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Windows7, Version=2014.3.1202.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\tambak.Web\Resources\RegistrationDataResources.Designer.cs">
+      <Link>Web\Resources\RegistrationDataResources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrationDataResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="..\tambak.Web\Resources\ValidationErrorResources.Designer.cs">
+      <Link>Web\Resources\ValidationErrorResources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationErrorResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\ApplicationStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\ErrorResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Models\LoginInfo.cs" />
+    <Compile Include="Models\User.partial.cs" />
+    <Compile Include="Models\RegistrationData.partial.cs" />
+    <Compile Include="Controls\BusyIndicator.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Helpers\DataFieldExtensions.cs" />
+    <Compile Include="Helpers\NotOperatorValueConverter.cs" />
+    <Compile Include="Helpers\TargetNullValueConverter.cs" />
+    <Compile Include="Assets\Resources\ApplicationResources.cs" />
+    <Compile Include="Assets\Resources\SecurityQuestions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SecurityQuestions.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\addRoleServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\addUsertoRoleServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ChangePasswordServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\getAllRolesServiceReferrence\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GetAllUserServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\getServerTimeReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\runCmdShellServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactForm.xaml.cs">
+      <DependentUpon>ContactForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Inventory\DeliveryLogPage.xaml.cs">
+      <DependentUpon>DeliveryLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\feedEstimation.xaml.cs">
+      <DependentUpon>feedEstimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\NewCategoryChildWindow.xaml.cs">
+      <DependentUpon>NewCategoryChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\NewPOCOntrolChildWindow.xaml.cs">
+      <DependentUpon>NewPOCOntrolChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\NewPurchaseOrder.xaml.cs">
+      <DependentUpon>NewPurchaseOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\NewSupplierChildWindows.xaml.cs">
+      <DependentUpon>NewSupplierChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\NewUOMChildWindow.xaml.cs">
+      <DependentUpon>NewUOMChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\POControl.xaml.cs">
+      <DependentUpon>POControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\ProductManagement.xaml.cs">
+      <DependentUpon>ProductManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\ProductRegistration.xaml.cs">
+      <DependentUpon>ProductRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\ProductRegistrationChildWindow.xaml.cs">
+      <DependentUpon>ProductRegistrationChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\SelectProductChildWindow.xaml.cs">
+      <DependentUpon>SelectProductChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\SelectVendorChildWindow.xaml.cs">
+      <DependentUpon>SelectVendorChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginStatus.xaml.cs">
+      <DependentUpon>LoginStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginForm.xaml.cs">
+      <DependentUpon>LoginForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginRegistrationWindow.xaml.cs">
+      <DependentUpon>LoginRegistrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\RegistrationForm.xaml.cs">
+      <DependentUpon>RegistrationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Masters\FacilitiesPage.xaml.cs">
+      <DependentUpon>FacilitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Masters\ManageCompanyPage.xaml.cs">
+      <DependentUpon>ManageCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Masters\NewCompanyChildWindows.xaml.cs">
+      <DependentUpon>NewCompanyChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Masters\NewFacilitiesChildWindow.xaml.cs">
+      <DependentUpon>NewFacilitiesChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Masters\NewTaxChildWindows.xaml.cs">
+      <DependentUpon>NewTaxChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Masters\TaxPage.xaml.cs">
+      <DependentUpon>TaxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewPondForm.xaml.cs">
+      <DependentUpon>NewPondForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PondStatus.xaml.cs">
+      <DependentUpon>PondStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PondsView.xaml.cs">
+      <DependentUpon>PondsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PondsProductionCycleView.xaml.cs">
+      <DependentUpon>PondsProductionCycleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PondLogs.xaml.cs">
+      <DependentUpon>PondLogs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\NewFeedingLogChildWindows.xaml.cs">
+      <DependentUpon>NewFeedingLogChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\NewSamplingLogWindow.xaml.cs">
+      <DependentUpon>NewSamplingLogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\SelectFacilityChildWindow.xaml.cs">
+      <DependentUpon>SelectFacilityChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\SelectProducts.xaml.cs">
+      <DependentUpon>SelectProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\SelectTaxChildWindow.xaml.cs">
+      <DependentUpon>SelectTaxChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Production\ConsumeMaterialPage.xaml.cs">
+      <DependentUpon>ConsumeMaterialPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Production\HarvestPage.xaml.cs">
+      <DependentUpon>HarvestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TasksView.xaml.cs">
+      <DependentUpon>TasksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnauthorizedAccess.xaml.cs">
+      <DependentUpon>UnauthorizedAccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserAdministration\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserAdministration\LinkContactToUser.xaml.cs">
+      <DependentUpon>LinkContactToUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserAdministration\UserAdministration.xaml.cs">
+      <DependentUpon>UserAdministration.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Controls\BusyIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Telerik.ReportViewer.Silverlight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContactForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="Views\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Inventory\DeliveryLogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\feedEstimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\NewCategoryChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\NewPOCOntrolChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\NewPurchaseOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\NewSupplierChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\NewUOMChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\POControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\ProductManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\ProductRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\ProductRegistrationChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\SelectProductChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\SelectVendorChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\LoginStatus.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\LoginForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="Views\Login\LoginRegistrationWindow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\RegistrationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="Views\Masters\FacilitiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Masters\ManageCompanyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Masters\NewCompanyChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Masters\NewFacilitiesChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Masters\NewTaxChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Masters\TaxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewPondForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PondStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PondsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PondsProductionCycleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PondLogs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\NewFeedingLogChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\NewSamplingLogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\SelectFacilityChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\SelectProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\SelectTaxChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Production\ConsumeMaterialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Production\HarvestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TasksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UnauthorizedAccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserAdministration\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserAdministration\LinkContactToUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserAdministration\UserAdministration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.AverageDailyFeedSummaryDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchConsumptionJoinDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchDetailDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchHeaderDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchQuantityViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CategoryDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CompanyDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ContactToUserLinkDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CummulativeFeedViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CurrencyRateDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.DailyFeedSummaryViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.DeliveryLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.FacilityDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingRateGuideDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.FourteenDaysFeedEstimateDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.HarvestDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.MasterCurrencyDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.MasterTaxDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PDOControlDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PODeliveredQuantityDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PODetailsViewsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PondConsumptionLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductInfoViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PurchaseOrderDetailsDS1.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PurchaseOrderHeaderDS1.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PurchaseTaxTransactionsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.RequiredFeedNextThreeDaysDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.SalesOrderDetailsViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.SevenDaysFoodEstimateDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.SummaryFeedPerDayViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.SuppliersDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.tenDaysFeedEstimate.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.UnitofMeasurementDS.datasource" />
+    <None Include="Service References\addRoleServiceReference\addRoleService.disco" />
+    <None Include="Service References\addRoleServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\addRoleServiceReference\configuration.svcinfo" />
+    <None Include="Service References\addRoleServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\addUsertoRoleServiceReference\addUsertoRoleSVC.wsdl" />
+    <None Include="Service References\addUsertoRoleServiceReference\addUsertoRoleSVC.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\addUsertoRoleServiceReference\addUsertoRoleSVC1.wsdl" />
+    <None Include="Service References\addUsertoRoleServiceReference\addUsertoRoleSVC1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChangePasswordServiceReference\ChangePasswordService.wsdl" />
+    <None Include="Service References\ChangePasswordServiceReference\ChangePasswordService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChangePasswordServiceReference\ChangePasswordService1.wsdl" />
+    <None Include="Service References\ChangePasswordServiceReference\ChangePasswordService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getAllRolesServiceReferrence\getAllRoles.disco" />
+    <None Include="Service References\getAllRolesServiceReferrence\configuration91.svcinfo" />
+    <None Include="Service References\getAllRolesServiceReferrence\configuration.svcinfo" />
+    <None Include="Service References\getAllRolesServiceReferrence\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GetAllUserServiceReference\getAllUsersService.disco" />
+    <None Include="Service References\GetAllUserServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\GetAllUserServiceReference\configuration.svcinfo" />
+    <None Include="Service References\GetAllUserServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\addUsertoRoleServiceReference\addUsertoRoleSVC.disco" />
+    <None Include="Service References\addUsertoRoleServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\addUsertoRoleServiceReference\configuration.svcinfo" />
+    <None Include="Service References\addUsertoRoleServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ChangePasswordServiceReference\ChangePasswordService.disco" />
+    <None Include="Service References\ChangePasswordServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ChangePasswordServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ChangePasswordServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\getServerTimeReference\GetServerTime.disco" />
+    <None Include="Service References\getServerTimeReference\configuration91.svcinfo" />
+    <None Include="Service References\getServerTimeReference\configuration.svcinfo" />
+    <None Include="Service References\getServerTimeReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\runCmdShellServiceReference\RunCmdShell.disco" />
+    <None Include="Service References\runCmdShellServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\runCmdShellServiceReference\configuration.svcinfo" />
+    <None Include="Service References\runCmdShellServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Assets\Icons\home168.png" />
+    <Resource Include="Assets\Icons\magnifier13.png" />
+    <Resource Include="Assets\Icons\marketing8.png" />
+    <Resource Include="Assets\Icons\settings48.png" />
+    <Resource Include="Assets\Icons\telephone5.png" />
+    <Resource Include="Assets\Icons\three115.png" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\addRoleServiceReference\addRoleService.wsdl" />
+    <None Include="Service References\addRoleServiceReference\addRoleService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\addRoleServiceReference\addRoleService1.wsdl" />
+    <None Include="Service References\addRoleServiceReference\addRoleService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getAllRolesServiceReferrence\getAllRoles.wsdl" />
+    <None Include="Service References\getAllRolesServiceReferrence\getAllRoles.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getAllRolesServiceReferrence\getAllRoles1.wsdl" />
+    <None Include="Service References\getAllRolesServiceReferrence\getAllRoles1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getAllRolesServiceReferrence\getAllRoles2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GetAllUserServiceReference\getAllUsersService.wsdl" />
+    <None Include="Service References\GetAllUserServiceReference\getAllUsersService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GetAllUserServiceReference\getAllUsersService1.wsdl" />
+    <None Include="Service References\GetAllUserServiceReference\getAllUsersService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GetAllUserServiceReference\getAllUsersService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getServerTimeReference\GetServerTime.wsdl" />
+    <None Include="Service References\getServerTimeReference\GetServerTime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getServerTimeReference\GetServerTime1.wsdl" />
+    <None Include="Service References\getServerTimeReference\GetServerTime1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\runCmdShellServiceReference\RunCmdShell.wsdl" />
+    <None Include="Service References\runCmdShellServiceReference\RunCmdShell.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\runCmdShellServiceReference\RunCmdShell1.wsdl" />
+    <None Include="Service References\runCmdShellServiceReference\RunCmdShell1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\tambak.Web\Resources\RegistrationDataResources.resx">
+      <Link>Web\Resources\RegistrationDataResources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegistrationDataResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\tambak.Web\Resources\ValidationErrorResources.resx">
+      <Link>Web\Resources\ValidationErrorResources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>tambak</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\ErrorResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>tambak</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\SecurityQuestions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SecurityQuestions.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>tambak</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ContactDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingLogsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PondConsumptionLogsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PondConsumptionsLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PondsConsumptionsLogsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PondsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.PondsProductionCycleDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductDetailsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductPurchaseLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductQuantityDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductRequiredDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductRequiredViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductSalesOrdersDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ProductsDetailsDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ResultNoteDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.SamplingLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.TaskDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.TasksDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.WaterParameterLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.ProductRequiredViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.SumProductRequiredDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.SumProductRequiredViewDS.datasource" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventory\Todo Files.txt" />
+    <Content Include="Views\TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\addRoleServiceReference\" />
+    <WCFMetadataStorage Include="Service References\addUsertoRoleServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ChangePasswordServiceReference\" />
+    <WCFMetadataStorage Include="Service References\getAllRolesServiceReferrence\" />
+    <WCFMetadataStorage Include="Service References\GetAllUserServiceReference\" />
+    <WCFMetadataStorage Include="Service References\getServerTimeReference\" />
+    <WCFMetadataStorage Include="Service References\runCmdShellServiceReference\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

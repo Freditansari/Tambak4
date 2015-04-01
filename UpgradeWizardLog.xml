@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak\tambak.csproj" />
+  <event action="Analyze" type="Success" name="ApplicationStrings.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak\Assets\Resources\ApplicationStrings.resx" />
+  <event action="Analyze" type="Success" name="ErrorResources.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak\Assets\Resources\ErrorResources.resx" />
+  <event action="Analyze" type="Success" name="SecurityQuestions.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak\Assets\Resources\SecurityQuestions.resx" />
+  <event action="Analyze" type="Success" name="RegistrationDataResources.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Resources\RegistrationDataResources.resx" />
+  <event action="Analyze" type="Success" name="ValidationErrorResources.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Resources\ValidationErrorResources.resx" />
+  <event action="Analyze" type="Success" name="tambak" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak\tambak.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\tambak.Web.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\packages.config" />
+  <event action="Analyze" type="Success" name="RegistrationDataResources.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Resources\RegistrationDataResources.resx" />
+  <event action="Analyze" type="Success" name="ValidationErrorResources.resx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Resources\ValidationErrorResources.resx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\tambakTestPage.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\tambakTestPage.aspx" />
+  <event action="Analyze" type="Success" name="tambakTestPage.aspx" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\tambakTestPage.aspx" />
+  <event action="Analyze" type="Success" name="Service Host Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\addRoleService.svc" />
+  <event action="Analyze" type="Success" name="addRoleService.svc" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\addRoleService.svc" />
+  <event action="Analyze" type="Success" name="Service Host Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\addUsertoRoleSVC.svc" />
+  <event action="Analyze" type="Success" name="addUsertoRoleSVC.svc" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\addUsertoRoleSVC.svc" />
+  <event action="Analyze" type="Success" name="Service Host Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\ChangePasswordService.svc" />
+  <event action="Analyze" type="Success" name="ChangePasswordService.svc" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\ChangePasswordService.svc" />
+  <event action="Analyze" type="Success" name="Service Host Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\getAllRoles.svc" />
+  <event action="Analyze" type="Success" name="getAllRoles.svc" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\getAllRoles.svc" />
+  <event action="Analyze" type="Success" name="Service Host Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\getAllUsersService.svc" />
+  <event action="Analyze" type="Success" name="getAllUsersService.svc" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\getAllUsersService.svc" />
+  <event action="Analyze" type="Success" name="Service Host Directives" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\GetServerTime.svc" />
+  <event action="Analyze" type="Success" name="GetServerTime.svc" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\WCFServices\GetServerTime.svc" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Web.Debug.config" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Web.Release.config" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\Web.Release.config" />
+  <event action="Analyze" type="Success" name="tambak.Web" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\tambak.Web.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\TambakReports.csproj" />
+  <event action="Analyze" type="Success" name="TambakReports" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\TambakReports.csproj" />
+  <event action="Analyze" type="Success" name="tambak" path="C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.sln" />
+</log>

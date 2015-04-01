@@ -1,0 +1,30 @@
+﻿<navigation:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="tambak.Views.UserAdministration.UserAdministration"
+           mc:Ignorable="d"
+           d:DesignWidth="1920" d:DesignHeight="1080"
+           Title="UserAdministration Page">
+    <Grid x:Name="LayoutRoot">
+        <Grid HorizontalAlignment="Left" Height="410" VerticalAlignment="Top" Width="484" Margin="10,9,0,0">
+            <telerik:RadGridView x:Name="UserRadGridView" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0" Height="286" Width="384" SelectionChanged="RadGridView_SelectionChanged_1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="15,12,0,0" TextWrapping="Wrap" Text="Users" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="355" Margin="578,22,0,0" VerticalAlignment="Top" Width="483">
+            <telerik:RadGridView x:Name="RolesRadGridView" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Height="283" Width="411" SelectionChanged="RolesRadGridView_SelectionChanged"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" Text="Roles" VerticalAlignment="Top"/>
+        </Grid>
+        <TextBox x:Name="RoleNameTextBox" HorizontalAlignment="Left" Height="23" Margin="578,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="578,403,0,0" TextWrapping="Wrap" Text="New Role" VerticalAlignment="Top"/>
+        <Button x:Name="addNewRoleButton" Content="Add New Role" HorizontalAlignment="Left" Margin="703,419,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_1"/>
+        <TextBox x:Name="selectedRolesTextbox" HorizontalAlignment="Left" Height="23" Margin="662,342,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="578,346,0,0" TextWrapping="Wrap" Text="Selected Role:" VerticalAlignment="Top"/>
+        <TextBox x:Name="SelectedUserTextBox" HorizontalAlignment="Left" Height="23" Margin="104,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,347,0,0" TextWrapping="Wrap" Text="Selected User:" VerticalAlignment="Top"/>
+        <Button x:Name="AssignRoleButton" Content="Assign Role" HorizontalAlignment="Left" Margin="796,343,0,0" VerticalAlignment="Top" Width="75" Click="AssignRoleButton_Click"/>
+
+    </Grid>
+</navigation:Page>

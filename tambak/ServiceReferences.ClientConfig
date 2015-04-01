@@ -1,0 +1,60 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_addRoleService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_getAllRoles">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_getAllUsersService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_addUsertoRoleSVC">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_ChangePasswordService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_GetServerTime">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_RunCmdShell">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="../WCFServices/addRoleService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_addRoleService" contract="addRoleServiceReference.addRoleService"
+                name="CustomBinding_addRoleService" />
+            <endpoint address="../WCFServices/getAllRoles.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_getAllRoles" contract="getAllRolesServiceReferrence.getAllRoles"
+                name="CustomBinding_getAllRoles" />
+            <endpoint address="../WCFServices/getAllUsersService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_getAllUsersService" contract="GetAllUserServiceReference.getAllUsersService"
+                name="CustomBinding_getAllUsersService" />
+            <endpoint address="../WCFServices/addUsertoRoleSVC.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_addUsertoRoleSVC" contract="addUsertoRoleServiceReference.addUsertoRoleSVC"
+                name="CustomBinding_addUsertoRoleSVC" />
+            <endpoint address="../WCFServices/ChangePasswordService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_ChangePasswordService"
+                contract="ChangePasswordServiceReference.ChangePasswordService"
+                name="CustomBinding_ChangePasswordService" />
+            <endpoint address="../WCFServices/GetServerTime.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_GetServerTime" contract="getServerTimeReference.GetServerTime"
+                name="CustomBinding_GetServerTime" />
+            <endpoint address="../WCFServices/RunCmdShell.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_RunCmdShell" contract="runCmdShellServiceReference.RunCmdShell"
+                name="CustomBinding_RunCmdShell" />
+        </client>
+    </system.serviceModel>
+</configuration>

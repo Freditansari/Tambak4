@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="tambak.Web.WCFServices.getAllRoles" CodeBehind="getAllRoles.svc.cs" %>

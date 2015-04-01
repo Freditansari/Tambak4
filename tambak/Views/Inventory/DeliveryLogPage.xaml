@@ -1,0 +1,196 @@
+﻿<sdk:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:Silverlight="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight" x:Class="tambak.Views.Inventory.DeliveryLogPage"
+           mc:Ignorable="d"
+           d:DesignWidth="1366" d:DesignHeight="599"
+           Title="DeliveryLogPage Page">
+    <Grid x:Name="LayoutRoot">
+
+        <sdk:TabControl HorizontalAlignment="Left" Height="599"  VerticalAlignment="Top" Width="1366">
+            <sdk:TabItem Header="Select Purchase Order">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="203*"/>
+                        <ColumnDefinition Width="1151*"/>
+                    </Grid.ColumnDefinitions>
+                    <riaControls:DomainDataSource x:Name="pODetailsViewDomainDataSource" AutoLoad="False" Height="0" LoadedData="pODetailsViewDomainDataSource_LoadedData_1" QueryName="GetPODetailsViewsQuery" Width="0" d:DesignData="{d:DesignInstance Web:PODetailsView, CreateList=true}" Grid.Column="1" Margin="474.045,281,677,281">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PODetailsViewsDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+
+                    <riaControls:DomainDataSource x:Name="purchaseOrderDomainDataSource" AutoLoad="False" Height="0" LoadedData="purchaseOrderDomainDataSource_LoadedData_1" QueryName="GetisNotCompletePurchaseOrdersQuery" Width="0" d:DesignData="{d:DesignInstance Web:PurchaseOrder, CreateList=true}" Grid.Column="1" Margin="474.045,281,677,281">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PurchaseOrderHeaderDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid x:Name="purchaseOrderDataGrid" ColumnWidth="*" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=purchaseOrderDomainDataSource}" Margin="10,73,566,147" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2" SelectionChanged="purchaseOrderDataGrid_SelectionChanged" SelectedIndex="0">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="pOReferenceColumn" Binding="{Binding POReference}" Header="POReference" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="dueDateColumn" Binding="{Binding DueDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Header="Due Date" Width="SizeToHeader"/>
+                            <!--<sdk:DataGridTemplateColumn x:Name="dueDateColumn" Header="Due Date" Width="SizeToHeader">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <sdk:DatePicker SelectedDate="{Binding DueDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>-->
+
+
+                            <!--<sdk:DataGridTextColumn x:Name="pOIDColumn1" Binding="{Binding POID, Mode=OneWay}" Header="POID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="poDateColumn" Binding="{Binding PoDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Header="PODate"  Width= "Auto"/>
+                            <!--<sdk:DataGridTemplateColumn x:Name="poDateColumn" Header="Po Date" Width="SizeToHeader">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <sdk:DatePicker SelectedDate="{Binding PoDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>-->
+
+
+                            <sdk:DataGridTextColumn x:Name="statusColumn" Binding="{Binding Status}" Header="Status" Width="Auto"/>
+
+                            <sdk:DataGridTextColumn x:Name="userNameColumn" Binding="{Binding UserName}" Header="User Name" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="vendorIDColumn" Binding="{Binding VendorID}" Header="Vendor ID" Width="SizeToHeader"/>
+                            <!--<sdk:DataGridCheckBoxColumn x:Name="isCompleteColumn" Binding="{Binding isComplete}" Header="is Complete" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="taxRateColumn" Binding="{Binding taxRate}" Header="tax Rate" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="noteColumn" Binding="{Binding Note}" Header="Note" Width="*"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="23" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
+                    <Button x:Name="searchButton" Content="Search" Grid.Column="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="75" Click="searchButton_Click"/>
+                    <ComboBox x:Name="FieldSelectionCombobox" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="183" SelectedIndex="0">
+                        <!--<ComboBoxItem Content="POReference"/>
+                        <ComboBoxItem Content="POID"/>
+                       
+                        <ComboBoxItem Content="Due Date"/>-->
+                    </ComboBox>
+                    <riaControls:DomainDataSource x:Name="supplierDomainDataSource" AutoLoad="True" Height="0" LoadedData="supplierDomainDataSource_LoadedData_1" QueryName="GetSuppliersQuery" Width="0" d:DesignData="{d:DesignInstance Web:Supplier, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:SuppliersDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid1" Grid.Column="1" DataContext="{Binding Data, ElementName=supplierDomainDataSource}" HorizontalAlignment="Left" Margin="204,18,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Company Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="companyNameComboBox" Grid.Column="1" DisplayMemberPath="CompanyName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="companyNameComboBox_SelectionChanged">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                    </Grid>
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem x:Name="DeliveryLogTabItem" Header="Create Delivery Log" IsSelected="False">
+                <Grid>
+                    <sdk:DataGrid x:Name="pODetailsViewDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=pODetailsViewDomainDataSource}" Margin="10,10,626,352" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="pODetailsViewDataGrid_SelectionChanged">
+                        <sdk:DataGrid.Columns>
+                            <!--<sdk:DataGridTextColumn x:Name="convertedTotalColumn" Binding="{Binding ConvertedTotal}" Header="Converted Total" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="convertedUnitPriceColumn" Binding="{Binding ConvertedUnitPrice}" Header="Converted Unit Price" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="currencyColumn" Binding="{Binding Currency}" Header="Currency" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="pODetailsIDColumn" Binding="{Binding PODetailsID, Mode=OneWay}" Header="PODetails ID" IsReadOnly="True" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="pOIDColumn" Binding="{Binding POID, Mode=OneWay}" Header="POID" IsReadOnly="True" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID, Mode=OneWay}" Header="Product ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="productNameColumn" Binding="{Binding ProductName}" Header="Product Name" Width="Auto"/>
+                            <!--<sdk:DataGridTextColumn x:Name="totalColumn" Binding="{Binding Total}" Header="Total" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="unitPriceColumn" Binding="{Binding UnitPrice}" Header="Unit Price" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="qtyColumn" Binding="{Binding qty}" Header="qty" Width="Auto"/>
+                            <sdk:DataGridTextColumn x:Name="uomColumn" Binding="{Binding Uom}" Header="Uom" Width="Auto"/>
+
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <riaControls:DomainDataSource x:Name="deliveryLogDomainDataSource" AutoLoad="False" Height="0" LoadedData="deliveryLogDomainDataSource_LoadedData_1" QueryName="GetDeliveryLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:DeliveryLog, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:DeliveryLogDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid x:Name="deliveryLogDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=deliveryLogDomainDataSource}" Margin="10,234,759,112" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="deliveryLogDataGrid_SelectionChanged" SelectedIndex="0">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn x:Name="deliveryDateColumn" Header="Delivery Date" Width="SizeToHeader">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <sdk:DatePicker SelectedDate="{Binding DeliveryDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <!--<sdk:DataGridTextColumn x:Name="deliveryLogIDColumn" Binding="{Binding DeliveryLogID, Mode=OneWay}" Header="Delivery Log ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="deliveryNoteColumn" Binding="{Binding DeliveryNote}" Header="Delivery Note" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="locationColumn" Binding="{Binding Location}" Header="Location" Width="SizeToHeader"/>
+                            <!--<sdk:DataGridTextColumn x:Name="pODetailsIDColumn" Binding="{Binding PODetailsID}" Header="PODetails ID" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID}" Header="Product ID" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="userIDColumn" Binding="{Binding UserID}" Header="User ID" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="qtyReceivedColumn" Binding="{Binding qtyReceived}" Header="qty Received" Width="SizeToHeader"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=deliveryLogDomainDataSource}" HorizontalAlignment="Left" Margin="633,234,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Delivery Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <sdk:DatePicker x:Name="deliveryDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" SelectedDate="{Binding DeliveryDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
+                        <sdk:Label Content="Delivery Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <TextBox x:Name="deliveryLogIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding DeliveryLogID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Delivery Note:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="deliveryNoteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding DeliveryNote, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Location:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="locationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Location, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="PODetails ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="pODetailsIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding PODetailsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Product ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                        <TextBox x:Name="productIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding ProductID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="User ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                        <TextBox x:Name="userIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding UserID, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="qty Received:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                        <TextBox x:Name="qtyReceivedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding qtyReceived, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Delivery Batch:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <TextBox x:Name="deliveryBatchTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding DeliveryBatch, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                    </Grid>
+                    <Button x:Name="addToDeliveryButton" Content="Save Delivery" HorizontalAlignment="Left" Margin="759,500,0,0" VerticalAlignment="Top" Width="97" Click="addToDeliveryButton_Click"/>
+                    <sdk:DatePicker x:Name="ExpireDateDatePicker" HorizontalAlignment="Left" Height="23" Margin="997,237,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="918,239,0,0" TextWrapping="Wrap" Text="Expire Date:" VerticalAlignment="Top"/>
+                    <!--<Grid x:Name="grid3" DataContext="{Binding Data, ElementName=deliveryLogDomainDataSource}" HorizontalAlignment="Left" Margin="638,471,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Delivery Batch:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="deliveryBatchTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding DeliveryBatch, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    </Grid>-->
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Print Delivery Receipt">
+
+                <Silverlight:ReportViewer x:Name="DeliveryReceiptReportViewer" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="1354" ReportServiceUri="../ReportService.svc" Report="TambakReports.DeliveryReceiptReport, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+
+            </sdk:TabItem>
+        </sdk:TabControl>
+
+    </Grid>
+</sdk:Page>

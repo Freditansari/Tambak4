@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPLModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CPLModelStoreContainer">
+    <EntitySet Name="Contacts" EntityType="CPLModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeedingLogs" EntityType="CPLModel.Store.FeedingLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PondConsumptionsLogs" EntityType="CPLModel.Store.PondConsumptionsLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ponds" EntityType="CPLModel.Store.Ponds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PondsProductionCycles" EntityType="CPLModel.Store.PondsProductionCycles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductPurchaseLogs" EntityType="CPLModel.Store.ProductPurchaseLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductQuantities" EntityType="CPLModel.Store.ProductQuantities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductRequireds" EntityType="CPLModel.Store.ProductRequireds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="CPLModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductSalesOrders" EntityType="CPLModel.Store.ProductSalesOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductsDetails" EntityType="CPLModel.Store.ProductsDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResultNotes" EntityType="CPLModel.Store.ResultNotes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SamplingLogs" EntityType="CPLModel.Store.SamplingLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="CPLModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tasks" EntityType="CPLModel.Store.Tasks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WaterParameterLogs" EntityType="CPLModel.Store.WaterParameterLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductRequiredViews" EntityType="CPLModel.Store.ProductRequiredViews" store:Type="Views" store:Schema="dbo" store:Name="ProductRequiredViews">
+      <DefiningQuery>SELECT 
+      [ProductRequiredViews].[ProductName] AS [ProductName], 
+      [ProductRequiredViews].[Amount] AS [Amount], 
+      [ProductRequiredViews].[Uom] AS [Uom], 
+      [ProductRequiredViews].[TaskID] AS [TaskID], 
+      [ProductRequiredViews].[PondDescription] AS [PondDescription], 
+      [ProductRequiredViews].[DueDate] AS [DueDate], 
+      [ProductRequiredViews].[ProductID] AS [ProductID], 
+      [ProductRequiredViews].[PondID] AS [PondID], 
+      [ProductRequiredViews].[ProductionCycleID] AS [ProductionCycleID]
+      FROM [dbo].[ProductRequiredViews] AS [ProductRequiredViews]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SumProductRequiredViews" EntityType="CPLModel.Store.SumProductRequiredViews" store:Type="Views" store:Schema="dbo" store:Name="SumProductRequiredViews">
+      <DefiningQuery>SELECT 
+      [SumProductRequiredViews].[DueDate] AS [DueDate], 
+      [SumProductRequiredViews].[ProductName] AS [ProductName], 
+      [SumProductRequiredViews].[totalRequired] AS [totalRequired], 
+      [SumProductRequiredViews].[ProductID] AS [ProductID]
+      FROM [dbo].[SumProductRequiredViews] AS [SumProductRequiredViews]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_FeedingLogs_PondsProductionCycle" Association="CPLModel.Store.FK_FeedingLogs_PondsProductionCycle">
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+      <End Role="FeedingLogs" EntitySet="FeedingLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondConsumptionsLog_Ponds" Association="CPLModel.Store.FK_PondConsumptionsLog_Ponds">
+      <End Role="Ponds" EntitySet="Ponds" />
+      <End Role="PondConsumptionsLogs" EntitySet="PondConsumptionsLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondConsumptionsLog_PondsProductionCycle" Association="CPLModel.Store.FK_PondConsumptionsLog_PondsProductionCycle">
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+      <End Role="PondConsumptionsLogs" EntitySet="PondConsumptionsLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondConsumptionsLog_Products" Association="CPLModel.Store.FK_PondConsumptionsLog_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PondConsumptionsLogs" EntitySet="PondConsumptionsLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PondsProductionCycle_Contacts" Association="CPLModel.Store.FK_PondsProductionCycle_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPurchaseLog_Products" Association="CPLModel.Store.FK_ProductPurchaseLog_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPurchaseLogs" EntitySet="ProductPurchaseLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductQuantity_ProductPurchaseLog" Association="CPLModel.Store.FK_ProductQuantity_ProductPurchaseLog">
+      <End Role="ProductPurchaseLogs" EntitySet="ProductPurchaseLogs" />
+      <End Role="ProductQuantities" EntitySet="ProductQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductQuantity_Products" Association="CPLModel.Store.FK_ProductQuantity_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductQuantities" EntitySet="ProductQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRequired_Products" Association="CPLModel.Store.FK_ProductRequired_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductRequireds" EntitySet="ProductRequireds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRequired_Tasks" Association="CPLModel.Store.FK_ProductRequired_Tasks">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="ProductRequireds" EntitySet="ProductRequireds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSalesOrders_Contacts" Association="CPLModel.Store.FK_ProductSalesOrders_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="ProductSalesOrders" EntitySet="ProductSalesOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSalesOrders_ProductQuantity" Association="CPLModel.Store.FK_ProductSalesOrders_ProductQuantity">
+      <End Role="ProductQuantities" EntitySet="ProductQuantities" />
+      <End Role="ProductSalesOrders" EntitySet="ProductSalesOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSalesOrders_ProductRequired" Association="CPLModel.Store.FK_ProductSalesOrders_ProductRequired">
+      <End Role="ProductRequireds" EntitySet="ProductRequireds" />
+      <End Role="ProductSalesOrders" EntitySet="ProductSalesOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSalesOrders_Products" Association="CPLModel.Store.FK_ProductSalesOrders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductSalesOrders" EntitySet="ProductSalesOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSalesOrders_Tasks" Association="CPLModel.Store.FK_ProductSalesOrders_Tasks">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="ProductSalesOrders" EntitySet="ProductSalesOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsDetails_Products" Association="CPLModel.Store.FK_ProductsDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductsDetails" EntitySet="ProductsDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultNote_ResultNote" Association="CPLModel.Store.FK_ResultNote_ResultNote">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="ResultNotes" EntitySet="ResultNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SamplingLog_PondsProductionCycle" Association="CPLModel.Store.FK_SamplingLog_PondsProductionCycle">
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+      <End Role="SamplingLogs" EntitySet="SamplingLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Contacts" Association="CPLModel.Store.FK_Tasks_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Ponds" Association="CPLModel.Store.FK_Tasks_Ponds">
+      <End Role="Ponds" EntitySet="Ponds" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_PondsProductionCycle" Association="CPLModel.Store.FK_Tasks_PondsProductionCycle">
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WaterParameterLog_PondsProductionCycle" Association="CPLModel.Store.FK_WaterParameterLog_PondsProductionCycle">
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+      <End Role="WaterParameterLogs" EntitySet="WaterParameterLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Company" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="jobTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusinessPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="homePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="city" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+    <Property Name="zip" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="WebPage" Type="nvarchar(max)" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="archive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FeedingLogs">
+    <Key>
+      <PropertyRef Name="FeedLogID" />
+    </Key>
+    <Property Name="FeedLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="datetime" />
+    <Property Name="waterLevel" Type="int" />
+    <Property Name="feedGiven" Type="float" />
+    <Property Name="feedType" Type="nvarchar" MaxLength="255" />
+    <Property Name="feedPerDay" Type="float" />
+    <Property Name="CummulativeFeed" Type="float" />
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PondConsumptionsLogs">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Usage" Type="int" Nullable="false" />
+    <Property Name="UOM" Type="nvarchar" MaxLength="255" />
+    <Property Name="LogDate" Type="datetime" />
+    <Property Name="userId" Type="nvarchar" MaxLength="255" />
+    <Property Name="PondID" Type="int" />
+    <Property Name="ProductionCycleID" Type="int" />
+  </EntityType>
+  <EntityType Name="Ponds">
+    <Key>
+      <PropertyRef Name="PondID" />
+    </Key>
+    <Property Name="PondID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PondDescription" Type="nvarchar(max)" />
+    <Property Name="pondSize" Type="int" />
+    <Property Name="pondUOM" Type="nvarchar" MaxLength="50" />
+    <Property Name="PondLocation" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PondsProductionCycles">
+    <Key>
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="isInProduction" Type="bit" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="PondID" Type="int" Nullable="false" />
+    <Property Name="FryOrigin" Type="nvarchar" MaxLength="255" />
+    <Property Name="NumberOfFry" Type="int" />
+    <Property Name="Density" Type="float" />
+    <Property Name="Technician" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductPurchaseLogs">
+    <Key>
+      <PropertyRef Name="PurchaseLogID" />
+    </Key>
+    <Property Name="PurchaseLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="batchID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+    <Property Name="PurchasePrice" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Total" Type="decimal" Scale="2" />
+    <Property Name="Shipping" Type="decimal" Scale="2" />
+    <Property Name="tax" Type="decimal" Scale="2" />
+    <Property Name="Requester" Type="nvarchar" MaxLength="255" />
+    <Property Name="userID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="isDelivered" Type="bit" />
+    <Property Name="location" Type="nvarchar" MaxLength="255" />
+    <Property Name="ExpireDate" Type="datetime" />
+    <Property Name="isSynchronized" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProductQuantities">
+    <Key>
+      <PropertyRef Name="LotNumber" />
+    </Key>
+    <Property Name="LotNumber" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="ContainerID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Location" Type="nvarchar" MaxLength="512" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="PurchaseLogID" Type="int" />
+    <Property Name="expireDate" Type="datetime" />
+    <Property Name="userID" Type="nvarchar" MaxLength="50" />
+    <Property Name="trxDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductRequireds">
+    <Key>
+      <PropertyRef Name="RequirementID" />
+    </Key>
+    <Property Name="RequirementID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="TaskID" Type="int" />
+    <Property Name="Amount" Type="decimal" Scale="2" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="256" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Product_Description" Type="nvarchar(max)" />
+    <Property Name="qtyperunit" Type="decimal" Scale="2" />
+    <Property Name="Uom" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnitInStock" Type="decimal" Scale="2" />
+    <Property Name="UnitInOrder" Type="decimal" Scale="2" />
+    <Property Name="ReorderLevel" Type="decimal" Scale="2" />
+  </EntityType>
+  <EntityType Name="ProductSalesOrders">
+    <Key>
+      <PropertyRef Name="SalesOrderID" />
+    </Key>
+    <Property Name="SalesOrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="TaskID" Type="int" />
+    <Property Name="RequirementID" Type="int" />
+    <Property Name="QTY" Type="decimal" Scale="2" />
+    <Property Name="Price" Type="decimal" Scale="2" />
+    <Property Name="total" Type="decimal" Scale="2" />
+    <Property Name="trxDate" Type="datetime" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="512" />
+    <Property Name="UserPicked" Type="int" />
+    <Property Name="userPickedName" Type="nvarchar" MaxLength="1024" />
+    <Property Name="LotNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductsDetails">
+    <Key>
+      <PropertyRef Name="ProductTrxID" />
+    </Key>
+    <Property Name="ProductTrxID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Ordered" Type="int" />
+    <Property Name="received" Type="int" />
+    <Property Name="sold" Type="int" />
+    <Property Name="shrinkage" Type="int" />
+    <Property Name="trxDate" Type="int" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ResultNotes">
+    <Key>
+      <PropertyRef Name="resultID" />
+    </Key>
+    <Property Name="resultID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ResultNote1" Type="nvarchar(max)" />
+    <Property Name="taskID" Type="int" />
+    <Property Name="entryDate" Type="datetime" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SamplingLogs">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="datetime" />
+    <Property Name="Age" Type="int" />
+    <Property Name="MedianBodyWeight" Type="float" />
+    <Property Name="Size" Type="float" />
+    <Property Name="WeightperWeek" Type="float" />
+    <Property Name="AverageDailyGrowth" Type="float" />
+    <Property Name="CummulativeADG" Type="float" />
+    <Property Name="FeedType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DailyFeed" Type="int" />
+    <Property Name="CummulativeFeed" Type="int" />
+    <Property Name="WeeklyFeed" Type="int" />
+    <Property Name="FCR" Type="float" />
+    <Property Name="Biomass" Type="float" />
+    <Property Name="feedingRate" Type="float" />
+    <Property Name="FeedConsumptions" Type="float" />
+    <Property Name="Populations" Type="float" />
+    <Property Name="SurvivalRate" Type="float" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProductionCycleID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="20" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CompletePercentage" Type="float" />
+    <Property Name="assignedTo" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Attachments" Type="nvarchar(max)" />
+    <Property Name="PondID" Type="int" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="255" />
+    <Property Name="plannedManHours" Type="float" />
+    <Property Name="ProductionCycleID" Type="int" />
+    <Property Name="isDone" Type="bit" />
+    <Property Name="ReccurencePattern" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="WaterParameterLogs">
+    <Key>
+      <PropertyRef Name="WaterLogID" />
+    </Key>
+    <Property Name="WaterLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+    <Property Name="pH" Type="float" />
+    <Property Name="DissolvedOxygen" Type="float" />
+    <Property Name="Temperature" Type="float" />
+    <Property Name="Planktons" Type="int" />
+    <Property Name="Salinity" Type="float" />
+    <Property Name="Bacteria" Type="nvarchar" MaxLength="255" />
+    <Property Name="Vibrio" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amonnia" Type="float" />
+    <Property Name="Phospate" Type="float" />
+    <Property Name="ammonium" Type="float" />
+    <Property Name="nitrite" Type="int" />
+    <Property Name="nitrate" Type="int" />
+    <Property Name="Paddlewheel" Type="int" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.ProductRequiredViews' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ProductRequiredViews">
+    <Key>
+      <PropertyRef Name="TaskID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="PondID" />
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amount" Type="decimal" Scale="2" />
+    <Property Name="Uom" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaskID" Type="int" Nullable="false" />
+    <Property Name="PondDescription" Type="nvarchar(max)" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="PondID" Type="int" Nullable="false" />
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.SumProductRequiredViews' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="SumProductRequiredViews">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
+    <Property Name="totalRequired" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_FeedingLogs_PondsProductionCycle">
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="1" />
+    <End Role="FeedingLogs" Type="CPLModel.Store.FeedingLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycles">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="FeedingLogs">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondConsumptionsLog_Ponds">
+    <End Role="Ponds" Type="CPLModel.Store.Ponds" Multiplicity="0..1" />
+    <End Role="PondConsumptionsLogs" Type="CPLModel.Store.PondConsumptionsLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ponds">
+        <PropertyRef Name="PondID" />
+      </Principal>
+      <Dependent Role="PondConsumptionsLogs">
+        <PropertyRef Name="PondID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondConsumptionsLog_PondsProductionCycle">
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="0..1" />
+    <End Role="PondConsumptionsLogs" Type="CPLModel.Store.PondConsumptionsLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycles">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="PondConsumptionsLogs">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondConsumptionsLog_Products">
+    <End Role="Products" Type="CPLModel.Store.Products" Multiplicity="1" />
+    <End Role="PondConsumptionsLogs" Type="CPLModel.Store.PondConsumptionsLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PondConsumptionsLogs">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PondsProductionCycle_Contacts">
+    <End Role="Contacts" Type="CPLModel.Store.Contacts" Multiplicity="0..1" />
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="PondsProductionCycles">
+        <PropertyRef Name="Technician" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPurchaseLog_Products">
+    <End Role="Products" Type="CPLModel.Store.Products" Multiplicity="1" />
+    <End Role="ProductPurchaseLogs" Type="CPLModel.Store.ProductPurchaseLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductPurchaseLogs">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductQuantity_ProductPurchaseLog">
+    <End Role="ProductPurchaseLogs" Type="CPLModel.Store.ProductPurchaseLogs" Multiplicity="0..1" />
+    <End Role="ProductQuantities" Type="CPLModel.Store.ProductQuantities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductPurchaseLogs">
+        <PropertyRef Name="PurchaseLogID" />
+      </Principal>
+      <Dependent Role="ProductQuantities">
+        <PropertyRef Name="PurchaseLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductQuantity_Products">
+    <End Role="Products" Type="CPLModel.Store.Products" Multiplicity="0..1" />
+    <End Role="ProductQuantities" Type="CPLModel.Store.ProductQuantities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductQuantities">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRequired_Products">
+    <End Role="Products" Type="CPLModel.Store.Products" Multiplicity="0..1" />
+    <End Role="ProductRequireds" Type="CPLModel.Store.ProductRequireds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductRequireds">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRequired_Tasks">
+    <End Role="Tasks" Type="CPLModel.Store.Tasks" Multiplicity="0..1" />
+    <End Role="ProductRequireds" Type="CPLModel.Store.ProductRequireds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="ProductRequireds">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSalesOrders_Contacts">
+    <End Role="Contacts" Type="CPLModel.Store.Contacts" Multiplicity="0..1" />
+    <End Role="ProductSalesOrders" Type="CPLModel.Store.ProductSalesOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="ProductSalesOrders">
+        <PropertyRef Name="UserPicked" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSalesOrders_ProductQuantity">
+    <End Role="ProductQuantities" Type="CPLModel.Store.ProductQuantities" Multiplicity="0..1" />
+    <End Role="ProductSalesOrders" Type="CPLModel.Store.ProductSalesOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductQuantities">
+        <PropertyRef Name="LotNumber" />
+      </Principal>
+      <Dependent Role="ProductSalesOrders">
+        <PropertyRef Name="LotNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSalesOrders_ProductRequired">
+    <End Role="ProductRequireds" Type="CPLModel.Store.ProductRequireds" Multiplicity="0..1" />
+    <End Role="ProductSalesOrders" Type="CPLModel.Store.ProductSalesOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductRequireds">
+        <PropertyRef Name="RequirementID" />
+      </Principal>
+      <Dependent Role="ProductSalesOrders">
+        <PropertyRef Name="RequirementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSalesOrders_Products">
+    <End Role="Products" Type="CPLModel.Store.Products" Multiplicity="0..1" />
+    <End Role="ProductSalesOrders" Type="CPLModel.Store.ProductSalesOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductSalesOrders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSalesOrders_Tasks">
+    <End Role="Tasks" Type="CPLModel.Store.Tasks" Multiplicity="0..1" />
+    <End Role="ProductSalesOrders" Type="CPLModel.Store.ProductSalesOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="ProductSalesOrders">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsDetails_Products">
+    <End Role="Products" Type="CPLModel.Store.Products" Multiplicity="1" />
+    <End Role="ProductsDetails" Type="CPLModel.Store.ProductsDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductsDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultNote_ResultNote">
+    <End Role="Tasks" Type="CPLModel.Store.Tasks" Multiplicity="0..1" />
+    <End Role="ResultNotes" Type="CPLModel.Store.ResultNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="ResultNotes">
+        <PropertyRef Name="taskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SamplingLog_PondsProductionCycle">
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="0..1" />
+    <End Role="SamplingLogs" Type="CPLModel.Store.SamplingLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycles">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="SamplingLogs">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Contacts">
+    <End Role="Contacts" Type="CPLModel.Store.Contacts" Multiplicity="1" />
+    <End Role="Tasks" Type="CPLModel.Store.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="assignedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Ponds">
+    <End Role="Ponds" Type="CPLModel.Store.Ponds" Multiplicity="0..1" />
+    <End Role="Tasks" Type="CPLModel.Store.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ponds">
+        <PropertyRef Name="PondID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="PondID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_PondsProductionCycle">
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="0..1" />
+    <End Role="Tasks" Type="CPLModel.Store.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycles">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WaterParameterLog_PondsProductionCycle">
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="1" />
+    <End Role="WaterParameterLogs" Type="CPLModel.Store.WaterParameterLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycles">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="WaterParameterLogs">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

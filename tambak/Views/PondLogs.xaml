@@ -1,0 +1,331 @@
+﻿<sdk:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:Silverlight="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight" x:Class="tambak.Views.SamplingLogs"
+           
+           mc:Ignorable="d"
+           d:DesignWidth="1366" d:DesignHeight="700"
+           Title="SamplingLogs Page">
+    <Grid x:Name="LayoutRoot">
+
+        <telerik:RadTabControl>
+            <telerik:RadTabItem x:Name="RadTabItem" Header="Ponds">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="1053" VerticalAlignment="Top" Width="1918">
+                        <telerik:RadGridView x:Name="pondRadGridView" ItemsSource="{Binding Data, ElementName=pondDomainDataSource}" Margin="10,10,976,773"/>
+                        <!-- <telerik:RadGridView x:Name="pondsProductionCycleRadGridView" ItemsSource="{Binding Data, ElementName=pondsProductionCycleDomainDataSource}" Margin="10,304,976,473"/> -->
+                        <telerik:RadGridView x:Name="pondsProductionCycleRadGridView" Margin="10,304,976,473" SelectionChanged="pondsProductionCycleRadGridView_SelectionChanged"/>
+                        <Grid x:Name="grid4" DataContext="{Binding Data, ElementName=pondDomainDataSource}" HorizontalAlignment="Left" Margin="1023,10,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Pond ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="pondIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding PondID, Mode=OneWay}" VerticalAlignment="Center" Width="120" TextChanged="pondIDTextBox_TextChanged" IsReadOnly="True"/>
+                        </Grid>
+                        <Grid x:Name="grid5" DataContext="{Binding Data, ElementName=pondsProductionCycleDomainDataSource}" HorizontalAlignment="Left" Margin="959,304,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="productionCycleIDTextBox3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ProductionCycleID, Mode=OneWay}" VerticalAlignment="Center" Width="120" TextChanged="productionCycleIDTextBox3_TextChanged" IsReadOnly="True"/>
+                        </Grid>
+                        <Grid x:Name="grid6" DataContext="{Binding Data, ElementName=pondsProductionCycleDomainDataSource}" HorizontalAlignment="Left" Margin="1010,347,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Start Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="startDateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        </Grid>
+                        <TextBox x:Name="NumberOfFryTextBox" HorizontalAlignment="Left" Height="23" Margin="1085,393,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="993,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Number Of Fry:"/>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="pondDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondDomainDataSource_LoadedData" QueryName="GetPondsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Pond, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PondsDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <riaControls:DomainDataSource x:Name="pondsProductionCycleDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondsProductionCycleDomainDataSource_LoadedData" QueryName="GetPondsProductionCyclesQuery" Width="0" d:DesignData="{d:DesignInstance Web:PondsProductionCycle, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PondsProductionCycleDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <TextBlock x:Name="ServerTimeTextBlock" HorizontalAlignment="Left" Margin="1086,50,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="RadTabItem1" Header=" Sampling Log">
+                <Grid Background="Transparent" Margin="0,0,0,1">
+                    <riaControls:DomainDataSource x:Name="samplingLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="samplingLogDomainDataSource_LoadedData" QueryName="GetSamplingLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:SamplingLog, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:SamplingLogDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <!--<Grid x:Name="grid1" DataContext="{Binding Data, ElementName=samplingLogDomainDataSource}" HorizontalAlignment="Left" VerticalAlignment="Top">-->
+                    <Grid x:Name="grid1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Age(days)*:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <!--<TextBox x:Name="ageTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0"  VerticalAlignment="Center" Width="120" TextChanged="ageTextBox_TextChanged" TabIndex="1"/>-->
+                        <!--<TextBox x:Name="ageTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0"  VerticalAlignment="Center" Width="120" TextChanged="ageTextBox_TextChanged" TabIndex="1" Text="{Binding Data.Age, ElementName=samplingLogDomainDataSource, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>-->
+                        <TextBox x:Name="ageTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,0,0,0" Grid.Row="0"  VerticalAlignment="Bottom" Width="120" TextChanged="ageTextBox_TextChanged" TabIndex="1" Text="{Binding age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" /> 
+                        <sdk:Label Content="Average Daily Growth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <TextBox x:Name="averageDailyGrowthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Biomass:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="biomassTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Cummulative ADG:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cummulativeADGTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Cummulative Feed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cummulativeFeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Daily Feed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                        <TextBox x:Name="dailyFeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" TextChanged="dailyFeedTextBox_TextChanged_1" TabIndex="2" IsReadOnly="True"/>
+                        <sdk:Label Content="FCR:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                        <TextBox x:Name="fCRTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Feed Consumptions:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                        <TextBox x:Name="feedConsumptionsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Feed Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <TextBox x:Name="feedTypeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Median Body Weight(gr/kg)*:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                        <TextBox x:Name="medianBodyWeightTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" VerticalAlignment="Center" Width="120" TextChanged="medianBodyWeightTextBox_TextChanged" TabIndex="3" IsReadOnly="True"/>
+                        <sdk:Label Content="Populations:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                        <TextBox x:Name="populationsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Size(pcs/KG):" Grid.Column="0" HorizontalAlignment="Right" Margin="0,7,95,6" Grid.Row="14" VerticalAlignment="Center"/>
+                        <TextBox x:Name="sizeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Survival Rate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                        <TextBox x:Name="survivalRateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="User ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
+                        <TextBox x:Name="userIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Weekly Feed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="17" VerticalAlignment="Center"/>
+                        <TextBox x:Name="weeklyFeedTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="17" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Weightper Week:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="18" VerticalAlignment="Center"/>
+                        <TextBox x:Name="weightperWeekTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="18" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="feeding Rate(%)*:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="19" VerticalAlignment="Center"/>
+                        <TextBox x:Name="feedingRateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="19" VerticalAlignment="Center" Width="120" TextChanged="feedingRateTextBox_TextChanged" IsReadOnly="True"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="717" Margin="316,0,0,0" VerticalAlignment="Top" Width="1121">
+                        <telerik:RadGridView x:Name="samplingLogRadGridView" ItemsSource="{Binding Data, ElementName=samplingLogDomainDataSource}" Margin="10,38,142,113"/>
+                        <TextBox x:Name="prevMBW" HorizontalAlignment="Left" Height="23" Margin="412,604,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="prevMBW_TextChanged"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="329,604,0,0" TextWrapping="Wrap" Text="Previous MBW" VerticalAlignment="Top"/>
+                        <TextBox x:Name="prevCumFeedTextBox" HorizontalAlignment="Left" Height="23" Margin="412,632,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="264,632,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                        	<Run Text="Previous Cumulative Feed"/>
+                        	<LineBreak/>
+                        	<Run/>
+                        </TextBlock>
+                    </Grid>
+                    <Button x:Name="SaveSamplingLog" Content="Save Sampling Logs" HorizontalAlignment="Left" Margin="177,524,0,0" VerticalAlignment="Top" Width="122" Click="SaveSamplingLog_Click" IsEnabled="False"/>
+                    <Grid x:Name="grid7" DataContext="{Binding Data, ElementName=samplingLogDomainDataSource}" HorizontalAlignment="Left" Margin="0,487,0,0" VerticalAlignment="Top" Width="299">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Weekly FCR:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="weeklyFCRTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="99,2,-93,4" Grid.Row="0" Text="0" VerticalAlignment="Center" Width="120" IsReadOnly="True" TextChanged="weeklyFCRTextBox_TextChanged"/>
+                    </Grid>
+                    <Button x:Name="newSamplingButton" Content="New Sampling Logs" HorizontalAlignment="Left" Margin="40,524,0,0" VerticalAlignment="Top" Width="118" Click="newSamplingButton_Click_1"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Feeding Log">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="1053" VerticalAlignment="Top" Width="1918">
+                        <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=feedingLogDomainDataSource}" HorizontalAlignment="Left" Margin="897,0,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Cummulative Feed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="cummulativeFeedTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Feed Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                            <TextBox x:Name="feedLogIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                            <sdk:DatePicker x:Name="logDateDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
+                            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                            <TextBox x:Name="productionCycleIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120" IsReadOnly="True" TextChanged="productionCycleIDTextBox1_TextChanged"/>
+                            <sdk:Label Content="User ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                            <TextBox x:Name="userIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="feed Given (KG):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                            <TextBox x:Name="feedGivenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" TextChanged="feedGivenTextBox_TextChanged" IsReadOnly="True"/>
+                            <sdk:Label Content="feed Per Day:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                            <TextBox x:Name="feedPerDayTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="feed Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                            <TextBox x:Name="feedTypeTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="water Level:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                            <TextBox x:Name="waterLevelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        </Grid>
+                        <telerik:RadGridView x:Name="feedingLogRadGridView" ItemsSource="{Binding Data, ElementName=feedingLogDomainDataSource}" Margin="10,10,1026,592"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="187" Margin="1190,74,0,0" VerticalAlignment="Top" Width="281">
+                            <TextBlock TextWrapping="Wrap" Text="Current Condition" Margin="9,-1,-9,1"/>
+                        </Border>
+                        <!--  <telerik:RadGridView x:Name="productRadGridView" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="1190,289,390,572"> -->
+                        <telerik:RadGridView x:Name="productRadGridView" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="907,354,673,507" AutoGenerateColumns="False" SelectionChanged="productRadGridView_SelectionChanged">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductName}" Header="Product Name"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding SKU}" Header="SKU"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" Header="ProductID"/>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="1068,289,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" IsEnabled="False"/>
+                        <Button x:Name="newFeedingLogButton" Content="New Feeding Log" HorizontalAlignment="Left" Margin="926,289,0,0" VerticalAlignment="Top" Width="111" Click="newFeedingLogButton_Click_1"/>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="feedingLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="feedingLogDomainDataSource_LoadedData" QueryName="GetFeedingLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:FeedingLog, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:FeedingLogsDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="1201,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                    <TextBox x:Name="CurrentCumFeed" HorizontalAlignment="Left" Height="23" Margin="1304,113,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" TextChanged="CurrentCumFeed_TextChanged"/>
+                    <TextBox x:Name="CurrentDailyFeed" HorizontalAlignment="Left" Height="23" Margin="1304,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" TextChanged="CurrentDailyFeed_TextChanged"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1201,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="23">
+                    	<Run Text="Cumulative Feed:"/>
+                    	<LineBreak/>
+                    	<Run/>
+                    </TextBlock>
+                    <TextBlock x:Name="___No_Name_" HorizontalAlignment="Left" Margin="1236,141,0,0" TextWrapping="Wrap" Text="Daily Feed:" VerticalAlignment="Top"/>
+                    <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData" QueryName="GetProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <TextBlock HorizontalAlignment="Left" Margin="1206,175,0,0" TextWrapping="Wrap" Text="Avg Daily Feed :" VerticalAlignment="Top" Height="19" Width="93"/>
+                    <TextBox x:Name="avgDailyFeedTextbox" HorizontalAlignment="Left" Height="23" Margin="1304,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="avgDailyFeedTextbox_TextChanged" IsReadOnly="True"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Water Parameter">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="1053" VerticalAlignment="Top" Width="1918">
+                        <Grid x:Name="grid3" DataContext="{Binding Data, ElementName=waterParameterLogDomainDataSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Amonnia:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="amonniaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="0"  VerticalAlignment="Center" Width="120" TextChanged="amonniaTextBox_TextChanged"/>
+                            <sdk:Label Content="Bacteria:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                            <TextBox x:Name="bacteriaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="0"  Width="120"/>
+                            <sdk:Label Content="Dissolved Oxygen:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                            <TextBox x:Name="dissolvedOxygenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Width="120" Text="0" TextChanged="dissolvedOxygenTextBox_TextChanged"/>
+                            <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                            <sdk:DatePicker x:Name="logDateDatePicker2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3"  Width="120" IsEnabled="False"/>
+                            <sdk:Label Content="Paddlewheel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                            <TextBox x:Name="paddlewheelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" VerticalAlignment="Center" Text="0" Width="120" TextChanged="paddlewheelTextBox_TextChanged"/>
+                            <sdk:Label Content="Phospate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                            <TextBox x:Name="phospateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" Text="0" TextChanged="phospateTextBox_TextChanged"/>
+                            <sdk:Label Content="Planktons:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                            <TextBox x:Name="planktonsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" Text="0" TextChanged="planktonsTextBox_TextChanged"/>
+                            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                            <TextBox x:Name="productionCycleIDTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Salinity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                            <TextBox x:Name="salinityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8"  VerticalAlignment="Center" Width="120" Text="0" TextChanged="salinityTextBox_TextChanged"/>
+                            <sdk:Label Content="Temperature:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                            <TextBox x:Name="temperatureTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9"  VerticalAlignment="Center" Width="120" Text="0" TextChanged="temperatureTextBox_TextChanged"/>
+                            <sdk:Label Content="User ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                            <TextBox x:Name="userIDTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Vibrio:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                            <TextBox x:Name="vibrioTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="0" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Water Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                            <TextBox x:Name="waterLogIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" VerticalAlignment="Center" Width="120" TextChanged="waterLogIDTextBox_TextChanged" IsReadOnly="True"/>
+                            <sdk:Label Content="ammonium:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                            <TextBox x:Name="ammoniumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" VerticalAlignment="Center" Text="0" Width="120" TextChanged="ammoniumTextBox_TextChanged"/>
+                            <sdk:Label Content="nitrate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                            <TextBox x:Name="nitrateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14"  VerticalAlignment="Center" Text="0" Width="120" TextChanged="nitrateTextBox_TextChanged"/>
+                            <sdk:Label Content="nitrite:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                            <TextBox x:Name="nitriteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" VerticalAlignment="Center" Text="0" Width="120" TextChanged="nitriteTextBox_TextChanged"/>
+                            <sdk:Label Content="p H:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
+                            <TextBox x:Name="pHTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" VerticalAlignment="Center" Text="0" Width="120" TextChanged="pHTextBox_TextChanged"/>
+                        </Grid>
+                        <Button x:Name="SaveWaterParamButton" Content="Save" HorizontalAlignment="Left" Margin="181,513,0,0" VerticalAlignment="Top" Width="75" Click="SaveWaterParamButton_Click"/>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="waterParameterLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="waterParameterLogDomainDataSource_LoadedData" QueryName="GetWaterParameterLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:WaterParameterLog, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:WaterParameterLogDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid HorizontalAlignment="Left" Height="597" Margin="297,10,0,0" VerticalAlignment="Top" Width="1611">
+                        <!-- <telerik:RadGridView x:Name="waterParameterLogRadGridView" ItemsSource="{Binding Data, ElementName=waterParameterLogDomainDataSource}" Margin="0,0,156,124"/> -->
+                        <telerik:RadGridView x:Name="waterParameterLogRadGridView" Margin="0,0,663,124"/>
+                    </Grid>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="RadTabItem" IsEnabled="False">
+                <Grid Background="Transparent">
+                    <TextBlock HorizontalAlignment="Left" Margin="106,26,0,0" TextWrapping="Wrap" Text="Command: " VerticalAlignment="Top" Width="72" Height="23"/>
+                    <TextBox x:Name="commandTextbox" HorizontalAlignment="Left" Height="23" Margin="183,26,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="110" Margin="93,98,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="288"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="93,77,0,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top"/>
+                    <Button x:Name="goButton" Content="go!" HorizontalAlignment="Left" Margin="323,27,0,0" VerticalAlignment="Top" Width="75" Click="goButton_Click"/>
+                </Grid>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+
+    </Grid>
+</sdk:Page>

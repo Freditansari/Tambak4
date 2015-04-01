@@ -1,0 +1,311 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="tambak.Views.TasksView"
+    mc:Ignorable="d"
+    d:DesignHeight="1920" d:DesignWidth="1080">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <telerik:RadTabControl>
+            <telerik:RadTabItem x:Name="RadTabItem" Header="Contacts">
+                <Grid Background="Transparent">
+                    <riaControls:DomainDataSource x:Name="contactDomainDataSource" AutoLoad="True" Height="0" LoadedData="contactDomainDataSource_LoadedData_1" QueryName="GetContactsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Contact, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ContactDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid HorizontalAlignment="Left" Height="400" Margin="0,10,0,0" VerticalAlignment="Top" Width="1068">
+                        <telerik:RadGridView x:Name="contactRadGridView" ItemsSource="{Binding Data, ElementName=contactDomainDataSource}" Margin="0,0,60,33"/>
+                        <Grid x:Name="grid4" DataContext="{Binding Data, ElementName=contactDomainDataSource}" HorizontalAlignment="Left" Margin="0,372,0,-1" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Contact ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="contactIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ContactID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True" TextChanged="contactIDTextBox_TextChanged"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="ManageTaskRadTabItem" Header="Manage Tasks" IsEnabled="False">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="1883" VerticalAlignment="Top" Width="1078"/>
+                    <ScrollViewer HorizontalAlignment="Center" Height="973" VerticalAlignment="Top" Width="1078">
+                        <Grid Height="1558" Width="1057">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="109*"/>
+                                <ColumnDefinition Width="948*"/>
+                            </Grid.ColumnDefinitions>
+                            <riaControls:DomainDataSource x:Name="taskDomainDataSource" AutoLoad="True" Height="0" LoadedData="taskDomainDataSource_LoadedData_2" QueryName="GetTasksQuery" Width="0" d:DesignData="{d:DesignInstance Web:Task, CreateList=true}" Grid.Column="1" Margin="420,779,528,779">
+                                <riaControls:DomainDataSource.DomainContext>
+                                    <DomainServices:TasksDS/>
+                                </riaControls:DomainDataSource.DomainContext>
+                            </riaControls:DomainDataSource>
+                            <telerik:RadGridView x:Name="taskRadGridView" ItemsSource="{Binding Data, ElementName=taskDomainDataSource}" Margin="0,0,0,1171" Grid.ColumnSpan="2" SelectionChanged="taskRadGridView_SelectionChanged"/>
+                            <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=taskDomainDataSource}" HorizontalAlignment="Left" Margin="10,402,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <sdk:Label Content="Attachments:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                                <TextBox x:Name="attachmentsTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Attachments, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                                <sdk:Label Content="Complete Percentage:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                                <TextBox x:Name="completePercentageTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,0" Grid.Row="1" Text="{Binding CompletePercentage, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+                                <sdk:Label Content="Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                                <TextBox x:Name="descriptionTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="descriptionTextBox1_TextChanged_1"/>
+                                <sdk:Label Content="Due Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                                <telerik:RadDateTimePicker x:Name="dueDateRadDateTimePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" SelectedValue="{Binding DueDate, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                <sdk:Label Content="End Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                                <telerik:RadDateTimePicker x:Name="endDateRadDateTimePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" SelectedValue="{Binding EndDate, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                <sdk:Label Content="Pond ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                                <TextBox x:Name="pondIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding PondID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                                <sdk:Label Content="Priority:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                                <TextBox x:Name="priorityTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Priority, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="priorityTextBox1_TextChanged"/>
+                                <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                                <TextBox x:Name="productionCycleIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                                <sdk:Label Content="Reccurence Pattern:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                                <TextBox x:Name="reccurencePatternTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding ReccurencePattern, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                                <sdk:Label Content="Start Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                                <telerik:RadDateTimePicker x:Name="startDateRadDateTimePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="9" SelectedValue="{Binding StartDate, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                <sdk:Label Content="Status:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                                <TextBox x:Name="statusTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Status, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                                <sdk:Label Content="Task ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                                <TextBox x:Name="taskIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding TaskID, Mode=OneWay}" VerticalAlignment="Center" Width="120" TextChanged="taskIDTextBox1_TextChanged" IsReadOnly="True"/>
+                                <sdk:Label Content="Title:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                                <TextBox x:Name="titleTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Title, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="titleTextBox1_TextChanged"/>
+                                <sdk:Label Content="User Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                                <TextBox x:Name="userIdTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding UserId, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                                <sdk:Label Content="assigned To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                                <TextBox x:Name="assignedToTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding assignedTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="assignedToTextBox1_TextChanged_1" IsReadOnly="True"/>
+                                <sdk:Label Content="is Done:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                                <CheckBox x:Name="isDoneCheckBox1" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isDone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                                <sdk:Label Content="planned Man Hours:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
+                                <TextBox x:Name="plannedManHoursTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding plannedManHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            </Grid>
+                            <riaControls:DomainDataSource x:Name="resultNoteDomainDataSource" AutoLoad="True" Height="0" LoadedData="resultNoteDomainDataSource_LoadedData" QueryName="GetResultNotesQuery" Width="0" d:DesignData="{d:DesignInstance Web:ResultNote, CreateList=true}" Grid.Column="1" Margin="420,779,528,779">
+                                <riaControls:DomainDataSource.DomainContext>
+                                    <DomainServices:ResultNoteDS/>
+                                </riaControls:DomainDataSource.DomainContext>
+                            </riaControls:DomainDataSource>
+                            <Grid x:Name="grid3" DataContext="{Binding Data, ElementName=resultNoteDomainDataSource}" HorizontalAlignment="Left" Margin="311,402,0,0" VerticalAlignment="Top" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <sdk:Label Content="User Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                                <TextBox x:Name="userIdTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding UserId, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                                <sdk:Label Content="entry Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                                <sdk:DatePicker x:Name="entryDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" SelectedDate="{Binding entryDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                                <sdk:Label Content="result ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                                <TextBox x:Name="resultIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding resultID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                                <sdk:Label Content="task ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                                <TextBox x:Name="taskIDTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding taskID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            </Grid>
+                            <sdk:Label Content="Result Note 1:" Grid.Column="1" HorizontalAlignment="Left" Margin="300,527,0,1015" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="resultNote1TextBox" HorizontalAlignment="Left" Height="134" Margin="386,523,0,901" Grid.Row="0" Text="{Binding ResultNote1, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="270" AcceptsReturn="True" Grid.Column="1"/>
+                            <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="81,887,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click" Grid.Column="1"/>
+                            <Button x:Name="addResultsButton" Content="Add Results" Grid.Column="1" HorizontalAlignment="Left" Margin="581,679,0,0" VerticalAlignment="Top" Width="75" Click="addResultsButton_Click"/>
+
+                        </Grid>
+                    </ScrollViewer>
+                    <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="newTaskRadTabItem" Header="New Tasks" IsEnabled="False">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="859" VerticalAlignment="Top" Width="1078"/>
+                    <Grid HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="480">
+                        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=taskDomainDataSource}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Attachments:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="attachmentsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Attachments, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Complete Percentage:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                            <TextBox x:Name="completePercentageTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="0" VerticalAlignment="Center" Width="120" TextChanged="completePercentageTextBox_TextChanged"/>
+                            <sdk:Label Content="Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                            <TextBox x:Name="descriptionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Due Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                            <telerik:RadDateTimePicker x:Name="dueDateRadDateTimePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" SelectedValue="{Binding DueDate, Mode=TwoWay}" VerticalAlignment="Center"/>
+                            <sdk:Label Content="End Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                            <telerik:RadDateTimePicker x:Name="endDateRadDateTimePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" SelectedValue="{Binding EndDate, Mode=TwoWay}" VerticalAlignment="Center"/>
+                            <sdk:Label Content="Pond ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                            <TextBox x:Name="pondIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding PondID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Priority:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                            <TextBox x:Name="priorityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Priority, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                            <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Reccurence Pattern:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                            <TextBox x:Name="reccurencePatternTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding ReccurencePattern, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Start Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                            <telerik:RadDateTimePicker x:Name="startDateRadDateTimePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="9" SelectedValue="{Binding StartDate, Mode=TwoWay}" VerticalAlignment="Center"/>
+                            <sdk:Label Content="Status:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                            <TextBox x:Name="statusTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Status, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Task ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                            <TextBox x:Name="taskIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding TaskID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Title:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                            <TextBox x:Name="titleTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Title, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="User Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                            <TextBox x:Name="userIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding UserId, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="assigned To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                            <TextBox x:Name="assignedToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding assignedTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="is Done:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                            <CheckBox x:Name="isDoneCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isDone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                            <sdk:Label Content="planned Man Hours:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
+                            <TextBox x:Name="plannedManHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding plannedManHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        </Grid>
+                        <Button x:Name="SaveNewTaskButton" Content="Save" HorizontalAlignment="Left" Margin="190,488,0,0" VerticalAlignment="Top" Width="75" Click="SaveNewTaskButton_Click"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="481" Margin="357,22,0,0" VerticalAlignment="Top" Width="721">
+                        <ScrollViewer HorizontalAlignment="Left" Height="481" VerticalAlignment="Top" Width="721">
+                            <Grid Height="1201" Width="699">
+                                <riaControls:DomainDataSource x:Name="pondDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondDomainDataSource_LoadedData" QueryName="GetPondsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Pond, CreateList=true}">
+                                    <riaControls:DomainDataSource.DomainContext>
+                                        <DomainServices:PondsDS/>
+                                    </riaControls:DomainDataSource.DomainContext>
+                                </riaControls:DomainDataSource>
+                                <telerik:RadGridView x:Name="pondRadGridView" ItemsSource="{Binding Data, ElementName=pondDomainDataSource}" Margin="0,0,10,1001"/>
+                                <Grid x:Name="grid5" DataContext="{Binding Data, ElementName=pondDomainDataSource}" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <sdk:Label Content="Pond ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="pondIDTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding PondID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True" TextChanged="pondIDTextBox2_TextChanged"/>
+                                </Grid>
+                                <riaControls:DomainDataSource x:Name="pondsProductionCycleDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondsProductionCycleDomainDataSource_LoadedData" QueryName="GetPondsProductionCyclesQuery" Width="0" d:DesignData="{d:DesignInstance Web:PondsProductionCycle, CreateList=true}">
+                                    <riaControls:DomainDataSource.DomainContext>
+                                        <DomainServices:PondsProductionCycleDS/>
+                                    </riaControls:DomainDataSource.DomainContext>
+                                </riaControls:DomainDataSource>
+                                <telerik:RadGridView x:Name="pondsProductionCycleRadGridView" Margin="0,229,10,773" SelectionChanged="pondsProductionCycleRadGridView_SelectionChanged"/>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="requiredProductRadTabItem" Header="Required Products" IsEnabled="False">
+                <Grid Background="Transparent">
+                    <riaControls:DomainDataSource x:Name="productRequiredDomainDataSource" AutoLoad="True" Height="0" LoadedData="productRequiredDomainDataSource_LoadedData" QueryName="GetProductRequiredsQuery" Width="0" d:DesignData="{d:DesignInstance Web:ProductRequired, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductRequiredDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid6" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Amount:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="amountTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Product ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <TextBox x:Name="productIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Requirement ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="requirementIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Task ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="taskIDTextBox3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="288" Margin="292,19,0,0" VerticalAlignment="Top" Width="776">
+                        <telerik:RadGridView x:Name="productRadGridView" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="0,0,10,0" SelectionChanged="productRadGridView_SelectionChanged"/>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData" QueryName="GetProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Button x:Name="SaveRequiredProductButton" Content="Save" HorizontalAlignment="Left" Margin="160,131,0,0" VerticalAlignment="Top" Width="75" Click="SaveRequiredProductButton_Click"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Print">
+                <Grid Background="Transparent">
+                    <Grid x:Name="PrintTaskGrid" HorizontalAlignment="Left" Height="793" Margin="0,0,-47,0" VerticalAlignment="Top" Width="1125">
+                        <TextBlock HorizontalAlignment="Left" Margin="10,26,0,0" TextWrapping="Wrap" Text="Task ID" VerticalAlignment="Top"/>
+                        <telerik:RadBarcode128 x:Name="taskIDRadBarcode" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="236" Height="72" Text="test" ShowChecksum="False"/>
+                        <TextBlock HorizontalAlignment="Left" Height="25" Margin="523,120,0,0" TextWrapping="Wrap" Text="Assigned  To" VerticalAlignment="Top" Width="126"/>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Production Cycle ID" VerticalAlignment="Top" Margin="523,26,0,0"/>
+                        <TextBlock x:Name="taskTitleTextBlock" HorizontalAlignment="Left" Margin="13,155,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="52" Width="233"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="13,235,0,0" TextWrapping="Wrap" Text="Task Description" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TaskDescriptionTextBlock" HorizontalAlignment="Left" Height="217" Margin="13,256,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="735"/>
+                        <TextBlock x:Name="DueDateTextbox" HorizontalAlignment="Left" Margin="294,184,0,0" TextWrapping="Wrap" Text="Due Date" VerticalAlignment="Top" Height="40" Width="209"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="294,119,0,0" VerticalAlignment="Top" Width="209"/>
+                        <TextBlock x:Name="PriorityTextblock" HorizontalAlignment="Left" Height="25" Margin="523,221,0,0" TextWrapping="Wrap" Text="Priority Textblock" VerticalAlignment="Top" Width="126"/>
+                        <TextBlock HorizontalAlignment="Left" Height="25" Margin="523,191,0,0" TextWrapping="Wrap" Text="Priority" VerticalAlignment="Top" Width="126"/>
+                        <TextBlock HorizontalAlignment="Left" Height="25" Margin="13,501,0,0" TextWrapping="Wrap" Text="Task Result" VerticalAlignment="Top" Width="126"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="252" Margin="13,531,0,0" VerticalAlignment="Top" Width="587"/>
+                        <telerik:RadBarcode128A x:Name="AssignedToBarcode" HorizontalAlignment="Left" Margin="523,139,0,0" VerticalAlignment="Top" Width="142" Height="47" ShowChecksum="False"/>
+                        <telerik:RadBarcode128 x:Name="ProductionCycleIDBarcode" HorizontalAlignment="Left" Margin="523,47,0,0" VerticalAlignment="Top" Width="142" Height="58" ShowChecksum="False"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,134,0,0" TextWrapping="Wrap" Text="Task Title" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="270,37,0,0" TextWrapping="Wrap" Text="Start Date" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="270,98,0,0" TextWrapping="Wrap" Text="End Date" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="275,168,0,0" TextWrapping="Wrap" Text="Due Date" VerticalAlignment="Top"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="32" Margin="294,58,0,0" VerticalAlignment="Top" Width="209"/>
+                    </Grid>
+                    <Button x:Name="PrintTaskButton" Content="Print Task" HorizontalAlignment="Left" Margin="728,834,0,0" VerticalAlignment="Top" Width="75" Click="PrintTaskButton_Click"/>
+                </Grid>
+            </telerik:RadTabItem>
+
+
+
+        </telerik:RadTabControl>
+    </Grid>
+</UserControl>

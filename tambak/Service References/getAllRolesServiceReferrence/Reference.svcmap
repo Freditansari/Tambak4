@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d6698e4c-6acc-4f79-a9d0-3388fdc688ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/getAllRoles.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="getAllRoles.xsd" MetadataType="Schema" ID="e68cbba6-a5ae-4033-a3c4-35a421ccab4e" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllRoles.svc?xsd=xsd0" />
+    <MetadataFile FileName="getAllRoles1.xsd" MetadataType="Schema" ID="69f043b5-212d-43c6-9da4-4aa61153d209" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllRoles.svc?xsd=xsd1" />
+    <MetadataFile FileName="getAllRoles.disco" MetadataType="Disco" ID="c05aeeff-6db3-441c-899b-60ac94d2cf0f" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllRoles.svc?disco" />
+    <MetadataFile FileName="getAllRoles.wsdl" MetadataType="Wsdl" ID="09fe601e-35b6-4999-bfe2-1a170535c64c" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllRoles.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="getAllRoles1.wsdl" MetadataType="Wsdl" ID="c932912a-25b6-4f96-afd1-d57fece396cc" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllRoles.svc?wsdl" />
+    <MetadataFile FileName="getAllRoles2.xsd" MetadataType="Schema" ID="32dfcb45-7288-41f6-9d7f-6832ff18f65f" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllRoles.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

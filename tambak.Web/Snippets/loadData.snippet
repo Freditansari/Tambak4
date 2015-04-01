@@ -1,0 +1,26 @@
+﻿<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>Load Database </Title>
+		<Author>Fredi Tansari</Author>
+		<Shortcut>loadData</Shortcut>
+		<Description>Snippets for entity query</Description>
+		<SnippetTypes>
+			<SnippetType>SurroundsWith</SnippetType>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>name</ID>
+				<Default>value</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="CSharp">
+			<![CDATA[
+			EntityQuery<[CHANGEHERE]> bb = from b in [ChangeHere].GetProductsQuery() select b;
+            LoadOperation<[ChangeHere]> res = [ChangeHere].Load(bb, new Action<LoadOperation<[ChangeHere]>>([ChangeHere]), true);
+			]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>

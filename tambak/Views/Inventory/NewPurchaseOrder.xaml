@@ -1,0 +1,279 @@
+﻿<sdk:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:Silverlight="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight" x:Class="tambak.Views.Inventory.NewPurchaseOrder"
+           mc:Ignorable="d"
+           d:DesignWidth="1366" d:DesignHeight="700"
+           Title="NewPurchaseOrder Page">
+    <Grid x:Name="LayoutRoot">
+
+        <sdk:TabControl HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="1366" Margin="1,0,-1,0" SelectionChanged="TabControl_SelectionChanged_1">
+            <sdk:TabItem Header="New Purchase Orders">
+                <Grid>
+                    <riaControls:DomainDataSource x:Name="purchaseOrderDomainDataSource" AutoLoad="True" Height="0" LoadedData="purchaseOrderDomainDataSource_LoadedData_1" QueryName="GetPurchaseOrdersQuery" Width="0" d:DesignData="{d:DesignInstance Web:PurchaseOrder, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PurchaseOrderHeaderDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=purchaseOrderDomainDataSource}" HorizontalAlignment="Left" Margin="10,10,0,0" ShowGridLines="False" VerticalAlignment="Top" Width="487">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="50"/>
+                            <!--<ColumnDefinition Width="auto"/>-->
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Due Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <sdk:DatePicker x:Name="dueDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" SelectedDate="{Binding DueDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <!--<sdk:DatePicker x:Name="dueDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120"/>-->
+                        <sdk:Label Content="Note:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                        <TextBox x:Name="noteTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding Note, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <!--<TextBox x:Name="noteTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" VerticalAlignment="Center" Width="120"/>-->
+                        <sdk:Label Content="Other Fee:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="otherFeeTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding OtherFee, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <!--<TextBox x:Name="otherFeeTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>-->
+
+                        <sdk:Label Content="Discount:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="discountTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Discount, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="discountTextBox_TextChanged_1"/>
+                        <!--<TextBox x:Name="discountTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="0" VerticalAlignment="Center" Width="120" TextChanged="discountTextBox_TextChanged_1"/>-->
+
+                        <sdk:Label Content="POID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <!--<TextBox x:Name="pOIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding POID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>-->
+                        <TextBox x:Name="pOIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" IsReadOnly="True" TextChanged="pOIDTextBox_TextChanged"/>
+                        <sdk:Label Content="Po Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <!--<sdk:DatePicker x:Name="poDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" SelectedDate="{Binding PoDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+                        <sdk:DatePicker x:Name="poDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Ship To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <!--<TextBox x:Name="shipToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="3" Text="{Binding ShipTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="36" IsReadOnly="True"/>-->
+                        <TextBox x:Name="shipToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="3" Text="{Binding ShipTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="36" IsReadOnly="True"/>
+                        <Button x:Name="selectFacilityButton" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Width="22" Margin="104,0,0,7" Click="selectFacilityButton_Click">
+                            <StackPanel>
+                                <Image Source="/Icons/magnifier13.png" Stretch="Fill"/>
+                            </StackPanel>
+                        </Button>
+                        <sdk:Label Content="POReference:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="pOReferenceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding POReference, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+
+                        <sdk:Label Content="Shipping:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <TextBox x:Name="shippingTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Shipping, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="shippingTextBox_TextChanged_1" IsReadOnly="True"/>
+                        <sdk:Label Content="Status:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                        <TextBox x:Name="statusTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding Status, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Currency:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <!--<ComboBox x:Name="currencyShortNameComboBox" Grid.Column="1" DisplayMemberPath="CurrencyShortName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3" Grid.Row="8" VerticalAlignment="Center" Width="120">-->
+                        <ComboBox x:Name="currencyShortNameComboBox" Grid.Column="1" DisplayMemberPath="CurrencyShortName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Data, ElementName=masterCurrencyDomainDataSource, Mode=OneWay}" Margin="3" Grid.Row="8" VerticalAlignment="Center" Width="120" SelectionChanged="currencyShortNameComboBox_SelectionChanged" Loaded="currencyShortNameComboBox_Loaded">
+
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <sdk:Label Content="Sub Total:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="0 " VerticalAlignment="Center"/>
+                        <!--<TextBox x:Name="subTotalTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3,0,0,3" Grid.Row="0" Text="{Binding SubTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Bottom" Width="120" TextChanged="subTotalTextBox_TextChanged_1" IsReadOnly="True"/>-->
+                        <TextBox x:Name="subTotalTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3,0,0,3" Grid.Row="0" VerticalAlignment="Bottom" Width="120" TextChanged="subTotalTextBox_TextChanged_1" IsReadOnly="True"/>
+                        <sdk:Label Content="Total Price:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <!--<TextBox x:Name="totalPriceTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding TotalPrice, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>-->
+                        <TextBox x:Name="totalPriceTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="User Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                        <TextBox x:Name="userNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding UserName, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Vendor ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                        <TextBox x:Name="vendorIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="11" Text="{Binding VendorID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="36" IsReadOnly="True"/>
+                        <Button x:Name="selectVendorButton" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Right"  Width="22" Click="selectVendorButton_Click" Margin="0,0,0,7">
+                            <StackPanel>
+                                <Image Source="/Icons/magnifier13.png" Stretch="Fill"/>
+                            </StackPanel>
+                        </Button>
+                        <!--<sdk:Label Content="is Complete:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="isCompleteCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isComplete, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>-->
+                        <sdk:Label Content="tax Rate:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="taxRateTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="2" Text="{Binding taxRate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="53" IsReadOnly="True" TextChanged="taxRateTextBox_TextChanged_1"/>
+                        <Button x:Name="selectTaxButton" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Width="22" Margin="104,0,0,7" Click="selectTaxButton_Click">
+                            <StackPanel>
+                                <Image Source="/Icons/magnifier13.png" Stretch="Fill"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="pODetailDomainDataSource" AutoLoad="False" Height="0" LoadedData="pODetailDomainDataSource_LoadedData_1" QueryName="GetPODetailsQuery" Width="0" d:DesignData="{d:DesignInstance Web:PODetail, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PurchaseOrderDetailsDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <!--<riaControls:DomainDataSource x:Name="pODetailsViewDomainDataSource" AutoLoad="True" Height="0" LoadedData="pODetailsViewDomainDataSource_LoadedData_1" QueryName="GetPODetailsViewsQuery" Width="0" d:DesignData="{d:DesignInstance Web:PODetailsView, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:PODetailsViewsDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>-->
+                    <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData_1" QueryName="GetProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=productDomainDataSource}" HorizontalAlignment="Left" Margin="10,304,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid x:Name="grid3" DataContext="{Binding Data, ElementName=pODetailDomainDataSource}" HorizontalAlignment="Left" Margin="139,304,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid x:Name="grid4" DataContext="{Binding Data, ElementName=pODetailDomainDataSource}" HorizontalAlignment="Left" Margin="263,304,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="supplierDomainDataSource" AutoLoad="True" Height="0" LoadedData="supplierDomainDataSource_LoadedData_1" QueryName="GetSuppliersQuery" Width="0" d:DesignData="{d:DesignInstance Web:Supplier, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:SuppliersDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <!--<Button x:Name="selectVendorButton" Content="Select Vendor" HorizontalAlignment="Left" Margin="102,247,0,0" VerticalAlignment="Top" Width="99" Click="selectVendorButton_Click">-->
+                    <telerik:RadGridView x:Name="productRadGridView" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="472,17,418,424" SelectionChanged="productRadGridView_SelectionChanged"/>
+
+                    <Grid x:Name="grid5" DataContext="{Binding Data, ElementName=pODetailDomainDataSource}" HorizontalAlignment="Left" Margin="965,17,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="descriptionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Description, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="PODetails ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="pODetailsIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding PODetailsID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="POID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <TextBox x:Name="pOIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding POID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Product ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="productIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding ProductID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Total:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                        <TextBox x:Name="totalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Total, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="Unit Price:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                        <TextBox x:Name="unitPriceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding UnitPrice, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="unitPriceTextBox_TextChanged_1"/>
+                        <sdk:Label Content="qty:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="qtyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding qty, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="qtyTextBox_TextChanged_1"/>
+                    </Grid>
+                    <sdk:DataGrid x:Name="pODetailDataGrid" AutoGenerateColumns="False" ColumnWidth="*" ItemsSource="{Binding Data, ElementName=pODetailDomainDataSource}" Margin="10,314,182,152" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="pODetailDataGrid_SelectionChanged">
+                        <sdk:DataGrid.Columns>
+
+                            <!--<sdk:DataGridTextColumn x:Name="pODetailsIDColumn" Binding="{Binding PODetailsID, Mode=OneWay}" Header="PODetails ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="pOIDColumn" Binding="{Binding POID}" Header="POID" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID}" Header="Product ID" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Description}" Header="Description" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="qtyColumn" Binding="{Binding qty}" Header="qty" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="unitPriceColumn" Binding="{Binding UnitPrice}" Header="Unit Price" Width="SizeToHeader"/>
+
+                            <sdk:DataGridTextColumn x:Name="totalColumn" Binding="{Binding Total}" Header="Total" Width="SizeToHeader"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <Button x:Name="SavePurchaseOrderButton" Content="Save Purchase Order" HorizontalAlignment="Left" Margin="329,282,0,0" VerticalAlignment="Top" Width="127" Click="SavePurchaseOrderButton_Click"/>
+                    <Button x:Name="addProductButton" Content="Add Product to PO" HorizontalAlignment="Left" Margin="1048,225,0,0" VerticalAlignment="Top" Width="124" Click="addProductButton_Click"/>
+                    <Button x:Name="RemoveProductButton" Content="Remove Product From PO" HorizontalAlignment="Left" Margin="1018,519,0,0" VerticalAlignment="Top" Width="154" Click="RemoveProductButton_Click"/>
+                    <riaControls:DomainDataSource x:Name="masterCurrencyDomainDataSource" AutoLoad="True" Height="0" LoadedData="masterCurrencyDomainDataSource_LoadedData_1" QueryName="GetDefaultMasterCurrenciesQuery" Width="0" d:DesignData="{d:DesignInstance Web:MasterCurrency, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:MasterCurrencyDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <!--<Grid x:Name="grid6" DataContext="{Binding Data, ElementName=masterCurrencyDomainDataSource}" HorizontalAlignment="Left" Margin="560,275,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Currency Short Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="currencyShortNameComboBox" Grid.Column="1" DisplayMemberPath="CurrencyShortName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                    </Grid>-->
+                    <!--<Grid x:Name="grid6" DataContext="{Binding Data, ElementName=purchaseOrderDomainDataSource}" HorizontalAlignment="Left" Margin="565,269,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Ship To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="shipToTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ShipTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    </Grid>-->
+                    <!--<Grid x:Name="grid6" DataContext="{Binding Data, ElementName=purchaseOrderDomainDataSource}" HorizontalAlignment="Left" Margin="605,285,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="POReference:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="pOReferenceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding POReference, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    </Grid>-->
+                    <!--<Grid x:Name="grid6" DataContext="{Binding Data, ElementName=purchaseOrderDomainDataSource}" HorizontalAlignment="Left" Margin="633,278,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Discount:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="discountTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Discount, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    </Grid>-->
+                    <!--<Button x:Name="selectTaxButton" Content="Button" HorizontalAlignment="Left" Margin="472,266,0,0" VerticalAlignment="Top" Width="75" Click="selectTaxButton_Click"/>-->
+
+                    <!--<Grid HorizontalAlignment="Left" Height="294" Margin="226,10,0,0" VerticalAlignment="Top" Width="690"/>-->
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem x:Name="PrintPOTabItem" Header="Print Purchase Order">
+
+                <Silverlight:ReportViewer x:Name="POReportViewer" HorizontalAlignment="Left" Height="663" VerticalAlignment="Top" Width="1354" ReportServiceUri="../ReportService.svc" Report="TambakReports.PurchaseOrderReports, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+
+            </sdk:TabItem>
+        </sdk:TabControl>
+
+    </Grid>
+</sdk:Page>

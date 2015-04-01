@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B4B5CD0-A4F3-470A-A480-C6A9429897AE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tambak.Web</RootNamespace>
+    <AssemblyName>tambak.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UpgradeBackupLocation />
+    <SilverlightApplicationList>{D839CDEE-F9CF-4F16-89D5-B426BF1AD473}|..\tambak\tambak.csproj|ClientBin|False</SilverlightApplicationList>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.ServiceModel.DomainServices.Hosting.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ServiceModel.DomainServices.Server" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.Hosting" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Telerik.Reporting, Version=9.0.15.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Reporting.Service, Version=9.0.15.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="ClientBin\Icons\home168.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </CodeAnalysisDictionary>
+    <Content Include="ClientBin\Icons\floppy1.png" />
+    <Content Include="ClientBin\Icons\magnifier13.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <CodeAnalysisDictionary Include="ClientBin\Icons\marketing8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </CodeAnalysisDictionary>
+    <CodeAnalysisDictionary Include="ClientBin\Icons\settings48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </CodeAnalysisDictionary>
+    <CodeAnalysisDictionary Include="ClientBin\Icons\telephone5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </CodeAnalysisDictionary>
+    <CodeAnalysisDictionary Include="ClientBin\Icons\Settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </CodeAnalysisDictionary>
+    <Content Include="ClientBin\tambak.xap" />
+    <Content Include="ReportService.svc" />
+    <Content Include="TambakEDM.edmx.sql" />
+    <Content Include="tambakTestPage.aspx" />
+    <Content Include="tambakTestPage.html" />
+    <Content Include="Silverlight.js" />
+    <Content Include="WCFServices\addRoleService.svc" />
+    <Content Include="WCFServices\addUsertoRoleSVC.svc" />
+    <Content Include="WCFServices\ChangePasswordService.svc" />
+    <Content Include="WCFServices\getAllRoles.svc" />
+    <Content Include="WCFServices\getAllUsersService.svc" />
+    <Content Include="WCFServices\GetServerTime.svc" />
+    <Content Include="WCFServices\RunCmdShell.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CPLEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CPLEDM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DomainServices\AverageDailyFeedSummaryDS.cs" />
+    <Compile Include="DomainServices\AverageDailyFeedSummaryDS.metadata.cs" />
+    <Compile Include="DomainServices\BatchConsumptionJoinDS.cs" />
+    <Compile Include="DomainServices\BatchConsumptionJoinDS.metadata.cs" />
+    <Compile Include="DomainServices\BatchDetailDS.cs" />
+    <Compile Include="DomainServices\BatchDetailDS.metadata.cs" />
+    <Compile Include="DomainServices\BatchHeaderDS.cs" />
+    <Compile Include="DomainServices\BatchHeaderDS.metadata.cs" />
+    <Compile Include="DomainServices\BatchQuantityViewDS.cs" />
+    <Compile Include="DomainServices\BatchQuantityViewDS.metadata.cs" />
+    <Compile Include="DomainServices\CategoryDS.cs" />
+    <Compile Include="DomainServices\CategoryDS.metadata.cs" />
+    <Compile Include="DomainServices\CompanyDS.cs" />
+    <Compile Include="DomainServices\CompanyDS.metadata.cs" />
+    <Compile Include="DomainServices\ContactDS.cs" />
+    <Compile Include="DomainServices\ContactDS.metadata.cs" />
+    <Compile Include="DomainServices\ContactToUserLinkDS.cs" />
+    <Compile Include="DomainServices\ContactToUserLinkDS.metadata.cs" />
+    <Compile Include="DomainServices\CummulativeFeedViewDS.cs" />
+    <Compile Include="DomainServices\CummulativeFeedViewDS.metadata.cs" />
+    <Compile Include="DomainServices\CurrencyRateDS.cs" />
+    <Compile Include="DomainServices\CurrencyRateDS.metadata.cs" />
+    <Compile Include="DomainServices\CurrentActivePondsViewDS.cs" />
+    <Compile Include="DomainServices\CurrentActivePondsViewDS.metadata.cs" />
+    <Compile Include="DomainServices\DeliveryLogDS.cs" />
+    <Compile Include="DomainServices\DeliveryLogDS.metadata.cs" />
+    <Compile Include="DomainServices\FacilityDS.cs" />
+    <Compile Include="DomainServices\FacilityDS.metadata.cs" />
+    <Compile Include="DomainServices\FeedingLogsDS.cs" />
+    <Compile Include="DomainServices\FeedingLogsDS.metadata.cs" />
+    <Compile Include="DomainServices\FeedingRateGuideDS.cs" />
+    <Compile Include="DomainServices\FeedingRateGuideDS.metadata.cs" />
+    <Compile Include="DomainServices\FourteenDaysFeedEstimateDS.cs" />
+    <Compile Include="DomainServices\FourteenDaysFeedEstimateDS.metadata.cs" />
+    <Compile Include="DomainServices\HarvestDS.cs" />
+    <Compile Include="DomainServices\HarvestDS.metadata.cs" />
+    <Compile Include="DomainServices\MasterCurrencyDS.cs" />
+    <Compile Include="DomainServices\MasterCurrencyDS.metadata.cs" />
+    <Compile Include="DomainServices\MasterTaxDS.cs" />
+    <Compile Include="DomainServices\MasterTaxDS.metadata.cs" />
+    <Compile Include="DomainServices\PDOControlDS.cs" />
+    <Compile Include="DomainServices\PDOControlDS.metadata.cs" />
+    <Compile Include="DomainServices\PODeliveredQuantityDS.cs" />
+    <Compile Include="DomainServices\PODeliveredQuantityDS.metadata.cs" />
+    <Compile Include="DomainServices\PODetailsViewsDS.cs" />
+    <Compile Include="DomainServices\PODetailsViewsDS.metadata.cs" />
+    <Compile Include="DomainServices\PondConsumptionLogDS.cs" />
+    <Compile Include="DomainServices\PondConsumptionLogDS.metadata.cs" />
+    <Compile Include="DomainServices\PondsDS.cs" />
+    <Compile Include="DomainServices\PondsDS.metadata.cs" />
+    <Compile Include="DomainServices\PondsProductionCycleDS.cs" />
+    <Compile Include="DomainServices\PondsProductionCycleDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductDS.cs" />
+    <Compile Include="DomainServices\ProductDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductInfoViewDS.cs" />
+    <Compile Include="DomainServices\ProductInfoViewDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductPurchaseLogDS.cs" />
+    <Compile Include="DomainServices\ProductPurchaseLogDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductRequiredDS.cs" />
+    <Compile Include="DomainServices\ProductRequiredDS.metadata.cs" />
+    <Compile Include="DomainServices\PurchaseOrderDetailsDS.cs" />
+    <Compile Include="DomainServices\PurchaseOrderDetailsDS.metadata.cs" />
+    <Compile Include="DomainServices\PurchaseOrderHeaderDS.cs" />
+    <Compile Include="DomainServices\PurchaseOrderHeaderDS.metadata.cs" />
+    <Compile Include="DomainServices\PurchaseTaxTransactionsDS.cs" />
+    <Compile Include="DomainServices\PurchaseTaxTransactionsDS.metadata.cs" />
+    <Compile Include="DomainServices\RequiredFeedNextThreeDaysDS.cs" />
+    <Compile Include="DomainServices\RequiredFeedNextThreeDaysDS.metadata.cs" />
+    <Compile Include="DomainServices\SalesOrderDetailsViewDS.cs" />
+    <Compile Include="DomainServices\SalesOrderDetailsViewDS.metadata.cs" />
+    <Compile Include="DomainServices\SamplingLogDS.cs" />
+    <Compile Include="DomainServices\SamplingLogDS.metadata.cs" />
+    <Compile Include="DomainServices\SevenDaysFoodEstimateDS.cs" />
+    <Compile Include="DomainServices\SevenDaysFoodEstimateDS.metadata.cs" />
+    <Compile Include="DomainServices\SuppliersDS.cs" />
+    <Compile Include="DomainServices\SuppliersDS.metadata.cs" />
+    <Compile Include="DomainServices\tenDaysFeedEstimate.cs" />
+    <Compile Include="DomainServices\tenDaysFeedEstimate.metadata.cs" />
+    <Compile Include="DomainServices\UnitofMeasurementDS.cs" />
+    <Compile Include="DomainServices\UnitofMeasurementDS.metadata.cs" />
+    <Compile Include="ProductRequiredViewDS.cs" />
+    <Compile Include="ProductRequiredViewDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductSalesOrdersDS.cs" />
+    <Compile Include="DomainServices\ProductSalesOrdersDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductsDetailsDS.cs" />
+    <Compile Include="DomainServices\ProductsDetailsDS.metadata.cs" />
+    <Compile Include="DomainServices\ResultNoteDS.cs" />
+    <Compile Include="DomainServices\ResultNoteDS.metadata.cs" />
+    <Compile Include="DomainServices\TasksDS.cs" />
+    <Compile Include="DomainServices\TasksDS.metadata.cs" />
+    <Compile Include="DomainServices\WaterParameterLogDS.cs" />
+    <Compile Include="DomainServices\WaterParameterLogDS.metadata.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Resources\ValidationErrorResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationErrorResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\RegistrationDataResources.Designer.cs">
+      <DependentUpon>RegistrationDataResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\RegistrationData.cs" />
+    <Compile Include="Services\UserRegistrationService.cs" />
+    <Compile Include="Models\Shared\User.shared.cs" />
+    <Compile Include="SumProductRequiredViewDS.cs" />
+    <Compile Include="SumProductRequiredViewDS.metadata.cs" />
+    <Compile Include="WCFServices\addRoleService.svc.cs">
+      <DependentUpon>addRoleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WCFServices\addUsertoRoleSVC.svc.cs">
+      <DependentUpon>addUsertoRoleSVC.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WCFServices\ChangePasswordService.svc.cs">
+      <DependentUpon>ChangePasswordService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WCFServices\getAllRoles.svc.cs">
+      <DependentUpon>getAllRoles.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WCFServices\getAllUsersService.svc.cs">
+      <DependentUpon>getAllUsersService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WCFServices\GetServerTime.svc.cs">
+      <DependentUpon>GetServerTime.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WCFServices\RunCmdShell.svc.cs">
+      <DependentUpon>RunCmdShell.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ValidationErrorResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RegistrationDataResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegistrationDataResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="CPLEDM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CPLEDM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CPLEDM.edmx.diagram">
+      <DependentUpon>CPLEDM.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Snippets\loadData.snippet" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\LocalIIS.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TambakReports\TambakReports.csproj">
+      <Project>{717c9c52-957f-4512-b26c-970b0418b0c9}</Project>
+      <Name>TambakReports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52878</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58556/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

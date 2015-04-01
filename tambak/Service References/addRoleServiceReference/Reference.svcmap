@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a689d184-a908-4d37-bc66-5ba38bb118a0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/addRoleService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="addRoleService.wsdl" MetadataType="Wsdl" ID="a899f967-d5e0-4e75-b77e-8e5af5c9cb1f" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addRoleService.svc?wsdl" />
+    <MetadataFile FileName="addRoleService.xsd" MetadataType="Schema" ID="3fe1793f-831f-46fb-85ad-d3f5f7c9dd19" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addRoleService.svc?xsd=xsd1" />
+    <MetadataFile FileName="addRoleService1.wsdl" MetadataType="Wsdl" ID="4015f7ed-2192-4140-8b9e-e03f0f4ed284" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addRoleService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="addRoleService.disco" MetadataType="Disco" ID="5d626622-2c7d-4863-84dc-3cd751f4dd91" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addRoleService.svc?disco" />
+    <MetadataFile FileName="addRoleService1.xsd" MetadataType="Schema" ID="243b1450-cb94-4658-b795-8aaab14cc271" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/addRoleService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

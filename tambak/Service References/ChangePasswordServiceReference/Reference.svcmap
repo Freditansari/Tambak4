@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a7538a89-a1e5-4885-ad2a-b90e899f9daf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/ChangePasswordService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ChangePasswordService.xsd" MetadataType="Schema" ID="4ef53fb2-13aa-439d-8155-1dabd6a1d680" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/ChangePasswordService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ChangePasswordService1.xsd" MetadataType="Schema" ID="d543f5f9-ee9e-436e-9d57-5d0fb9efbef2" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/ChangePasswordService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ChangePasswordService.disco" MetadataType="Disco" ID="ca231832-6d7d-49c9-8a5a-13102e403d30" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/ChangePasswordService.svc?disco" />
+    <MetadataFile FileName="ChangePasswordService.wsdl" MetadataType="Wsdl" ID="c8f40b27-3389-4ed5-9a10-fccf2d75da07" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/ChangePasswordService.svc?wsdl" />
+    <MetadataFile FileName="ChangePasswordService1.wsdl" MetadataType="Wsdl" ID="e1dc26f9-e0eb-488f-ae36-a6dd05c80226" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/ChangePasswordService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

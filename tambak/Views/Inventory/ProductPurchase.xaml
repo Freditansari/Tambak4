@@ -1,0 +1,149 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" x:Class="tambak.Views.Inventory.ProductPurchase"
+    mc:Ignorable="d"
+    d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <telerik:RadTabControl>
+            <telerik:RadTabItem x:Name="RadTabItem" Header="Create Purchase Log">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="718" VerticalAlignment="Top" Width="1420">
+                        <telerik:RadGridView x:Name="productRadGridView" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="0,0,10,359"/>
+                        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=productDomainDataSource}" HorizontalAlignment="Left" Margin="228,798,0,-109" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Product ID:" Grid.Column="0" Margin="-29,7,32,6" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="productIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="5,6,0,0" Grid.Row="0" Text="{Binding ProductID, Mode=OneWay}" VerticalAlignment="Center" Width="120" TextChanged="productIDTextBox_TextChanged"/>
+                        </Grid>
+                        <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=productPurchaseLogDomainDataSource}" HorizontalAlignment="Left" Margin="196,377,0,-109" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Currency:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="currencyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="IDR" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                            <sdk:DatePicker x:Name="dateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Expire Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                            <sdk:DatePicker x:Name="expireDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Purchase Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                            <TextBox x:Name="purchaseLogIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Purchase Price:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                            <TextBox x:Name="purchasePriceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Quantity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                            <TextBox x:Name="quantityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Requester:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                            <TextBox x:Name="requesterTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Shipping:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                            <TextBox x:Name="shippingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Total:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                            <TextBox x:Name="totalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="batch ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                            <TextBox x:Name="batchIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="is Delivered:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                            <CheckBox x:Name="isDeliveredCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                            <sdk:Label Content="is Synchronized:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                            <CheckBox x:Name="isSynchronizedCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center" IsEnabled="False"/>
+                            <sdk:Label Content="location:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                            <TextBox x:Name="locationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="tax:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                            <TextBox x:Name="taxTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="user ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                            <TextBox x:Name="userIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" VerticalAlignment="Center" Width="120"/>
+                        </Grid>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData" QueryName="GetProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <riaControls:DomainDataSource x:Name="productPurchaseLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="productPurchaseLogDomainDataSource_LoadedData" QueryName="GetProductPurchaseLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:ProductPurchaseLog, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductPurchaseLogDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="341,836,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="RadTabItem1" Header="Manage Purchase Logs">
+                <Grid Background="Transparent">
+                    <Grid HorizontalAlignment="Left" Height="1043" Margin="10,0,0,0" VerticalAlignment="Top" Width="1898">
+                        <Grid x:Name="grid3" DataContext="{Binding Data, ElementName=productQuantityDomainDataSource}" HorizontalAlignment="Left" Margin="0,419,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="Container ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="containerIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ContainerID, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Location:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                            <TextBox x:Name="locationTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Location, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="Lot Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                            <TextBox x:Name="lotNumberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding LotNumber, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Product ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                            <TextBox x:Name="productIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding ProductID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Purchase Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                            <TextBox x:Name="purchaseLogIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding PurchaseLogID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                            <sdk:Label Content="Quantity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                            <TextBox x:Name="quantityTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Quantity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="expire Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                            <sdk:DatePicker x:Name="expireDateDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" SelectedDate="{Binding expireDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="trx Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                            <sdk:DatePicker x:Name="trxDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" SelectedDate="{Binding trxDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <sdk:Label Content="user ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                            <TextBox x:Name="userIDTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding userID, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        </Grid>
+                        <telerik:RadGridView x:Name="productPurchaseLogRadGridView" ItemsSource="{Binding Data, ElementName=productPurchaseLogDomainDataSource}" Margin="0,0,529,647" SelectionChanged="productPurchaseLogRadGridView_SelectionChanged"/>
+                        <TextBlock x:Name="ServerTimeTextBlock" HorizontalAlignment="Left" Margin="250,631,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                    </Grid>
+                    <riaControls:DomainDataSource x:Name="productQuantityDomainDataSource" AutoLoad="True" Height="0" LoadedData="productQuantityDomainDataSource_LoadedData" QueryName="GetProductQuantitiesQuery" Width="0" d:DesignData="{d:DesignInstance Web:ProductQuantity, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductQuantityDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <CheckBox x:Name="IsDeliveryComplete" Content="Is Delivery Complete?" HorizontalAlignment="Left" Margin="269,657,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="SaveProductInventoryButton" Content="Save to Inventory" HorizontalAlignment="Left" Margin="109,693,0,0" VerticalAlignment="Top" Width="123" Click="SaveProductInventoryButton_Click"/>
+                </Grid>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,12 @@
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\bin\Debug\TambakReports.dll
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\bin\Debug\TambakReports.pdb
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.csproj.GenerateResource.Cache
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.dll
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.pdb
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\bin\Debug\TambakReports.dll.config
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.SamplingReports.resources
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.FacilityReport.resources
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.SuppliersReport.resources
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.PurchaseOrderReports.resources
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.PODetailsReport.resources
+C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\TambakReports\obj\Debug\TambakReports.DeliveryReceiptReport.resources

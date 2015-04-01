@@ -1,0 +1,19 @@
+﻿try
+          
+		    {
+                if (!Regex.IsMatch(feedGivenTextBox.Text, "[0-9]"))
+                {
+                    throw new ArgumentException("numbers only");
+                }
+                else
+                {
+				}
+
+            }
+            catch (ArgumentException f)
+            {
+                MessageBox.Show(f.Message);
+            }
+            catch (FormatException g)
+            {
+            }

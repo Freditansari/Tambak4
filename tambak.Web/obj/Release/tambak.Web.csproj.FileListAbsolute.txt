@@ -1,0 +1,11 @@
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\bin\tambak.Web.dll
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\bin\tambak.Web.pdb
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\bin\EntityFramework.dll
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\bin\System.Web.Providers.dll
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\bin\EntityFramework.xml
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\obj\Release\tambak.Web.csprojResolveAssemblyReference.cache
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\obj\Release\tambak.Web.Resources.ValidationErrorResources.resources
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\obj\Release\tambak.Web.Resources.RegistrationDataResources.resources
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\obj\Release\tambak.Web.csproj.GenerateResource.Cache
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\obj\Release\tambak.Web.dll
+C:\Users\fredy\Desktop\Tambak\branches\NewFix\new\tambak.Web\obj\Release\tambak.Web.pdb

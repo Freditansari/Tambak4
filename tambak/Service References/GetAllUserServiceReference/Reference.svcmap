@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ab9bad35-8408-4562-b414-8dd99dd3a202" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/getAllUsersService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="getAllUsersService.wsdl" MetadataType="Wsdl" ID="dc6d6aa8-4836-4824-a4d8-93cb3363902e" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllUsersService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="getAllUsersService1.wsdl" MetadataType="Wsdl" ID="07392420-b308-4df2-860b-06eec9bd9cc5" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllUsersService.svc?wsdl" />
+    <MetadataFile FileName="getAllUsersService.disco" MetadataType="Disco" ID="dbdd17d4-1c89-4337-aead-7ac3d421a6bd" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllUsersService.svc?disco" />
+    <MetadataFile FileName="getAllUsersService.xsd" MetadataType="Schema" ID="b2c55150-966a-439d-b94a-16d7f03056fb" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllUsersService.svc?xsd=xsd2" />
+    <MetadataFile FileName="getAllUsersService1.xsd" MetadataType="Schema" ID="50c7797b-fd66-47c5-9293-e2b79e2e42ef" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllUsersService.svc?xsd=xsd1" />
+    <MetadataFile FileName="getAllUsersService2.xsd" MetadataType="Schema" ID="278cf422-b171-4212-9e33-237958c648b5" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/getAllUsersService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

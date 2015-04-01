@@ -1,0 +1,100 @@
+﻿<UserControl
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+  xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+  xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit" 
+  xmlns:login="clr-namespace:tambak.LoginUI"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+   
+  xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+  x:Class="tambak.MainPage" 
+   
+  mc:Ignorable="d" d:DesignWidth="1366" d:DesignHeight="599">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}">
+            <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
+				Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </Border>
+
+        <Grid Style="{StaticResource NavigationOuterGridStyle}">
+            <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
+
+                <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
+                    <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
+
+                        <ContentControl Style="{StaticResource LogoIcon}"/>
+                        <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
+							Text="{Binding Strings.ApplicationName, Source={StaticResource ApplicationResources}}"/>
+
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
+
+                    </StackPanel>
+                </Border>
+                <Grid HorizontalAlignment="Right" Height="32" Margin="304,10,0,0"  VerticalAlignment="Top" Width="336">
+                    <telerik:RadMenu x:Name="NavMenu" Margin="-94,0,33,0" VerticalAlignment="Top" ItemClick="NavMenu_ItemClick">
+                        <telerik:RadMenuItem Header="Ponds">
+                            <telerik:RadMenuItem Header="Manage Ponds"/>
+                            <telerik:RadMenuItem Header="Ponds Production Cycle"/>
+                            <telerik:RadMenuItem Header="Ponds Status"/>
+                            <telerik:RadMenuItem Header="Ponds Logs"/>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Inventory">
+                            <telerik:RadMenuItem Header="Product Registration"/>
+                            <telerik:RadMenuItem Header="Product Management"/>
+                            <telerik:RadMenuItem Header="Sales Orders"/>
+                            <telerik:RadMenuItem Header="Purchase Orders"/>
+                            <telerik:RadMenuItem Header="Delivery Log"/> 
+                            <telerik:RadMenuItem Header="Feed Estimation"/>
+                            <telerik:RadMenuItem Header="PO Control"/>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Tasks">
+                            <telerik:RadMenuItem Header="Manage Tasks"/>
+                            <telerik:RadMenuItem Header="Sub Item 4"/>
+                            <telerik:RadMenuItem Header="Sub Item 5"/>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Administration">
+                            <telerik:RadMenuItem Header="Manage Users"/>
+                            <telerik:RadMenuItem Header="Change Password"/>
+                            <telerik:RadMenuItem Header="Register New Contact"/>
+                            <telerik:RadMenuItem Header="Link User Name to Contact"/>
+                           
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Master">
+                            <telerik:RadMenuItem Header="Company"/>
+                            <telerik:RadMenuItem Header="Facilities"/>
+                            <telerik:RadMenuItem Header="Tax"/>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Production">
+                            <telerik:RadMenuItem Header="Consume Material"/>
+                            <telerik:RadMenuItem Header="Harvest Log"/>
+                        </telerik:RadMenuItem>
+                        
+                    </telerik:RadMenu>
+                </Grid>
+
+            </Grid>
+
+            <Border Style="{StaticResource LoginContainerStyle}">
+                <login:LoginStatus/>
+            </Border>
+        </Grid>
+
+    </Grid>
+
+</UserControl>
