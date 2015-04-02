@@ -65,3 +65,16 @@ C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\obj\Debug\t
 C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\obj\Debug\tambak.Web.dll
 C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\obj\Debug\tambak.Web.pdb
 C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak.Web\obj\Debug\tambak.Web.csprojResolveAssemblyReference.cache
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\ClientBin\Icons\magnifier13.png
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\tambak.Web.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\tambak.Web.pdb
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\EntityFramework.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\System.Web.Providers.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\TambakReports.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\TambakReports.pdb
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\bin\EntityFramework.xml
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.Resources.ValidationErrorResources.resources
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.Resources.RegistrationDataResources.resources
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.csproj.GenerateResource.Cache
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.pdb

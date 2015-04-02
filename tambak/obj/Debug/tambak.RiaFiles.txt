@@ -1,3 +1,3 @@
-C:\Users\fredy\Desktop\Tambak2\Tambak\branches\NewFix\new\tambak
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak
 Generated_Code\tambak.Web.g.cs
 Generated_Code\Models\Shared\User.shared.cs
