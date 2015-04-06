@@ -13,12 +13,20 @@ using System.Windows.Navigation;
 using tambak.Web;
 using tambak.Web.DomainServices;
 using System.ServiceModel.DomainServices.Client;
-//Todo Check if github works or not
+
 
 namespace tambak.Views.Production
 {
     public partial class HarvestPage : Page
     {
+        /*
+         * <summary>
+         * This page handles harvesting activity on each cycle. Pond selection will take the single first active production cycle and select it by it self.
+         * If the harvest is final harvest then it will close the production cycle automatically. 
+         * </summary>
+         * 
+         * */
+
         public Pond SelectedPond { get; set; }
         PondsProductionCycleDS ProductionCycleDomainContext = new PondsProductionCycleDS();
         public Web.PondsProductionCycle SelectedProductionCycle { get; set; }
@@ -27,7 +35,7 @@ namespace tambak.Views.Production
         SamplingLogDS samplingLogDomainContext = new SamplingLogDS();
         SamplingLog SelectedSamplingLog;
         HarvestDS HarvestDomainContext = new HarvestDS();
-
+        
 
 
         public HarvestPage()
@@ -96,8 +104,7 @@ namespace tambak.Views.Production
         private void pondDescriptionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedPond = this.pondDescriptionComboBox.SelectedItem as Pond;
-            //SelectedPondID = SelectedPond.PondID;
-
+           
             EntityQuery<tambak.Web.PondsProductionCycle> bb = from b in ProductionCycleDomainContext.GetPondsProductionCyclesQuery() where b.PondID == SelectedPond.PondID && b.isInProduction == true select b;
             LoadOperation<tambak.Web.PondsProductionCycle> res = ProductionCycleDomainContext.Load(bb, new Action<LoadOperation<tambak.Web.PondsProductionCycle>>(getPondProductionCycle_completed), true);
 
@@ -166,7 +173,7 @@ namespace tambak.Views.Production
         {
             try
             {
-                //rom b in currentActivePondDomainContext.GetCurrentActivePondsQuery() where b.ProductionCycleID == SelectedProductionCycle.ProductionCycleID select b;
+                
                 double? sumPreviousHarvestedPopulation = (from b in HarvestDomainContext.Harvests where b.ProductionCycleID == SelectedProductionCycle.ProductionCycleID select b.HarvestedPopulation).Sum();
                 if (sumPreviousHarvestedPopulation == null)
                 {
@@ -191,7 +198,7 @@ namespace tambak.Views.Production
         {
             try
             {
-                CurrentActivePond bc = obj.Entities.FirstOrDefault();
+                 CurrentActivePond bc = obj.Entities.FirstOrDefault();
                 ageTextBox.Text = bc.DOC.ToString();
                 monthTextBox.Text = DateTime.Now.Month.ToString();
                 numberOfFryTextBox.Text = bc.NumberOfFry.ToString();
@@ -232,6 +239,19 @@ namespace tambak.Views.Production
             newHarvest.Size = Convert.ToDouble(sizeTextBox.Text);
             newHarvest.Weight = Convert.ToDouble(weightTextBox.Text);
             newHarvest.isFinalHarvest = isFinalHarvestCheckBox.IsChecked;
+
+            if (isFinalHarvestCheckBox.IsChecked == true)
+            {
+                //<summary>
+                //Close production cycle automatically 
+                //</summary>
+
+                SelectedProductionCycle.isInProduction = true;
+                ProductionCycleDomainContext.SubmitChanges();
+                
+			
+            }
+
 
             HarvestDomainContext.Harvests.Add(newHarvest);
             HarvestDomainContext.SubmitChanges().Completed += HarvestSubmitChanges_completed;
