@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="tambak" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="CPLEntities-Web.config Connection String" description="" value="metadata=res://*/TambakEDM.csdl|res://*/TambakEDM.ssdl|res://*/TambakEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=CPL;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CPLEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CPLEntities']/@connectionString" />
   </parameter>
   <parameter name="CPLEntities1-Web.config Connection String" description="" value="metadata=res://*/CPLEDM.csdl|res://*/CPLEDM.ssdl|res://*/CPLEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=CPL;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CPLEntities1']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CPLEntities1']/@connectionString" />
   </parameter>
   <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=.\sqlexpress;Initial Catalog=Logins;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="Entities-Web.config Connection String" description="" value="metadata=res://*/CPLEDM.csdl|res://*/CPLEDM.ssdl|res://*/CPLEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=CPL;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
   </parameter>
   <parameter name="TambakReports.Properties.Settings.CPL-Web.config Connection String" description="" value="Data Source=.\sqlexpress;Initial Catalog=CPL;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Desktop\\Tambak2\\Tambak\\branches\\NewFix\\new\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TambakReports.Properties.Settings.CPL']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TambakReports.Properties.Settings.CPL']/@connectionString" />
   </parameter>
 </parameters>

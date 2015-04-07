@@ -96,6 +96,7 @@
         <EntityTypeShape EntityType="CPLModel.BatchConsumptionJoin" Width="1.5" PointX="10.737960839056392" PointY="0.69025746020034773" />
         <EntityTypeShape EntityType="CPLModel.Harvest" Width="1.5" PointX="2.5554931808987131" PointY="31.196810185535256" />
         <EntityTypeShape EntityType="CPLModel.CurrentActivePond" Width="1.5" PointX="5.3338553390157664" PointY="4.6703683904699833" />
+        <EntityTypeShape EntityType="CPLModel.EmployeeNameView" Width="1.5" PointX="0.38445913437030232" PointY="16.619161196341349" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

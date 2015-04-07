@@ -910,6 +910,22 @@ namespace tambak.Web
             }
         }
         private ObjectSet<CurrentActivePond> _CurrentActivePonds;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EmployeeNameView> EmployeeNameViews
+        {
+            get
+            {
+                if ((_EmployeeNameViews == null))
+                {
+                    _EmployeeNameViews = base.CreateObjectSet<EmployeeNameView>("EmployeeNameViews");
+                }
+                return _EmployeeNameViews;
+            }
+        }
+        private ObjectSet<EmployeeNameView> _EmployeeNameViews;
 
         #endregion
 
@@ -1313,6 +1329,14 @@ namespace tambak.Web
         public void AddToCurrentActivePonds(CurrentActivePond currentActivePond)
         {
             base.AddObject("CurrentActivePonds", currentActivePond);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EmployeeNameViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEmployeeNameViews(EmployeeNameView employeeNameView)
+        {
+            base.AddObject("EmployeeNameViews", employeeNameView);
         }
 
         #endregion
@@ -3452,6 +3476,30 @@ namespace tambak.Web
         private Nullable<global::System.Boolean> _archive;
         partial void OnarchiveChanging(Nullable<global::System.Boolean> value);
         partial void OnarchiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> isActive
+        {
+            get
+            {
+                return _isActive;
+            }
+            set
+            {
+                OnisActiveChanging(value);
+                ReportPropertyChanging("isActive");
+                _isActive = StructuralObject.SetValidValue(value, "isActive");
+                ReportPropertyChanged("isActive");
+                OnisActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _isActive;
+        partial void OnisActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnisActiveChanged();
 
         #endregion
 
@@ -4613,6 +4661,86 @@ namespace tambak.Web
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="EmployeeNameView")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class EmployeeNameView : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new EmployeeNameView object.
+        /// </summary>
+        /// <param name="contactID">Initial value of the ContactID property.</param>
+        public static EmployeeNameView CreateEmployeeNameView(global::System.Int32 contactID)
+        {
+            EmployeeNameView employeeNameView = new EmployeeNameView();
+            employeeNameView.ContactID = contactID;
+            return employeeNameView;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ContactID
+        {
+            get
+            {
+                return _ContactID;
+            }
+            set
+            {
+                if (_ContactID != value)
+                {
+                    OnContactIDChanging(value);
+                    ReportPropertyChanging("ContactID");
+                    _ContactID = StructuralObject.SetValidValue(value, "ContactID");
+                    ReportPropertyChanged("ContactID");
+                    OnContactIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ContactID;
+        partial void OnContactIDChanging(global::System.Int32 value);
+        partial void OnContactIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, true, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
 
         #endregion
 

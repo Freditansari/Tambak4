@@ -34,16 +34,20 @@ namespace tambak.Web
             {
             }
 
+            [Required]
             public int assignedTo { get; set; }
 
+            
             public string Attachments { get; set; }
 
             public Nullable<double> CompletePercentage { get; set; }
 
             public Contact Contact { get; set; }
 
+            [Required]
             public string Description { get; set; }
 
+            [Required]
             public Nullable<DateTime> DueDate { get; set; }
 
             public Nullable<DateTime> EndDate { get; set; }
@@ -52,14 +56,17 @@ namespace tambak.Web
 
             public Nullable<double> plannedManHours { get; set; }
 
+          
             public Pond Pond { get; set; }
 
+            [Required]
             public Nullable<int> PondID { get; set; }
 
             public PondsProductionCycle PondsProductionCycle { get; set; }
 
             public string Priority { get; set; }
 
+            [Required]
             public Nullable<int> ProductionCycleID { get; set; }
 
             public EntityCollection<ProductRequired> ProductRequireds { get; set; }
@@ -72,10 +79,12 @@ namespace tambak.Web
 
             public Nullable<DateTime> StartDate { get; set; }
 
+            [Required]
             public string Status { get; set; }
 
             public int TaskID { get; set; }
 
+            [Required]
             public string Title { get; set; }
 
             public string UserId { get; set; }

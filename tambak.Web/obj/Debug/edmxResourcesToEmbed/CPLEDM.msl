@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Contacts">
       <EntityTypeMapping TypeName="CPLModel.Contact">
         <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
           <ScalarProperty Name="ContactID" ColumnName="ContactID" />
           <ScalarProperty Name="Company" ColumnName="Company" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -696,6 +697,14 @@
           <ScalarProperty Name="PondDescription" ColumnName="PondDescription" />
           <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
           <ScalarProperty Name="PondID" ColumnName="PondID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeNameViews">
+      <EntityTypeMapping TypeName="CPLModel.EmployeeNameView">
+        <MappingFragment StoreEntitySet="EmployeeNameView">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

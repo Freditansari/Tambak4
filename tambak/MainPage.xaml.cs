@@ -72,6 +72,9 @@
                      case "Manage Tasks":
                          this.ContentFrame.Navigate(new System.Uri("/TasksView", System.UriKind.Relative));
                          break;
+                     case "New Tasks":
+                         this.ContentFrame.Navigate(new System.Uri("/TasksModule/ManageTasks", System.UriKind.Relative));
+                         break;
                      case "Product Registration":
                          this.ContentFrame.Navigate(new System.Uri("/Inventory/ProductRegistration", System.UriKind.Relative));
                          break;

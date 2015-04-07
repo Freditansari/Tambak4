@@ -65,7 +65,7 @@
                         </telerik:RadMenuItem>
                         <telerik:RadMenuItem Header="Tasks">
                             <telerik:RadMenuItem Header="Manage Tasks"/>
-                            <telerik:RadMenuItem Header="Sub Item 4"/>
+                            <telerik:RadMenuItem Header="New Tasks"/>
                             <telerik:RadMenuItem Header="Sub Item 5"/>
                         </telerik:RadMenuItem>
                         <telerik:RadMenuItem Header="Administration">

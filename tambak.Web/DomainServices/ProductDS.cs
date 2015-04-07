@@ -32,6 +32,11 @@ namespace tambak.Web.DomainServices
             return this.ObjectContext.Products;
         }
 
+        public IQueryable<Product> GetFinishedProducts()
+        {
+           return this.ObjectContext.Products.Where(b => b.Category == 7);
+        }
+
         public void InsertProduct(Product product)
         {
             if ((product.EntityState != EntityState.Detached))

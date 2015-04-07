@@ -1848,6 +1848,8 @@ namespace tambak.Web
         
         private string _homePhone;
         
+        private Nullable<bool> _isActive;
+        
         private string _jobTitle;
         
         private string _lastName;
@@ -1891,6 +1893,8 @@ namespace tambak.Web
         partial void OnFirstNameChanged();
         partial void OnhomePhoneChanging(string value);
         partial void OnhomePhoneChanged();
+        partial void OnisActiveChanging(Nullable<bool> value);
+        partial void OnisActiveChanged();
         partial void OnjobTitleChanging(string value);
         partial void OnjobTitleChanged();
         partial void OnLastNameChanging(string value);
@@ -2189,6 +2193,30 @@ namespace tambak.Web
                     this._homePhone = value;
                     this.RaiseDataMemberChanged("homePhone");
                     this.OnhomePhoneChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'isActive' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<bool> isActive
+        {
+            get
+            {
+                return this._isActive;
+            }
+            set
+            {
+                if ((this._isActive != value))
+                {
+                    this.OnisActiveChanging(value);
+                    this.RaiseDataMemberChanging("isActive");
+                    this.ValidateProperty("isActive", value);
+                    this._isActive = value;
+                    this.RaiseDataMemberChanged("isActive");
+                    this.OnisActiveChanged();
                 }
             }
         }
@@ -3279,6 +3307,102 @@ namespace tambak.Web
         public override object GetIdentity()
         {
             return this._deliveryLogID;
+        }
+    }
+    
+    /// <summary>
+    /// The 'EmployeeNameView' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class EmployeeNameView : Entity
+    {
+        
+        private int _contactID;
+        
+        private string _name;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnContactIDChanging(int value);
+        partial void OnContactIDChanged();
+        partial void OnNameChanging(string value);
+        partial void OnNameChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeNameView"/> class.
+        /// </summary>
+        public EmployeeNameView()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ContactID' value.
+        /// </summary>
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int ContactID
+        {
+            get
+            {
+                return this._contactID;
+            }
+            set
+            {
+                if ((this._contactID != value))
+                {
+                    this.OnContactIDChanging(value);
+                    this.ValidateProperty("ContactID", value);
+                    this._contactID = value;
+                    this.RaisePropertyChanged("ContactID");
+                    this.OnContactIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Name' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(101)]
+        public string Name
+        {
+            get
+            {
+                return this._name;
+            }
+            set
+            {
+                if ((this._name != value))
+                {
+                    this.OnNameChanging(value);
+                    this.RaiseDataMemberChanging("Name");
+                    this.ValidateProperty("Name", value);
+                    this._name = value;
+                    this.RaiseDataMemberChanged("Name");
+                    this.OnNameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._contactID;
         }
     }
     
@@ -12273,6 +12397,7 @@ namespace tambak.Web
         /// Gets or sets the 'assignedTo' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         [RoundtripOriginal()]
         public int assignedTo
         {
@@ -12346,6 +12471,7 @@ namespace tambak.Web
         /// Gets or sets the 'Description' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         [StringLength(255)]
         public string Description
         {
@@ -12371,6 +12497,7 @@ namespace tambak.Web
         /// Gets or sets the 'DueDate' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         public Nullable<DateTime> DueDate
         {
             get
@@ -12467,6 +12594,7 @@ namespace tambak.Web
         /// Gets or sets the 'PondID' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         [RoundtripOriginal()]
         public Nullable<int> PondID
         {
@@ -12517,6 +12645,7 @@ namespace tambak.Web
         /// Gets or sets the 'ProductionCycleID' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         [RoundtripOriginal()]
         public Nullable<int> ProductionCycleID
         {
@@ -15267,6 +15396,116 @@ namespace tambak.Web.DomainServices
     }
     
     /// <summary>
+    /// The DomainContext corresponding to the 'EmployeeNameViewDS' DomainService.
+    /// </summary>
+    public sealed partial class EmployeeNameViewDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeNameViewDS"/> class.
+        /// </summary>
+        public EmployeeNameViewDS() : 
+                this(new WebDomainClient<IEmployeeNameViewDSContract>(new Uri("tambak-Web-DomainServices-EmployeeNameViewDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeNameViewDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The EmployeeNameViewDS service URI.</param>
+        public EmployeeNameViewDS(Uri serviceUri) : 
+                this(new WebDomainClient<IEmployeeNameViewDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeNameViewDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public EmployeeNameViewDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="EmployeeNameView"/> entity instances that have been loaded into this <see cref="EmployeeNameViewDS"/> instance.
+        /// </summary>
+        public EntitySet<EmployeeNameView> EmployeeNameViews
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<EmployeeNameView>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="EmployeeNameView"/> entity instances using the 'GetEmployeeNameViews' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="EmployeeNameView"/> entity instances.</returns>
+        public EntityQuery<EmployeeNameView> GetEmployeeNameViewsQuery()
+        {
+            this.ValidateMethod("GetEmployeeNameViewsQuery", null);
+            return base.CreateQuery<EmployeeNameView>("GetEmployeeNameViews", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new EmployeeNameViewDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'EmployeeNameViewDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface IEmployeeNameViewDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetEmployeeNameViews' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/EmployeeNameViewDS/GetEmployeeNameViewsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/EmployeeNameViewDS/GetEmployeeNameViews", ReplyAction="http://tempuri.org/EmployeeNameViewDS/GetEmployeeNameViewsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetEmployeeNameViews(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetEmployeeNameViews'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetEmployeeNameViews'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetEmployeeNameViews' operation.</returns>
+            QueryResult<EmployeeNameView> EndGetEmployeeNameViews(IAsyncResult result);
+        }
+        
+        internal sealed class EmployeeNameViewDSEntityContainer : EntityContainer
+        {
+            
+            public EmployeeNameViewDSEntityContainer()
+            {
+                this.CreateEntitySet<EmployeeNameView>(EntitySetOperations.None);
+            }
+        }
+    }
+    
+    /// <summary>
     /// The DomainContext corresponding to the 'FacilityDS' DomainService.
     /// </summary>
     public sealed partial class FacilityDS : DomainContext
@@ -16982,6 +17221,16 @@ namespace tambak.Web.DomainServices
         }
         
         /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Product"/> entity instances using the 'GetFinishedProducts' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Product"/> entity instances.</returns>
+        public EntityQuery<Product> GetFinishedProductsQuery()
+        {
+            this.ValidateMethod("GetFinishedProductsQuery", null);
+            return base.CreateQuery<Product>("GetFinishedProducts", null, false, true);
+        }
+        
+        /// <summary>
         /// Gets an EntityQuery instance that can be used to load <see cref="Product"/> entity instances using the 'GetProducts' query.
         /// </summary>
         /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Product"/> entity instances.</returns>
@@ -17006,6 +17255,24 @@ namespace tambak.Web.DomainServices
         [ServiceContract()]
         public interface IProductDSContract
         {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetFinishedProducts' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ProductDS/GetFinishedProductsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ProductDS/GetFinishedProducts", ReplyAction="http://tempuri.org/ProductDS/GetFinishedProductsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetFinishedProducts(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetFinishedProducts'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetFinishedProducts'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetFinishedProducts' operation.</returns>
+            QueryResult<Product> EndGetFinishedProducts(IAsyncResult result);
             
             /// <summary>
             /// Asynchronously invokes the 'GetProducts' operation.

@@ -22,7 +22,10 @@ namespace tambak.Views
         TasksDS tasksDomainContext = new TasksDS();
         PondsProductionCycleDS prodCycleDomainContext = new PondsProductionCycleDS();
         ProductRequiredDS requiredProductDC = new ProductRequiredDS();
-        ResultNoteDS resultNoteDomainContext = new ResultNoteDS();        
+        ResultNoteDS resultNoteDomainContext = new ResultNoteDS();
+
+        EmployeeNameView selectedEmployee = new EmployeeNameView();
+
         public TasksView()
         {
 
@@ -31,6 +34,7 @@ namespace tambak.Views
                 if (WebContext.Current.User.IsInRole("Technician") || WebContext.Current.User.IsInRole("Super Admin"))
                 {
                     InitializeComponent();
+                    Loaded += TasksView_Loaded;
 
                 }
                 else
@@ -45,6 +49,11 @@ namespace tambak.Views
 
             }
            
+        }
+
+        void TasksView_Loaded(object sender, RoutedEventArgs e)
+        {
+            addNewTask();
         }
 
         private void loadTasks()
@@ -153,6 +162,35 @@ namespace tambak.Views
             
         }
 
+        private void addNewTask()
+        {
+            try
+            {
+                Task newTask = new Task();
+                newTask.Attachments = attachmentsTextBox.Text;
+                newTask.CompletePercentage = Convert.ToDouble(completePercentageTextBox.Text);
+                newTask.Description = descriptionTextBox.Text;
+                newTask.DueDate = dueDateRadDateTimePicker.SelectedValue;
+                newTask.EndDate = endDateRadDateTimePicker.SelectedValue;
+                newTask.Priority = priorityTextBox.Text;
+                newTask.ProductionCycleID = Convert.ToInt32(productionCycleIDTextBox.Text);
+                newTask.ReccurencePattern = reccurencePatternTextBox.Text;
+                newTask.StartDate = startDateRadDateTimePicker.SelectedValue;
+                newTask.Status = statusTextBox.Text;
+                newTask.PondID = Convert.ToInt32(pondIDTextBox.Text);
+                newTask.Title = titleTextBox.Text;
+                newTask.UserId = WebContext.Current.User.ToString();
+                //newTask.assignedTo = Convert.ToInt32(assignedToTextBox.Text);
+                newTask.assignedTo = selectedEmployee.ContactID;
+                newTask.plannedManHours = Convert.ToDouble(plannedManHoursTextBox.Text);
+            }
+            catch (Exception g)
+            {
+            }
+
+        }
+
+
         private void savenewTask()
         {
             tasksDomainContext = new TasksDS();
@@ -170,7 +208,8 @@ namespace tambak.Views
             newTask.PondID = Convert.ToInt32(pondIDTextBox.Text);
             newTask.Title = titleTextBox.Text;
             newTask.UserId = WebContext.Current.User.ToString();
-            newTask.assignedTo = Convert.ToInt32(assignedToTextBox.Text);
+            //newTask.assignedTo = Convert.ToInt32(assignedToTextBox.Text);
+            newTask.assignedTo = selectedEmployee.ContactID;
             newTask.plannedManHours = Convert.ToDouble(plannedManHoursTextBox.Text);
 
             tasksDomainContext.Tasks.Add(newTask);
@@ -180,7 +219,7 @@ namespace tambak.Views
         private void contactIDTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             loadTasks();
-            assignedToTextBox.Text = contactIDTextBox.Text;
+            //assignedToTextBox.Text = contactIDTextBox.Text;
             ManageTaskRadTabItem.IsEnabled = true;
             newTaskRadTabItem.IsEnabled = true;
             requiredProductRadTabItem.IsEnabled = true;
@@ -212,7 +251,8 @@ namespace tambak.Views
             bc.PondID = Convert.ToInt32(pondIDTextBox.Text);
             bc.Title = titleTextBox.Text;
             bc.UserId = WebContext.Current.User.ToString();
-            bc.assignedTo = Convert.ToInt32(assignedToTextBox.Text);
+            bc.assignedTo = selectedEmployee.ContactID;
+            //bc.assignedTo = Convert.ToInt32(assignedToTextBox.Text);
             bc.plannedManHours = Convert.ToDouble(plannedManHoursTextBox.Text);
             tasksDomainContext.SubmitChanges();
         }
@@ -426,7 +466,22 @@ namespace tambak.Views
             docs.Print("Printing Task ");
         }
 
-       
+        private void employeeNameViewDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void nameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedEmployee = this.nameComboBox.SelectedItem as EmployeeNameView;
+        }
+
+        
 
        
 

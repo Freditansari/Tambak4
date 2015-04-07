@@ -144,9 +144,22 @@
             </telerik:RadTabItem>
             <telerik:RadTabItem x:Name="newTaskRadTabItem" Header="New Tasks" IsEnabled="False">
                 <Grid Background="Transparent">
-                    <Grid HorizontalAlignment="Left" Height="859" VerticalAlignment="Top" Width="1078"/>
+                    <Grid HorizontalAlignment="Left" Height="859" VerticalAlignment="Top" Width="1078">
+                        <Grid x:Name="grid7" DataContext="{Binding Data, ElementName=employeeNameViewDomainDataSource}" HorizontalAlignment="Left" Margin="54,544,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--<sdk:Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>-->
+                        
+                        </Grid>
+                    </Grid>
                     <Grid HorizontalAlignment="Left" Height="539" VerticalAlignment="Top" Width="480">
-                        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=taskDomainDataSource}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top">
+                        <!--<Grid x:Name="grid1" DataContext="{Binding Data, ElementName=taskDomainDataSource}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top">-->
+                        <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -199,7 +212,14 @@
                             <sdk:Label Content="User Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
                             <TextBox x:Name="userIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding UserId, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
                             <sdk:Label Content="assigned To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
-                            <TextBox x:Name="assignedToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding assignedTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                            <ComboBox x:Name="nameComboBox" Grid.Column="1" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Data, ElementName=employeeNameViewDomainDataSource}" Margin="3" Grid.Row="14" VerticalAlignment="Center" Width="120" SelectionChanged="nameComboBox_SelectionChanged">
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                            <!--<TextBox x:Name="assignedToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding assignedTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
                             <sdk:Label Content="is Done:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
                             <CheckBox x:Name="isDoneCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isDone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
                             <sdk:Label Content="planned Man Hours:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
@@ -236,6 +256,11 @@
                             </Grid>
                         </ScrollViewer>
                     </Grid>
+                    <riaControls:DomainDataSource x:Name="employeeNameViewDomainDataSource" AutoLoad="True" Height="0" LoadedData="employeeNameViewDomainDataSource_LoadedData" QueryName="GetEmployeeNameViewsQuery" Width="0" d:DesignData="{d:DesignInstance Web:EmployeeNameView, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:EmployeeNameViewDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
                 </Grid>
             </telerik:RadTabItem>
             <telerik:RadTabItem x:Name="requiredProductRadTabItem" Header="Required Products" IsEnabled="False">

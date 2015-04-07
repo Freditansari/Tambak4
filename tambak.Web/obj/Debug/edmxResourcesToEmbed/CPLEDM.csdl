@@ -215,6 +215,7 @@
     <EntitySet Name="BatchConsumptionJoins" EntityType="CPLModel.BatchConsumptionJoin" />
     <EntitySet Name="Harvests" EntityType="CPLModel.Harvest" />
     <EntitySet Name="CurrentActivePonds" EntityType="CPLModel.CurrentActivePond" />
+    <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -242,6 +243,7 @@
     <NavigationProperty Name="ProductSalesOrders" Relationship="CPLModel.FK_ProductSalesOrders_Contacts" FromRole="Contacts" ToRole="ProductSalesOrders" />
     <NavigationProperty Name="Tasks" Relationship="CPLModel.FK_Tasks_Contacts" FromRole="Contacts" ToRole="Tasks" />
     <NavigationProperty Name="ContactToUserLinks" Relationship="CPLModel.FK_ContactToUserLink_Contacts" FromRole="Contact" ToRole="ContactToUserLink" />
+    <Property Type="Boolean" Name="isActive" />
   </EntityType>
   <EntityType Name="FeedingLog">
     <Key>
@@ -1450,5 +1452,12 @@
     <Property Type="String" Name="PondDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="NumberOfFry" />
     <Property Type="Int32" Name="DOC" />
+  </EntityType>
+  <EntityType Name="EmployeeNameView">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Type="Int32" Name="ContactID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="101" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

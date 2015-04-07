@@ -78,3 +78,4 @@ C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.csproj.GenerateResource.Cache
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.dll
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.pdb
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak.Web\obj\Debug\tambak.Web.csprojResolveAssemblyReference.cache

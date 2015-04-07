@@ -79,6 +79,12 @@
       [DailyFeedSummaryView].[feedPerDay] AS [feedPerDay]
       FROM [dbo].[DailyFeedSummaryView] AS [DailyFeedSummaryView]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="EmployeeNameView" EntityType="CPLModel.Store.EmployeeNameView" store:Type="Views" store:Schema="dbo" store:Name="EmployeeNameView">
+            <DefiningQuery>SELECT 
+      [EmployeeNameView].[ContactID] AS [ContactID], 
+      [EmployeeNameView].[Name] AS [Name]
+      FROM [dbo].[EmployeeNameView] AS [EmployeeNameView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="PODeliveredQuantity" EntityType="CPLModel.Store.PODeliveredQuantity" store:Type="Views" store:Schema="dbo" store:Name="PODeliveredQuantity">
             <DefiningQuery>SELECT 
       [PODeliveredQuantity].[POID] AS [POID], 
@@ -423,6 +429,7 @@
           <Property Name="WebPage" Type="nvarchar(max)" />
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="archive" Type="bit" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.ContactToUserLink' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -901,6 +908,16 @@
           <Property Name="ProductionCycleID" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" />
           <Property Name="feedPerDay" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.EmployeeNameView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EmployeeNameView">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="101" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.PODeliveredQuantity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1749,6 +1766,7 @@
           <EntitySet Name="BatchConsumptionJoins" EntityType="CPLModel.BatchConsumptionJoin" />
           <EntitySet Name="Harvests" EntityType="CPLModel.Harvest" />
           <EntitySet Name="CurrentActivePonds" EntityType="CPLModel.CurrentActivePond" />
+          <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
           </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -1776,6 +1794,7 @@
           <NavigationProperty Name="ProductSalesOrders" Relationship="CPLModel.FK_ProductSalesOrders_Contacts" FromRole="Contacts" ToRole="ProductSalesOrders" />
           <NavigationProperty Name="Tasks" Relationship="CPLModel.FK_Tasks_Contacts" FromRole="Contacts" ToRole="Tasks" />
           <NavigationProperty Name="ContactToUserLinks" Relationship="CPLModel.FK_ContactToUserLink_Contacts" FromRole="Contact" ToRole="ContactToUserLink" />
+          <Property Type="Boolean" Name="isActive" />
         </EntityType>
         <EntityType Name="FeedingLog">
           <Key>
@@ -2985,6 +3004,13 @@
           <Property Type="Int32" Name="NumberOfFry" />
           <Property Type="Int32" Name="DOC" />
         </EntityType>
+        <EntityType Name="EmployeeNameView">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Type="Int32" Name="ContactID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="101" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2994,6 +3020,7 @@
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="CPLModel.Contact">
               <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="ContactID" ColumnName="ContactID" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -3686,6 +3713,14 @@
                 <ScalarProperty Name="PondDescription" ColumnName="PondDescription" />
                 <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
                 <ScalarProperty Name="PondID" ColumnName="PondID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeNameViews">
+            <EntityTypeMapping TypeName="CPLModel.EmployeeNameView">
+              <MappingFragment StoreEntitySet="EmployeeNameView">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

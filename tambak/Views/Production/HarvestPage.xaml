@@ -78,9 +78,16 @@
                         <TextBox x:Name="populationLeftTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding PopulationLeft, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
                         <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
                         <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
-                        <sdk:Label Content="Size:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
-                        <TextBox x:Name="sizeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding Size, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="sizeTextBox_TextChanged"/>
-                        <sdk:Label Content="Weight:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                        <sdk:Label Content="Size:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,5" Grid.Row="9" VerticalAlignment="Bottom"/>
+                        <!--<TextBox x:Name="sizeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding Size, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="sizeTextBox_TextChanged" IsReadOnly="True"/>-->
+                        <ComboBox x:Name="productNameComboBox" Grid.Column="1" DisplayMemberPath="ProductName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="3" Grid.Row="9" VerticalAlignment="Center" Width="120" SelectionChanged="productNameComboBox_SelectionChanged">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <sdk:Label Content="Weight (KG):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
                         <TextBox x:Name="weightTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Weight, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="weightTextBox_TextChanged"/>
                         <sdk:Label Content="Is Final Harvest:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
                         <CheckBox x:Name="isFinalHarvestCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isFinalHarvest, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
@@ -93,6 +100,22 @@
                         </riaControls:DomainDataSource.DomainContext>
                     </riaControls:DomainDataSource>
                     <Button x:Name="saveHarvestLogButton" Content="Save" HorizontalAlignment="Left" Margin="190,387,0,0" VerticalAlignment="Top" Width="75" Click="saveHarvestLogButton_Click"/>
+                    <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData" QueryName="GetFinishedProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <!--<Grid x:Name="grid3" DataContext="{Binding Data, ElementName=productDomainDataSource}" HorizontalAlignment="Left" Margin="50,437,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Product Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                       
+                    </Grid>-->
                     <!--<Grid x:Name="grid3" DataContext="{Binding Data, ElementName=harvestDomainDataSource}" HorizontalAlignment="Left" Margin="136,518,0,0" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>

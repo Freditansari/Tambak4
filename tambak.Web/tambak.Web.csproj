@@ -158,6 +158,8 @@
     <Compile Include="DomainServices\CurrentActivePondsViewDS.metadata.cs" />
     <Compile Include="DomainServices\DeliveryLogDS.cs" />
     <Compile Include="DomainServices\DeliveryLogDS.metadata.cs" />
+    <Compile Include="DomainServices\EmployeeNameViewDS.cs" />
+    <Compile Include="DomainServices\EmployeeNameViewDS.metadata.cs" />
     <Compile Include="DomainServices\FacilityDS.cs" />
     <Compile Include="DomainServices\FacilityDS.metadata.cs" />
     <Compile Include="DomainServices\FeedingLogsDS.cs" />

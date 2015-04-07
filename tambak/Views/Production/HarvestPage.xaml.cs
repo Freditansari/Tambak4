@@ -35,10 +35,17 @@ namespace tambak.Views.Production
         SamplingLogDS samplingLogDomainContext = new SamplingLogDS();
         SamplingLog SelectedSamplingLog;
         HarvestDS HarvestDomainContext = new HarvestDS();
-        
+        ProductDS ProductDomainContext = new ProductDS();
+        Product selectedProduct = new Product();
+
+        BatchHeaderDS batchHeaderDomainContext = new BatchHeaderDS();
+
+        BatchDetailDS batchDetailDomainContext = new BatchDetailDS();
+        BatchDetail newBatchDetail;
+        BatchHeader newBatchHeader;
 
 
-        public HarvestPage()
+        public HarvestPage() 
         {
             try
             {
@@ -156,14 +163,14 @@ namespace tambak.Views.Production
             try
             {
                 SelectedSamplingLog = obj.Entities.FirstOrDefault();
-                sizeTextBox.Text = SelectedSamplingLog.Size.ToString();
+                //sizeTextBox.Text = SelectedSamplingLog.Size.ToString();
                 weightTextBox.Text = SelectedSamplingLog.Biomass.ToString();
                 calculatePopulation();
 
             }
             catch (Exception g)
             {
-                sizeTextBox.Text = "0";
+                //sizeTextBox.Text = "0";
                 weightTextBox.Text = "0";
                 
             }
@@ -181,7 +188,7 @@ namespace tambak.Views.Production
                 }
                 
 
-                harvestedPopulationTextBox.Text = Convert.ToString(Convert.ToDouble(sizeTextBox.Text) * Convert.ToDouble(weightTextBox.Text));
+                harvestedPopulationTextBox.Text = Convert.ToString(Convert.ToDouble(selectedProduct.Product_Description) * Convert.ToDouble(weightTextBox.Text));
                 populationLeftTextBox.Text = Convert.ToString(Convert.ToDouble(numberOfFryTextBox.Text) - Convert.ToDouble(harvestedPopulationTextBox.Text)-sumPreviousHarvestedPopulation);
             }
             catch (DivideByZeroException g)
@@ -234,23 +241,12 @@ namespace tambak.Views.Production
             newHarvest.Month = Convert.ToInt32(monthTextBox.Text);
             newHarvest.NumberOfFry = Convert.ToDouble(numberOfFryTextBox.Text);
             newHarvest.PondID = Convert.ToInt32(pondIDTextBox.Text);
-            newHarvest.PopulationLeft = Convert.ToDouble(populationLeftTextBox);
+            newHarvest.PopulationLeft = Convert.ToDouble(populationLeftTextBox.Text);
             newHarvest.ProductionCycleID = Convert.ToInt32(productionCycleIDTextBox.Text);
-            newHarvest.Size = Convert.ToDouble(sizeTextBox.Text);
+            newHarvest.Size = Convert.ToDouble(selectedProduct.Product_Description);
             newHarvest.Weight = Convert.ToDouble(weightTextBox.Text);
             newHarvest.isFinalHarvest = isFinalHarvestCheckBox.IsChecked;
 
-            if (isFinalHarvestCheckBox.IsChecked == true)
-            {
-                //<summary>
-                //Close production cycle automatically 
-                //</summary>
-
-                SelectedProductionCycle.isInProduction = true;
-                ProductionCycleDomainContext.SubmitChanges();
-                
-			
-            }
 
 
             HarvestDomainContext.Harvests.Add(newHarvest);
@@ -261,8 +257,66 @@ namespace tambak.Views.Production
 
         void HarvestSubmitChanges_completed(object sender, EventArgs e)
         {
-            //todo change if is final harvest update ponds production cycle isInProduction 
-            //
+
+            if (isFinalHarvestCheckBox.IsChecked == true)
+            {
+                //<summary>
+                //Close production cycle automatically 
+                //</summary>
+
+                SelectedProductionCycle.isInProduction = false;
+                ProductionCycleDomainContext.SubmitChanges();
+
+
+            }
+
+            //add products to batch header. 
+            newBatchHeader= new BatchHeader();
+            newBatchHeader.ProductID = selectedProduct.ProductID;
+            newBatchHeader.unitCost = 0;
+            //newBatchHeader.FacilitiesID = 1;
+            //newBatchHeader.user
+
+            batchHeaderDomainContext.BatchHeaders.Add(newBatchHeader);
+            batchHeaderDomainContext.SubmitChanges().Completed += submitBatchHeader_completed;
+
+
+
+            
+            
+        }
+
+        private void submitBatchHeader_completed(object sender, EventArgs e)
+        {
+            newBatchDetail = new BatchDetail();
+            newBatchDetail.ProductID = selectedProduct.ProductID;
+            newBatchDetail.Quantity = Convert.ToDouble(weightTextBox.Text);
+            newBatchDetail.BuyPrice = 0;
+            newBatchDetail.soldPrice = 0;
+            newBatchDetail.batchHeaderID = newBatchHeader.BatchID;
+            newBatchDetail.isVoid = false;
+            newBatchDetail.ProductionCycleID = SelectedProductionCycle.ProductionCycleID;
+            newBatchDetail.userName = WebContext.Current.User.ToString();
+
+            batchDetailDomainContext.BatchDetails.Add(newBatchDetail);
+            batchDetailDomainContext.SubmitChanges();
+        }
+     
+
+        private void productDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void productNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedProduct = this.productNameComboBox.SelectedItem as Product;
+
         }
 
 

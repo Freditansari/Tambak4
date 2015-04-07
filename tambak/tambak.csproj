@@ -306,6 +306,15 @@
     <Compile Include="Views\Production\HarvestPage.xaml.cs">
       <DependentUpon>HarvestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TasksModule\ManageTasks.xaml.cs">
+      <DependentUpon>ManageTasks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TasksModule\NewTaskChildWindow.xaml.cs">
+      <DependentUpon>NewTaskChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TasksModule\NewTasksPage.xaml.cs">
+      <DependentUpon>NewTasksPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TasksView.xaml.cs">
       <DependentUpon>TasksView.xaml</DependentUpon>
     </Compile>
@@ -519,6 +528,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TasksModule\ManageTasks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TasksModule\NewTaskChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TasksModule\NewTasksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TasksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -556,8 +577,10 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.ContactToUserLinkDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CummulativeFeedViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CurrencyRateDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CurrentActivePondsViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.DailyFeedSummaryViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.DeliveryLogDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.EmployeeNameViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FacilityDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingRateGuideDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FourteenDaysFeedEstimateDS.datasource" />
