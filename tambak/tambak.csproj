@@ -600,6 +600,7 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.SevenDaysFoodEstimateDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.SummaryFeedPerDayViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.SuppliersDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.TaskNotDoneViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.tenDaysFeedEstimate.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.UnitofMeasurementDS.datasource" />
     <None Include="Service References\addRoleServiceReference\addRoleService.disco" />

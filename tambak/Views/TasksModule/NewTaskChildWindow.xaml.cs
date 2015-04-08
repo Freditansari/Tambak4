@@ -12,6 +12,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using tambak.Web;
 using tambak.Web.DomainServices;
+using System.ComponentModel.DataAnnotations;
 
 namespace tambak.Views.TasksModule
 {
@@ -68,7 +69,9 @@ namespace tambak.Views.TasksModule
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+
+            addNewTask();
+           
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -149,10 +152,12 @@ namespace tambak.Views.TasksModule
                 if (productionCycleIDTextBox.Text == "")
                 {
                     throw new Exception("Please Select an Active Production Cycle");
+                    //throw new validationException("Please Select an Active Production Cycle");
                 }
                 if (dueDateRadDateTimePicker.SelectedValue == null)
                 {
                     throw new Exception("Please Select due date");
+                   // throw new ValidationException("Please Select a Due Date");
                 }
 
                 string selectedPriority = this.PriorityComboBox.SelectedItem as string;
@@ -173,6 +178,7 @@ namespace tambak.Views.TasksModule
                 newTask.Status = selectedStatus;
                 newTask.PondID = selectedPond.PondID;
                 newTask.Title = titleTextBox.Text;
+                newTask.isDone = false;
                 newTask.UserId = WebContext.Current.User.ToString();
                 //newTask.assignedTo = Convert.ToInt32(assignedToTextBox.Text);
                 newTask.assignedTo = selectedEmployee.ContactID;
@@ -201,7 +207,9 @@ namespace tambak.Views.TasksModule
             
         private void saveNewTask_completed(object sender, EventArgs e)
         {
+
             CleanTask();
+            this.DialogResult = true;
         }
         
 

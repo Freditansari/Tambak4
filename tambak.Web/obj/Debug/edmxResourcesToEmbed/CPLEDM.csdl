@@ -216,6 +216,7 @@
     <EntitySet Name="Harvests" EntityType="CPLModel.Harvest" />
     <EntitySet Name="CurrentActivePonds" EntityType="CPLModel.CurrentActivePond" />
     <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
+    <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -1459,5 +1460,30 @@
     </Key>
     <Property Type="Int32" Name="ContactID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="Name" MaxLength="101" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TaskNotDoneView">
+    <Key>
+      <PropertyRef Name="TaskID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="assignedTo" />
+    </Key>
+    <Property Type="Int32" Name="TaskID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Priority" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="CompletePercentage" />
+    <Property Type="Int32" Name="assignedTo" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="StartDate" Precision="3" />
+    <Property Type="DateTime" Name="DueDate" Precision="3" />
+    <Property Type="DateTime" Name="EndDate" Precision="3" />
+    <Property Type="String" Name="Attachments" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PondDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserId" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="plannedManHours" />
+    <Property Type="Int32" Name="ProductionCycleID" />
+    <Property Type="Boolean" Name="isDone" />
+    <Property Type="String" Name="ReccurencePattern" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

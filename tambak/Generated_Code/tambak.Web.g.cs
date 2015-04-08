@@ -12831,6 +12831,539 @@ namespace tambak.Web
     }
     
     /// <summary>
+    /// The 'TaskNotDoneView' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class TaskNotDoneView : Entity
+    {
+        
+        private int _assignedTo;
+        
+        private string _attachments;
+        
+        private Nullable<double> _completePercentage;
+        
+        private string _description;
+        
+        private Nullable<DateTime> _dueDate;
+        
+        private Nullable<DateTime> _endDate;
+        
+        private Nullable<bool> _isDone;
+        
+        private Nullable<double> _plannedManHours;
+        
+        private string _pondDescription;
+        
+        private string _priority;
+        
+        private Nullable<int> _productionCycleID;
+        
+        private string _reccurencePattern;
+        
+        private Nullable<DateTime> _startDate;
+        
+        private string _status;
+        
+        private int _taskID;
+        
+        private string _title;
+        
+        private string _userId;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnassignedToChanging(int value);
+        partial void OnassignedToChanged();
+        partial void OnAttachmentsChanging(string value);
+        partial void OnAttachmentsChanged();
+        partial void OnCompletePercentageChanging(Nullable<double> value);
+        partial void OnCompletePercentageChanged();
+        partial void OnDescriptionChanging(string value);
+        partial void OnDescriptionChanged();
+        partial void OnDueDateChanging(Nullable<DateTime> value);
+        partial void OnDueDateChanged();
+        partial void OnEndDateChanging(Nullable<DateTime> value);
+        partial void OnEndDateChanged();
+        partial void OnisDoneChanging(Nullable<bool> value);
+        partial void OnisDoneChanged();
+        partial void OnplannedManHoursChanging(Nullable<double> value);
+        partial void OnplannedManHoursChanged();
+        partial void OnPondDescriptionChanging(string value);
+        partial void OnPondDescriptionChanged();
+        partial void OnPriorityChanging(string value);
+        partial void OnPriorityChanged();
+        partial void OnProductionCycleIDChanging(Nullable<int> value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnReccurencePatternChanging(string value);
+        partial void OnReccurencePatternChanged();
+        partial void OnStartDateChanging(Nullable<DateTime> value);
+        partial void OnStartDateChanged();
+        partial void OnStatusChanging(string value);
+        partial void OnStatusChanged();
+        partial void OnTaskIDChanging(int value);
+        partial void OnTaskIDChanged();
+        partial void OnTitleChanging(string value);
+        partial void OnTitleChanged();
+        partial void OnUserIdChanging(string value);
+        partial void OnUserIdChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TaskNotDoneView"/> class.
+        /// </summary>
+        public TaskNotDoneView()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'assignedTo' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int assignedTo
+        {
+            get
+            {
+                return this._assignedTo;
+            }
+            set
+            {
+                if ((this._assignedTo != value))
+                {
+                    this.OnassignedToChanging(value);
+                    this.ValidateProperty("assignedTo", value);
+                    this._assignedTo = value;
+                    this.RaisePropertyChanged("assignedTo");
+                    this.OnassignedToChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Attachments' value.
+        /// </summary>
+        [DataMember()]
+        public string Attachments
+        {
+            get
+            {
+                return this._attachments;
+            }
+            set
+            {
+                if ((this._attachments != value))
+                {
+                    this.OnAttachmentsChanging(value);
+                    this.RaiseDataMemberChanging("Attachments");
+                    this.ValidateProperty("Attachments", value);
+                    this._attachments = value;
+                    this.RaiseDataMemberChanged("Attachments");
+                    this.OnAttachmentsChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'CompletePercentage' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> CompletePercentage
+        {
+            get
+            {
+                return this._completePercentage;
+            }
+            set
+            {
+                if ((this._completePercentage != value))
+                {
+                    this.OnCompletePercentageChanging(value);
+                    this.RaiseDataMemberChanging("CompletePercentage");
+                    this.ValidateProperty("CompletePercentage", value);
+                    this._completePercentage = value;
+                    this.RaiseDataMemberChanged("CompletePercentage");
+                    this.OnCompletePercentageChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Description' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(255)]
+        public string Description
+        {
+            get
+            {
+                return this._description;
+            }
+            set
+            {
+                if ((this._description != value))
+                {
+                    this.OnDescriptionChanging(value);
+                    this.RaiseDataMemberChanging("Description");
+                    this.ValidateProperty("Description", value);
+                    this._description = value;
+                    this.RaiseDataMemberChanged("Description");
+                    this.OnDescriptionChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'DueDate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> DueDate
+        {
+            get
+            {
+                return this._dueDate;
+            }
+            set
+            {
+                if ((this._dueDate != value))
+                {
+                    this.OnDueDateChanging(value);
+                    this.RaiseDataMemberChanging("DueDate");
+                    this.ValidateProperty("DueDate", value);
+                    this._dueDate = value;
+                    this.RaiseDataMemberChanged("DueDate");
+                    this.OnDueDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'EndDate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> EndDate
+        {
+            get
+            {
+                return this._endDate;
+            }
+            set
+            {
+                if ((this._endDate != value))
+                {
+                    this.OnEndDateChanging(value);
+                    this.RaiseDataMemberChanging("EndDate");
+                    this.ValidateProperty("EndDate", value);
+                    this._endDate = value;
+                    this.RaiseDataMemberChanged("EndDate");
+                    this.OnEndDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'isDone' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<bool> isDone
+        {
+            get
+            {
+                return this._isDone;
+            }
+            set
+            {
+                if ((this._isDone != value))
+                {
+                    this.OnisDoneChanging(value);
+                    this.RaiseDataMemberChanging("isDone");
+                    this.ValidateProperty("isDone", value);
+                    this._isDone = value;
+                    this.RaiseDataMemberChanged("isDone");
+                    this.OnisDoneChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'plannedManHours' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> plannedManHours
+        {
+            get
+            {
+                return this._plannedManHours;
+            }
+            set
+            {
+                if ((this._plannedManHours != value))
+                {
+                    this.OnplannedManHoursChanging(value);
+                    this.RaiseDataMemberChanging("plannedManHours");
+                    this.ValidateProperty("plannedManHours", value);
+                    this._plannedManHours = value;
+                    this.RaiseDataMemberChanged("plannedManHours");
+                    this.OnplannedManHoursChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'PondDescription' value.
+        /// </summary>
+        [DataMember()]
+        public string PondDescription
+        {
+            get
+            {
+                return this._pondDescription;
+            }
+            set
+            {
+                if ((this._pondDescription != value))
+                {
+                    this.OnPondDescriptionChanging(value);
+                    this.RaiseDataMemberChanging("PondDescription");
+                    this.ValidateProperty("PondDescription", value);
+                    this._pondDescription = value;
+                    this.RaiseDataMemberChanged("PondDescription");
+                    this.OnPondDescriptionChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Priority' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(20)]
+        public string Priority
+        {
+            get
+            {
+                return this._priority;
+            }
+            set
+            {
+                if ((this._priority != value))
+                {
+                    this.OnPriorityChanging(value);
+                    this.RaiseDataMemberChanging("Priority");
+                    this.ValidateProperty("Priority", value);
+                    this._priority = value;
+                    this.RaiseDataMemberChanged("Priority");
+                    this.OnPriorityChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.RaiseDataMemberChanging("ProductionCycleID");
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaiseDataMemberChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ReccurencePattern' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(255)]
+        public string ReccurencePattern
+        {
+            get
+            {
+                return this._reccurencePattern;
+            }
+            set
+            {
+                if ((this._reccurencePattern != value))
+                {
+                    this.OnReccurencePatternChanging(value);
+                    this.RaiseDataMemberChanging("ReccurencePattern");
+                    this.ValidateProperty("ReccurencePattern", value);
+                    this._reccurencePattern = value;
+                    this.RaiseDataMemberChanged("ReccurencePattern");
+                    this.OnReccurencePatternChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'StartDate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> StartDate
+        {
+            get
+            {
+                return this._startDate;
+            }
+            set
+            {
+                if ((this._startDate != value))
+                {
+                    this.OnStartDateChanging(value);
+                    this.RaiseDataMemberChanging("StartDate");
+                    this.ValidateProperty("StartDate", value);
+                    this._startDate = value;
+                    this.RaiseDataMemberChanged("StartDate");
+                    this.OnStartDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Status' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [Required()]
+        [RoundtripOriginal()]
+        [StringLength(255)]
+        public string Status
+        {
+            get
+            {
+                return this._status;
+            }
+            set
+            {
+                if ((this._status != value))
+                {
+                    this.OnStatusChanging(value);
+                    this.ValidateProperty("Status", value);
+                    this._status = value;
+                    this.RaisePropertyChanged("Status");
+                    this.OnStatusChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TaskID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int TaskID
+        {
+            get
+            {
+                return this._taskID;
+            }
+            set
+            {
+                if ((this._taskID != value))
+                {
+                    this.OnTaskIDChanging(value);
+                    this.ValidateProperty("TaskID", value);
+                    this._taskID = value;
+                    this.RaisePropertyChanged("TaskID");
+                    this.OnTaskIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Title' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [Required()]
+        [RoundtripOriginal()]
+        [StringLength(255)]
+        public string Title
+        {
+            get
+            {
+                return this._title;
+            }
+            set
+            {
+                if ((this._title != value))
+                {
+                    this.OnTitleChanging(value);
+                    this.ValidateProperty("Title", value);
+                    this._title = value;
+                    this.RaisePropertyChanged("Title");
+                    this.OnTitleChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'UserId' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(255)]
+        public string UserId
+        {
+            get
+            {
+                return this._userId;
+            }
+            set
+            {
+                if ((this._userId != value))
+                {
+                    this.OnUserIdChanging(value);
+                    this.RaiseDataMemberChanging("UserId");
+                    this.ValidateProperty("UserId", value);
+                    this._userId = value;
+                    this.RaiseDataMemberChanged("UserId");
+                    this.OnUserIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            if (((this._status == null) 
+                        || (this._title == null)))
+            {
+                return null;
+            }
+            return EntityKey.Create(this._assignedTo, this._status, this._taskID, this._title);
+        }
+    }
+    
+    /// <summary>
     /// The 'UnitofMeasurement' entity class.
     /// </summary>
     [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
@@ -19217,6 +19750,116 @@ namespace tambak.Web.DomainServices
             public SuppliersDSEntityContainer()
             {
                 this.CreateEntitySet<Supplier>(EntitySetOperations.All);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'TaskNotDoneViewDS' DomainService.
+    /// </summary>
+    public sealed partial class TaskNotDoneViewDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TaskNotDoneViewDS"/> class.
+        /// </summary>
+        public TaskNotDoneViewDS() : 
+                this(new WebDomainClient<ITaskNotDoneViewDSContract>(new Uri("tambak-Web-DomainServices-TaskNotDoneViewDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TaskNotDoneViewDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The TaskNotDoneViewDS service URI.</param>
+        public TaskNotDoneViewDS(Uri serviceUri) : 
+                this(new WebDomainClient<ITaskNotDoneViewDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TaskNotDoneViewDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public TaskNotDoneViewDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="TaskNotDoneView"/> entity instances that have been loaded into this <see cref="TaskNotDoneViewDS"/> instance.
+        /// </summary>
+        public EntitySet<TaskNotDoneView> TaskNotDoneViews
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<TaskNotDoneView>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="TaskNotDoneView"/> entity instances using the 'GetTaskNotDoneViews' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="TaskNotDoneView"/> entity instances.</returns>
+        public EntityQuery<TaskNotDoneView> GetTaskNotDoneViewsQuery()
+        {
+            this.ValidateMethod("GetTaskNotDoneViewsQuery", null);
+            return base.CreateQuery<TaskNotDoneView>("GetTaskNotDoneViews", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new TaskNotDoneViewDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'TaskNotDoneViewDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface ITaskNotDoneViewDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetTaskNotDoneViews' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/TaskNotDoneViewDS/GetTaskNotDoneViewsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/TaskNotDoneViewDS/GetTaskNotDoneViews", ReplyAction="http://tempuri.org/TaskNotDoneViewDS/GetTaskNotDoneViewsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetTaskNotDoneViews(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetTaskNotDoneViews'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetTaskNotDoneViews'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetTaskNotDoneViews' operation.</returns>
+            QueryResult<TaskNotDoneView> EndGetTaskNotDoneViews(IAsyncResult result);
+        }
+        
+        internal sealed class TaskNotDoneViewDSEntityContainer : EntityContainer
+        {
+            
+            public TaskNotDoneViewDSEntityContainer()
+            {
+                this.CreateEntitySet<TaskNotDoneView>(EntitySetOperations.None);
             }
         }
     }

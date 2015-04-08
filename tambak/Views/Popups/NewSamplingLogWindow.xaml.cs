@@ -52,6 +52,12 @@ namespace tambak.Views.Popups
         public NewSamplingLogWindow()
         {
             InitializeComponent();
+            Loaded += NewSamplingLogWindow_Loaded;
+        }
+
+        void NewSamplingLogWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            userIDTextBox.Text = WebContext.Current.User.ToString();
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
@@ -317,9 +323,18 @@ namespace tambak.Views.Popups
 
         private void load_average_daily_feed_completed(LoadOperation<AverageDailyFeedSummary> obj)
         {
-            AverageDailyFeedSummary bc = obj.Entities.First();
-            dailyFeedTextBox.Text = bc.Average.ToString();
-            averageDailyFeed =Convert.ToDouble( bc.Average);
+            try
+            {
+                AverageDailyFeedSummary bc = obj.Entities.First();
+                dailyFeedTextBox.Text = bc.Average.ToString();
+                averageDailyFeed = Convert.ToDouble(bc.Average);
+            }
+            catch (Exception g)
+            {
+                
+               
+            }
+           
         }
 
         private void medianBodyWeightTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -422,7 +437,7 @@ namespace tambak.Views.Popups
                 newSamplinglog.ProductionCycleID = Convert.ToInt32(productionCycleIDTextBox.Text);
                 newSamplinglog.Size = Convert.ToDouble(sizeTextBox.Text);
                 newSamplinglog.SurvivalRate = Convert.ToDouble(survivalRateTextBox.Text);
-                newSamplinglog.UserID = userIDTextBox.Text;
+                newSamplinglog.UserID = WebContext.Current.User.ToString();
                 newSamplinglog.WeeklyFCR = Convert.ToDecimal(weeklyFCRTextBox.Text);
                 newSamplinglog.WeeklyFeed = Convert.ToInt32(weeklyFeedTextBox.Text);
                 newSamplinglog.WeightperWeek = Convert.ToDouble(weightperWeekTextBox.Text);

@@ -29,6 +29,34 @@ namespace tambak.Views.TasksModule
         public ManageTasks()
         {
             InitializeComponent();
+            Loaded += ManageTasks_Loaded;
+        }
+
+        void ManageTasks_Loaded(object sender, RoutedEventArgs e)
+        {
+            TasksReportViewer.RenderBegin += TasksReportViewer_RenderBegin;
+        }
+
+        void TasksReportViewer_RenderBegin(object sender, Telerik.ReportViewer.Silverlight.RenderBeginEventArgs args)
+        {
+            try
+            {
+                if (selectedTask.TaskID == null)
+                {
+                    taskRadGridView.SelectedItem = null;
+                }
+                else
+                {
+                    args.ParameterValues["TaskIDParameter"] = selectedTask.TaskID;
+                }
+            }
+            catch (Exception g)
+            {
+                
+                throw;
+            }
+                  
+           
         }
 
         // Executes when the user navigates to this page.
@@ -40,6 +68,12 @@ namespace tambak.Views.TasksModule
         {
             NewTaskChildWindow newTaskCW = new NewTaskChildWindow();
             newTaskCW.Show();
+            newTaskCW.Closed += newTaskCW_Closed;
+        }
+
+        void newTaskCW_Closed(object sender, EventArgs e)
+        {
+            loadPondProductionCycle();
         }
 
         private void pondDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
@@ -64,9 +98,14 @@ namespace tambak.Views.TasksModule
 
         private void pondDescriptionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            loadPondProductionCycle();
+        }
+
+        private void loadPondProductionCycle()
+        {
             selectedPond = this.pondDescriptionComboBox.SelectedItem as Pond;
 
-			EntityQuery<tambak.Web.PondsProductionCycle> bb = from b in ProductionCycleDomainContext.GetPondsProductionCyclesQuery() where b.PondID == selectedPond.PondID && b.isInProduction == true select b;
+            EntityQuery<tambak.Web.PondsProductionCycle> bb = from b in ProductionCycleDomainContext.GetPondsProductionCyclesQuery() where b.PondID == selectedPond.PondID && b.isInProduction == true select b;
             LoadOperation<tambak.Web.PondsProductionCycle> res = ProductionCycleDomainContext.Load(bb, new Action<LoadOperation<tambak.Web.PondsProductionCycle>>(getPondsProductionCycle_completed), true);
 			
         }
@@ -112,6 +151,22 @@ namespace tambak.Views.TasksModule
         {
             selectedTask = this.taskRadGridView.SelectedItem as Task;
             grid2.DataContext = selectedTask;
+            this.TasksReportViewer.ReportServiceUri = new Uri("../ReportService.svc", UriKind.RelativeOrAbsolute);
+        }
+
+        private void updateTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            taskDomainContext.SubmitChanges();
+        }
+
+        private void taskNotDoneViewDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
         }
 
     }

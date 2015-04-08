@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=.\sqlexpress;Initial Catalog=Logins;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="CPLEntities-Web.config Connection String" description="CPLEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/TambakEDM.csdl|res://*/TambakEDM.ssdl|res://*/TambakEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=CPL;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CPLEntities']/@connectionString" />
+  </parameter>
+  <parameter name="CPLEntities1-Web.config Connection String" description="CPLEntities1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/CPLEDM.csdl|res://*/CPLEDM.ssdl|res://*/CPLEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=CPL;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CPLEntities1']/@connectionString" />
+  </parameter>
+  <parameter name="Entities-Web.config Connection String" description="Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/CPLEDM.csdl|res://*/CPLEDM.ssdl|res://*/CPLEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\sqlexpress;initial catalog=CPL;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
+  </parameter>
+  <parameter name="TambakReports.Properties.Settings.CPL-Web.config Connection String" description="TambakReports.Properties.Settings.CPL Connection String used in web.config by the application to access the database." defaultValue="Data Source=.\sqlexpress;Initial Catalog=CPL;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fredy\\Documents\\GitHub\\tambak2\\Tambak4\\tambak\.Web\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TambakReports.Properties.Settings.CPL']/@connectionString" />
+  </parameter>
+</parameters>

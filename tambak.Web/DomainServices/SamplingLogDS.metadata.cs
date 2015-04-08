@@ -86,7 +86,7 @@ namespace tambak.Web
             [Required]
             public Nullable<double> SurvivalRate { get; set; }
 
-            [Required]
+           [Required]
             public string UserID { get; set; }
 
             [Required]

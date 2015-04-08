@@ -210,6 +210,8 @@
     <Compile Include="DomainServices\SevenDaysFoodEstimateDS.metadata.cs" />
     <Compile Include="DomainServices\SuppliersDS.cs" />
     <Compile Include="DomainServices\SuppliersDS.metadata.cs" />
+    <Compile Include="DomainServices\TaskNotDoneViewDS.cs" />
+    <Compile Include="DomainServices\TaskNotDoneViewDS.metadata.cs" />
     <Compile Include="DomainServices\tenDaysFeedEstimate.cs" />
     <Compile Include="DomainServices\tenDaysFeedEstimate.metadata.cs" />
     <Compile Include="DomainServices\UnitofMeasurementDS.cs" />

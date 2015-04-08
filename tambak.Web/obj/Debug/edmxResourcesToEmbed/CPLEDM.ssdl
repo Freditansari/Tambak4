@@ -168,6 +168,27 @@
       [SumProductRequiredViews].[ProductID] AS [ProductID]
       FROM [dbo].[SumProductRequiredViews] AS [SumProductRequiredViews]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="TaskNotDoneView" EntityType="CPLModel.Store.TaskNotDoneView" store:Type="Views" store:Schema="dbo" store:Name="TaskNotDoneView">
+      <DefiningQuery>SELECT 
+      [TaskNotDoneView].[TaskID] AS [TaskID], 
+      [TaskNotDoneView].[Title] AS [Title], 
+      [TaskNotDoneView].[Priority] AS [Priority], 
+      [TaskNotDoneView].[Status] AS [Status], 
+      [TaskNotDoneView].[CompletePercentage] AS [CompletePercentage], 
+      [TaskNotDoneView].[assignedTo] AS [assignedTo], 
+      [TaskNotDoneView].[Description] AS [Description], 
+      [TaskNotDoneView].[StartDate] AS [StartDate], 
+      [TaskNotDoneView].[DueDate] AS [DueDate], 
+      [TaskNotDoneView].[EndDate] AS [EndDate], 
+      [TaskNotDoneView].[Attachments] AS [Attachments], 
+      [TaskNotDoneView].[PondDescription] AS [PondDescription], 
+      [TaskNotDoneView].[UserId] AS [UserId], 
+      [TaskNotDoneView].[plannedManHours] AS [plannedManHours], 
+      [TaskNotDoneView].[ProductionCycleID] AS [ProductionCycleID], 
+      [TaskNotDoneView].[isDone] AS [isDone], 
+      [TaskNotDoneView].[ReccurencePattern] AS [ReccurencePattern]
+      FROM [dbo].[TaskNotDoneView] AS [TaskNotDoneView]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_BatchDetails_BatchHeader" Association="CPLModel.Store.FK_BatchDetails_BatchHeader">
       <End Role="BatchHeader" EntitySet="BatchHeader" />
       <End Role="BatchDetails" EntitySet="BatchDetails" />
@@ -1049,6 +1070,34 @@
     <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
     <Property Name="totalRequired" Type="decimal" Precision="38" Scale="2" />
     <Property Name="ProductID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.TaskNotDoneView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="TaskNotDoneView">
+    <Key>
+      <PropertyRef Name="TaskID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="assignedTo" />
+    </Key>
+    <Property Name="TaskID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="20" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CompletePercentage" Type="float" />
+    <Property Name="assignedTo" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Attachments" Type="nvarchar(max)" />
+    <Property Name="PondDescription" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="255" />
+    <Property Name="plannedManHours" Type="float" />
+    <Property Name="ProductionCycleID" Type="int" />
+    <Property Name="isDone" Type="bit" />
+    <Property Name="ReccurencePattern" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <Association Name="FK_BatchDetails_BatchHeader">
     <End Role="BatchHeader" Type="CPLModel.Store.BatchHeader" Multiplicity="1" />

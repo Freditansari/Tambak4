@@ -10,7 +10,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-     
+
 
         <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
         <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
@@ -164,7 +164,7 @@
                 <DomainServices:PondsProductionCycleDS/>
             </riaControls:DomainDataSource.DomainContext>
         </riaControls:DomainDataSource>
-        <Button x:Name="addRecordButton" Content="Add Record" HorizontalAlignment="Left" Margin="742,12,0,1" Grid.Row="1" Width="75" Click="addRecordButton_Click"/>
+        <Button x:Name="addRecordButton" Content="Add Record" HorizontalAlignment="Left" Margin="742,12,0,0" Grid.Row="1" Width="75" Click="addRecordButton_Click" Height="22" VerticalAlignment="Top"/>
         <Button x:Name="RemoveRecordB_utton" Content="Remove" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="RemoveRecordB_utton_Click"/>
 
     </Grid>

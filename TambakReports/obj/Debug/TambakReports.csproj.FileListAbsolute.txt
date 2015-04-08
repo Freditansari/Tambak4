@@ -22,3 +22,4 @@ C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakRe
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.csproj.GenerateResource.Cache
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.dll
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.pdb
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.TaskReport.resources
