@@ -70,11 +70,11 @@
                          this.ContentFrame.Navigate(new System.Uri("/PondsProductionCycleView", System.UriKind.Relative));
                          break;
                      case "Manage Tasks":
-                         this.ContentFrame.Navigate(new System.Uri("/TasksView", System.UriKind.Relative));
-                         break;
-                     case "New Tasks":
                          this.ContentFrame.Navigate(new System.Uri("/TasksModule/ManageTasks", System.UriKind.Relative));
                          break;
+                     //case "New Tasks":
+                     //    this.ContentFrame.Navigate(new System.Uri("/TasksModule/ManageTasks", System.UriKind.Relative));
+                     //    break;
                      case "Product Registration":
                          this.ContentFrame.Navigate(new System.Uri("/Inventory/ProductRegistration", System.UriKind.Relative));
                          break;
@@ -125,6 +125,12 @@
                          break;
                      case "Harvest Log":
                          this.ContentFrame.Navigate(new System.Uri("/Production/HarvestPage", System.UriKind.Relative));
+                         break;
+                     case "Ponds Charts":
+                         this.ContentFrame.Navigate(new System.Uri("/Charts/SamplingCharts", System.UriKind.Relative));
+                         break;
+                     case "Production Costs":
+                         this.ContentFrame.Navigate(new System.Uri("/Production/ProductionCostsPage", System.UriKind.Relative));
                          break;
                  }
              }

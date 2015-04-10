@@ -7101,6 +7101,8 @@ namespace tambak.Web
         
         private Nullable<int> _category;
         
+        private Nullable<bool> _isFinishedProduct;
+        
         private string _product_Description;
         
         private int _productID;
@@ -7132,6 +7134,8 @@ namespace tambak.Web
         partial void OnCreated();
         partial void OnCategoryChanging(Nullable<int> value);
         partial void OnCategoryChanged();
+        partial void OnIsFinishedProductChanging(Nullable<bool> value);
+        partial void OnIsFinishedProductChanged();
         partial void OnProduct_DescriptionChanging(string value);
         partial void OnProduct_DescriptionChanged();
         partial void OnProductIDChanging(int value);
@@ -7192,10 +7196,33 @@ namespace tambak.Web
         }
         
         /// <summary>
+        /// Gets or sets the 'IsFinishedProduct' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<bool> IsFinishedProduct
+        {
+            get
+            {
+                return this._isFinishedProduct;
+            }
+            set
+            {
+                if ((this._isFinishedProduct != value))
+                {
+                    this.OnIsFinishedProductChanging(value);
+                    this.RaiseDataMemberChanging("IsFinishedProduct");
+                    this.ValidateProperty("IsFinishedProduct", value);
+                    this._isFinishedProduct = value;
+                    this.RaiseDataMemberChanged("IsFinishedProduct");
+                    this.OnIsFinishedProductChanged();
+                }
+            }
+        }
+        
+        /// <summary>
         /// Gets or sets the 'Product_Description' value.
         /// </summary>
         [DataMember()]
-        [Required()]
         public string Product_Description
         {
             get
@@ -7247,7 +7274,6 @@ namespace tambak.Web
         /// Gets or sets the 'ProductName' value.
         /// </summary>
         [DataMember()]
-        [Required()]
         [StringLength(255)]
         public string ProductName
         {
@@ -7442,7 +7468,6 @@ namespace tambak.Web
         /// Gets or sets the 'Uom' value.
         /// </summary>
         [DataMember()]
-        [Required()]
         [StringLength(50)]
         public string Uom
         {
@@ -7471,6 +7496,214 @@ namespace tambak.Web
         public override object GetIdentity()
         {
             return this._productID;
+        }
+    }
+    
+    /// <summary>
+    /// The 'ProductionCycleCostDetailView' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class ProductionCycleCostDetailView : Entity
+    {
+        
+        private int _batchTrxID;
+        
+        private string _categoryName;
+        
+        private Nullable<double> _cost;
+        
+        private Nullable<int> _productionCycleID;
+        
+        private string _productName;
+        
+        private Nullable<DateTime> _trxDate;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnBatchTrxIDChanging(int value);
+        partial void OnBatchTrxIDChanged();
+        partial void OnCategoryNameChanging(string value);
+        partial void OnCategoryNameChanged();
+        partial void OnCostChanging(Nullable<double> value);
+        partial void OnCostChanged();
+        partial void OnProductionCycleIDChanging(Nullable<int> value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnProductNameChanging(string value);
+        partial void OnProductNameChanged();
+        partial void OnTrxDateChanging(Nullable<DateTime> value);
+        partial void OnTrxDateChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductionCycleCostDetailView"/> class.
+        /// </summary>
+        public ProductionCycleCostDetailView()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'BatchTrxID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int BatchTrxID
+        {
+            get
+            {
+                return this._batchTrxID;
+            }
+            set
+            {
+                if ((this._batchTrxID != value))
+                {
+                    this.OnBatchTrxIDChanging(value);
+                    this.ValidateProperty("BatchTrxID", value);
+                    this._batchTrxID = value;
+                    this.RaisePropertyChanged("BatchTrxID");
+                    this.OnBatchTrxIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'CategoryName' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(512)]
+        public string CategoryName
+        {
+            get
+            {
+                return this._categoryName;
+            }
+            set
+            {
+                if ((this._categoryName != value))
+                {
+                    this.OnCategoryNameChanging(value);
+                    this.RaiseDataMemberChanging("CategoryName");
+                    this.ValidateProperty("CategoryName", value);
+                    this._categoryName = value;
+                    this.RaiseDataMemberChanged("CategoryName");
+                    this.OnCategoryNameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Cost' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Cost
+        {
+            get
+            {
+                return this._cost;
+            }
+            set
+            {
+                if ((this._cost != value))
+                {
+                    this.OnCostChanging(value);
+                    this.RaiseDataMemberChanging("Cost");
+                    this.ValidateProperty("Cost", value);
+                    this._cost = value;
+                    this.RaiseDataMemberChanged("Cost");
+                    this.OnCostChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.RaiseDataMemberChanging("ProductionCycleID");
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaiseDataMemberChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductName' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(255)]
+        public string ProductName
+        {
+            get
+            {
+                return this._productName;
+            }
+            set
+            {
+                if ((this._productName != value))
+                {
+                    this.OnProductNameChanging(value);
+                    this.RaiseDataMemberChanging("ProductName");
+                    this.ValidateProperty("ProductName", value);
+                    this._productName = value;
+                    this.RaiseDataMemberChanged("ProductName");
+                    this.OnProductNameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TrxDate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> TrxDate
+        {
+            get
+            {
+                return this._trxDate;
+            }
+            set
+            {
+                if ((this._trxDate != value))
+                {
+                    this.OnTrxDateChanging(value);
+                    this.RaiseDataMemberChanging("TrxDate");
+                    this.ValidateProperty("TrxDate", value);
+                    this._trxDate = value;
+                    this.RaiseDataMemberChanged("TrxDate");
+                    this.OnTrxDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._batchTrxID;
         }
     }
     
@@ -17774,6 +18007,16 @@ namespace tambak.Web.DomainServices
         }
         
         /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Product"/> entity instances using the 'GetRawProducts' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Product"/> entity instances.</returns>
+        public EntityQuery<Product> GetRawProductsQuery()
+        {
+            this.ValidateMethod("GetRawProductsQuery", null);
+            return base.CreateQuery<Product>("GetRawProducts", null, false, true);
+        }
+        
+        /// <summary>
         /// Creates a new EntityContainer for this DomainContext's EntitySets.
         /// </summary>
         /// <returns>A new container instance.</returns>
@@ -17824,6 +18067,24 @@ namespace tambak.Web.DomainServices
             /// <param name="result">The IAsyncResult returned from 'BeginGetProducts'.</param>
             /// <returns>The 'QueryResult' returned from the 'GetProducts' operation.</returns>
             QueryResult<Product> EndGetProducts(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetRawProducts' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ProductDS/GetRawProductsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ProductDS/GetRawProducts", ReplyAction="http://tempuri.org/ProductDS/GetRawProductsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetRawProducts(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetRawProducts'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetRawProducts'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetRawProducts' operation.</returns>
+            QueryResult<Product> EndGetRawProducts(IAsyncResult result);
             
             /// <summary>
             /// Asynchronously invokes the 'SubmitChanges' operation.
@@ -17978,6 +18239,119 @@ namespace tambak.Web.DomainServices
             public ProductInfoViewDSEntityContainer()
             {
                 this.CreateEntitySet<ProductsInfoView>(EntitySetOperations.All);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'ProductionCycleCostDetailViewDS' DomainService.
+    /// </summary>
+    public sealed partial class ProductionCycleCostDetailViewDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductionCycleCostDetailViewDS"/> class.
+        /// </summary>
+        public ProductionCycleCostDetailViewDS() : 
+                this(new WebDomainClient<IProductionCycleCostDetailViewDSContract>(new Uri("tambak-Web-DomainServices-ProductionCycleCostDetailViewDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductionCycleCostDetailViewDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The ProductionCycleCostDetailViewDS service URI.</param>
+        public ProductionCycleCostDetailViewDS(Uri serviceUri) : 
+                this(new WebDomainClient<IProductionCycleCostDetailViewDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductionCycleCostDetailViewDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public ProductionCycleCostDetailViewDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="ProductionCycleCostDetailView"/> entity instances that have been loaded into this <see cref="ProductionCycleCostDetailViewDS"/> instance.
+        /// </summary>
+        public EntitySet<ProductionCycleCostDetailView> ProductionCycleCostDetailViews
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<ProductionCycleCostDetailView>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="ProductionCycleCostDetailView"/> entity instances using the 'GetProductionCycleCostDetailViews' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="ProductionCycleCostDetailView"/> entity instances.</returns>
+        public EntityQuery<ProductionCycleCostDetailView> GetProductionCycleCostDetailViewsQuery()
+        {
+            this.ValidateMethod("GetProductionCycleCostDetailViewsQuery", null);
+            return base.CreateQuery<ProductionCycleCostDetailView>("GetProductionCycleCostDetailViews", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new ProductionCycleCostDetailViewDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'ProductionCycleCostDetailViewDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface IProductionCycleCostDetailViewDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetProductionCycleCostDetailViews' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ProductionCycleCostDetailViewDS/GetProductionCycleCostDetailVi" +
+                "ewsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ProductionCycleCostDetailViewDS/GetProductionCycleCostDetailVi" +
+                "ews", ReplyAction="http://tempuri.org/ProductionCycleCostDetailViewDS/GetProductionCycleCostDetailVi" +
+                "ewsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetProductionCycleCostDetailViews(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetProductionCycleCostDetailViews'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetProductionCycleCostDetailViews'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetProductionCycleCostDetailViews' operation.</returns>
+            QueryResult<ProductionCycleCostDetailView> EndGetProductionCycleCostDetailViews(IAsyncResult result);
+        }
+        
+        internal sealed class ProductionCycleCostDetailViewDSEntityContainer : EntityContainer
+        {
+            
+            public ProductionCycleCostDetailViewDSEntityContainer()
+            {
+                this.CreateEntitySet<ProductionCycleCostDetailView>(EntitySetOperations.None);
             }
         }
     }

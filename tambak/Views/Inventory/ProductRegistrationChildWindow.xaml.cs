@@ -32,6 +32,8 @@ namespace tambak.Views.Inventory
                 {
                     InitializeComponent();
                     //StartTimer();
+                    IsFinishedProductCheckBox.IsChecked = false;
+
                    
                 }
                 else
@@ -60,6 +62,8 @@ namespace tambak.Views.Inventory
             newProduct.UnitInStock = Convert.ToInt32(unitInStockTextBox.Text);
             newProduct.Uom = selectedUOM.UOMName;
             newProduct.qtyperunit = Convert.ToInt32(qtyperunitTextBox.Text);
+            newProduct.PurchasePrice = Convert.ToDecimal(purchasePriceTextBox.Text);
+            newProduct.IsFinishedProduct = IsFinishedProductCheckBox.IsChecked;
 
             productDomainContext.Products.Add(newProduct);
             productDomainContext.SubmitChanges().Completed+=submitChanges_completed;
@@ -199,6 +203,11 @@ namespace tambak.Views.Inventory
         private void loadUOMCombobox_Completed(LoadOperation<UnitofMeasurement> obj)
         {
             uOMNameComboBox.ItemsSource = uomDomainContext.UnitofMeasurements;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

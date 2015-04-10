@@ -103,6 +103,16 @@
       [PODetailsView].[ConvertedTotal] AS [ConvertedTotal]
       FROM [dbo].[PODetailsView] AS [PODetailsView]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="ProductionCycleCostDetailView" EntityType="CPLModel.Store.ProductionCycleCostDetailView" store:Type="Views" store:Schema="dbo" store:Name="ProductionCycleCostDetailView">
+      <DefiningQuery>SELECT 
+      [ProductionCycleCostDetailView].[BatchTrxID] AS [BatchTrxID], 
+      [ProductionCycleCostDetailView].[CategoryName] AS [CategoryName], 
+      [ProductionCycleCostDetailView].[ProductName] AS [ProductName], 
+      [ProductionCycleCostDetailView].[TrxDate] AS [TrxDate], 
+      [ProductionCycleCostDetailView].[Cost] AS [Cost], 
+      [ProductionCycleCostDetailView].[ProductionCycleID] AS [ProductionCycleID]
+      FROM [dbo].[ProductionCycleCostDetailView] AS [ProductionCycleCostDetailView]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ProductRequiredViews" EntityType="CPLModel.Store.ProductRequiredViews" store:Type="Views" store:Schema="dbo" store:Name="ProductRequiredViews">
       <DefiningQuery>SELECT 
       [ProductRequiredViews].[ProductName] AS [ProductName], 
@@ -694,6 +704,7 @@
     <Property Name="ReorderLevel" Type="decimal" Scale="2" />
     <Property Name="PurchasePrice" Type="decimal" Scale="2" />
     <Property Name="SalePrice" Type="decimal" Scale="2" />
+    <Property Name="IsFinishedProduct" Type="bit" />
   </EntityType>
   <EntityType Name="ProductSalesOrders">
     <Key>
@@ -969,6 +980,20 @@
     <Property Name="POID" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="ConvertedUnitPrice" Type="float" />
     <Property Name="ConvertedTotal" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.ProductionCycleCostDetailView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ProductionCycleCostDetailView">
+    <Key>
+      <PropertyRef Name="BatchTrxID" />
+    </Key>
+    <Property Name="BatchTrxID" Type="int" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="512" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
+    <Property Name="TrxDate" Type="datetime" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="ProductionCycleID" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.ProductRequiredViews' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.

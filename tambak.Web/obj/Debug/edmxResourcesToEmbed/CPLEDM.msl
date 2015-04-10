@@ -394,6 +394,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="CPLModel.Product">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="IsFinishedProduct" ColumnName="IsFinishedProduct" />
           <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
           <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
           <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
@@ -728,6 +729,18 @@
           <ScalarProperty Name="Priority" ColumnName="Priority" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductionCycleCostDetailViews">
+      <EntityTypeMapping TypeName="CPLModel.ProductionCycleCostDetailView">
+        <MappingFragment StoreEntitySet="ProductionCycleCostDetailView">
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="TrxDate" ColumnName="TrxDate" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="BatchTrxID" ColumnName="BatchTrxID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

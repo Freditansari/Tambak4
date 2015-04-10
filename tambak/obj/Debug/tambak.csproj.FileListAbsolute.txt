@@ -2134,6 +2134,11 @@ C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\it\Telerik.Wind
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\nl\Telerik.Windows.Controls.resources.dll
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\tr\Telerik.Windows.Controls.resources.dll
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\obj\Debug\XapCacheFile.xml
-C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\obj\Debug\Views\TasksModule\NewTasksPage.g.cs
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\obj\Debug\Views\TasksModule\ManageTasks.g.cs
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\obj\Debug\Views\TasksModule\NewTaskChildWindow.g.cs
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\telerik.windows.controls.chart.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\telerik.windows.controls.charting.dll
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\telerik.windows.controls.chart.xml
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\Bin\Debug\telerik.windows.controls.charting.xml
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\obj\Debug\Views\Charts\SamplingCharts.g.cs
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\tambak\obj\Debug\Views\Production\ProductionCostsPage.g.cs

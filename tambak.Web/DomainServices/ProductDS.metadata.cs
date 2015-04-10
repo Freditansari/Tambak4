@@ -34,20 +34,28 @@ namespace tambak.Web
             {
             }
 
-            public string Category { get; set; }
+            public EntityCollection<BatchDetail> BatchDetails { get; set; }
+
+            public EntityCollection<BatchHeader> BatchHeaders { get; set; }
+
+            public Nullable<int> Category { get; set; }
+
+            public Category Category1 { get; set; }
+
+            public EntityCollection<DeliveryLog> DeliveryLogs { get; set; }
 
             public EntityCollection<FeedingLog> FeedingLogs { get; set; }
+
+            public Nullable<bool> IsFinishedProduct { get; set; }
 
             public EntityCollection<PODetail> PODetails { get; set; }
 
             public EntityCollection<PondConsumptionsLog> PondConsumptionsLogs { get; set; }
 
-            [Required]
             public string Product_Description { get; set; }
 
             public int ProductID { get; set; }
 
-            [Required]
             public string ProductName { get; set; }
 
             public EntityCollection<ProductPurchaseLog> ProductPurchaseLogs { get; set; }
@@ -74,7 +82,6 @@ namespace tambak.Web
 
             public Nullable<decimal> UnitInStock { get; set; }
 
-            [Required]
             public string Uom { get; set; }
         }
     }

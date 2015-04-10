@@ -942,6 +942,22 @@ namespace tambak.Web
             }
         }
         private ObjectSet<TaskNotDoneView> _TaskNotDoneViews;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ProductionCycleCostDetailView> ProductionCycleCostDetailViews
+        {
+            get
+            {
+                if ((_ProductionCycleCostDetailViews == null))
+                {
+                    _ProductionCycleCostDetailViews = base.CreateObjectSet<ProductionCycleCostDetailView>("ProductionCycleCostDetailViews");
+                }
+                return _ProductionCycleCostDetailViews;
+            }
+        }
+        private ObjectSet<ProductionCycleCostDetailView> _ProductionCycleCostDetailViews;
 
         #endregion
 
@@ -1361,6 +1377,14 @@ namespace tambak.Web
         public void AddToTaskNotDoneViews(TaskNotDoneView taskNotDoneView)
         {
             base.AddObject("TaskNotDoneViews", taskNotDoneView);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ProductionCycleCostDetailViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToProductionCycleCostDetailViews(ProductionCycleCostDetailView productionCycleCostDetailView)
+        {
+            base.AddObject("ProductionCycleCostDetailViews", productionCycleCostDetailView);
         }
 
         #endregion
@@ -8911,6 +8935,30 @@ namespace tambak.Web
         private Nullable<global::System.Decimal> _SalePrice;
         partial void OnSalePriceChanging(Nullable<global::System.Decimal> value);
         partial void OnSalePriceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsFinishedProduct
+        {
+            get
+            {
+                return _IsFinishedProduct;
+            }
+            set
+            {
+                OnIsFinishedProductChanging(value);
+                ReportPropertyChanging("IsFinishedProduct");
+                _IsFinishedProduct = StructuralObject.SetValidValue(value, "IsFinishedProduct");
+                ReportPropertyChanged("IsFinishedProduct");
+                OnIsFinishedProductChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsFinishedProduct;
+        partial void OnIsFinishedProductChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsFinishedProductChanged();
 
         #endregion
 
@@ -9195,6 +9243,182 @@ namespace tambak.Web
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="ProductionCycleCostDetailView")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ProductionCycleCostDetailView : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ProductionCycleCostDetailView object.
+        /// </summary>
+        /// <param name="batchTrxID">Initial value of the BatchTrxID property.</param>
+        public static ProductionCycleCostDetailView CreateProductionCycleCostDetailView(global::System.Int32 batchTrxID)
+        {
+            ProductionCycleCostDetailView productionCycleCostDetailView = new ProductionCycleCostDetailView();
+            productionCycleCostDetailView.BatchTrxID = batchTrxID;
+            return productionCycleCostDetailView;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 BatchTrxID
+        {
+            get
+            {
+                return _BatchTrxID;
+            }
+            set
+            {
+                if (_BatchTrxID != value)
+                {
+                    OnBatchTrxIDChanging(value);
+                    ReportPropertyChanging("BatchTrxID");
+                    _BatchTrxID = StructuralObject.SetValidValue(value, "BatchTrxID");
+                    ReportPropertyChanged("BatchTrxID");
+                    OnBatchTrxIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _BatchTrxID;
+        partial void OnBatchTrxIDChanging(global::System.Int32 value);
+        partial void OnBatchTrxIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CategoryName
+        {
+            get
+            {
+                return _CategoryName;
+            }
+            set
+            {
+                OnCategoryNameChanging(value);
+                ReportPropertyChanging("CategoryName");
+                _CategoryName = StructuralObject.SetValidValue(value, true, "CategoryName");
+                ReportPropertyChanged("CategoryName");
+                OnCategoryNameChanged();
+            }
+        }
+        private global::System.String _CategoryName;
+        partial void OnCategoryNameChanging(global::System.String value);
+        partial void OnCategoryNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ProductName
+        {
+            get
+            {
+                return _ProductName;
+            }
+            set
+            {
+                OnProductNameChanging(value);
+                ReportPropertyChanging("ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, true, "ProductName");
+                ReportPropertyChanged("ProductName");
+                OnProductNameChanged();
+            }
+        }
+        private global::System.String _ProductName;
+        partial void OnProductNameChanging(global::System.String value);
+        partial void OnProductNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> TrxDate
+        {
+            get
+            {
+                return _TrxDate;
+            }
+            set
+            {
+                OnTrxDateChanging(value);
+                ReportPropertyChanging("TrxDate");
+                _TrxDate = StructuralObject.SetValidValue(value, "TrxDate");
+                ReportPropertyChanged("TrxDate");
+                OnTrxDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _TrxDate;
+        partial void OnTrxDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnTrxDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Cost
+        {
+            get
+            {
+                return _Cost;
+            }
+            set
+            {
+                OnCostChanging(value);
+                ReportPropertyChanging("Cost");
+                _Cost = StructuralObject.SetValidValue(value, "Cost");
+                ReportPropertyChanged("Cost");
+                OnCostChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Cost;
+        partial void OnCostChanging(Nullable<global::System.Double> value);
+        partial void OnCostChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ProductionCycleID
+        {
+            get
+            {
+                return _ProductionCycleID;
+            }
+            set
+            {
+                OnProductionCycleIDChanging(value);
+                ReportPropertyChanging("ProductionCycleID");
+                _ProductionCycleID = StructuralObject.SetValidValue(value, "ProductionCycleID");
+                ReportPropertyChanged("ProductionCycleID");
+                OnProductionCycleIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ProductionCycleID;
+        partial void OnProductionCycleIDChanging(Nullable<global::System.Int32> value);
+        partial void OnProductionCycleIDChanged();
 
         #endregion
 

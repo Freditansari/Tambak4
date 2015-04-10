@@ -217,6 +217,7 @@
     <EntitySet Name="CurrentActivePonds" EntityType="CPLModel.CurrentActivePond" />
     <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
     <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
+    <EntitySet Name="ProductionCycleCostDetailViews" EntityType="CPLModel.ProductionCycleCostDetailView" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -807,6 +808,7 @@
     <NavigationProperty Name="DeliveryLogs" Relationship="CPLModel.FK_DeliveryLog_products" FromRole="Product" ToRole="DeliveryLog" />
     <NavigationProperty Name="BatchDetails" Relationship="CPLModel.FK_dbo_BatchDetails_ProductID" FromRole="Product" ToRole="BatchDetail" />
     <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_Products" FromRole="Product" ToRole="PondConsumptionsLog" />
+    <Property Type="Boolean" Name="IsFinishedProduct" />
   </EntityType>
   <Association Name="FK_Products_Category">
     <End Type="CPLModel.Category" Role="Category" Multiplicity="0..1" />
@@ -1485,5 +1487,16 @@
     <Property Type="Int32" Name="ProductionCycleID" />
     <Property Type="Boolean" Name="isDone" />
     <Property Type="String" Name="ReccurencePattern" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductionCycleCostDetailView">
+    <Key>
+      <PropertyRef Name="BatchTrxID" />
+    </Key>
+    <Property Type="Int32" Name="BatchTrxID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductName" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TrxDate" Precision="3" />
+    <Property Type="Double" Name="Cost" />
+    <Property Type="Int32" Name="ProductionCycleID" />
   </EntityType>
 </Schema>

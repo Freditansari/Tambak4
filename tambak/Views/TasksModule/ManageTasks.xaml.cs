@@ -28,8 +28,27 @@ namespace tambak.Views.TasksModule
         
         public ManageTasks()
         {
-            InitializeComponent();
-            Loaded += ManageTasks_Loaded;
+            try
+            {
+                if (WebContext.Current.User.IsInRole("Manager") || WebContext.Current.User.IsInRole("Field Accounting") || WebContext.Current.User.IsInRole("Super Admin"))
+                {
+
+
+                    InitializeComponent();
+                    Loaded += ManageTasks_Loaded;
+
+                }
+                else
+                {
+                    throw new ArgumentException("Insufficient Access. Please login with higher access.");
+                }
+            }
+            catch (Exception g)
+            {
+                MessageBox.Show(g.Message);
+            }
+            
+            
         }
 
         void ManageTasks_Loaded(object sender, RoutedEventArgs e)
@@ -156,6 +175,11 @@ namespace tambak.Views.TasksModule
 
         private void updateTaskButton_Click(object sender, RoutedEventArgs e)
         {
+            if (isDoneCheckBox.IsChecked == true)
+            {
+                selectedTask.isDone = true;
+                selectedTask.EndDate = DateTime.Now;
+            }
             taskDomainContext.SubmitChanges();
         }
 

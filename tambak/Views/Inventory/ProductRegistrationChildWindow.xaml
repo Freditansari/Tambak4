@@ -49,7 +49,7 @@
             <sdk:Label Content="Product ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
             <TextBox x:Name="productIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding ProductID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
             <sdk:Label Content="Product Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="productNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding ProductName, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="productNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="2" Text="{Binding ProductName, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <sdk:Label Content="Product Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <TextBox x:Name="product_DescriptionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Product_Description, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <sdk:Label Content="Purchase Price:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
@@ -66,7 +66,7 @@
             <TextBox x:Name="unitInStockTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="0" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
             <sdk:Label Content="Uom:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
             <ComboBox x:Name="uOMNameComboBox" Grid.Column="1" DisplayMemberPath="UOMName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Data, ElementName=unitofMeasurementDomainDataSource}" Margin="3,0,0,3" Grid.Row="10" VerticalAlignment="Bottom" Width="120" SelectionChanged="uOMNameComboBox_SelectionChanged"/>
-                <!--<TextBox x:Name="uomTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Uom, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Visibility="Collapsed"/>-->
+            <!--<TextBox x:Name="uomTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Uom, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Visibility="Collapsed"/>-->
             <sdk:Label Content="qtyperunit:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
             <TextBox x:Name="qtyperunitTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="1" VerticalAlignment="Center" Width="120"/>
         </Grid>
@@ -82,6 +82,7 @@
             </riaControls:DomainDataSource.DomainContext>
         </riaControls:DomainDataSource>
         <Button x:Name="newUOMButton" Content="New UOM" HorizontalAlignment="Left" Margin="272,287,0,0" VerticalAlignment="Top" Width="75" Click="newUOMButton_Click"/>
+        <CheckBox Name="IsFinishedProductCheckBox" Content="Is a Finished Product?" HorizontalAlignment="Left" Margin="272,66,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
         <!--<Grid x:Name="grid2" DataContext="{Binding Data, ElementName=unitofMeasurementDomainDataSource}" HorizontalAlignment="Left" Margin="335,206,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

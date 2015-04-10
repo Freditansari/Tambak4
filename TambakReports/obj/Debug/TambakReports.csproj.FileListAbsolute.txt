@@ -23,3 +23,4 @@ C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakRe
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.dll
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.pdb
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.TaskReport.resources
+C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.ProductLabelReport.resources

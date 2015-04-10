@@ -108,6 +108,16 @@
       [PODetailsView].[ConvertedTotal] AS [ConvertedTotal]
       FROM [dbo].[PODetailsView] AS [PODetailsView]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ProductionCycleCostDetailView" EntityType="CPLModel.Store.ProductionCycleCostDetailView" store:Type="Views" store:Schema="dbo" store:Name="ProductionCycleCostDetailView">
+            <DefiningQuery>SELECT 
+      [ProductionCycleCostDetailView].[BatchTrxID] AS [BatchTrxID], 
+      [ProductionCycleCostDetailView].[CategoryName] AS [CategoryName], 
+      [ProductionCycleCostDetailView].[ProductName] AS [ProductName], 
+      [ProductionCycleCostDetailView].[TrxDate] AS [TrxDate], 
+      [ProductionCycleCostDetailView].[Cost] AS [Cost], 
+      [ProductionCycleCostDetailView].[ProductionCycleID] AS [ProductionCycleID]
+      FROM [dbo].[ProductionCycleCostDetailView] AS [ProductionCycleCostDetailView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ProductRequiredViews" EntityType="CPLModel.Store.ProductRequiredViews" store:Type="Views" store:Schema="dbo" store:Name="ProductRequiredViews">
             <DefiningQuery>SELECT 
       [ProductRequiredViews].[ProductName] AS [ProductName], 
@@ -699,6 +709,7 @@
           <Property Name="ReorderLevel" Type="decimal" Scale="2" />
           <Property Name="PurchasePrice" Type="decimal" Scale="2" />
           <Property Name="SalePrice" Type="decimal" Scale="2" />
+          <Property Name="IsFinishedProduct" Type="bit" />
         </EntityType>
         <EntityType Name="ProductSalesOrders">
           <Key>
@@ -974,6 +985,20 @@
           <Property Name="POID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ConvertedUnitPrice" Type="float" />
           <Property Name="ConvertedTotal" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.ProductionCycleCostDetailView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ProductionCycleCostDetailView">
+          <Key>
+            <PropertyRef Name="BatchTrxID" />
+          </Key>
+          <Property Name="BatchTrxID" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="512" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
+          <Property Name="TrxDate" Type="datetime" />
+          <Property Name="Cost" Type="float" />
+          <Property Name="ProductionCycleID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.ProductRequiredViews' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1817,6 +1842,7 @@
           <EntitySet Name="CurrentActivePonds" EntityType="CPLModel.CurrentActivePond" />
           <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
           <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
+          <EntitySet Name="ProductionCycleCostDetailViews" EntityType="CPLModel.ProductionCycleCostDetailView" />
           </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -2407,6 +2433,7 @@
           <NavigationProperty Name="DeliveryLogs" Relationship="CPLModel.FK_DeliveryLog_products" FromRole="Product" ToRole="DeliveryLog" />
           <NavigationProperty Name="BatchDetails" Relationship="CPLModel.FK_dbo_BatchDetails_ProductID" FromRole="Product" ToRole="BatchDetail" />
           <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_Products" FromRole="Product" ToRole="PondConsumptionsLog" />
+          <Property Type="Boolean" Name="IsFinishedProduct" />
         </EntityType>
         <Association Name="FK_Products_Category">
           <End Type="CPLModel.Category" Role="Category" Multiplicity="0..1" />
@@ -3086,6 +3113,17 @@
           <Property Type="Boolean" Name="isDone" />
           <Property Type="String" Name="ReccurencePattern" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="ProductionCycleCostDetailView">
+          <Key>
+            <PropertyRef Name="BatchTrxID" />
+          </Key>
+          <Property Type="Int32" Name="BatchTrxID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TrxDate" Precision="3" />
+          <Property Type="Double" Name="Cost" />
+          <Property Type="Int32" Name="ProductionCycleID" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3485,6 +3523,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CPLModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsFinishedProduct" ColumnName="IsFinishedProduct" />
                 <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
                 <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
                 <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
@@ -3819,6 +3858,18 @@
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductionCycleCostDetailViews">
+            <EntityTypeMapping TypeName="CPLModel.ProductionCycleCostDetailView">
+              <MappingFragment StoreEntitySet="ProductionCycleCostDetailView">
+                <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TrxDate" ColumnName="TrxDate" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="BatchTrxID" ColumnName="BatchTrxID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

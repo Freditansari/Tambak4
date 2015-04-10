@@ -53,6 +53,7 @@
                             <telerik:RadMenuItem Header="Ponds Production Cycle"/>
                             <telerik:RadMenuItem Header="Ponds Status"/>
                             <telerik:RadMenuItem Header="Ponds Logs"/>
+                            <telerik:RadMenuItem Header="Ponds Charts"/>
                         </telerik:RadMenuItem>
                         <telerik:RadMenuItem Header="Inventory">
                             <telerik:RadMenuItem Header="Product Registration"/>
@@ -65,8 +66,8 @@
                         </telerik:RadMenuItem>
                         <telerik:RadMenuItem Header="Tasks">
                             <telerik:RadMenuItem Header="Manage Tasks"/>
-                            <telerik:RadMenuItem Header="New Tasks"/>
-                            <telerik:RadMenuItem Header="Sub Item 5"/>
+                            <!--<telerik:RadMenuItem Header="New Tasks"/>
+                            <telerik:RadMenuItem Header="Sub Item 5"/>-->
                         </telerik:RadMenuItem>
                         <telerik:RadMenuItem Header="Administration">
                             <telerik:RadMenuItem Header="Manage Users"/>
@@ -83,6 +84,7 @@
                         <telerik:RadMenuItem Header="Production">
                             <telerik:RadMenuItem Header="Consume Material"/>
                             <telerik:RadMenuItem Header="Harvest Log"/>
+                            <telerik:RadMenuItem Header="Production Costs"/>
                         </telerik:RadMenuItem>
                         
                     </telerik:RadMenu>

@@ -190,6 +190,8 @@
     <Compile Include="DomainServices\ProductDS.metadata.cs" />
     <Compile Include="DomainServices\ProductInfoViewDS.cs" />
     <Compile Include="DomainServices\ProductInfoViewDS.metadata.cs" />
+    <Compile Include="DomainServices\ProductionCycleCostDetailViewDS.cs" />
+    <Compile Include="DomainServices\ProductionCycleCostDetailViewDS.metadata.cs" />
     <Compile Include="DomainServices\ProductPurchaseLogDS.cs" />
     <Compile Include="DomainServices\ProductPurchaseLogDS.metadata.cs" />
     <Compile Include="DomainServices\ProductRequiredDS.cs" />
@@ -291,7 +293,6 @@
   <ItemGroup>
     <EntityDeploy Include="CPLEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CPLEDM.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>

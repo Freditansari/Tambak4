@@ -46,7 +46,7 @@
         <EntityTypeShape EntityType="CPLModel.PDOControl" Width="1.5" PointX="10.375" PointY="18.375" />
         <EntityTypeShape EntityType="CPLModel.Supplier" Width="1.5" PointX="6.3902712214692832" PointY="9.4342851831737367" />
         <EntityTypeShape EntityType="CPLModel.Category" Width="1.5" PointX="13.875" PointY="17.5" />
-        <EntityTypeShape EntityType="CPLModel.Product" Width="1.5" PointX="7.4337880031363053" PointY="28.03746644968049" />
+        <EntityTypeShape EntityType="CPLModel.Product" Width="1.5" PointX="9" PointY="30.25" />
         <AssociationConnector Association="CPLModel.FK_Products_Category" />
         <AssociationConnector Association="CPLModel.FK_FeedingLogs_Products" />
         <AssociationConnector Association="CPLModel.FK_ProductPurchaseLog_Products" />
@@ -98,6 +98,7 @@
         <EntityTypeShape EntityType="CPLModel.CurrentActivePond" Width="1.5" PointX="5.3338553390157664" PointY="4.6703683904699833" />
         <EntityTypeShape EntityType="CPLModel.EmployeeNameView" Width="1.5" PointX="0.38445913437030232" PointY="16.619161196341349" />
         <EntityTypeShape EntityType="CPLModel.TaskNotDoneView" Width="1.5" PointX="7.0074042319354621" PointY="27.186068249487349" />
+        <EntityTypeShape EntityType="CPLModel.ProductionCycleCostDetailView" Width="1.5" PointX="10.5224687971745" PointY="2.922966824342947" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

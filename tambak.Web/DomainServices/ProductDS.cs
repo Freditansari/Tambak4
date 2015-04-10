@@ -34,7 +34,12 @@ namespace tambak.Web.DomainServices
 
         public IQueryable<Product> GetFinishedProducts()
         {
-           return this.ObjectContext.Products.Where(b => b.Category == 7);
+            return this.ObjectContext.Products.Where(b => b.IsFinishedProduct == true);
+        }
+
+        public IQueryable<Product> GetRawProducts()
+        {
+            return this.ObjectContext.Products.Where(b => b.IsFinishedProduct != true);
         }
 
         public void InsertProduct(Product product)
