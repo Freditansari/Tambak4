@@ -13597,6 +13597,128 @@ namespace tambak.Web
     }
     
     /// <summary>
+    /// The 'TotalSevenDaysFeed' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class TotalSevenDaysFeed : Entity
+    {
+        
+        private Nullable<DateTime> _date;
+        
+        private int _productionCycleID;
+        
+        private Nullable<double> _totalFeedGiven;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDateChanging(Nullable<DateTime> value);
+        partial void OnDateChanged();
+        partial void OnProductionCycleIDChanging(int value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnTotalFeedGivenChanging(Nullable<double> value);
+        partial void OnTotalFeedGivenChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TotalSevenDaysFeed"/> class.
+        /// </summary>
+        public TotalSevenDaysFeed()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Date' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> Date
+        {
+            get
+            {
+                return this._date;
+            }
+            set
+            {
+                if ((this._date != value))
+                {
+                    this.OnDateChanging(value);
+                    this.RaiseDataMemberChanging("Date");
+                    this.ValidateProperty("Date", value);
+                    this._date = value;
+                    this.RaiseDataMemberChanged("Date");
+                    this.OnDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaisePropertyChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TotalFeedGiven' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> TotalFeedGiven
+        {
+            get
+            {
+                return this._totalFeedGiven;
+            }
+            set
+            {
+                if ((this._totalFeedGiven != value))
+                {
+                    this.OnTotalFeedGivenChanging(value);
+                    this.RaiseDataMemberChanging("TotalFeedGiven");
+                    this.ValidateProperty("TotalFeedGiven", value);
+                    this._totalFeedGiven = value;
+                    this.RaiseDataMemberChanged("TotalFeedGiven");
+                    this.OnTotalFeedGivenChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._productionCycleID;
+        }
+    }
+    
+    /// <summary>
     /// The 'UnitofMeasurement' entity class.
     /// </summary>
     [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
@@ -20473,6 +20595,116 @@ namespace tambak.Web.DomainServices
             public tenDaysFeedEstimateEntityContainer()
             {
                 this.CreateEntitySet<RequiredFeedNext10Days>(EntitySetOperations.None);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'TotalSevenDaysFeedDS' DomainService.
+    /// </summary>
+    public sealed partial class TotalSevenDaysFeedDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TotalSevenDaysFeedDS"/> class.
+        /// </summary>
+        public TotalSevenDaysFeedDS() : 
+                this(new WebDomainClient<ITotalSevenDaysFeedDSContract>(new Uri("tambak-Web-DomainServices-TotalSevenDaysFeedDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TotalSevenDaysFeedDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The TotalSevenDaysFeedDS service URI.</param>
+        public TotalSevenDaysFeedDS(Uri serviceUri) : 
+                this(new WebDomainClient<ITotalSevenDaysFeedDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TotalSevenDaysFeedDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public TotalSevenDaysFeedDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="TotalSevenDaysFeed"/> entity instances that have been loaded into this <see cref="TotalSevenDaysFeedDS"/> instance.
+        /// </summary>
+        public EntitySet<TotalSevenDaysFeed> TotalSevenDaysFeeds
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<TotalSevenDaysFeed>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="TotalSevenDaysFeed"/> entity instances using the 'GetTotalSevenDaysFeeds' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="TotalSevenDaysFeed"/> entity instances.</returns>
+        public EntityQuery<TotalSevenDaysFeed> GetTotalSevenDaysFeedsQuery()
+        {
+            this.ValidateMethod("GetTotalSevenDaysFeedsQuery", null);
+            return base.CreateQuery<TotalSevenDaysFeed>("GetTotalSevenDaysFeeds", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new TotalSevenDaysFeedDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'TotalSevenDaysFeedDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface ITotalSevenDaysFeedDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetTotalSevenDaysFeeds' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/TotalSevenDaysFeedDS/GetTotalSevenDaysFeedsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/TotalSevenDaysFeedDS/GetTotalSevenDaysFeeds", ReplyAction="http://tempuri.org/TotalSevenDaysFeedDS/GetTotalSevenDaysFeedsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetTotalSevenDaysFeeds(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetTotalSevenDaysFeeds'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetTotalSevenDaysFeeds'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetTotalSevenDaysFeeds' operation.</returns>
+            QueryResult<TotalSevenDaysFeed> EndGetTotalSevenDaysFeeds(IAsyncResult result);
+        }
+        
+        internal sealed class TotalSevenDaysFeedDSEntityContainer : EntityContainer
+        {
+            
+            public TotalSevenDaysFeedDSEntityContainer()
+            {
+                this.CreateEntitySet<TotalSevenDaysFeed>(EntitySetOperations.None);
             }
         }
     }

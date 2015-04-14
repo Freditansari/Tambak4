@@ -204,6 +204,13 @@
       [TaskNotDoneView].[ReccurencePattern] AS [ReccurencePattern]
       FROM [dbo].[TaskNotDoneView] AS [TaskNotDoneView]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="TotalSevenDaysFeed" EntityType="CPLModel.Store.TotalSevenDaysFeed" store:Type="Views" store:Schema="dbo" store:Name="TotalSevenDaysFeed">
+            <DefiningQuery>SELECT 
+      [TotalSevenDaysFeed].[Date] AS [Date], 
+      [TotalSevenDaysFeed].[TotalFeedGiven] AS [TotalFeedGiven], 
+      [TotalSevenDaysFeed].[ProductionCycleID] AS [ProductionCycleID]
+      FROM [dbo].[TotalSevenDaysFeed] AS [TotalSevenDaysFeed]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_BatchDetails_BatchHeader" Association="CPLModel.Store.FK_BatchDetails_BatchHeader">
             <End Role="BatchHeader" EntitySet="BatchHeader" />
             <End Role="BatchDetails" EntitySet="BatchDetails" />
@@ -1129,6 +1136,17 @@
           <Property Name="isDone" Type="bit" />
           <Property Name="ReccurencePattern" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.TotalSevenDaysFeed' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TotalSevenDaysFeed">
+          <Key>
+            <PropertyRef Name="ProductionCycleID" />
+          </Key>
+          <Property Name="Date" Type="date" />
+          <Property Name="TotalFeedGiven" Type="float" />
+          <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_BatchDetails_BatchHeader">
           <End Role="BatchHeader" Type="CPLModel.Store.BatchHeader" Multiplicity="1" />
           <End Role="BatchDetails" Type="CPLModel.Store.BatchDetails" Multiplicity="*" />
@@ -1843,6 +1861,7 @@
           <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
           <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
           <EntitySet Name="ProductionCycleCostDetailViews" EntityType="CPLModel.ProductionCycleCostDetailView" />
+          <EntitySet Name="TotalSevenDaysFeeds" EntityType="CPLModel.TotalSevenDaysFeed" />
           </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -3124,6 +3143,14 @@
           <Property Type="Double" Name="Cost" />
           <Property Type="Int32" Name="ProductionCycleID" />
         </EntityType>
+        <EntityType Name="TotalSevenDaysFeed">
+          <Key>
+            <PropertyRef Name="ProductionCycleID" />
+          </Key>
+          <Property Type="DateTime" Name="Date" Precision="0" />
+          <Property Type="Double" Name="TotalFeedGiven" />
+          <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3870,6 +3897,15 @@
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="BatchTrxID" ColumnName="BatchTrxID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TotalSevenDaysFeeds">
+            <EntityTypeMapping TypeName="CPLModel.TotalSevenDaysFeed">
+              <MappingFragment StoreEntitySet="TotalSevenDaysFeed">
+                <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+                <ScalarProperty Name="TotalFeedGiven" ColumnName="TotalFeedGiven" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

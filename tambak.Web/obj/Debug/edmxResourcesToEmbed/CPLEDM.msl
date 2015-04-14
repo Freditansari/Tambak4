@@ -744,5 +744,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TotalSevenDaysFeeds">
+      <EntityTypeMapping TypeName="CPLModel.TotalSevenDaysFeed">
+        <MappingFragment StoreEntitySet="TotalSevenDaysFeed">
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="TotalFeedGiven" ColumnName="TotalFeedGiven" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

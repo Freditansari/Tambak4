@@ -1255,5 +1255,15 @@ namespace tambak.Views
         {
 
         }
+
+        private void totalSevenDaysFeedDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
     }
 }

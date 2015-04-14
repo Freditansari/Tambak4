@@ -323,6 +323,8 @@
                     <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="110" Margin="93,98,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="288"/>
                     <TextBlock HorizontalAlignment="Left" Margin="93,77,0,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top"/>
                     <Button x:Name="goButton" Content="go!" HorizontalAlignment="Left" Margin="323,27,0,0" VerticalAlignment="Top" Width="75" Click="goButton_Click"/>
+                   
+                   
                 </Grid>
             </telerik:RadTabItem>
         </telerik:RadTabControl>

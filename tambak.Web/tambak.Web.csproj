@@ -127,7 +127,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CPLEDM.Designer.cs">
+    <Compile Include="CPLEDM1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CPLEDM.edmx</DependentUpon>
@@ -216,6 +216,8 @@
     <Compile Include="DomainServices\TaskNotDoneViewDS.metadata.cs" />
     <Compile Include="DomainServices\tenDaysFeedEstimate.cs" />
     <Compile Include="DomainServices\tenDaysFeedEstimate.metadata.cs" />
+    <Compile Include="DomainServices\TotalSevenDaysFeedDS.cs" />
+    <Compile Include="DomainServices\TotalSevenDaysFeedDS.metadata.cs" />
     <Compile Include="DomainServices\UnitofMeasurementDS.cs" />
     <Compile Include="DomainServices\UnitofMeasurementDS.metadata.cs" />
     <Compile Include="ProductRequiredViewDS.cs" />
@@ -293,6 +295,7 @@
   <ItemGroup>
     <EntityDeploy Include="CPLEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CPLEDM1.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>

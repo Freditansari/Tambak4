@@ -612,6 +612,7 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.SuppliersDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.TaskNotDoneViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.tenDaysFeedEstimate.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.TotalSevenDaysFeedDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.UnitofMeasurementDS.datasource" />
     <None Include="Service References\addRoleServiceReference\addRoleService.disco" />
     <None Include="Service References\addRoleServiceReference\configuration91.svcinfo" />
@@ -790,6 +791,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inventory\Todo Files.txt" />
+    <Content Include="Views\Pythons\Alert.py" />
+    <Content Include="Views\Pythons\biforex.py" />
+    <Content Include="Views\Pythons\columncheck.py" />
+    <Content Include="Views\Pythons\copyproduction.py" />
+    <Content Include="Views\Pythons\DailyFeedSummary.py" />
+    <Content Include="Views\Pythons\isCompleteCheck.py" />
+    <Content Include="Views\Pythons\lainlain.py" />
+    <Content Include="Views\Pythons\perkiraanpakan.py" />
+    <Content Include="Views\Pythons\tablecheck.py" />
     <Content Include="Views\TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>

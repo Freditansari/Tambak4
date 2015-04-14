@@ -99,6 +99,7 @@
         <EntityTypeShape EntityType="CPLModel.EmployeeNameView" Width="1.5" PointX="0.38445913437030232" PointY="16.619161196341349" />
         <EntityTypeShape EntityType="CPLModel.TaskNotDoneView" Width="1.5" PointX="7.0074042319354621" PointY="27.186068249487349" />
         <EntityTypeShape EntityType="CPLModel.ProductionCycleCostDetailView" Width="1.5" PointX="10.5224687971745" PointY="2.922966824342947" />
+        <EntityTypeShape EntityType="CPLModel.TotalSevenDaysFeed" Width="1.5" PointX="3.125" PointY="25.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -24,3 +24,17 @@ C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakRe
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.pdb
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.TaskReport.resources
 C:\Users\fredy\Documents\GitHub\tambak2\Tambak4\TambakReports\obj\Debug\TambakReports.ProductLabelReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\bin\Debug\TambakReports.dll.config
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\bin\Debug\TambakReports.dll
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\bin\Debug\TambakReports.pdb
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.DeliveryReceiptReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.FacilityReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.PODetailsReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.ProductLabelReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.PurchaseOrderReports.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.SamplingReports.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.SuppliersReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.TaskReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.csproj.GenerateResource.Cache
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.dll
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.pdb

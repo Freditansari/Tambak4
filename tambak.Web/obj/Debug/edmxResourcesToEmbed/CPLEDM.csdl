@@ -218,6 +218,7 @@
     <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
     <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
     <EntitySet Name="ProductionCycleCostDetailViews" EntityType="CPLModel.ProductionCycleCostDetailView" />
+    <EntitySet Name="TotalSevenDaysFeeds" EntityType="CPLModel.TotalSevenDaysFeed" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -1498,5 +1499,13 @@
     <Property Type="DateTime" Name="TrxDate" Precision="3" />
     <Property Type="Double" Name="Cost" />
     <Property Type="Int32" Name="ProductionCycleID" />
+  </EntityType>
+  <EntityType Name="TotalSevenDaysFeed">
+    <Key>
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Type="DateTime" Name="Date" Precision="0" />
+    <Property Type="Double" Name="TotalFeedGiven" />
+    <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
   </EntityType>
 </Schema>

@@ -24,7 +24,9 @@ namespace tambak.Views.Popups
         DateTime logDate;
 
         FeedingLog feedinglogLists = new FeedingLog();
-        
+
+        runCmdShellServiceReference.RunCmdShellClient runCmdShellClient = new runCmdShellServiceReference.RunCmdShellClient();
+
         public NewFeedingLogChildWindows()
         {
             InitializeComponent();
@@ -78,6 +80,23 @@ namespace tambak.Views.Popups
         }
 
         private void submitChanges_completed(object sender, EventArgs e)
+        {
+            try
+            {
+                //todo configure this line to run leo's python code to get feeding average.
+                string PythonCommands = "python C:\\LeoRepo\\dailyfeedsummary.py";
+                runCmdShellClient.runAverageCommandAsync(PythonCommands);
+                runCmdShellClient.runAverageCommandCompleted += runCmdShellClient_runAverageCommandCompleted;
+            }
+            catch (Exception g)
+            {
+
+
+            }
+           
+        }
+
+        private void runCmdShellClient_runAverageCommandCompleted(object sender, runCmdShellServiceReference.runAverageCommandCompletedEventArgs e)
         {
             this.DialogResult = true;
         }
