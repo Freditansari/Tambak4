@@ -6,5 +6,21 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="CategoryDS" Identifier="tambak.Web.DomainServices.CategoryDS" ProviderType="Microsoft.VisualStudio.DataDesign.RiaComponents.DataSourceProvider.RiaServiceDataSourceProvider" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <Children>
+      <GenericObjectDataSource DisplayName="Category" Identifier="tambak.Web.DomainServices.CategoryDS" ProviderType="Microsoft.VisualStudio.DataDesign.RiaComponents.DataSourceProvider.RiaServiceDataSourceProvider" Version="1.0">
+         <TypeInfo>tambak.Web.Category</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="CategoryName">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:Silverlight">
+                        <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="System.Windows, Version=5.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" AssemblyCodeBase="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Windows.dll" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+   </Children>
    <TypeInfo>tambak.Web.DomainServices.CategoryDS</TypeInfo>
 </GenericObjectDataSource>

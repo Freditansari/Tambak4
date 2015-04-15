@@ -1196,34 +1196,7 @@ namespace tambak.Views
 
         public double lastBiomass { get; set; }
 
-        private void goButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            //try
-            //{
-            //    newServertimeClient.getServerTimeAsync();
-            //    newServertimeClient.getServerTimeCompleted += getTimeCompleted;
-            //}
-            //catch (Exception g)
-            //{
-            //}
-
-            try
-            {
-                runCmdShellClient.runAverageCommandAsync(commandTextbox.Text);
-                runCmdShellClient.runAverageCommandCompleted += runCmdShellClient_runAverageCommandCompleted;
-            }
-            catch (Exception g)
-            {
-                
-
-            }
-        }
-
-        private void runCmdShellClient_runAverageCommandCompleted(object sender, runCmdShellServiceReference.runAverageCommandCompletedEventArgs e)
-        {
-            resultTextBox.Text = e.Result;
-        }
+   
 
         private void newFeedingLogButton_Click_1(object sender, RoutedEventArgs e)
         {

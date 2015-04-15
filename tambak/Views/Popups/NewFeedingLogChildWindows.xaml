@@ -27,7 +27,7 @@
             <sdk:DataGrid.Columns>
                 <sdk:DataGridTextColumn x:Name="pondIDColumn" Binding="{Binding PondID, Mode=OneWay}" Header="Pond ID" IsReadOnly="True" Width="SizeToHeader"/>
                 <sdk:DataGridTextColumn x:Name="pondDescriptionColumn" Binding="{Binding PondDescription}" Header="Pond Description" Width="SizeToHeader"/>
-                
+
                 <!--<sdk:DataGridTextColumn x:Name="pondLocationColumn" Binding="{Binding PondLocation}" Header="Pond Location" Width="SizeToHeader"/>-->
                 <!--<sdk:DataGridTextColumn x:Name="pondSizeColumn" Binding="{Binding pondSize}" Header="pond Size" Width="SizeToHeader"/>-->
                 <!--<sdk:DataGridTextColumn x:Name="pondUOMColumn" Binding="{Binding pondUOM}" Header="pond UOM" Width="SizeToHeader"/>-->
@@ -42,7 +42,7 @@
             <sdk:DataGrid.Columns>
                 <!--<sdk:DataGridTextColumn x:Name="densityColumn" Binding="{Binding Density}" Header="Density" Width="SizeToHeader"/>-->
                 <!--<sdk:DataGridTemplateColumn x:Name="endDateColumn" Header="End Date" Width="SizeToHeader">-->
-                    <!--<sdk:DataGridTemplateColumn.CellTemplate>
+                <!--<sdk:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <sdk:DatePicker SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                         </DataTemplate>
@@ -154,6 +154,27 @@
             </Grid.RowDefinitions>
             <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <sdk:DatePicker x:Name="logDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="60,3,-56,3" Grid.Row="0" SelectedDate="{Binding LogDate, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <riaControls:DomainDataSource x:Name="categoryDomainDataSource" AutoLoad="True" Height="0" LoadedData="categoryDomainDataSource_LoadedData" QueryName="GetCategoriesQuery" Width="0" d:DesignData="{d:DesignInstance Web:Category, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:CategoryDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <Grid x:Name="grid3" DataContext="{Binding Data, ElementName=categoryDomainDataSource}" HorizontalAlignment="Left" Margin="955,6,0,0" VerticalAlignment="Top" Width="156" Height="27">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ComboBox x:Name="categoryNameComboBox" Grid.Column="1" DisplayMemberPath="CategoryName" HorizontalAlignment="Right" Height="Auto" ItemsSource="{Binding}" Margin="0,6,-56,0" Grid.Row="0" VerticalAlignment="Center" Width="149" SelectionChanged="categoryNameComboBox_SelectionChanged">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
         </Grid>
     </Grid>
 </controls:ChildWindow>

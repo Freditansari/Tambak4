@@ -26,6 +26,7 @@ namespace tambak.Views.Popups
         FeedingLog feedinglogLists = new FeedingLog();
 
         runCmdShellServiceReference.RunCmdShellClient runCmdShellClient = new runCmdShellServiceReference.RunCmdShellClient();
+        Category SelectedCategory;
 
         public NewFeedingLogChildWindows()
         {
@@ -40,7 +41,7 @@ namespace tambak.Views.Popups
             cleanTextboxes();
             selectProduct();
 
-            loadproducts();
+            //loadproducts();
             logDate = DateTime.Now;
          // logDateDatePicker.SelectedDate= DateTime.Now;
         }
@@ -48,7 +49,7 @@ namespace tambak.Views.Popups
         private void loadproducts()
         {
             ProductsDomainContext= new ProductDS();
-			EntityQuery<Product> bb = from b in ProductsDomainContext.GetProductsQuery() select b;
+			EntityQuery<Product> bb = from b in ProductsDomainContext.GetProductsQuery() where b.Category == SelectedCategory.CategoryId select b;
             LoadOperation<Product> res = ProductsDomainContext.Load(bb, new Action<LoadOperation<Product>>(load_products_completed), true);
 			
         }
@@ -278,6 +279,23 @@ namespace tambak.Views.Popups
             FeedingLog selectedFL = this.feedingLogDataGrid.SelectedItem as FeedingLog;
             newFeedingLogDomainContext.FeedingLogs.Remove(selectedFL);
         }
+
+        private void categoryDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void categoryNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedCategory = this.categoryNameComboBox.SelectedItem as Category;
+            loadproducts();
+        }
+      
         //public Ponds selectedPond { get; set; }
     }
 }
