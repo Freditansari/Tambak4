@@ -84,7 +84,7 @@ namespace tambak.Views.Popups
             try
             {
                 //todo configure this line to run leo's python code to get feeding average.
-                string PythonCommands = "python C:\\LeoRepo\\dailyfeedsummary.py";
+                string PythonCommands = "python C:\\LeoRepo\\dailyfeedsummary.py "+ App.DatabaseName;
                 runCmdShellClient.runAverageCommandAsync(PythonCommands);
                 runCmdShellClient.runAverageCommandCompleted += runCmdShellClient_runAverageCommandCompleted;
             }

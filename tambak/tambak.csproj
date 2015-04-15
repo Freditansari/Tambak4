@@ -791,15 +791,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inventory\Todo Files.txt" />
-    <Content Include="Views\Pythons\Alert.py" />
-    <Content Include="Views\Pythons\biforex.py" />
-    <Content Include="Views\Pythons\columncheck.py" />
-    <Content Include="Views\Pythons\copyproduction.py" />
-    <Content Include="Views\Pythons\DailyFeedSummary.py" />
-    <Content Include="Views\Pythons\isCompleteCheck.py" />
-    <Content Include="Views\Pythons\lainlain.py" />
-    <Content Include="Views\Pythons\perkiraanpakan.py" />
-    <Content Include="Views\Pythons\tablecheck.py" />
     <Content Include="Views\TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>

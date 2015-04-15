@@ -104,6 +104,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </CodeAnalysisDictionary>
     <Content Include="ClientBin\tambak.xap" />
+    <Content Include="Pythons\Alert.py" />
+    <Content Include="Pythons\biforex.py" />
+    <Content Include="Pythons\columncheck.py" />
+    <Content Include="Pythons\copyproduction.py" />
+    <Content Include="Pythons\DailyFeedSummary.py" />
+    <Content Include="Pythons\isCompleteCheck.py" />
+    <Content Include="Pythons\lainlain.py" />
+    <Content Include="Pythons\perkiraanpakan.py" />
+    <Content Include="Pythons\tablecheck.py" />
     <Content Include="ReportService.svc" />
     <Content Include="TambakEDM.edmx.sql" />
     <Content Include="tambakTestPage.aspx" />

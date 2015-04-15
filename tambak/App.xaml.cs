@@ -21,6 +21,7 @@
 
         public static List<MasterTax> globalSelectedTax = new List<MasterTax>();
         public static CultureInfo cultInfo = new CultureInfo("id-ID");
+        public static string DatabaseName = "CPL";
         //public static ProductDS GlobalProductDomainContext;
         public static List<Product> SelectedProduct = new List<Product>();
         public App()

@@ -23,7 +23,7 @@ namespace tambak.Views.Popups
         public PondsProductionCycleDS productionCycleDomainContext { get; set; }
         tambak.Web.PondsProductionCycle SelectedProductionCycle { get; set; }
 
-
+        runCmdShellServiceReference.RunCmdShellClient runCmdShellClient = new runCmdShellServiceReference.RunCmdShellClient();
 
         public FeedingRateGuideDS feedingRateGuideDomainContext { get; set; }
         SamplingLogDS samplingLogDomainContext = new SamplingLogDS();
@@ -74,6 +74,23 @@ namespace tambak.Views.Popups
         }
 
         private void New_sampling_log_submit_completed(object sender, EventArgs e)
+        {
+            try
+            {
+                string PythonCommands = "python C:\\LeoRepo\\perkiraanpakan.py " + App.DatabaseName;
+                runCmdShellClient.runAverageCommandAsync(PythonCommands);
+                runCmdShellClient.runAverageCommandCompleted += runCmdShellClient_runAverageCommandCompleted;
+            }
+            catch (Exception g)
+            {
+                
+                
+            }
+          
+            
+        }
+
+        private void runCmdShellClient_runAverageCommandCompleted(object sender, runCmdShellServiceReference.runAverageCommandCompletedEventArgs e)
         {
             this.DialogResult = true;
         }

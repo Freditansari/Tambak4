@@ -21,7 +21,7 @@ namespace tambak.Views
     {
         //todo known bug. the density in radgridview will change when the selection changed. 
         PondsProductionCycleDS pondsCycleDomainContext = new PondsProductionCycleDS();
-
+        runCmdShellServiceReference.RunCmdShellClient runCmdShellClient = new runCmdShellServiceReference.RunCmdShellClient();
         
         public PondsProductionCycle()
         {
@@ -153,13 +153,20 @@ namespace tambak.Views
             newProdCycle.PondID = Convert.ToInt32(pondIDTextBox.Text);
 
             pondsCycleDomainContext.PondsProductionCycles.Add(newProdCycle);
-            pondsCycleDomainContext.SubmitChanges();
+            pondsCycleDomainContext.SubmitChanges().Completed += PondCycleSubmitChanges_completed;
 
             SaveButton.IsEnabled = true;
             NewProdCycleButton.IsEnabled = false;
 
             
             
+        }
+
+        private void PondCycleSubmitChanges_completed(object sender, EventArgs e)
+        {
+            string PythonCommands = "python C:\\LeoRepo\\perkiraanpakan.py " + App.DatabaseName;
+            runCmdShellClient.runAverageCommandAsync(PythonCommands);
+            //runCmdShellClient.runAverageCommandCompleted += runCmdShellClient_runAverageCommandCompleted;
         }
 
         private void pondIDTextBox_TextChanged_1(object sender, TextChangedEventArgs e)

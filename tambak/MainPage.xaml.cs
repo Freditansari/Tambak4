@@ -1,10 +1,14 @@
 ﻿namespace tambak
 {
+    using System.ServiceModel.DomainServices.Client;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Navigation;
     using tambak.LoginUI;
     using Telerik.Windows.Controls;
+    using tambak.Web;
+    using tambak.Web.DomainServices;
+    using System;
 
     /// <summary>
     /// <see cref="UserControl"/> class providing the main UI for the application.
@@ -14,9 +18,38 @@
         /// <summary>
         /// Creates a new <see cref="MainPage"/> instance.
         /// </summary>
+        CompanyDS companyDomainContext = new CompanyDS();
+
         public MainPage()
         {
             InitializeComponent();
+            Loaded += MainPage_Loaded;
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //todo load company name and change the application name textbox 
+
+			
+            //EntityQuery<Company> bb = from b in companyDomainContext.GetCompaniesQuery() select b;
+            //LoadOperation<Company> res = companyDomainContext.Load(bb, new Action<LoadOperation<Company>>(getCompany_Completed), true);
+			
+        }
+
+        private void getCompany_Completed(LoadOperation<Company> obj)
+        {
+            try 
+	        {	        
+                 //Company companyEntities = obj.AllEntities.
+                 //  ApplicationNameTextBlock.Text = 
+	        }
+	        catch (Exception)
+	        {
+		
+		        
+	        }
+                       
+         
         }
 
         /// <summary>
@@ -135,5 +168,7 @@
                  }
              }
         }
+
+        public object loadCompany_Completed { get; set; }
     }
 }
