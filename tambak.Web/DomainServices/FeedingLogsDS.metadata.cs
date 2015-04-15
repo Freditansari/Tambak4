@@ -53,7 +53,7 @@ namespace tambak.Web
             public Product Product { get; set; }
 
             [Required]
-            [RegularExpression("[0-9]")]
+            //[RegularExpression("[0-9]")]
             public Nullable<int> ProductID { get; set; }
 
             [Required]
