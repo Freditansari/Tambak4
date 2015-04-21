@@ -13,3 +13,5 @@ add IMNV bit;
 
 alter table WaterParameterLogs alter column nitrate float;
 alter table WaterParameterLogs alter column nitrite float;
+
+ALTER TABLE WaterParameterLogs ALTER COLUMN LogDate datetime NULL
