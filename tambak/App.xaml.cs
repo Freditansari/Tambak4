@@ -27,7 +27,9 @@
         public App()
         {
 
-            
+            this.Startup += this.Application_Startup;
+
+            this.CheckAndDownloadUpdateCompleted += new CheckAndDownloadUpdateCompletedEventHandler(App_CheckAndDownloadUpdateCompleted);
 
             InitializeComponent();
 
@@ -39,16 +41,38 @@
             this.ApplicationLifetimeObjects.Add(webContext);
         }
 
+        private void App_CheckAndDownloadUpdateCompleted(object sender, CheckAndDownloadUpdateCompletedEventArgs e)
+        {
+            if (e.UpdateAvailable)
+            {
+                MessageBox.Show("Application updated, please restart");
+            }
+        }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            // This will enable you to bind controls in XAML to WebContext.Current properties.
-            this.Resources.Add("WebContext", WebContext.Current);
+           
+            try
+            {
+                // This will enable you to bind controls in XAML to WebContext.Current properties.
+                this.Resources.Add("WebContext", WebContext.Current);
 
-            // This will automatically authenticate a user when using Windows authentication or when the user chose "Keep me signed in" on a previous login attempt.
-            WebContext.Current.Authentication.LoadUser(this.Application_UserLoaded, null);
+                // This will automatically authenticate a user when using Windows authentication or when the user chose "Keep me signed in" on a previous login attempt.
+                WebContext.Current.Authentication.LoadUser(this.Application_UserLoaded, null);
 
-            // Show some UI to the user while LoadUser is in progress
-            this.InitializeRootVisual();
+                // Show some UI to the user while LoadUser is in progress
+                this.InitializeRootVisual();
+                if (this.IsRunningOutOfBrowser)
+                {
+                    this.CheckAndDownloadUpdateAsync();
+                }
+            }
+            catch (Exception)
+            {
+                
+              
+            }
+          
         }
 
         /// <summary>

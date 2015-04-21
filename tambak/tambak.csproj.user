@@ -22,8 +22,7 @@
           <StartWorkingDirectory>
           </StartWorkingDirectory>
           <ShowWebRefOnDebugPrompt>True</ShowWebRefOnDebugPrompt>
-          <OutOfBrowserProjectToDebug>
-          </OutOfBrowserProjectToDebug>
+          <OutOfBrowserProjectToDebug>tambak.Web</OutOfBrowserProjectToDebug>
           <ShowRiaSvcsOnDebugPrompt>False</ShowRiaSvcsOnDebugPrompt>
         </SilverlightProjectProperties>
       </FlavorProperties>

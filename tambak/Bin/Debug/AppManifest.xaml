@@ -1,4 +1,13 @@
 ﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="tambak" EntryPointType="tambak.App" RuntimeVersion="5.0.61118.0">
+  <Deployment.OutOfBrowserSettings>
+    <OutOfBrowserSettings ShortName="Management Intranet" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+      <OutOfBrowserSettings.Blurb>Management Software which can be accessed anytime anywhere</OutOfBrowserSettings.Blurb>
+      <OutOfBrowserSettings.WindowSettings>
+        <WindowSettings Title="Management Intranet" Height="599" Width="1366" />
+      </OutOfBrowserSettings.WindowSettings>
+      <OutOfBrowserSettings.Icons />
+    </OutOfBrowserSettings>
+  </Deployment.OutOfBrowserSettings>
   <Deployment.Parts>
     <AssemblyPart x:Name="tambak" Source="tambak.dll" />
     <AssemblyPart x:Name="Microsoft.CSharp" Source="Microsoft.CSharp.dll" />
