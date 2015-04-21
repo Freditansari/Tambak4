@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="CPLModel.SamplingLog" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CPLModel.sysdiagram" Width="1.5" PointX="2.875" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CPLModel.Task" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="3.125" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="0.5" PointY="27.625" IsExpanded="true" />
         <AssociationConnector Association="CPLModel.FK_PondsProductionCycle_Contacts" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_ProductSalesOrders_Contacts" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_Tasks_Contacts" ManuallyRouted="false" />

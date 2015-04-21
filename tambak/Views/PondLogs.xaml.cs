@@ -1238,5 +1238,27 @@ namespace tambak.Views
                 e.MarkErrorAsHandled();
             }
         }
+
+
+        //SendMailServiceReference.SendMailsClient EmailClient = new SendMailServiceReference.SendMailsClient();
+
+        //private void Button_Click_2(object sender, RoutedEventArgs e)
+        //{
+        //    EmailClient.SendEmailAsync(totextbox.Text, subjectTextBox.Text, BodyTextBox.Text);
+        //    EmailClient.SendEmailCompleted += EmailClient_SendEmailCompleted;
+        //}
+
+        //void EmailClient_SendEmailCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        MessageBox.Show("OK" + e.Error);
+        //    }
+        //    catch (Exception f)
+        //    {
+
+        //        MessageBox.Show(f.Message);
+        //    }
+        //}
     }
 }

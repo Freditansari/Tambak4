@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f4b7d0a6-d9ea-46e7-8d0c-bfbec7c24051" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58556/WCFServices/SendMails.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SendMails.wsdl" MetadataType="Wsdl" ID="5426b85a-bd05-419c-b320-52fcc6693807" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/SendMails.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SendMails.xsd" MetadataType="Schema" ID="8fc9af3e-c1af-4cb6-841a-74af0c9d044e" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/SendMails.svc?xsd=xsd1" />
+    <MetadataFile FileName="SendMails1.xsd" MetadataType="Schema" ID="999a7d56-476f-41b9-bc66-6db81033eba3" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/SendMails.svc?xsd=xsd0" />
+    <MetadataFile FileName="SendMails.disco" MetadataType="Disco" ID="ea1546a1-4203-41c2-a514-5f7d1b623e61" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/SendMails.svc?disco" />
+    <MetadataFile FileName="SendMails1.wsdl" MetadataType="Wsdl" ID="33e68a0a-525e-4a2c-baaa-721efe1e66d1" SourceId="1" SourceUrl="http://localhost:58556/WCFServices/SendMails.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

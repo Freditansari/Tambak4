@@ -186,6 +186,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SendMailServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Views\Charts\SamplingCharts.xaml.cs">
       <DependentUpon>SamplingCharts.xaml</DependentUpon>
     </Compile>
@@ -679,12 +684,27 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SendMailServiceReference\SendMails.wsdl" />
+    <None Include="Service References\SendMailServiceReference\SendMails.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SendMailServiceReference\SendMails1.wsdl" />
+    <None Include="Service References\SendMailServiceReference\SendMails1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Resource Include="Assets\Icons\home168.png" />
     <Resource Include="Assets\Icons\magnifier13.png" />
     <Resource Include="Assets\Icons\marketing8.png" />
     <Resource Include="Assets\Icons\settings48.png" />
     <Resource Include="Assets\Icons\telephone5.png" />
     <Resource Include="Assets\Icons\three115.png" />
+    <None Include="Service References\SendMailServiceReference\SendMails.disco" />
+    <None Include="Service References\SendMailServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\SendMailServiceReference\configuration.svcinfo" />
+    <None Include="Service References\SendMailServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\addRoleServiceReference\addRoleService.wsdl" />
     <None Include="Service References\addRoleServiceReference\addRoleService.xsd">
@@ -804,6 +824,7 @@
     <WCFMetadataStorage Include="Service References\GetAllUserServiceReference\" />
     <WCFMetadataStorage Include="Service References\getServerTimeReference\" />
     <WCFMetadataStorage Include="Service References\runCmdShellServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SendMailServiceReference\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

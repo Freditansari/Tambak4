@@ -4066,7 +4066,6 @@ namespace tambak.Web
         /// Gets or sets the 'ProductID' value.
         /// </summary>
         [DataMember()]
-        [RegularExpression("[0-9]")]
         [Required()]
         [RoundtripOriginal()]
         public Nullable<int> ProductID
