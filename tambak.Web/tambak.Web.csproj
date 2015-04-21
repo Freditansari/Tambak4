@@ -135,6 +135,7 @@
     <Content Include="Pythons\perkiraanpakan.py" />
     <Content Include="Pythons\tablecheck.py" />
     <Content Include="ReportService.svc" />
+    <Content Include="SqlScripts\UpdateSqlScripts.txt" />
     <Content Include="TambakEDM.edmx.sql" />
     <Content Include="tambakTestPage.aspx" />
     <Content Include="tambakTestPage.html" />

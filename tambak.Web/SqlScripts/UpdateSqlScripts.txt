@@ -1,0 +1,15 @@
+﻿use CPL;
+alter table [dbo].[WaterParameterLogs]
+add PotentialRedox float;
+
+alter table [dbo].[WaterParameterLogs]
+add WhiteSpot bit;
+
+alter table [dbo].[WaterParameterLogs]
+add isVibrioExist bit;
+
+alter table [dbo].[WaterParameterLogs]
+add IMNV bit;
+
+alter table WaterParameterLogs alter column nitrate float;
+alter table WaterParameterLogs alter column nitrite float;
