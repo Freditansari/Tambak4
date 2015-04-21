@@ -41,11 +41,15 @@ namespace tambak.Web
 
             public Nullable<double> DissolvedOxygen { get; set; }
 
-            public DateTime LogDate { get; set; }
+            public Nullable<bool> IMNV { get; set; }
 
-            public Nullable<int> nitrate { get; set; }
+            public Nullable<bool> isVibrioExist { get; set; }
 
-            public Nullable<int> nitrite { get; set; }
+            public Nullable<DateTime> LogDate { get; set; }
+
+            public Nullable<double> nitrate { get; set; }
+
+            public Nullable<double> nitrite { get; set; }
 
             public Nullable<int> Paddlewheel { get; set; }
 
@@ -56,6 +60,8 @@ namespace tambak.Web
             public Nullable<int> Planktons { get; set; }
 
             public PondsProductionCycle PondsProductionCycle { get; set; }
+
+            public Nullable<double> PotentialRedox { get; set; }
 
             public int ProductionCycleID { get; set; }
 
@@ -68,6 +74,8 @@ namespace tambak.Web
             public string Vibrio { get; set; }
 
             public int WaterLogID { get; set; }
+
+            public Nullable<bool> WhiteSpot { get; set; }
         }
     }
 }

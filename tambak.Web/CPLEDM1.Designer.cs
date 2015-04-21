@@ -26,7 +26,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_Tasks_Ponds", "Ponds", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.Pond), "Tasks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.Task), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_SamplingLog_PondsProductionCycle", "PondsProductionCycles", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.PondsProductionCycle), "SamplingLogs", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.SamplingLog), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_Tasks_PondsProductionCycle", "PondsProductionCycles", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.PondsProductionCycle), "Tasks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.Task), true)]
-[assembly: EdmRelationshipAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(tambak.Web.PondsProductionCycle), "WaterParameterLogs", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.WaterParameterLog), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_ProductRequired_Tasks", "Tasks", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.Task), "ProductRequireds", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.ProductRequired), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_ProductSalesOrders_ProductRequired", "ProductRequireds", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.ProductRequired), "ProductSalesOrders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.ProductSalesOrder), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_ProductSalesOrders_Tasks", "Tasks", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.Task), "ProductSalesOrders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.ProductSalesOrder), true)]
@@ -60,6 +59,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_PondConsumptionsLog_Ponds", "Pond", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.Pond), "PondConsumptionsLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.PondConsumptionsLog), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_PondConsumptionsLog_PondsProductionCycle", "PondsProductionCycle", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.PondsProductionCycle), "PondConsumptionsLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.PondConsumptionsLog), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_PondConsumptionsLog_Products", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(tambak.Web.Product), "PondConsumptionsLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.PondConsumptionsLog), true)]
+[assembly: EdmRelationshipAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(tambak.Web.PondsProductionCycle), "WaterParameterLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.WaterParameterLog), true)]
 
 #endregion
 
@@ -302,22 +302,6 @@ namespace tambak.Web
             }
         }
         private ObjectSet<Task> _Tasks;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<WaterParameterLog> WaterParameterLogs
-        {
-            get
-            {
-                if ((_WaterParameterLogs == null))
-                {
-                    _WaterParameterLogs = base.CreateObjectSet<WaterParameterLog>("WaterParameterLogs");
-                }
-                return _WaterParameterLogs;
-            }
-        }
-        private ObjectSet<WaterParameterLog> _WaterParameterLogs;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -962,18 +946,18 @@ namespace tambak.Web
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TotalSevenDaysFeed> TotalSevenDaysFeeds
+        public ObjectSet<WaterParameterLog> WaterParameterLogs
         {
             get
             {
-                if ((_TotalSevenDaysFeeds == null))
+                if ((_WaterParameterLogs == null))
                 {
-                    _TotalSevenDaysFeeds = base.CreateObjectSet<TotalSevenDaysFeed>("TotalSevenDaysFeeds");
+                    _WaterParameterLogs = base.CreateObjectSet<WaterParameterLog>("WaterParameterLogs");
                 }
-                return _TotalSevenDaysFeeds;
+                return _WaterParameterLogs;
             }
         }
-        private ObjectSet<TotalSevenDaysFeed> _TotalSevenDaysFeeds;
+        private ObjectSet<WaterParameterLog> _WaterParameterLogs;
 
         #endregion
 
@@ -1073,14 +1057,6 @@ namespace tambak.Web
         public void AddToTasks(Task task)
         {
             base.AddObject("Tasks", task);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the WaterParameterLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToWaterParameterLogs(WaterParameterLog waterParameterLog)
-        {
-            base.AddObject("WaterParameterLogs", waterParameterLog);
         }
     
         /// <summary>
@@ -1404,11 +1380,11 @@ namespace tambak.Web
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TotalSevenDaysFeeds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the WaterParameterLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTotalSevenDaysFeeds(TotalSevenDaysFeed totalSevenDaysFeed)
+        public void AddToWaterParameterLogs(WaterParameterLog waterParameterLog)
         {
-            base.AddObject("TotalSevenDaysFeeds", totalSevenDaysFeed);
+            base.AddObject("WaterParameterLogs", waterParameterLog);
         }
 
         #endregion
@@ -8580,28 +8556,6 @@ namespace tambak.Web
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLogs")]
-        public EntityCollection<WaterParameterLog> WaterParameterLogs
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WaterParameterLog>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLogs");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WaterParameterLog>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLogs", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_BatchDetails_PondsProductionCycles", "BatchDetail")]
         public EntityCollection<BatchDetail> BatchDetails
         {
@@ -8636,6 +8590,28 @@ namespace tambak.Web
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PondConsumptionsLog>("CPLModel.FK_PondConsumptionsLog_PondsProductionCycle", "PondConsumptionsLog", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLog")]
+        public EntityCollection<WaterParameterLog> WaterParameterLogs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WaterParameterLog>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLog");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WaterParameterLog>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLog", value);
                 }
             }
         }
@@ -15492,110 +15468,6 @@ namespace tambak.Web
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="TotalSevenDaysFeed")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class TotalSevenDaysFeed : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new TotalSevenDaysFeed object.
-        /// </summary>
-        /// <param name="productionCycleID">Initial value of the ProductionCycleID property.</param>
-        public static TotalSevenDaysFeed CreateTotalSevenDaysFeed(global::System.Int32 productionCycleID)
-        {
-            TotalSevenDaysFeed totalSevenDaysFeed = new TotalSevenDaysFeed();
-            totalSevenDaysFeed.ProductionCycleID = productionCycleID;
-            return totalSevenDaysFeed;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Date
-        {
-            get
-            {
-                return _Date;
-            }
-            set
-            {
-                OnDateChanging(value);
-                ReportPropertyChanging("Date");
-                _Date = StructuralObject.SetValidValue(value, "Date");
-                ReportPropertyChanged("Date");
-                OnDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Date;
-        partial void OnDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Double> TotalFeedGiven
-        {
-            get
-            {
-                return _TotalFeedGiven;
-            }
-            set
-            {
-                OnTotalFeedGivenChanging(value);
-                ReportPropertyChanging("TotalFeedGiven");
-                _TotalFeedGiven = StructuralObject.SetValidValue(value, "TotalFeedGiven");
-                ReportPropertyChanged("TotalFeedGiven");
-                OnTotalFeedGivenChanged();
-            }
-        }
-        private Nullable<global::System.Double> _TotalFeedGiven;
-        partial void OnTotalFeedGivenChanging(Nullable<global::System.Double> value);
-        partial void OnTotalFeedGivenChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ProductionCycleID
-        {
-            get
-            {
-                return _ProductionCycleID;
-            }
-            set
-            {
-                if (_ProductionCycleID != value)
-                {
-                    OnProductionCycleIDChanging(value);
-                    ReportPropertyChanging("ProductionCycleID");
-                    _ProductionCycleID = StructuralObject.SetValidValue(value, "ProductionCycleID");
-                    ReportPropertyChanged("ProductionCycleID");
-                    OnProductionCycleIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ProductionCycleID;
-        partial void OnProductionCycleIDChanging(global::System.Int32 value);
-        partial void OnProductionCycleIDChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="UnitofMeasurement")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -15687,13 +15559,11 @@ namespace tambak.Web
         /// Create a new WaterParameterLog object.
         /// </summary>
         /// <param name="waterLogID">Initial value of the WaterLogID property.</param>
-        /// <param name="logDate">Initial value of the LogDate property.</param>
         /// <param name="productionCycleID">Initial value of the ProductionCycleID property.</param>
-        public static WaterParameterLog CreateWaterParameterLog(global::System.Int32 waterLogID, global::System.DateTime logDate, global::System.Int32 productionCycleID)
+        public static WaterParameterLog CreateWaterParameterLog(global::System.Int32 waterLogID, global::System.Int32 productionCycleID)
         {
             WaterParameterLog waterParameterLog = new WaterParameterLog();
             waterParameterLog.WaterLogID = waterLogID;
-            waterParameterLog.LogDate = logDate;
             waterParameterLog.ProductionCycleID = productionCycleID;
             return waterParameterLog;
         }
@@ -15732,9 +15602,9 @@ namespace tambak.Web
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime LogDate
+        public Nullable<global::System.DateTime> LogDate
         {
             get
             {
@@ -15749,8 +15619,8 @@ namespace tambak.Web
                 OnLogDateChanged();
             }
         }
-        private global::System.DateTime _LogDate;
-        partial void OnLogDateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _LogDate;
+        partial void OnLogDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLogDateChanged();
     
         /// <summary>
@@ -15998,7 +15868,7 @@ namespace tambak.Web
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> nitrite
+        public Nullable<global::System.Double> nitrite
         {
             get
             {
@@ -16013,8 +15883,8 @@ namespace tambak.Web
                 OnnitriteChanged();
             }
         }
-        private Nullable<global::System.Int32> _nitrite;
-        partial void OnnitriteChanging(Nullable<global::System.Int32> value);
+        private Nullable<global::System.Double> _nitrite;
+        partial void OnnitriteChanging(Nullable<global::System.Double> value);
         partial void OnnitriteChanged();
     
         /// <summary>
@@ -16022,7 +15892,7 @@ namespace tambak.Web
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> nitrate
+        public Nullable<global::System.Double> nitrate
         {
             get
             {
@@ -16037,8 +15907,8 @@ namespace tambak.Web
                 OnnitrateChanged();
             }
         }
-        private Nullable<global::System.Int32> _nitrate;
-        partial void OnnitrateChanging(Nullable<global::System.Int32> value);
+        private Nullable<global::System.Double> _nitrate;
+        partial void OnnitrateChanging(Nullable<global::System.Double> value);
         partial void OnnitrateChanged();
     
         /// <summary>
@@ -16112,6 +15982,102 @@ namespace tambak.Web
         private global::System.Int32 _ProductionCycleID;
         partial void OnProductionCycleIDChanging(global::System.Int32 value);
         partial void OnProductionCycleIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> PotentialRedox
+        {
+            get
+            {
+                return _PotentialRedox;
+            }
+            set
+            {
+                OnPotentialRedoxChanging(value);
+                ReportPropertyChanging("PotentialRedox");
+                _PotentialRedox = StructuralObject.SetValidValue(value, "PotentialRedox");
+                ReportPropertyChanged("PotentialRedox");
+                OnPotentialRedoxChanged();
+            }
+        }
+        private Nullable<global::System.Double> _PotentialRedox;
+        partial void OnPotentialRedoxChanging(Nullable<global::System.Double> value);
+        partial void OnPotentialRedoxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> WhiteSpot
+        {
+            get
+            {
+                return _WhiteSpot;
+            }
+            set
+            {
+                OnWhiteSpotChanging(value);
+                ReportPropertyChanging("WhiteSpot");
+                _WhiteSpot = StructuralObject.SetValidValue(value, "WhiteSpot");
+                ReportPropertyChanged("WhiteSpot");
+                OnWhiteSpotChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _WhiteSpot;
+        partial void OnWhiteSpotChanging(Nullable<global::System.Boolean> value);
+        partial void OnWhiteSpotChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> isVibrioExist
+        {
+            get
+            {
+                return _isVibrioExist;
+            }
+            set
+            {
+                OnisVibrioExistChanging(value);
+                ReportPropertyChanging("isVibrioExist");
+                _isVibrioExist = StructuralObject.SetValidValue(value, "isVibrioExist");
+                ReportPropertyChanged("isVibrioExist");
+                OnisVibrioExistChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _isVibrioExist;
+        partial void OnisVibrioExistChanging(Nullable<global::System.Boolean> value);
+        partial void OnisVibrioExistChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IMNV
+        {
+            get
+            {
+                return _IMNV;
+            }
+            set
+            {
+                OnIMNVChanging(value);
+                ReportPropertyChanging("IMNV");
+                _IMNV = StructuralObject.SetValidValue(value, "IMNV");
+                ReportPropertyChanged("IMNV");
+                OnIMNVChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IMNV;
+        partial void OnIMNVChanging(Nullable<global::System.Boolean> value);
+        partial void OnIMNVChanged();
 
         #endregion
 
@@ -16123,16 +16089,16 @@ namespace tambak.Web
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycles")]
+        [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle")]
         public PondsProductionCycle PondsProductionCycle
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycles").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycles").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle").Value = value;
             }
         }
         /// <summary>
@@ -16144,13 +16110,13 @@ namespace tambak.Web
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PondsProductionCycle>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle", value);
                 }
             }
         }

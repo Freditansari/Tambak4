@@ -69,8 +69,40 @@ namespace tambak.Views.Charts
             loadBiomass();
             loadPopulation();
             LoadSurvivalRate();
+            loadADG();
+            loadCummulativeADG();
           
 
+        }
+
+        private void loadCummulativeADG()
+        {
+            DataSeries lineSeries = new DataSeries();
+
+            CumulativeAdgChart.DefaultView.ChartArea.DataSeries.Clear();
+            CumulativeAdgChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            CumulativeAdgChart.DefaultView.ChartTitle.Content = "Cummulative ADG";
+            lineSeries.Definition = new LineSeriesDefinition();
+            foreach (var b in SamplingLogDomainContext.SamplingLogs)
+            {
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.CummulativeADG), XCategory = b.Age.ToString() });
+            }
+            CumulativeAdgChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+        }
+
+        private void loadADG()
+        {
+            DataSeries lineSeries = new DataSeries();
+
+            adgChart.DefaultView.ChartArea.DataSeries.Clear();
+            adgChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            adgChart.DefaultView.ChartTitle.Content = "Average Daily Growth";
+            lineSeries.Definition = new LineSeriesDefinition();
+            foreach (var b in SamplingLogDomainContext.SamplingLogs)
+            {
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.AverageDailyGrowth), XCategory = b.Age.ToString() });
+            }
+            adgChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
         }
 
         private void LoadSurvivalRate()
@@ -151,31 +183,40 @@ namespace tambak.Views.Charts
         private void loadSizeChart()
         {
             DataSeries lineSeries = new DataSeries();
+            DataSeries StandardSeries = new DataSeries();
 
             SizeChart.DefaultView.ChartArea.DataSeries.Clear();
             SizeChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
             SizeChart.DefaultView.ChartTitle.Content = "Size";
             lineSeries.Definition = new LineSeriesDefinition();
+            StandardSeries.Definition = new LineSeriesDefinition();
             foreach (var b in SamplingLogDomainContext.SamplingLogs)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Size), XCategory = b.Age.ToString() });
+                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1000/(b.Age * 0.22)), XCategory = b.Age.ToString() });
             }
             SizeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            SizeChart.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
         }
 
         private void loadMBWChart()
         {
             DataSeries lineSeries = new DataSeries();
+            DataSeries StandardSeries = new DataSeries();
 
             agetoMBWChart.DefaultView.ChartArea.DataSeries.Clear();
             agetoMBWChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
             agetoMBWChart.DefaultView.ChartTitle.Content = "MBW";
             lineSeries.Definition = new LineSeriesDefinition();
+            StandardSeries.Definition = new LineSeriesDefinition();
             foreach (var b in SamplingLogDomainContext.SamplingLogs)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MedianBodyWeight), XCategory = b.Age.ToString() });
+                StandardSeries.Add(new DataPoint() { YValue =Convert.ToDouble( b.Age *0.22), XCategory = b.Age.ToString() });
             }
+            
             agetoMBWChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            agetoMBWChart.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
         }
 
 

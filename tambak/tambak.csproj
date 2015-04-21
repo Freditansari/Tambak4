@@ -300,6 +300,9 @@
     <Compile Include="Views\Popups\NewSamplingLogWindow.xaml.cs">
       <DependentUpon>NewSamplingLogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\NewWaterParameterChildWindow.xaml.cs">
+      <DependentUpon>NewWaterParameterChildWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\SelectFacilityChildWindow.xaml.cs">
       <DependentUpon>SelectFacilityChildWindow.xaml</DependentUpon>
     </Compile>
@@ -519,6 +522,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Popups\NewSamplingLogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\NewWaterParameterChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

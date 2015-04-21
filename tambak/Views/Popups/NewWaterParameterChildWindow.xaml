@@ -1,0 +1,136 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" mc:Ignorable="d" x:Class="tambak.Views.Popups.NewWaterParameterChildWindow"
+           Width="1366" Height="731" 
+           Title="New Water Parameter">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <riaControls:DomainDataSource x:Name="waterParameterLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="waterParameterLogDomainDataSource_LoadedData" QueryName="GetWaterParameterLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:WaterParameterLog, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:WaterParameterLogDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=waterParameterLogDomainDataSource}" HorizontalAlignment="Left" Margin="95,8,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Amonnia:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="amonniaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Amonnia, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Bacteria:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="bacteriaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Bacteria, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Dissolved Oxygen:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="dissolvedOxygenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding DissolvedOxygen, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="IMNV:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="iMNVCheckBox" Content="" Grid.Column="4" HorizontalAlignment="Left" IsChecked="{Binding IMNV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <controls:DatePicker x:Name="logDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" SelectedDate="{Binding LogDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Paddlewheel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="paddlewheelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Paddlewheel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Phospate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="phospateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Phospate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Planktons:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+            <TextBox x:Name="planktonsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding Planktons, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Potential Redox:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+            <TextBox x:Name="potentialRedoxTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding PotentialRedox, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+            <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Salinity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+            <TextBox x:Name="salinityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding Salinity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Temperature:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+            <TextBox x:Name="temperatureTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding Temperature, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Vibrio:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+            <TextBox x:Name="vibrioTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding Vibrio, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="White Spot:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <CheckBox x:Name="whiteSpotCheckBox" Content="" Grid.Column="4" HorizontalAlignment="Left" IsChecked="{Binding WhiteSpot, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <sdk:Label Content="ammonium:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
+            <TextBox x:Name="ammoniumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding ammonium, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="is Vibrio Exist:" Grid.Column="3" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <CheckBox x:Name="isVibrioExistCheckBox" Content="" Grid.Column="4" HorizontalAlignment="Left" IsChecked="{Binding isVibrioExist, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <sdk:Label Content="nitrate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="nitrateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="18" Text="{Binding nitrate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="nitrite:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="19" VerticalAlignment="Center"/>
+            <TextBox x:Name="nitriteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="19" Text="{Binding nitrite, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="p H:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="20" VerticalAlignment="Center"/>
+            <TextBox x:Name="pHTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="20" Text="{Binding pH, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <riaControls:DomainDataSource x:Name="pondDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondDomainDataSource_LoadedData" QueryName="GetPondsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Pond, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PondsDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <Grid x:Name="grid2" DataContext="{Binding Data, ElementName=pondDomainDataSource}" HorizontalAlignment="Left" Margin="674,163,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Pond Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="pondDescriptionComboBox" Grid.Column="1" DisplayMemberPath="PondDescription" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+        </Grid>
+        <riaControls:DomainDataSource x:Name="pondsProductionCycleDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondsProductionCycleDomainDataSource_LoadedData" QueryName="GetPondsProductionCyclesQuery" Width="0" d:DesignData="{d:DesignInstance Web:PondsProductionCycle, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PondsProductionCycleDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <Grid x:Name="grid3" DataContext="{Binding Data, ElementName=pondsProductionCycleDomainDataSource}" HorizontalAlignment="Left" Margin="659,194,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="productionCycleIDComboBox" Grid.Column="1" DisplayMemberPath="ProductionCycleID" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

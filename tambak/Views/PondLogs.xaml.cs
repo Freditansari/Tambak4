@@ -453,13 +453,68 @@ namespace tambak.Views
             {
                 waterParamLogDomainContext = new WaterParameterLogDS();
                 WaterParameterLog newWaterParameter = new WaterParameterLog();
-                newWaterParameter.Amonnia = Convert.ToDouble(amonniaTextBox.Text);
-                newWaterParameter.Bacteria = bacteriaTextBox.Text;
-                newWaterParameter.DissolvedOxygen = Convert.ToDouble(dissolvedOxygenTextBox.Text);
+                try
+                {
+                    newWaterParameter.Amonnia = Convert.ToDouble(amonniaTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Amonnia = null;
+                }
+
+                try
+                {
+                    newWaterParameter.Bacteria = bacteriaTextBox.Text;
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Bacteria = null;
+                }
+
+                try
+                {
+                    newWaterParameter.DissolvedOxygen = Convert.ToDouble(dissolvedOxygenTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.DissolvedOxygen = null;
+                }
+
+                try
+                {
+                    newWaterParameter.Paddlewheel = Convert.ToInt32(paddlewheelTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Paddlewheel = null;
+                }
+                try
+                {
+                    newWaterParameter.Phospate = Convert.ToDouble(phospateTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Phospate = null;
+                }
+                try
+                {
+                    newWaterParameter.Planktons = Convert.ToInt32(planktonsTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Planktons = null;
+                }
+               
                 //newWaterParameter.LogDate = Convert.ToDateTime(ServerTimeTextBlock.Text);
-                newWaterParameter.Paddlewheel = Convert.ToInt32(paddlewheelTextBox.Text);
-                newWaterParameter.Phospate = Convert.ToDouble(phospateTextBox.Text);
-                newWaterParameter.Planktons = Convert.ToInt32(planktonsTextBox.Text);
+               
+               
+                
 
                 if (productionCycleIDTextBox2.Text.Length == 0)
                 {
@@ -467,14 +522,101 @@ namespace tambak.Views
                 }
 
                 newWaterParameter.ProductionCycleID = Convert.ToInt32(productionCycleIDTextBox2.Text);
-                newWaterParameter.Salinity = Convert.ToInt32(salinityTextBox.Text);
-                newWaterParameter.Temperature = Convert.ToDouble(temperatureTextBox.Text);
+
+                try
+                {
+                    newWaterParameter.Salinity = Convert.ToDouble(salinityTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Salinity = null;
+                }
+                try
+                {
+                    newWaterParameter.Temperature = Convert.ToDouble(temperatureTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Temperature = null;
+                }
+                try
+                {
+                    newWaterParameter.Vibrio = vibrioTextBox.Text;
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.Vibrio = null;
+                }
+                try
+                {
+                    newWaterParameter.ammonium = Convert.ToDouble(ammoniumTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.ammonium = null;
+                }
+                try
+                {
+                    newWaterParameter.nitrate = Convert.ToDouble(nitrateTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.nitrate = null;
+                }
+
+               
+                
                 newWaterParameter.UserID = WebContext.Current.User.ToString();
-                newWaterParameter.Vibrio = vibrioTextBox.Text;
-                newWaterParameter.ammonium = Convert.ToDouble(ammoniumTextBox.Text);
-                newWaterParameter.nitrate = Convert.ToInt32(nitrateTextBox.Text);
-                newWaterParameter.nitrite = Convert.ToInt32(nitriteTextBox.Text);
-                newWaterParameter.pH = Convert.ToDouble(pHTextBox.Text);
+
+                try
+                {
+                    newWaterParameter.nitrite = Convert.ToDouble(nitriteTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.nitrite = null;
+
+                }
+
+                try
+                {
+                    newWaterParameter.pH = Convert.ToDouble(pHTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    newWaterParameter.pH = null;
+                }
+
+                try
+                {
+                    newWaterParameter.PotentialRedox = Convert.ToDouble(potentialRedoxTextBox.Text);
+                }
+                catch (Exception)
+                {
+                    newWaterParameter.PotentialRedox = null;
+                    
+                }
+
+                try
+                {
+                    newWaterParameter.LogDate =Convert.ToDateTime( logDateDatePicker2.SelectedValue);
+                }
+                    catch 
+                {
+                   // newWaterParameter.LogDate = null;
+                }
+
+                newWaterParameter.isVibrioExist = isVibrioExistCheckBox.IsChecked;
+                newWaterParameter.IMNV = iMNVCheckBox.IsChecked;
+                newWaterParameter.WhiteSpot = whiteSpotCheckBox.IsChecked;
+                
 
 
 
@@ -483,6 +625,7 @@ namespace tambak.Views
             }
             catch (Exception g)
             {
+
             }
         }
 
@@ -1237,6 +1380,12 @@ namespace tambak.Views
                 System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
                 e.MarkErrorAsHandled();
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NewWaterParameterChildWindow newWaterParameterCW = new NewWaterParameterChildWindow();
+            newWaterParameterCW.Show();
         }
 
 

@@ -247,10 +247,10 @@
     <Compile Include="DomainServices\TaskNotDoneViewDS.metadata.cs" />
     <Compile Include="DomainServices\tenDaysFeedEstimate.cs" />
     <Compile Include="DomainServices\tenDaysFeedEstimate.metadata.cs" />
-    <Compile Include="DomainServices\TotalSevenDaysFeedDS.cs" />
-    <Compile Include="DomainServices\TotalSevenDaysFeedDS.metadata.cs" />
     <Compile Include="DomainServices\UnitofMeasurementDS.cs" />
     <Compile Include="DomainServices\UnitofMeasurementDS.metadata.cs" />
+    <Compile Include="DomainServices\WaterParameterLogDS.cs" />
+    <Compile Include="DomainServices\WaterParameterLogDS.metadata.cs" />
     <Compile Include="ProductRequiredViewDS.cs" />
     <Compile Include="ProductRequiredViewDS.metadata.cs" />
     <Compile Include="DomainServices\ProductSalesOrdersDS.cs" />
@@ -261,8 +261,6 @@
     <Compile Include="DomainServices\ResultNoteDS.metadata.cs" />
     <Compile Include="DomainServices\TasksDS.cs" />
     <Compile Include="DomainServices\TasksDS.metadata.cs" />
-    <Compile Include="DomainServices\WaterParameterLogDS.cs" />
-    <Compile Include="DomainServices\WaterParameterLogDS.metadata.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Resources\ValidationErrorResources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -199,13 +199,6 @@
       [TaskNotDoneView].[ReccurencePattern] AS [ReccurencePattern]
       FROM [dbo].[TaskNotDoneView] AS [TaskNotDoneView]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="TotalSevenDaysFeed" EntityType="CPLModel.Store.TotalSevenDaysFeed" store:Type="Views" store:Schema="dbo" store:Name="TotalSevenDaysFeed">
-      <DefiningQuery>SELECT 
-      [TotalSevenDaysFeed].[Date] AS [Date], 
-      [TotalSevenDaysFeed].[TotalFeedGiven] AS [TotalFeedGiven], 
-      [TotalSevenDaysFeed].[ProductionCycleID] AS [ProductionCycleID]
-      FROM [dbo].[TotalSevenDaysFeed] AS [TotalSevenDaysFeed]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_BatchDetails_BatchHeader" Association="CPLModel.Store.FK_BatchDetails_BatchHeader">
       <End Role="BatchHeader" EntitySet="BatchHeader" />
       <End Role="BatchDetails" EntitySet="BatchDetails" />
@@ -874,7 +867,7 @@
       <PropertyRef Name="WaterLogID" />
     </Key>
     <Property Name="WaterLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="LogDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="LogDate" Type="datetime" StoreGeneratedPattern="Computed" />
     <Property Name="pH" Type="float" />
     <Property Name="DissolvedOxygen" Type="float" />
     <Property Name="Temperature" Type="float" />
@@ -885,11 +878,15 @@
     <Property Name="Amonnia" Type="float" />
     <Property Name="Phospate" Type="float" />
     <Property Name="ammonium" Type="float" />
-    <Property Name="nitrite" Type="int" />
-    <Property Name="nitrate" Type="int" />
+    <Property Name="nitrite" Type="float" />
+    <Property Name="nitrate" Type="float" />
     <Property Name="Paddlewheel" Type="int" />
     <Property Name="UserID" Type="nvarchar" MaxLength="255" />
     <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+    <Property Name="PotentialRedox" Type="float" />
+    <Property Name="WhiteSpot" Type="bit" />
+    <Property Name="isVibrioExist" Type="bit" />
+    <Property Name="IMNV" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.batchQuantityView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1130,17 +1127,6 @@
     <Property Name="ProductionCycleID" Type="int" />
     <Property Name="isDone" Type="bit" />
     <Property Name="ReccurencePattern" Type="nvarchar" MaxLength="255" />
-  </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'CPL.dbo.TotalSevenDaysFeed' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-  <EntityType Name="TotalSevenDaysFeed">
-    <Key>
-      <PropertyRef Name="ProductionCycleID" />
-    </Key>
-    <Property Name="Date" Type="date" />
-    <Property Name="TotalFeedGiven" Type="float" />
-    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_BatchDetails_BatchHeader">
     <End Role="BatchHeader" Type="CPLModel.Store.BatchHeader" Multiplicity="1" />

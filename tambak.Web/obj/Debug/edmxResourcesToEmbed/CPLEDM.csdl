@@ -13,7 +13,6 @@
     <EntitySet Name="SamplingLogs" EntityType="CPLModel.SamplingLog" />
     <EntitySet Name="sysdiagrams" EntityType="CPLModel.sysdiagram" />
     <EntitySet Name="Tasks" EntityType="CPLModel.Task" />
-    <EntitySet Name="WaterParameterLogs" EntityType="CPLModel.WaterParameterLog" />
     <AssociationSet Name="FK_PondsProductionCycle_Contacts" Association="CPLModel.FK_PondsProductionCycle_Contacts">
       <End Role="Contacts" EntitySet="Contacts" />
       <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
@@ -41,10 +40,6 @@
     <AssociationSet Name="FK_Tasks_PondsProductionCycle" Association="CPLModel.FK_Tasks_PondsProductionCycle">
       <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
       <End Role="Tasks" EntitySet="Tasks" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WaterParameterLog_PondsProductionCycle" Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle">
-      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
-      <End Role="WaterParameterLogs" EntitySet="WaterParameterLogs" />
     </AssociationSet>
     <AssociationSet Name="FK_ProductRequired_Tasks" Association="CPLModel.FK_ProductRequired_Tasks">
       <End Role="Tasks" EntitySet="Tasks" />
@@ -218,7 +213,11 @@
     <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
     <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
     <EntitySet Name="ProductionCycleCostDetailViews" EntityType="CPLModel.ProductionCycleCostDetailView" />
-    <EntitySet Name="TotalSevenDaysFeeds" EntityType="CPLModel.TotalSevenDaysFeed" />
+    <EntitySet Name="WaterParameterLogs" EntityType="CPLModel.WaterParameterLog" />
+    <AssociationSet Name="FK_WaterParameterLog_PondsProductionCycle" Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle">
+      <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
+      <End Role="WaterParameterLog" EntitySet="WaterParameterLogs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -295,9 +294,9 @@
     <NavigationProperty Name="FeedingLogs" Relationship="CPLModel.FK_FeedingLogs_PondsProductionCycle" FromRole="PondsProductionCycles" ToRole="FeedingLogs" />
     <NavigationProperty Name="SamplingLogs" Relationship="CPLModel.FK_SamplingLog_PondsProductionCycle" FromRole="PondsProductionCycles" ToRole="SamplingLogs" />
     <NavigationProperty Name="Tasks" Relationship="CPLModel.FK_Tasks_PondsProductionCycle" FromRole="PondsProductionCycles" ToRole="Tasks" />
-    <NavigationProperty Name="WaterParameterLogs" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="PondsProductionCycles" ToRole="WaterParameterLogs" />
     <NavigationProperty Name="BatchDetails" Relationship="CPLModel.FK_BatchDetails_PondsProductionCycles" FromRole="PondsProductionCycle" ToRole="BatchDetail" />
     <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="PondConsumptionsLog" />
+    <NavigationProperty Name="WaterParameterLogs" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="WaterParameterLog" />
   </EntityType>
   <EntityType Name="ProductPurchaseLog">
     <Key>
@@ -446,29 +445,6 @@
     <NavigationProperty Name="ProductSalesOrders" Relationship="CPLModel.FK_ProductSalesOrders_Tasks" FromRole="Tasks" ToRole="ProductSalesOrders" />
     <NavigationProperty Name="ResultNotes" Relationship="CPLModel.FK_ResultNote_ResultNote" FromRole="Tasks" ToRole="ResultNotes" />
   </EntityType>
-  <EntityType Name="WaterParameterLog">
-    <Key>
-      <PropertyRef Name="WaterLogID" />
-    </Key>
-    <Property Name="WaterLogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="LogDate" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="pH" Type="Double" />
-    <Property Name="DissolvedOxygen" Type="Double" />
-    <Property Name="Temperature" Type="Double" />
-    <Property Name="Planktons" Type="Int32" />
-    <Property Name="Salinity" Type="Double" />
-    <Property Name="Bacteria" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-    <Property Name="Vibrio" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-    <Property Name="Amonnia" Type="Double" />
-    <Property Name="Phospate" Type="Double" />
-    <Property Name="ammonium" Type="Double" />
-    <Property Name="nitrite" Type="Int32" />
-    <Property Name="nitrate" Type="Int32" />
-    <Property Name="Paddlewheel" Type="Int32" />
-    <Property Name="UserID" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-    <Property Name="ProductionCycleID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="WaterParameterLogs" ToRole="PondsProductionCycles" />
-  </EntityType>
   <Association Name="FK_PondsProductionCycle_Contacts">
     <End Role="Contacts" Type="CPLModel.Contact" Multiplicity="0..1" />
     <End Role="PondsProductionCycles" Type="CPLModel.PondsProductionCycle" Multiplicity="*" />
@@ -549,18 +525,6 @@
         <PropertyRef Name="ProductionCycleID" />
       </Principal>
       <Dependent Role="Tasks">
-        <PropertyRef Name="ProductionCycleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WaterParameterLog_PondsProductionCycle">
-    <End Role="PondsProductionCycles" Type="CPLModel.PondsProductionCycle" Multiplicity="1" />
-    <End Role="WaterParameterLogs" Type="CPLModel.WaterParameterLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PondsProductionCycles">
-        <PropertyRef Name="ProductionCycleID" />
-      </Principal>
-      <Dependent Role="WaterParameterLogs">
         <PropertyRef Name="ProductionCycleID" />
       </Dependent>
     </ReferentialConstraint>
@@ -1500,12 +1464,43 @@
     <Property Type="Double" Name="Cost" />
     <Property Type="Int32" Name="ProductionCycleID" />
   </EntityType>
-  <EntityType Name="TotalSevenDaysFeed">
+  <EntityType Name="WaterParameterLog">
     <Key>
-      <PropertyRef Name="ProductionCycleID" />
+      <PropertyRef Name="WaterLogID" />
     </Key>
-    <Property Type="DateTime" Name="Date" Precision="0" />
-    <Property Type="Double" Name="TotalFeedGiven" />
+    <Property Type="Int32" Name="WaterLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="LogDate" Precision="3" annotation:StoreGeneratedPattern="Computed" Nullable="true" />
+    <Property Type="Double" Name="pH" />
+    <Property Type="Double" Name="DissolvedOxygen" />
+    <Property Type="Double" Name="Temperature" />
+    <Property Type="Int32" Name="Planktons" />
+    <Property Type="Double" Name="Salinity" />
+    <Property Type="String" Name="Bacteria" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Vibrio" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="Amonnia" />
+    <Property Type="Double" Name="Phospate" />
+    <Property Type="Double" Name="ammonium" />
+    <Property Type="Double" Name="nitrite" />
+    <Property Type="Double" Name="nitrate" />
+    <Property Type="Int32" Name="Paddlewheel" />
+    <Property Type="String" Name="UserID" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
+    <Property Type="Double" Name="PotentialRedox" />
+    <Property Type="Boolean" Name="WhiteSpot" />
+    <Property Type="Boolean" Name="isVibrioExist" />
+    <Property Type="Boolean" Name="IMNV" />
+    <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="WaterParameterLog" ToRole="PondsProductionCycle" />
   </EntityType>
+  <Association Name="FK_WaterParameterLog_PondsProductionCycle">
+    <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="1" />
+    <End Type="CPLModel.WaterParameterLog" Role="WaterParameterLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycle">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="WaterParameterLog">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

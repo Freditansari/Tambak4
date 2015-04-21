@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="CPLModel.SamplingLog" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CPLModel.sysdiagram" Width="1.5" PointX="2.875" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CPLModel.Task" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="0.5" PointY="27.625" IsExpanded="true" />
         <AssociationConnector Association="CPLModel.FK_PondsProductionCycle_Contacts" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_ProductSalesOrders_Contacts" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_Tasks_Contacts" ManuallyRouted="false" />
@@ -25,7 +24,6 @@
         <AssociationConnector Association="CPLModel.FK_Tasks_Ponds" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_SamplingLog_PondsProductionCycle" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_Tasks_PondsProductionCycle" ManuallyRouted="false" />
-        <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_ProductRequired_Tasks" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_ProductSalesOrders_ProductRequired" ManuallyRouted="false" />
         <AssociationConnector Association="CPLModel.FK_ProductSalesOrders_Tasks" ManuallyRouted="false" />
@@ -99,7 +97,8 @@
         <EntityTypeShape EntityType="CPLModel.EmployeeNameView" Width="1.5" PointX="0.38445913437030232" PointY="16.619161196341349" />
         <EntityTypeShape EntityType="CPLModel.TaskNotDoneView" Width="1.5" PointX="7.0074042319354621" PointY="27.186068249487349" />
         <EntityTypeShape EntityType="CPLModel.ProductionCycleCostDetailView" Width="1.5" PointX="10.5224687971745" PointY="2.922966824342947" />
-        <EntityTypeShape EntityType="CPLModel.TotalSevenDaysFeed" Width="1.5" PointX="3.125" PointY="25.625" />
+        <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="3.7284218872564017" PointY="27.786901770060371" />
+        <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

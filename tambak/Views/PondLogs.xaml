@@ -267,52 +267,98 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <sdk:Label Content="Amonnia:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                            <TextBox x:Name="amonniaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="0"  VerticalAlignment="Center" Width="120" TextChanged="amonniaTextBox_TextChanged"/>
+                            <TextBox x:Name="amonniaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text=""  VerticalAlignment="Center" Width="120" TextChanged="amonniaTextBox_TextChanged"/>
                             <sdk:Label Content="Bacteria:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-                            <TextBox x:Name="bacteriaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="0"  Width="120"/>
+                            <TextBox x:Name="bacteriaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text=""  Width="120"/>
                             <sdk:Label Content="Dissolved Oxygen:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-                            <TextBox x:Name="dissolvedOxygenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Width="120" Text="0" TextChanged="dissolvedOxygenTextBox_TextChanged"/>
+                            <TextBox x:Name="dissolvedOxygenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Width="120" Text="" TextChanged="dissolvedOxygenTextBox_TextChanged"/>
                             <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-                            <sdk:DatePicker x:Name="logDateDatePicker2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3"  Width="120" IsEnabled="False"/>
+                            <!--<sdk:DatePicker x:Name="logDateDatePicker2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3"  Width="120" IsEnabled="True"/>-->
+                            
                             <sdk:Label Content="Paddlewheel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-                            <TextBox x:Name="paddlewheelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" VerticalAlignment="Center" Text="0" Width="120" TextChanged="paddlewheelTextBox_TextChanged"/>
+                            <TextBox x:Name="paddlewheelTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" VerticalAlignment="Center" Text="" Width="120" TextChanged="paddlewheelTextBox_TextChanged"/>
                             <sdk:Label Content="Phospate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-                            <TextBox x:Name="phospateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" Text="0" TextChanged="phospateTextBox_TextChanged"/>
+                            <TextBox x:Name="phospateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" Text="" TextChanged="phospateTextBox_TextChanged"/>
                             <sdk:Label Content="Planktons:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-                            <TextBox x:Name="planktonsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" Text="0" TextChanged="planktonsTextBox_TextChanged"/>
+                            <TextBox x:Name="planktonsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" Text="" TextChanged="planktonsTextBox_TextChanged"/>
                             <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
                             <TextBox x:Name="productionCycleIDTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7"  VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
                             <sdk:Label Content="Salinity:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
-                            <TextBox x:Name="salinityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8"  VerticalAlignment="Center" Width="120" Text="0" TextChanged="salinityTextBox_TextChanged"/>
+                            <TextBox x:Name="salinityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8"  VerticalAlignment="Center" Width="120" Text="" TextChanged="salinityTextBox_TextChanged"/>
                             <sdk:Label Content="Temperature:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
-                            <TextBox x:Name="temperatureTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9"  VerticalAlignment="Center" Width="120" Text="0" TextChanged="temperatureTextBox_TextChanged"/>
+                            <TextBox x:Name="temperatureTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9"  VerticalAlignment="Center" Width="120" Text="" TextChanged="temperatureTextBox_TextChanged"/>
                             <sdk:Label Content="User ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
                             <TextBox x:Name="userIDTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
                             <sdk:Label Content="Vibrio:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
-                            <TextBox x:Name="vibrioTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="0" VerticalAlignment="Center" Width="120"/>
-                            <sdk:Label Content="Water Log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
-                            <TextBox x:Name="waterLogIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" VerticalAlignment="Center" Width="120" TextChanged="waterLogIDTextBox_TextChanged" IsReadOnly="True"/>
+                            <TextBox x:Name="vibrioTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="" VerticalAlignment="Center" Width="120"/>
                             <sdk:Label Content="ammonium:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
-                            <TextBox x:Name="ammoniumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" VerticalAlignment="Center" Text="0" Width="120" TextChanged="ammoniumTextBox_TextChanged"/>
+                            <TextBox x:Name="ammoniumTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" VerticalAlignment="Center" Text="" Width="120" TextChanged="ammoniumTextBox_TextChanged"/>
                             <sdk:Label Content="nitrate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
-                            <TextBox x:Name="nitrateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14"  VerticalAlignment="Center" Text="0" Width="120" TextChanged="nitrateTextBox_TextChanged"/>
+                            <TextBox x:Name="nitrateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14"  VerticalAlignment="Center" Text="" Width="120" TextChanged="nitrateTextBox_TextChanged"/>
                             <sdk:Label Content="nitrite:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
-                            <TextBox x:Name="nitriteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" VerticalAlignment="Center" Text="0" Width="120" TextChanged="nitriteTextBox_TextChanged"/>
+                            <TextBox x:Name="nitriteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" VerticalAlignment="Center" Text="" Width="120" TextChanged="nitriteTextBox_TextChanged"/>
                             <sdk:Label Content="p H:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
-                            <TextBox x:Name="pHTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" VerticalAlignment="Center" Text="0" Width="120" TextChanged="pHTextBox_TextChanged"/>
+                            <TextBox x:Name="pHTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" VerticalAlignment="Center" Text="" Width="120" TextChanged="pHTextBox_TextChanged"/>
+                            <sdk:Label Content="Potential Redox:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="18" VerticalAlignment="Center" Width="95"/>
+                            <TextBox x:Name="potentialRedoxTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="17" Text="" VerticalAlignment="Center" Width="123"/>
+                            <telerik:RadDateTimePicker x:Name="logDateDatePicker2" Grid.Column="1" HorizontalAlignment="Left" Margin="3,2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
                         </Grid>
-                        <Button x:Name="SaveWaterParamButton" Content="Save" HorizontalAlignment="Left" Margin="181,513,0,0" VerticalAlignment="Top" Width="75" Click="SaveWaterParamButton_Click"/>
+                        <Button x:Name="SaveWaterParamButton" Content="Save" HorizontalAlignment="Left" Margin="181,558,0,0" VerticalAlignment="Top" Width="75" Click="SaveWaterParamButton_Click"/>
+                        <!--<Grid x:Name="grid8" DataContext="{Binding Data, ElementName=waterParameterLogDomainDataSource}" HorizontalAlignment="Left" Margin="10,493,0,0" VerticalAlignment="Top" Width="246">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                          
+                        </Grid>-->
+                        <Grid x:Name="grid9" DataContext="{Binding Data, ElementName=waterParameterLogDomainDataSource}" HorizontalAlignment="Left" Margin="319,34,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="IMNV:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <CheckBox x:Name="iMNVCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IMNV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid x:Name="grid10" DataContext="{Binding Data, ElementName=waterParameterLogDomainDataSource}" HorizontalAlignment="Left" Margin="288,61,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="White Spot:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <CheckBox x:Name="whiteSpotCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding WhiteSpot, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid x:Name="grid11" DataContext="{Binding Data, ElementName=waterParameterLogDomainDataSource}" HorizontalAlignment="Left" Margin="274,88,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <sdk:Label Content="is Vibrio Exist:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                            <CheckBox x:Name="isVibrioExistCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isVibrioExist, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        </Grid>
                     </Grid>
                     <riaControls:DomainDataSource x:Name="waterParameterLogDomainDataSource" AutoLoad="True" Height="0" LoadedData="waterParameterLogDomainDataSource_LoadedData" QueryName="GetWaterParameterLogsQuery" Width="0" d:DesignData="{d:DesignInstance Web:WaterParameterLog, CreateList=true}">
                         <riaControls:DomainDataSource.DomainContext>
                             <DomainServices:WaterParameterLogDS/>
                         </riaControls:DomainDataSource.DomainContext>
                     </riaControls:DomainDataSource>
-                    <Grid HorizontalAlignment="Left" Height="597" Margin="297,10,0,0" VerticalAlignment="Top" Width="1611">
+                    <Grid HorizontalAlignment="Left" Height="566" Margin="398,41,-544,0" VerticalAlignment="Top" Width="1510">
                         <!-- <telerik:RadGridView x:Name="waterParameterLogRadGridView" ItemsSource="{Binding Data, ElementName=waterParameterLogDomainDataSource}" Margin="0,0,156,124"/> -->
-                        <telerik:RadGridView x:Name="waterParameterLogRadGridView" Margin="0,0,663,124"/>
+                        <telerik:RadGridView x:Name="waterParameterLogRadGridView" Margin="0,-27,870,93"/>
                     </Grid>
                 </Grid>
             </telerik:RadTabItem>
