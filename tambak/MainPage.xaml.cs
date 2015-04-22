@@ -9,6 +9,7 @@
     using tambak.Web;
     using tambak.Web.DomainServices;
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// <see cref="UserControl"/> class providing the main UI for the application.
@@ -18,7 +19,7 @@
         /// <summary>
         /// Creates a new <see cref="MainPage"/> instance.
         /// </summary>
-        CompanyDS companyDomainContext = new CompanyDS();
+      
 
         public MainPage()
         {
@@ -28,29 +29,18 @@
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            //todo load company name and change the application name textbox 
+            ApplicationNameTextBlock.Text = App.DatabaseName.ToString();
 
-			
-            //EntityQuery<Company> bb = from b in companyDomainContext.GetCompaniesQuery() select b;
-            //LoadOperation<Company> res = companyDomainContext.Load(bb, new Action<LoadOperation<Company>>(getCompany_Completed), true);
+
+     
 			
         }
 
-        private void getCompany_Completed(LoadOperation<Company> obj)
-        {
-            try 
-	        {	        
-                 //Company companyEntities = obj.AllEntities.
-                 //  ApplicationNameTextBlock.Text = 
-	        }
-	        catch (Exception)
-	        {
-		
-		        
-	        }
-                       
-         
-        }
+
+       
+
+        
+       
 
         /// <summary>
         /// After the Frame navigates, ensure the <see cref="HyperlinkButton"/> representing the current page is selected

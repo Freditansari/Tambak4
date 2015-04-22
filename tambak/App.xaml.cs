@@ -9,6 +9,7 @@
     using tambak.Web;
     using tambak.Web.DomainServices;
     using System.Globalization;
+    using System.ServiceModel.DomainServices.Client;
 
     /// <summary>
     /// Main <see cref="Application"/> class.
@@ -21,8 +22,12 @@
 
         public static List<MasterTax> globalSelectedTax = new List<MasterTax>();
         public static CultureInfo cultInfo = new CultureInfo("id-ID");
+
+        //todo : change this to get the automated python background processes  working  
         public static string DatabaseName = "CPL";
-        //public static ProductDS GlobalProductDomainContext;
+        // public static string DatabaseName = "Hasfarm"
+        // public static string DatabaseName = "KotaAgung"
+        
         public static List<Product> SelectedProduct = new List<Product>();
         public App()
         {
@@ -54,6 +59,7 @@
            
             try
             {
+              
                 // This will enable you to bind controls in XAML to WebContext.Current properties.
                 this.Resources.Add("WebContext", WebContext.Current);
 
@@ -74,6 +80,8 @@
             }
           
         }
+
+      
 
         /// <summary>
         /// Invoked when the <see cref="LoadUserOperation"/> completes.

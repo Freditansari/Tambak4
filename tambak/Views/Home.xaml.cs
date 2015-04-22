@@ -1,7 +1,9 @@
 ﻿namespace tambak
 {
+    using System.ServiceModel.DomainServices.Client;
     using System.Windows.Controls;
     using System.Windows.Navigation;
+    using tambak.Web;
 
     /// <summary>
     /// Home page for the application.
@@ -14,9 +16,14 @@
         public Home()
         {
             InitializeComponent();
+           
 
             this.Title = ApplicationStrings.HomePageTitle;
         }
+
+      
+
+       
 
         /// <summary>
         /// Executes when the user navigates to this page.
