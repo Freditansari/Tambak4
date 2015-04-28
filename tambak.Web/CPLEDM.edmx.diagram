@@ -99,6 +99,8 @@
         <EntityTypeShape EntityType="CPLModel.ProductionCycleCostDetailView" Width="1.5" PointX="10.5224687971745" PointY="2.922966824342947" />
         <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="3.7284218872564017" PointY="27.786901770060371" />
         <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" />
+        <EntityTypeShape EntityType="CPLModel.FeedingAuditView" Width="1.5" PointX="4.0963037461490854" PointY="20.417754480809791" />
+        <EntityTypeShape EntityType="CPLModel.CurrentInventoryView" Width="1.5" PointX="10.953521226976775" PointY="16.143599249489419" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

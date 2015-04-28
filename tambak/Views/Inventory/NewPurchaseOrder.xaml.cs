@@ -223,9 +223,12 @@ namespace tambak.Views.Inventory
         {
             try
             {
-                IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
-                shipToTextBox.Text = appSettings["SelectedFacilityID"].ToString();
-                appSettings.Remove("SelectedFacilityID");
+
+                //todo get in app.xaml
+                //IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
+                //shipToTextBox.Text = appSettings["SelectedFacilityID"].ToString();
+                //appSettings.Remove("SelectedFacilityID");
+                shipToTextBox.Text = App.SelectedFacilityID.ToString() ;
             }
             catch (Exception g)
             {

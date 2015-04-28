@@ -64,6 +64,7 @@
         <telerik:RadChart x:Name="SurvivalRateChart"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="951,203,0,0" Width="312"/>
         <telerik:RadChart x:Name="adgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="0,396,0,0" Width="312"/>
         <telerik:RadChart x:Name="CumulativeAdgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="319,397,0,0" Width="312"/>
+        <telerik:RadChart x:Name="FeedingAuditCharts" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="636,397,0,0" Width="312"/>
 
         <!--<telerik:RadChart x:Name="agetoMBWChart_Copy6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="0,396,0,0" Width="312"/>
         <telerik:RadChart x:Name="agetoMBWChart_Copy7" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="317,396,0,0" Width="312"/>

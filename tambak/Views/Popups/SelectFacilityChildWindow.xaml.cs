@@ -111,8 +111,9 @@ namespace tambak.Views.Popups
             try
             {
                 SelectedFacility = this.facilityDataGrid.SelectedItem as Facility;
-                IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
-                appSettings.Add("SelectedFacilityID", SelectedFacility.FacilityId);
+                //IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
+                //appSettings.Add("SelectedFacilityID", SelectedFacility.FacilityId);
+                App.SelectedFacilityID = SelectedFacility.FacilityId;
             }
             catch (Exception g)
             {

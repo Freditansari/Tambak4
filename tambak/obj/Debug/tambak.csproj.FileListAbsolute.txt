@@ -2473,6 +2473,7 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondsProductionCy
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondLogs.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewFeedingLogChildWindows.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewSamplingLogWindow.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewWaterParameterChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectFacilityChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectProducts.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectTaxChildWindow.g.cs
@@ -2497,4 +2498,4 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.csproj.GenerateR
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.pdb
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\XapCacheFile.xml
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewWaterParameterChildWindow.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\InventoryLevel.g.cs

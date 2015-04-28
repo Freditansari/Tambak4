@@ -24,6 +24,7 @@ namespace tambak.Views.Charts
         PondsProductionCycleDS PondsProductionCycleDomainContext = new PondsProductionCycleDS();
         tambak.Web.PondsProductionCycle SelectedPondProductionCycle = new tambak.Web.PondsProductionCycle();
         PondsDS pondsDomainContext = new PondsDS();
+        FeedingAuditViewDS FeedingAuditDomainContext = new FeedingAuditViewDS();
         Pond selectedPond = new Pond();
         SamplingLogDS SamplingLogDomainContext = new SamplingLogDS();
 
@@ -71,8 +72,40 @@ namespace tambak.Views.Charts
             LoadSurvivalRate();
             loadADG();
             loadCummulativeADG();
+            
+
           
 
+        }
+
+        private void loadFeedingAudit()
+        {
+
+			EntityQuery<FeedingAuditView> bb = from b in FeedingAuditDomainContext.GetFeedingAuditViewsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID select b;
+            LoadOperation<FeedingAuditView> res = FeedingAuditDomainContext.Load(bb, new Action<LoadOperation<FeedingAuditView>>(loadFeedingAudit_Completed), true);
+			
+
+
+           
+        }
+
+        private void loadFeedingAudit_Completed(LoadOperation<FeedingAuditView> obj)
+        {
+            DataSeries lineSeries = new DataSeries();
+            DataSeries StandardSeries = new DataSeries();
+
+            FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Clear();
+            FeedingAuditCharts.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            FeedingAuditCharts.DefaultView.ChartTitle.Content = "Feeding Charts";
+            lineSeries.Definition = new LineSeriesDefinition();
+            StandardSeries.Definition = new LineSeriesDefinition();
+            foreach (var b in FeedingAuditDomainContext.FeedingAuditViews)
+            {
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Total_Feed), XCategory = b.DayOfCulture.ToString() });
+                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.FeedingPlan), XCategory = b.DayOfCulture.ToString() });
+            }
+           FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+           FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
         }
 
         private void loadCummulativeADG()
@@ -266,6 +299,7 @@ namespace tambak.Views.Charts
         {
             SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
             loadSamplingLog();
+            loadFeedingAudit();
         }
 
         private void loadSamplingLog()

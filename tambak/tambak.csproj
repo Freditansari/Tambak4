@@ -216,6 +216,9 @@
     <Compile Include="Views\Inventory\feedEstimation.xaml.cs">
       <DependentUpon>feedEstimation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Inventory\InventoryLevel.xaml.cs">
+      <DependentUpon>InventoryLevel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\NewCategoryChildWindow.xaml.cs">
       <DependentUpon>NewCategoryChildWindow.xaml</DependentUpon>
     </Compile>
@@ -413,6 +416,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Inventory\InventoryLevel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Inventory\NewCategoryChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -599,10 +606,12 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CummulativeFeedViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CurrencyRateDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CurrentActivePondsViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CurrentInventoryViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.DailyFeedSummaryViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.DeliveryLogDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.EmployeeNameViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FacilityDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingAuditViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingRateGuideDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FourteenDaysFeedEstimateDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.HarvestDS.datasource" />

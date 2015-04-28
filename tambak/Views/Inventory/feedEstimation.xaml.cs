@@ -17,7 +17,23 @@ namespace tambak.Views.Inventory
     {
         public feedEstimation()
         {
-            InitializeComponent();
+            try
+            {
+                if (WebContext.Current.User.IsInRole("Manager") || WebContext.Current.User.IsInRole("Accounting") || WebContext.Current.User.IsInRole("Super Admin"))
+                {
+
+                    InitializeComponent();
+                   
+                }
+                else
+                {
+                    throw new ArgumentException("Insufficient Access. Please login with higher access.");
+                }
+            }
+            catch (Exception g)
+            {
+                MessageBox.Show(g.Message);
+            }
         }
 
         public void getGlobalRequirements()

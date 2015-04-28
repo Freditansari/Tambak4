@@ -66,6 +66,16 @@
       [CurrentActivePonds].[DOC] AS [DOC]
       FROM [dbo].[CurrentActivePonds] AS [CurrentActivePonds]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="CurrentInventoryView" EntityType="CPLModel.Store.CurrentInventoryView" store:Type="Views" store:Schema="dbo" store:Name="CurrentInventoryView">
+      <DefiningQuery>SELECT 
+      [CurrentInventoryView].[ProductID] AS [ProductID], 
+      [CurrentInventoryView].[CategoryName] AS [CategoryName], 
+      [CurrentInventoryView].[ProductName] AS [ProductName], 
+      [CurrentInventoryView].[Inventory Level] AS [Inventory Level], 
+      [CurrentInventoryView].[Uom] AS [Uom], 
+      [CurrentInventoryView].[IsFinishedProduct] AS [IsFinishedProduct]
+      FROM [dbo].[CurrentInventoryView] AS [CurrentInventoryView]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="DailyFeedSummaryView" EntityType="CPLModel.Store.DailyFeedSummaryView" store:Type="Views" store:Schema="dbo" store:Name="DailyFeedSummaryView">
       <DefiningQuery>SELECT 
       [DailyFeedSummaryView].[Row] AS [Row], 
@@ -79,6 +89,15 @@
       [EmployeeNameView].[ContactID] AS [ContactID], 
       [EmployeeNameView].[Name] AS [Name]
       FROM [dbo].[EmployeeNameView] AS [EmployeeNameView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FeedingAuditView" EntityType="CPLModel.Store.FeedingAuditView" store:Type="Views" store:Schema="dbo" store:Name="FeedingAuditView">
+      <DefiningQuery>SELECT 
+      [FeedingAuditView].[FeedingHistoryID] AS [FeedingHistoryID], 
+      [FeedingAuditView].[DayOfCulture] AS [DayOfCulture], 
+      [FeedingAuditView].[Total Feed] AS [Total Feed], 
+      [FeedingAuditView].[ProductionCycleID] AS [ProductionCycleID], 
+      [FeedingAuditView].[FeedingPlan] AS [FeedingPlan]
+      FROM [dbo].[FeedingAuditView] AS [FeedingAuditView]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="PODeliveredQuantity" EntityType="CPLModel.Store.PODeliveredQuantity" store:Type="Views" store:Schema="dbo" store:Name="PODeliveredQuantity">
       <DefiningQuery>SELECT 
@@ -928,6 +947,20 @@
     <Property Name="DOC" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.CurrentInventoryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="CurrentInventoryView">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="512" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Inventory Level" Type="float" />
+    <Property Name="Uom" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsFinishedProduct" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.DailyFeedSummaryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="DailyFeedSummaryView">
@@ -949,6 +982,20 @@
     </Key>
     <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" MaxLength="101" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.FeedingAuditView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="FeedingAuditView">
+    <Key>
+      <PropertyRef Name="FeedingHistoryID" />
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Name="FeedingHistoryID" Type="int" Nullable="false" />
+    <Property Name="DayOfCulture" Type="int" />
+    <Property Name="Total Feed" Type="float" />
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+    <Property Name="FeedingPlan" Type="float" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.PODeliveredQuantity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.

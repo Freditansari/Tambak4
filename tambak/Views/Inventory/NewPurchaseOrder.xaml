@@ -66,7 +66,7 @@
                         <sdk:Label Content="Ship To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
                         <!--<TextBox x:Name="shipToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="3" Text="{Binding ShipTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="36" IsReadOnly="True"/>-->
                         <TextBox x:Name="shipToTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,3,0,3" Grid.Row="3" Text="{Binding ShipTo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="36" IsReadOnly="True"/>
-                        <Button x:Name="selectFacilityButton" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Width="22" Margin="104,0,0,7" Click="selectFacilityButton_Click">
+                        <Button x:Name="selectFacilityButton" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Width="22" Margin="104,0,0,7" Click="selectFacilityButton_Click" Height="22" VerticalAlignment="Bottom">
                             <StackPanel>
                                 <Image Source="/Icons/magnifier13.png" Stretch="Fill"/>
                             </StackPanel>

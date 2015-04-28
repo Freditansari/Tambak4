@@ -748,5 +748,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FeedingAuditViews">
+      <EntityTypeMapping TypeName="CPLModel.FeedingAuditView">
+        <MappingFragment StoreEntitySet="FeedingAuditView">
+          <ScalarProperty Name="FeedingPlan" ColumnName="FeedingPlan" />
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="Total_Feed" ColumnName="Total Feed" />
+          <ScalarProperty Name="DayOfCulture" ColumnName="DayOfCulture" />
+          <ScalarProperty Name="FeedingHistoryID" ColumnName="FeedingHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentInventoryViews">
+      <EntityTypeMapping TypeName="CPLModel.CurrentInventoryView">
+        <MappingFragment StoreEntitySet="CurrentInventoryView">
+          <ScalarProperty Name="IsFinishedProduct" ColumnName="IsFinishedProduct" />
+          <ScalarProperty Name="Uom" ColumnName="Uom" />
+          <ScalarProperty Name="Inventory_Level" ColumnName="Inventory Level" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

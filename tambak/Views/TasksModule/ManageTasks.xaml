@@ -103,7 +103,7 @@
                         <sdk:Label Content="planned Man Hours:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
                         <TextBox x:Name="plannedManHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding plannedManHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                     </Grid>
-                    <telerik:RadGridView x:Name="taskRadGridView" ItemsSource="{Binding Data, ElementName=taskDomainDataSource}" Margin="274,60,65,56" SelectionChanged="taskRadGridView_SelectionChanged"/>
+                    <telerik:RadGridView x:Name="taskRadGridView" ItemsSource="{Binding Data, ElementName=taskDomainDataSource}" Margin="274,60,65,56" SelectionChanged="taskRadGridView_SelectionChanged" SelectionMode="Multiple"/>
                     <Button x:Name="updateTaskButton" Content="Update" HorizontalAlignment="Left" Margin="354,14,0,0" VerticalAlignment="Top" Width="75" Click="updateTaskButton_Click"/>
                 </Grid>
 

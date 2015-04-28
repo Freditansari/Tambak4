@@ -188,12 +188,16 @@
     <Compile Include="DomainServices\CurrencyRateDS.metadata.cs" />
     <Compile Include="DomainServices\CurrentActivePondsViewDS.cs" />
     <Compile Include="DomainServices\CurrentActivePondsViewDS.metadata.cs" />
+    <Compile Include="DomainServices\CurrentInventoryViewDS.cs" />
+    <Compile Include="DomainServices\CurrentInventoryViewDS.metadata.cs" />
     <Compile Include="DomainServices\DeliveryLogDS.cs" />
     <Compile Include="DomainServices\DeliveryLogDS.metadata.cs" />
     <Compile Include="DomainServices\EmployeeNameViewDS.cs" />
     <Compile Include="DomainServices\EmployeeNameViewDS.metadata.cs" />
     <Compile Include="DomainServices\FacilityDS.cs" />
     <Compile Include="DomainServices\FacilityDS.metadata.cs" />
+    <Compile Include="DomainServices\FeedingAuditViewDS.cs" />
+    <Compile Include="DomainServices\FeedingAuditViewDS.metadata.cs" />
     <Compile Include="DomainServices\FeedingLogsDS.cs" />
     <Compile Include="DomainServices\FeedingLogsDS.metadata.cs" />
     <Compile Include="DomainServices\FeedingRateGuideDS.cs" />

@@ -3012,6 +3012,215 @@ namespace tambak.Web
     }
     
     /// <summary>
+    /// The 'CurrentInventoryView' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class CurrentInventoryView : Entity
+    {
+        
+        private string _categoryName;
+        
+        private Nullable<double> _inventory_Level;
+        
+        private Nullable<bool> _isFinishedProduct;
+        
+        private int _productID;
+        
+        private string _productName;
+        
+        private string _uom;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnCategoryNameChanging(string value);
+        partial void OnCategoryNameChanged();
+        partial void OnInventory_LevelChanging(Nullable<double> value);
+        partial void OnInventory_LevelChanged();
+        partial void OnIsFinishedProductChanging(Nullable<bool> value);
+        partial void OnIsFinishedProductChanged();
+        partial void OnProductIDChanging(int value);
+        partial void OnProductIDChanged();
+        partial void OnProductNameChanging(string value);
+        partial void OnProductNameChanged();
+        partial void OnUomChanging(string value);
+        partial void OnUomChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrentInventoryView"/> class.
+        /// </summary>
+        public CurrentInventoryView()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'CategoryName' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(512)]
+        public string CategoryName
+        {
+            get
+            {
+                return this._categoryName;
+            }
+            set
+            {
+                if ((this._categoryName != value))
+                {
+                    this.OnCategoryNameChanging(value);
+                    this.RaiseDataMemberChanging("CategoryName");
+                    this.ValidateProperty("CategoryName", value);
+                    this._categoryName = value;
+                    this.RaiseDataMemberChanged("CategoryName");
+                    this.OnCategoryNameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Inventory_Level' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Inventory_Level
+        {
+            get
+            {
+                return this._inventory_Level;
+            }
+            set
+            {
+                if ((this._inventory_Level != value))
+                {
+                    this.OnInventory_LevelChanging(value);
+                    this.RaiseDataMemberChanging("Inventory_Level");
+                    this.ValidateProperty("Inventory_Level", value);
+                    this._inventory_Level = value;
+                    this.RaiseDataMemberChanged("Inventory_Level");
+                    this.OnInventory_LevelChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'IsFinishedProduct' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<bool> IsFinishedProduct
+        {
+            get
+            {
+                return this._isFinishedProduct;
+            }
+            set
+            {
+                if ((this._isFinishedProduct != value))
+                {
+                    this.OnIsFinishedProductChanging(value);
+                    this.RaiseDataMemberChanging("IsFinishedProduct");
+                    this.ValidateProperty("IsFinishedProduct", value);
+                    this._isFinishedProduct = value;
+                    this.RaiseDataMemberChanged("IsFinishedProduct");
+                    this.OnIsFinishedProductChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int ProductID
+        {
+            get
+            {
+                return this._productID;
+            }
+            set
+            {
+                if ((this._productID != value))
+                {
+                    this.OnProductIDChanging(value);
+                    this.ValidateProperty("ProductID", value);
+                    this._productID = value;
+                    this.RaisePropertyChanged("ProductID");
+                    this.OnProductIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductName' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(255)]
+        public string ProductName
+        {
+            get
+            {
+                return this._productName;
+            }
+            set
+            {
+                if ((this._productName != value))
+                {
+                    this.OnProductNameChanging(value);
+                    this.RaiseDataMemberChanging("ProductName");
+                    this.ValidateProperty("ProductName", value);
+                    this._productName = value;
+                    this.RaiseDataMemberChanged("ProductName");
+                    this.OnProductNameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Uom' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(50)]
+        public string Uom
+        {
+            get
+            {
+                return this._uom;
+            }
+            set
+            {
+                if ((this._uom != value))
+                {
+                    this.OnUomChanging(value);
+                    this.RaiseDataMemberChanging("Uom");
+                    this.ValidateProperty("Uom", value);
+                    this._uom = value;
+                    this.RaiseDataMemberChanged("Uom");
+                    this.OnUomChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._productID;
+        }
+    }
+    
+    /// <summary>
     /// The 'DeliveryLog' entity class.
     /// </summary>
     [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
@@ -3843,6 +4052,186 @@ namespace tambak.Web
         public override object GetIdentity()
         {
             return this._facilityId;
+        }
+    }
+    
+    /// <summary>
+    /// The 'FeedingAuditView' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class FeedingAuditView : Entity
+    {
+        
+        private Nullable<int> _dayOfCulture;
+        
+        private int _feedingHistoryID;
+        
+        private Nullable<double> _feedingPlan;
+        
+        private int _productionCycleID;
+        
+        private Nullable<double> _total_Feed;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDayOfCultureChanging(Nullable<int> value);
+        partial void OnDayOfCultureChanged();
+        partial void OnFeedingHistoryIDChanging(int value);
+        partial void OnFeedingHistoryIDChanged();
+        partial void OnFeedingPlanChanging(Nullable<double> value);
+        partial void OnFeedingPlanChanged();
+        partial void OnProductionCycleIDChanging(int value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnTotal_FeedChanging(Nullable<double> value);
+        partial void OnTotal_FeedChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingAuditView"/> class.
+        /// </summary>
+        public FeedingAuditView()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'DayOfCulture' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> DayOfCulture
+        {
+            get
+            {
+                return this._dayOfCulture;
+            }
+            set
+            {
+                if ((this._dayOfCulture != value))
+                {
+                    this.OnDayOfCultureChanging(value);
+                    this.RaiseDataMemberChanging("DayOfCulture");
+                    this.ValidateProperty("DayOfCulture", value);
+                    this._dayOfCulture = value;
+                    this.RaiseDataMemberChanged("DayOfCulture");
+                    this.OnDayOfCultureChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FeedingHistoryID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int FeedingHistoryID
+        {
+            get
+            {
+                return this._feedingHistoryID;
+            }
+            set
+            {
+                if ((this._feedingHistoryID != value))
+                {
+                    this.OnFeedingHistoryIDChanging(value);
+                    this.ValidateProperty("FeedingHistoryID", value);
+                    this._feedingHistoryID = value;
+                    this.RaisePropertyChanged("FeedingHistoryID");
+                    this.OnFeedingHistoryIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FeedingPlan' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> FeedingPlan
+        {
+            get
+            {
+                return this._feedingPlan;
+            }
+            set
+            {
+                if ((this._feedingPlan != value))
+                {
+                    this.OnFeedingPlanChanging(value);
+                    this.RaiseDataMemberChanging("FeedingPlan");
+                    this.ValidateProperty("FeedingPlan", value);
+                    this._feedingPlan = value;
+                    this.RaiseDataMemberChanged("FeedingPlan");
+                    this.OnFeedingPlanChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaisePropertyChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Total_Feed' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Total_Feed
+        {
+            get
+            {
+                return this._total_Feed;
+            }
+            set
+            {
+                if ((this._total_Feed != value))
+                {
+                    this.OnTotal_FeedChanging(value);
+                    this.RaiseDataMemberChanging("Total_Feed");
+                    this.ValidateProperty("Total_Feed", value);
+                    this._total_Feed = value;
+                    this.RaiseDataMemberChanged("Total_Feed");
+                    this.OnTotal_FeedChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return EntityKey.Create(this._feedingHistoryID, this._productionCycleID);
         }
     }
     
@@ -16145,6 +16534,117 @@ namespace tambak.Web.DomainServices
     }
     
     /// <summary>
+    /// The DomainContext corresponding to the 'CurrentInventoryViewDS' DomainService.
+    /// </summary>
+    public sealed partial class CurrentInventoryViewDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrentInventoryViewDS"/> class.
+        /// </summary>
+        public CurrentInventoryViewDS() : 
+                this(new WebDomainClient<ICurrentInventoryViewDSContract>(new Uri("tambak-Web-DomainServices-CurrentInventoryViewDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrentInventoryViewDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The CurrentInventoryViewDS service URI.</param>
+        public CurrentInventoryViewDS(Uri serviceUri) : 
+                this(new WebDomainClient<ICurrentInventoryViewDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrentInventoryViewDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public CurrentInventoryViewDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="CurrentInventoryView"/> entity instances that have been loaded into this <see cref="CurrentInventoryViewDS"/> instance.
+        /// </summary>
+        public EntitySet<CurrentInventoryView> CurrentInventoryViews
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<CurrentInventoryView>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="CurrentInventoryView"/> entity instances using the 'GetCurrentInventoryViews' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="CurrentInventoryView"/> entity instances.</returns>
+        public EntityQuery<CurrentInventoryView> GetCurrentInventoryViewsQuery()
+        {
+            this.ValidateMethod("GetCurrentInventoryViewsQuery", null);
+            return base.CreateQuery<CurrentInventoryView>("GetCurrentInventoryViews", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new CurrentInventoryViewDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'CurrentInventoryViewDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface ICurrentInventoryViewDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetCurrentInventoryViews' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/CurrentInventoryViewDS/GetCurrentInventoryViewsDomainServiceFa" +
+                "ult", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/CurrentInventoryViewDS/GetCurrentInventoryViews", ReplyAction="http://tempuri.org/CurrentInventoryViewDS/GetCurrentInventoryViewsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetCurrentInventoryViews(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetCurrentInventoryViews'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetCurrentInventoryViews'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetCurrentInventoryViews' operation.</returns>
+            QueryResult<CurrentInventoryView> EndGetCurrentInventoryViews(IAsyncResult result);
+        }
+        
+        internal sealed class CurrentInventoryViewDSEntityContainer : EntityContainer
+        {
+            
+            public CurrentInventoryViewDSEntityContainer()
+            {
+                this.CreateEntitySet<CurrentInventoryView>(EntitySetOperations.None);
+            }
+        }
+    }
+    
+    /// <summary>
     /// The DomainContext corresponding to the 'DeliveryLogDS' DomainService.
     /// </summary>
     public sealed partial class DeliveryLogDS : DomainContext
@@ -16506,6 +17006,116 @@ namespace tambak.Web.DomainServices
             public FacilityDSEntityContainer()
             {
                 this.CreateEntitySet<Facility>(EntitySetOperations.All);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'FeedingAuditViewDS' DomainService.
+    /// </summary>
+    public sealed partial class FeedingAuditViewDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingAuditViewDS"/> class.
+        /// </summary>
+        public FeedingAuditViewDS() : 
+                this(new WebDomainClient<IFeedingAuditViewDSContract>(new Uri("tambak-Web-DomainServices-FeedingAuditViewDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingAuditViewDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The FeedingAuditViewDS service URI.</param>
+        public FeedingAuditViewDS(Uri serviceUri) : 
+                this(new WebDomainClient<IFeedingAuditViewDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingAuditViewDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public FeedingAuditViewDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="FeedingAuditView"/> entity instances that have been loaded into this <see cref="FeedingAuditViewDS"/> instance.
+        /// </summary>
+        public EntitySet<FeedingAuditView> FeedingAuditViews
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<FeedingAuditView>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="FeedingAuditView"/> entity instances using the 'GetFeedingAuditViews' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="FeedingAuditView"/> entity instances.</returns>
+        public EntityQuery<FeedingAuditView> GetFeedingAuditViewsQuery()
+        {
+            this.ValidateMethod("GetFeedingAuditViewsQuery", null);
+            return base.CreateQuery<FeedingAuditView>("GetFeedingAuditViews", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new FeedingAuditViewDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'FeedingAuditViewDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface IFeedingAuditViewDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetFeedingAuditViews' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/FeedingAuditViewDS/GetFeedingAuditViewsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/FeedingAuditViewDS/GetFeedingAuditViews", ReplyAction="http://tempuri.org/FeedingAuditViewDS/GetFeedingAuditViewsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetFeedingAuditViews(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetFeedingAuditViews'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetFeedingAuditViews'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetFeedingAuditViews' operation.</returns>
+            QueryResult<FeedingAuditView> EndGetFeedingAuditViews(IAsyncResult result);
+        }
+        
+        internal sealed class FeedingAuditViewDSEntityContainer : EntityContainer
+        {
+            
+            public FeedingAuditViewDSEntityContainer()
+            {
+                this.CreateEntitySet<FeedingAuditView>(EntitySetOperations.None);
             }
         }
     }

@@ -958,6 +958,38 @@ namespace tambak.Web
             }
         }
         private ObjectSet<WaterParameterLog> _WaterParameterLogs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FeedingAuditView> FeedingAuditViews
+        {
+            get
+            {
+                if ((_FeedingAuditViews == null))
+                {
+                    _FeedingAuditViews = base.CreateObjectSet<FeedingAuditView>("FeedingAuditViews");
+                }
+                return _FeedingAuditViews;
+            }
+        }
+        private ObjectSet<FeedingAuditView> _FeedingAuditViews;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CurrentInventoryView> CurrentInventoryViews
+        {
+            get
+            {
+                if ((_CurrentInventoryViews == null))
+                {
+                    _CurrentInventoryViews = base.CreateObjectSet<CurrentInventoryView>("CurrentInventoryViews");
+                }
+                return _CurrentInventoryViews;
+            }
+        }
+        private ObjectSet<CurrentInventoryView> _CurrentInventoryViews;
 
         #endregion
 
@@ -1385,6 +1417,22 @@ namespace tambak.Web
         public void AddToWaterParameterLogs(WaterParameterLog waterParameterLog)
         {
             base.AddObject("WaterParameterLogs", waterParameterLog);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FeedingAuditViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFeedingAuditViews(FeedingAuditView feedingAuditView)
+        {
+            base.AddObject("FeedingAuditViews", feedingAuditView);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CurrentInventoryViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCurrentInventoryViews(CurrentInventoryView currentInventoryView)
+        {
+            base.AddObject("CurrentInventoryViews", currentInventoryView);
         }
 
         #endregion
@@ -4230,6 +4278,182 @@ namespace tambak.Web
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="CurrentInventoryView")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CurrentInventoryView : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CurrentInventoryView object.
+        /// </summary>
+        /// <param name="productID">Initial value of the ProductID property.</param>
+        public static CurrentInventoryView CreateCurrentInventoryView(global::System.Int32 productID)
+        {
+            CurrentInventoryView currentInventoryView = new CurrentInventoryView();
+            currentInventoryView.ProductID = productID;
+            return currentInventoryView;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ProductID
+        {
+            get
+            {
+                return _ProductID;
+            }
+            set
+            {
+                if (_ProductID != value)
+                {
+                    OnProductIDChanging(value);
+                    ReportPropertyChanging("ProductID");
+                    _ProductID = StructuralObject.SetValidValue(value, "ProductID");
+                    ReportPropertyChanged("ProductID");
+                    OnProductIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ProductID;
+        partial void OnProductIDChanging(global::System.Int32 value);
+        partial void OnProductIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CategoryName
+        {
+            get
+            {
+                return _CategoryName;
+            }
+            set
+            {
+                OnCategoryNameChanging(value);
+                ReportPropertyChanging("CategoryName");
+                _CategoryName = StructuralObject.SetValidValue(value, true, "CategoryName");
+                ReportPropertyChanged("CategoryName");
+                OnCategoryNameChanged();
+            }
+        }
+        private global::System.String _CategoryName;
+        partial void OnCategoryNameChanging(global::System.String value);
+        partial void OnCategoryNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ProductName
+        {
+            get
+            {
+                return _ProductName;
+            }
+            set
+            {
+                OnProductNameChanging(value);
+                ReportPropertyChanging("ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, true, "ProductName");
+                ReportPropertyChanged("ProductName");
+                OnProductNameChanged();
+            }
+        }
+        private global::System.String _ProductName;
+        partial void OnProductNameChanging(global::System.String value);
+        partial void OnProductNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Inventory_Level
+        {
+            get
+            {
+                return _Inventory_Level;
+            }
+            set
+            {
+                OnInventory_LevelChanging(value);
+                ReportPropertyChanging("Inventory_Level");
+                _Inventory_Level = StructuralObject.SetValidValue(value, "Inventory_Level");
+                ReportPropertyChanged("Inventory_Level");
+                OnInventory_LevelChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Inventory_Level;
+        partial void OnInventory_LevelChanging(Nullable<global::System.Double> value);
+        partial void OnInventory_LevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Uom
+        {
+            get
+            {
+                return _Uom;
+            }
+            set
+            {
+                OnUomChanging(value);
+                ReportPropertyChanging("Uom");
+                _Uom = StructuralObject.SetValidValue(value, true, "Uom");
+                ReportPropertyChanged("Uom");
+                OnUomChanged();
+            }
+        }
+        private global::System.String _Uom;
+        partial void OnUomChanging(global::System.String value);
+        partial void OnUomChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsFinishedProduct
+        {
+            get
+            {
+                return _IsFinishedProduct;
+            }
+            set
+            {
+                OnIsFinishedProductChanging(value);
+                ReportPropertyChanging("IsFinishedProduct");
+                _IsFinishedProduct = StructuralObject.SetValidValue(value, "IsFinishedProduct");
+                ReportPropertyChanged("IsFinishedProduct");
+                OnIsFinishedProductChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsFinishedProduct;
+        partial void OnIsFinishedProductChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsFinishedProductChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="DailyFeedSummaryView")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -5247,6 +5471,163 @@ namespace tambak.Web
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="FeedingAuditView")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FeedingAuditView : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new FeedingAuditView object.
+        /// </summary>
+        /// <param name="feedingHistoryID">Initial value of the FeedingHistoryID property.</param>
+        /// <param name="productionCycleID">Initial value of the ProductionCycleID property.</param>
+        public static FeedingAuditView CreateFeedingAuditView(global::System.Int32 feedingHistoryID, global::System.Int32 productionCycleID)
+        {
+            FeedingAuditView feedingAuditView = new FeedingAuditView();
+            feedingAuditView.FeedingHistoryID = feedingHistoryID;
+            feedingAuditView.ProductionCycleID = productionCycleID;
+            return feedingAuditView;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FeedingHistoryID
+        {
+            get
+            {
+                return _FeedingHistoryID;
+            }
+            set
+            {
+                if (_FeedingHistoryID != value)
+                {
+                    OnFeedingHistoryIDChanging(value);
+                    ReportPropertyChanging("FeedingHistoryID");
+                    _FeedingHistoryID = StructuralObject.SetValidValue(value, "FeedingHistoryID");
+                    ReportPropertyChanged("FeedingHistoryID");
+                    OnFeedingHistoryIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _FeedingHistoryID;
+        partial void OnFeedingHistoryIDChanging(global::System.Int32 value);
+        partial void OnFeedingHistoryIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DayOfCulture
+        {
+            get
+            {
+                return _DayOfCulture;
+            }
+            set
+            {
+                OnDayOfCultureChanging(value);
+                ReportPropertyChanging("DayOfCulture");
+                _DayOfCulture = StructuralObject.SetValidValue(value, "DayOfCulture");
+                ReportPropertyChanged("DayOfCulture");
+                OnDayOfCultureChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DayOfCulture;
+        partial void OnDayOfCultureChanging(Nullable<global::System.Int32> value);
+        partial void OnDayOfCultureChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Total_Feed
+        {
+            get
+            {
+                return _Total_Feed;
+            }
+            set
+            {
+                OnTotal_FeedChanging(value);
+                ReportPropertyChanging("Total_Feed");
+                _Total_Feed = StructuralObject.SetValidValue(value, "Total_Feed");
+                ReportPropertyChanged("Total_Feed");
+                OnTotal_FeedChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Total_Feed;
+        partial void OnTotal_FeedChanging(Nullable<global::System.Double> value);
+        partial void OnTotal_FeedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ProductionCycleID
+        {
+            get
+            {
+                return _ProductionCycleID;
+            }
+            set
+            {
+                if (_ProductionCycleID != value)
+                {
+                    OnProductionCycleIDChanging(value);
+                    ReportPropertyChanging("ProductionCycleID");
+                    _ProductionCycleID = StructuralObject.SetValidValue(value, "ProductionCycleID");
+                    ReportPropertyChanged("ProductionCycleID");
+                    OnProductionCycleIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ProductionCycleID;
+        partial void OnProductionCycleIDChanging(global::System.Int32 value);
+        partial void OnProductionCycleIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> FeedingPlan
+        {
+            get
+            {
+                return _FeedingPlan;
+            }
+            set
+            {
+                OnFeedingPlanChanging(value);
+                ReportPropertyChanging("FeedingPlan");
+                _FeedingPlan = StructuralObject.SetValidValue(value, "FeedingPlan");
+                ReportPropertyChanged("FeedingPlan");
+                OnFeedingPlanChanged();
+            }
+        }
+        private Nullable<global::System.Double> _FeedingPlan;
+        partial void OnFeedingPlanChanging(Nullable<global::System.Double> value);
+        partial void OnFeedingPlanChanged();
 
         #endregion
 

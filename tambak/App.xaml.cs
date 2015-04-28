@@ -29,6 +29,8 @@
         // public static string DatabaseName = "KotaAgung"
         
         public static List<Product> SelectedProduct = new List<Product>();
+
+        public static int SelectedFacilityID;
         public App()
         {
 
