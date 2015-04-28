@@ -297,6 +297,9 @@
     <Compile Include="Views\PondLogs.xaml.cs">
       <DependentUpon>PondLogs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\NewContactChildWindow.xaml.cs">
+      <DependentUpon>NewContactChildWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\NewFeedingLogChildWindows.xaml.cs">
       <DependentUpon>NewFeedingLogChildWindows.xaml</DependentUpon>
     </Compile>
@@ -521,6 +524,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PondLogs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\NewContactChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

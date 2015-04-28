@@ -2151,6 +2151,7 @@ namespace tambak.Web
         /// Gets or sets the 'FirstName' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         [StringLength(50)]
         public string FirstName
         {
@@ -2250,6 +2251,7 @@ namespace tambak.Web
         /// Gets or sets the 'LastName' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         [StringLength(50)]
         public string LastName
         {

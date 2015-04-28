@@ -52,12 +52,14 @@ namespace tambak.Web
 
             public string fax { get; set; }
 
+            [Required]
             public string FirstName { get; set; }
 
             public string homePhone { get; set; }
 
             public string jobTitle { get; set; }
 
+            [Required]
             public string LastName { get; set; }
 
             public string MobilePhone { get; set; }

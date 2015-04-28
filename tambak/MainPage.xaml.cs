@@ -155,6 +155,9 @@
                      case "Production Costs":
                          this.ContentFrame.Navigate(new System.Uri("/Production/ProductionCostsPage", System.UriKind.Relative));
                          break;
+                     case "Inventory Available":
+                         this.ContentFrame.Navigate(new System.Uri("/Inventory/InventoryLevel", System.UriKind.Relative));
+                         break;
                  }
              }
         }

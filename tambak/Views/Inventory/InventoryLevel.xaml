@@ -15,7 +15,16 @@
                 <DomainServices:CurrentInventoryViewDS/>
             </riaControls:DomainDataSource.DomainContext>
         </riaControls:DomainDataSource>
-        <telerik:RadGridView x:Name="currentInventoryViewRadGridView" ItemsSource="{Binding Data, ElementName=currentInventoryViewDomainDataSource}" Margin="10,48,223,111"/>
+        <telerik:RadGridView x:Name="currentInventoryViewRadGridView" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=currentInventoryViewDomainDataSource}" Margin="10,48,223,111">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" />
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding CategoryName}" Header="Category" />
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductName}" Header="Product Name" />
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Inventory_Level}" Header="Qty in hand" />
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Uom}" Header="UOM" />
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding IsFinishedProduct}" Header="Is Finished Product" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
 
     </Grid>
 </navigation:Page>
