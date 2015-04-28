@@ -299,6 +299,16 @@ namespace tambak.Views.Inventory
                 POHeaderTaxRate = Convert.ToDecimal( (from b in SelectedList select b.TaxRate).Sum());
                 taxRateTextBox.Text = POHeaderTaxRate.ToString();
                 calculateTotalPrice();
+
+                if (SelectedList == null)
+                {
+                    SavePurchaseOrderButton.IsEnabled = false;
+                }
+                else
+                {
+                    SavePurchaseOrderButton.IsEnabled = true;
+                }
+                
             }
             catch (Exception g)
             {
@@ -405,8 +415,15 @@ namespace tambak.Views.Inventory
 
         private void SavePurchaseOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            addPoHeader();
+
+            try
+            {
+                
+                addPoHeader();
+            }
+            catch (Exception g)
+            {
+            }
           
         }
 
@@ -485,8 +502,8 @@ namespace tambak.Views.Inventory
         {
             
 			IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
-            //try
-            //{
+            try
+            {
                
                 List<MasterTax> SelectedListMasterTax = (List<MasterTax>)appSettings["ListSelectedTax"];
 
@@ -501,12 +518,12 @@ namespace tambak.Views.Inventory
                 }
                 purchaseTaxDomainContext.SubmitChanges();
 
-               
-            //}
-            //catch (Exception g)
-            //{
-            //    MessageBox.Show(g.Message);
-            //}
+
+            }
+            catch (Exception g)
+            {
+                MessageBox.Show("Please Select Tax before proceeding  \n"+ g.Message);
+            }
         }
 
         private void poDetailsSubmitChanges_completed(object sender, EventArgs e)

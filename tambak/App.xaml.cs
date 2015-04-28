@@ -25,8 +25,9 @@
 
         //todo : change this to get the automated python background processes  working  
         public static string DatabaseName = "CPL";
-        // public static string DatabaseName = "Hasfarm"
-        // public static string DatabaseName = "KotaAgung"
+        // public static string DatabaseName = "Hasfarm";
+        // public static string DatabaseName = "KotaAgung";
+        //public static string DatabaseName = "Staging";
         
         public static List<Product> SelectedProduct = new List<Product>();
 

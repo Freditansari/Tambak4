@@ -205,7 +205,7 @@
                             <sdk:DataGridTextColumn x:Name="totalColumn" Binding="{Binding Total}" Header="Total" Width="SizeToHeader"/>
                         </sdk:DataGrid.Columns>
                     </sdk:DataGrid>
-                    <Button x:Name="SavePurchaseOrderButton" Content="Save Purchase Order" HorizontalAlignment="Left" Margin="329,282,0,0" VerticalAlignment="Top" Width="127" Click="SavePurchaseOrderButton_Click"/>
+                    <Button x:Name="SavePurchaseOrderButton" Content="Save Purchase Order" HorizontalAlignment="Left" Margin="329,282,0,0" VerticalAlignment="Top" Width="127" Click="SavePurchaseOrderButton_Click" IsEnabled="False"/>
                     <Button x:Name="addProductButton" Content="Add Product to PO" HorizontalAlignment="Left" Margin="1048,225,0,0" VerticalAlignment="Top" Width="124" Click="addProductButton_Click"/>
                     <Button x:Name="RemoveProductButton" Content="Remove Product From PO" HorizontalAlignment="Left" Margin="1018,519,0,0" VerticalAlignment="Top" Width="154" Click="RemoveProductButton_Click"/>
                     <riaControls:DomainDataSource x:Name="masterCurrencyDomainDataSource" AutoLoad="True" Height="0" LoadedData="masterCurrencyDomainDataSource_LoadedData_1" QueryName="GetDefaultMasterCurrenciesQuery" Width="0" d:DesignData="{d:DesignInstance Web:MasterCurrency, CreateList=true}">
