@@ -95,6 +95,635 @@ namespace tambak.Web
     
     
     /// <summary>
+    /// The 'ActiveProductionCycleSamplingLogSummary' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class ActiveProductionCycleSamplingLogSummary : Entity
+    {
+        
+        private Nullable<double> _averageDailyGrowth;
+        
+        private Nullable<double> _biomass;
+        
+        private Nullable<double> _cummulativeADG;
+        
+        private Nullable<int> _cummulativeFeed;
+        
+        private Nullable<int> _current_Age;
+        
+        private Nullable<decimal> _dailyFeed;
+        
+        private Nullable<double> _fcr;
+        
+        private Nullable<double> _feedConsumptions;
+        
+        private Nullable<double> _feedingRate;
+        
+        private string _feedType;
+        
+        private Nullable<int> _last_Sampling_Age;
+        
+        private Nullable<double> _mbw;
+        
+        private string _pondDescription;
+        
+        private int _pondID;
+        
+        private Nullable<double> _populations;
+        
+        private int _productionCycleID;
+        
+        private Nullable<double> _size;
+        
+        private Nullable<double> _survivalRate;
+        
+        private Nullable<decimal> _weeklyfcr;
+        
+        private Nullable<int> _weeklyFeed;
+        
+        private Nullable<double> _weightPerWeek;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnAverageDailyGrowthChanging(Nullable<double> value);
+        partial void OnAverageDailyGrowthChanged();
+        partial void OnBiomassChanging(Nullable<double> value);
+        partial void OnBiomassChanged();
+        partial void OnCummulativeADGChanging(Nullable<double> value);
+        partial void OnCummulativeADGChanged();
+        partial void OnCummulativeFeedChanging(Nullable<int> value);
+        partial void OnCummulativeFeedChanged();
+        partial void OnCurrent_AgeChanging(Nullable<int> value);
+        partial void OnCurrent_AgeChanged();
+        partial void OnDailyFeedChanging(Nullable<decimal> value);
+        partial void OnDailyFeedChanged();
+        partial void OnFCRChanging(Nullable<double> value);
+        partial void OnFCRChanged();
+        partial void OnFeedConsumptionsChanging(Nullable<double> value);
+        partial void OnFeedConsumptionsChanged();
+        partial void OnFeedingRateChanging(Nullable<double> value);
+        partial void OnFeedingRateChanged();
+        partial void OnFeedTypeChanging(string value);
+        partial void OnFeedTypeChanged();
+        partial void OnLast_Sampling_AgeChanging(Nullable<int> value);
+        partial void OnLast_Sampling_AgeChanged();
+        partial void OnMBWChanging(Nullable<double> value);
+        partial void OnMBWChanged();
+        partial void OnPondDescriptionChanging(string value);
+        partial void OnPondDescriptionChanged();
+        partial void OnPondIDChanging(int value);
+        partial void OnPondIDChanged();
+        partial void OnPopulationsChanging(Nullable<double> value);
+        partial void OnPopulationsChanged();
+        partial void OnProductionCycleIDChanging(int value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnSizeChanging(Nullable<double> value);
+        partial void OnSizeChanged();
+        partial void OnSurvivalRateChanging(Nullable<double> value);
+        partial void OnSurvivalRateChanged();
+        partial void OnweeklyfcrChanging(Nullable<decimal> value);
+        partial void OnweeklyfcrChanged();
+        partial void OnWeeklyFeedChanging(Nullable<int> value);
+        partial void OnWeeklyFeedChanged();
+        partial void OnWeightPerWeekChanging(Nullable<double> value);
+        partial void OnWeightPerWeekChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveProductionCycleSamplingLogSummary"/> class.
+        /// </summary>
+        public ActiveProductionCycleSamplingLogSummary()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'AverageDailyGrowth' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> AverageDailyGrowth
+        {
+            get
+            {
+                return this._averageDailyGrowth;
+            }
+            set
+            {
+                if ((this._averageDailyGrowth != value))
+                {
+                    this.OnAverageDailyGrowthChanging(value);
+                    this.RaiseDataMemberChanging("AverageDailyGrowth");
+                    this.ValidateProperty("AverageDailyGrowth", value);
+                    this._averageDailyGrowth = value;
+                    this.RaiseDataMemberChanged("AverageDailyGrowth");
+                    this.OnAverageDailyGrowthChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Biomass' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Biomass
+        {
+            get
+            {
+                return this._biomass;
+            }
+            set
+            {
+                if ((this._biomass != value))
+                {
+                    this.OnBiomassChanging(value);
+                    this.RaiseDataMemberChanging("Biomass");
+                    this.ValidateProperty("Biomass", value);
+                    this._biomass = value;
+                    this.RaiseDataMemberChanged("Biomass");
+                    this.OnBiomassChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'CummulativeADG' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> CummulativeADG
+        {
+            get
+            {
+                return this._cummulativeADG;
+            }
+            set
+            {
+                if ((this._cummulativeADG != value))
+                {
+                    this.OnCummulativeADGChanging(value);
+                    this.RaiseDataMemberChanging("CummulativeADG");
+                    this.ValidateProperty("CummulativeADG", value);
+                    this._cummulativeADG = value;
+                    this.RaiseDataMemberChanged("CummulativeADG");
+                    this.OnCummulativeADGChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'CummulativeFeed' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> CummulativeFeed
+        {
+            get
+            {
+                return this._cummulativeFeed;
+            }
+            set
+            {
+                if ((this._cummulativeFeed != value))
+                {
+                    this.OnCummulativeFeedChanging(value);
+                    this.RaiseDataMemberChanging("CummulativeFeed");
+                    this.ValidateProperty("CummulativeFeed", value);
+                    this._cummulativeFeed = value;
+                    this.RaiseDataMemberChanged("CummulativeFeed");
+                    this.OnCummulativeFeedChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Current_Age' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> Current_Age
+        {
+            get
+            {
+                return this._current_Age;
+            }
+            set
+            {
+                if ((this._current_Age != value))
+                {
+                    this.OnCurrent_AgeChanging(value);
+                    this.RaiseDataMemberChanging("Current_Age");
+                    this.ValidateProperty("Current_Age", value);
+                    this._current_Age = value;
+                    this.RaiseDataMemberChanged("Current_Age");
+                    this.OnCurrent_AgeChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'DailyFeed' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<decimal> DailyFeed
+        {
+            get
+            {
+                return this._dailyFeed;
+            }
+            set
+            {
+                if ((this._dailyFeed != value))
+                {
+                    this.OnDailyFeedChanging(value);
+                    this.RaiseDataMemberChanging("DailyFeed");
+                    this.ValidateProperty("DailyFeed", value);
+                    this._dailyFeed = value;
+                    this.RaiseDataMemberChanged("DailyFeed");
+                    this.OnDailyFeedChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FCR' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> FCR
+        {
+            get
+            {
+                return this._fcr;
+            }
+            set
+            {
+                if ((this._fcr != value))
+                {
+                    this.OnFCRChanging(value);
+                    this.RaiseDataMemberChanging("FCR");
+                    this.ValidateProperty("FCR", value);
+                    this._fcr = value;
+                    this.RaiseDataMemberChanged("FCR");
+                    this.OnFCRChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FeedConsumptions' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> FeedConsumptions
+        {
+            get
+            {
+                return this._feedConsumptions;
+            }
+            set
+            {
+                if ((this._feedConsumptions != value))
+                {
+                    this.OnFeedConsumptionsChanging(value);
+                    this.RaiseDataMemberChanging("FeedConsumptions");
+                    this.ValidateProperty("FeedConsumptions", value);
+                    this._feedConsumptions = value;
+                    this.RaiseDataMemberChanged("FeedConsumptions");
+                    this.OnFeedConsumptionsChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FeedingRate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> FeedingRate
+        {
+            get
+            {
+                return this._feedingRate;
+            }
+            set
+            {
+                if ((this._feedingRate != value))
+                {
+                    this.OnFeedingRateChanging(value);
+                    this.RaiseDataMemberChanging("FeedingRate");
+                    this.ValidateProperty("FeedingRate", value);
+                    this._feedingRate = value;
+                    this.RaiseDataMemberChanged("FeedingRate");
+                    this.OnFeedingRateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FeedType' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(255)]
+        public string FeedType
+        {
+            get
+            {
+                return this._feedType;
+            }
+            set
+            {
+                if ((this._feedType != value))
+                {
+                    this.OnFeedTypeChanging(value);
+                    this.RaiseDataMemberChanging("FeedType");
+                    this.ValidateProperty("FeedType", value);
+                    this._feedType = value;
+                    this.RaiseDataMemberChanged("FeedType");
+                    this.OnFeedTypeChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Last_Sampling_Age' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> Last_Sampling_Age
+        {
+            get
+            {
+                return this._last_Sampling_Age;
+            }
+            set
+            {
+                if ((this._last_Sampling_Age != value))
+                {
+                    this.OnLast_Sampling_AgeChanging(value);
+                    this.RaiseDataMemberChanging("Last_Sampling_Age");
+                    this.ValidateProperty("Last_Sampling_Age", value);
+                    this._last_Sampling_Age = value;
+                    this.RaiseDataMemberChanged("Last_Sampling_Age");
+                    this.OnLast_Sampling_AgeChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MBW' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MBW
+        {
+            get
+            {
+                return this._mbw;
+            }
+            set
+            {
+                if ((this._mbw != value))
+                {
+                    this.OnMBWChanging(value);
+                    this.RaiseDataMemberChanging("MBW");
+                    this.ValidateProperty("MBW", value);
+                    this._mbw = value;
+                    this.RaiseDataMemberChanged("MBW");
+                    this.OnMBWChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'PondDescription' value.
+        /// </summary>
+        [DataMember()]
+        public string PondDescription
+        {
+            get
+            {
+                return this._pondDescription;
+            }
+            set
+            {
+                if ((this._pondDescription != value))
+                {
+                    this.OnPondDescriptionChanging(value);
+                    this.RaiseDataMemberChanging("PondDescription");
+                    this.ValidateProperty("PondDescription", value);
+                    this._pondDescription = value;
+                    this.RaiseDataMemberChanged("PondDescription");
+                    this.OnPondDescriptionChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'PondID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int PondID
+        {
+            get
+            {
+                return this._pondID;
+            }
+            set
+            {
+                if ((this._pondID != value))
+                {
+                    this.OnPondIDChanging(value);
+                    this.ValidateProperty("PondID", value);
+                    this._pondID = value;
+                    this.RaisePropertyChanged("PondID");
+                    this.OnPondIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Populations' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Populations
+        {
+            get
+            {
+                return this._populations;
+            }
+            set
+            {
+                if ((this._populations != value))
+                {
+                    this.OnPopulationsChanging(value);
+                    this.RaiseDataMemberChanging("Populations");
+                    this.ValidateProperty("Populations", value);
+                    this._populations = value;
+                    this.RaiseDataMemberChanged("Populations");
+                    this.OnPopulationsChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaisePropertyChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Size' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Size
+        {
+            get
+            {
+                return this._size;
+            }
+            set
+            {
+                if ((this._size != value))
+                {
+                    this.OnSizeChanging(value);
+                    this.RaiseDataMemberChanging("Size");
+                    this.ValidateProperty("Size", value);
+                    this._size = value;
+                    this.RaiseDataMemberChanged("Size");
+                    this.OnSizeChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'SurvivalRate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> SurvivalRate
+        {
+            get
+            {
+                return this._survivalRate;
+            }
+            set
+            {
+                if ((this._survivalRate != value))
+                {
+                    this.OnSurvivalRateChanging(value);
+                    this.RaiseDataMemberChanging("SurvivalRate");
+                    this.ValidateProperty("SurvivalRate", value);
+                    this._survivalRate = value;
+                    this.RaiseDataMemberChanged("SurvivalRate");
+                    this.OnSurvivalRateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'weeklyfcr' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<decimal> weeklyfcr
+        {
+            get
+            {
+                return this._weeklyfcr;
+            }
+            set
+            {
+                if ((this._weeklyfcr != value))
+                {
+                    this.OnweeklyfcrChanging(value);
+                    this.RaiseDataMemberChanging("weeklyfcr");
+                    this.ValidateProperty("weeklyfcr", value);
+                    this._weeklyfcr = value;
+                    this.RaiseDataMemberChanged("weeklyfcr");
+                    this.OnweeklyfcrChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'WeeklyFeed' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<int> WeeklyFeed
+        {
+            get
+            {
+                return this._weeklyFeed;
+            }
+            set
+            {
+                if ((this._weeklyFeed != value))
+                {
+                    this.OnWeeklyFeedChanging(value);
+                    this.RaiseDataMemberChanging("WeeklyFeed");
+                    this.ValidateProperty("WeeklyFeed", value);
+                    this._weeklyFeed = value;
+                    this.RaiseDataMemberChanged("WeeklyFeed");
+                    this.OnWeeklyFeedChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'WeightPerWeek' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> WeightPerWeek
+        {
+            get
+            {
+                return this._weightPerWeek;
+            }
+            set
+            {
+                if ((this._weightPerWeek != value))
+                {
+                    this.OnWeightPerWeekChanging(value);
+                    this.RaiseDataMemberChanging("WeightPerWeek");
+                    this.ValidateProperty("WeightPerWeek", value);
+                    this._weightPerWeek = value;
+                    this.RaiseDataMemberChanged("WeightPerWeek");
+                    this.OnWeightPerWeekChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return EntityKey.Create(this._pondID, this._productionCycleID);
+        }
+    }
+    
+    /// <summary>
     /// The DomainContext corresponding to the 'AuthenticationService' DomainService.
     /// </summary>
     public sealed partial class AuthenticationContext : global::System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationDomainContextBase
@@ -15029,6 +15658,119 @@ namespace tambak.Web.DomainServices
     using System.ServiceModel.Web;
     using tambak.Web;
     
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'ActiveProductionCycleSummaryViewDS' DomainService.
+    /// </summary>
+    public sealed partial class ActiveProductionCycleSummaryViewDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveProductionCycleSummaryViewDS"/> class.
+        /// </summary>
+        public ActiveProductionCycleSummaryViewDS() : 
+                this(new WebDomainClient<IActiveProductionCycleSummaryViewDSContract>(new Uri("tambak-Web-DomainServices-ActiveProductionCycleSummaryViewDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveProductionCycleSummaryViewDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The ActiveProductionCycleSummaryViewDS service URI.</param>
+        public ActiveProductionCycleSummaryViewDS(Uri serviceUri) : 
+                this(new WebDomainClient<IActiveProductionCycleSummaryViewDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveProductionCycleSummaryViewDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public ActiveProductionCycleSummaryViewDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="ActiveProductionCycleSamplingLogSummary"/> entity instances that have been loaded into this <see cref="ActiveProductionCycleSummaryViewDS"/> instance.
+        /// </summary>
+        public EntitySet<ActiveProductionCycleSamplingLogSummary> ActiveProductionCycleSamplingLogSummaries
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<ActiveProductionCycleSamplingLogSummary>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="ActiveProductionCycleSamplingLogSummary"/> entity instances using the 'GetActiveProductionCycleSamplingLogSummaries' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="ActiveProductionCycleSamplingLogSummary"/> entity instances.</returns>
+        public EntityQuery<ActiveProductionCycleSamplingLogSummary> GetActiveProductionCycleSamplingLogSummariesQuery()
+        {
+            this.ValidateMethod("GetActiveProductionCycleSamplingLogSummariesQuery", null);
+            return base.CreateQuery<ActiveProductionCycleSamplingLogSummary>("GetActiveProductionCycleSamplingLogSummaries", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new ActiveProductionCycleSummaryViewDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'ActiveProductionCycleSummaryViewDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface IActiveProductionCycleSummaryViewDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetActiveProductionCycleSamplingLogSummaries' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ActiveProductionCycleSummaryViewDS/GetActiveProductionCycleSam" +
+                "plingLogSummariesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ActiveProductionCycleSummaryViewDS/GetActiveProductionCycleSam" +
+                "plingLogSummaries", ReplyAction="http://tempuri.org/ActiveProductionCycleSummaryViewDS/GetActiveProductionCycleSam" +
+                "plingLogSummariesResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetActiveProductionCycleSamplingLogSummaries(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetActiveProductionCycleSamplingLogSummaries'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetActiveProductionCycleSamplingLogSummaries'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetActiveProductionCycleSamplingLogSummaries' operation.</returns>
+            QueryResult<ActiveProductionCycleSamplingLogSummary> EndGetActiveProductionCycleSamplingLogSummaries(IAsyncResult result);
+        }
+        
+        internal sealed class ActiveProductionCycleSummaryViewDSEntityContainer : EntityContainer
+        {
+            
+            public ActiveProductionCycleSummaryViewDSEntityContainer()
+            {
+                this.CreateEntitySet<ActiveProductionCycleSamplingLogSummary>(EntitySetOperations.None);
+            }
+        }
+    }
     
     /// <summary>
     /// The DomainContext corresponding to the 'AverageDailyFeedSummaryDS' DomainService.

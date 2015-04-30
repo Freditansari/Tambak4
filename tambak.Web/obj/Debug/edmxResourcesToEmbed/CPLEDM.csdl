@@ -220,6 +220,7 @@
     </AssociationSet>
     <EntitySet Name="FeedingAuditViews" EntityType="CPLModel.FeedingAuditView" />
     <EntitySet Name="CurrentInventoryViews" EntityType="CPLModel.CurrentInventoryView" />
+    <EntitySet Name="ActiveProductionCycleSamplingLogSummaries" EntityType="CPLModel.ActiveProductionCycleSamplingLogSummary" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -1526,5 +1527,32 @@
     <Property Type="Double" Name="Inventory_Level" />
     <Property Type="String" Name="Uom" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="IsFinishedProduct" />
+  </EntityType>
+  <EntityType Name="ActiveProductionCycleSamplingLogSummary">
+    <Key>
+      <PropertyRef Name="PondID" />
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Type="Int32" Name="PondID" Nullable="false" />
+    <Property Type="String" Name="PondDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
+    <Property Type="Int32" Name="Current_Age" />
+    <Property Type="Int32" Name="Last_Sampling_Age" />
+    <Property Type="Double" Name="MBW" />
+    <Property Type="Double" Name="Size" />
+    <Property Type="Double" Name="WeightPerWeek" />
+    <Property Type="Double" Name="AverageDailyGrowth" />
+    <Property Type="Double" Name="CummulativeADG" />
+    <Property Type="String" Name="FeedType" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="DailyFeed" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="CummulativeFeed" />
+    <Property Type="Int32" Name="WeeklyFeed" />
+    <Property Type="Double" Name="FCR" />
+    <Property Type="Double" Name="Biomass" />
+    <Property Type="Double" Name="FeedingRate" />
+    <Property Type="Double" Name="FeedConsumptions" />
+    <Property Type="Double" Name="Populations" />
+    <Property Type="Double" Name="SurvivalRate" />
+    <Property Type="Decimal" Name="weeklyfcr" Precision="18" Scale="2" />
   </EntityType>
 </Schema>

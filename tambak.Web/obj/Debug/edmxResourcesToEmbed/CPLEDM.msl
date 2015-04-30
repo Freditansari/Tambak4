@@ -771,5 +771,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ActiveProductionCycleSamplingLogSummaries">
+      <EntityTypeMapping TypeName="CPLModel.ActiveProductionCycleSamplingLogSummary">
+        <MappingFragment StoreEntitySet="ActiveProductionCycleSamplingLogSummary">
+          <ScalarProperty Name="weeklyfcr" ColumnName="weeklyfcr" />
+          <ScalarProperty Name="SurvivalRate" ColumnName="SurvivalRate" />
+          <ScalarProperty Name="Populations" ColumnName="Populations" />
+          <ScalarProperty Name="FeedConsumptions" ColumnName="FeedConsumptions" />
+          <ScalarProperty Name="FeedingRate" ColumnName="FeedingRate" />
+          <ScalarProperty Name="Biomass" ColumnName="Biomass" />
+          <ScalarProperty Name="FCR" ColumnName="FCR" />
+          <ScalarProperty Name="WeeklyFeed" ColumnName="WeeklyFeed" />
+          <ScalarProperty Name="CummulativeFeed" ColumnName="CummulativeFeed" />
+          <ScalarProperty Name="DailyFeed" ColumnName="DailyFeed" />
+          <ScalarProperty Name="FeedType" ColumnName="FeedType" />
+          <ScalarProperty Name="CummulativeADG" ColumnName="CummulativeADG" />
+          <ScalarProperty Name="AverageDailyGrowth" ColumnName="AverageDailyGrowth" />
+          <ScalarProperty Name="WeightPerWeek" ColumnName="WeightPerWeek" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="MBW" ColumnName="MBW" />
+          <ScalarProperty Name="Last_Sampling_Age" ColumnName="Last Sampling Age" />
+          <ScalarProperty Name="Current_Age" ColumnName="Current Age" />
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="PondDescription" ColumnName="PondDescription" />
+          <ScalarProperty Name="PondID" ColumnName="PondID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

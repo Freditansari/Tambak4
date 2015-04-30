@@ -320,7 +320,9 @@
     </Compile>
     <Compile Include="Views\Production\ConsumeMaterialPage.xaml.cs">
       <DependentUpon>ConsumeMaterialPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Production\GlobalProductionPageSummary.xaml.cs">
+      <DependentUpon>GlobalProductionPageSummary.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Production\HarvestPage.xaml.cs">
       <DependentUpon>HarvestPage.xaml</DependentUpon>
@@ -556,6 +558,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Production\ConsumeMaterialPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Production\GlobalProductionPageSummary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -165,6 +165,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CPLEDM.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DomainServices\ActiveProductionCycleSummaryViewDS.cs" />
+    <Compile Include="DomainServices\ActiveProductionCycleSummaryViewDS.metadata.cs" />
     <Compile Include="DomainServices\AverageDailyFeedSummaryDS.cs" />
     <Compile Include="DomainServices\AverageDailyFeedSummaryDS.metadata.cs" />
     <Compile Include="DomainServices\BatchConsumptionJoinDS.cs" />

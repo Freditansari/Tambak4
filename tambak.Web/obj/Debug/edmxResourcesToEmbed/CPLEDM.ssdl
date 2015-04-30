@@ -42,6 +42,31 @@
     <EntitySet Name="Tasks" EntityType="CPLModel.Store.Tasks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UnitofMeasurement" EntityType="CPLModel.Store.UnitofMeasurement" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="WaterParameterLogs" EntityType="CPLModel.Store.WaterParameterLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActiveProductionCycleSamplingLogSummary" EntityType="CPLModel.Store.ActiveProductionCycleSamplingLogSummary" store:Type="Views" store:Schema="dbo" store:Name="ActiveProductionCycleSamplingLogSummary">
+      <DefiningQuery>SELECT 
+      [ActiveProductionCycleSamplingLogSummary].[PondID] AS [PondID], 
+      [ActiveProductionCycleSamplingLogSummary].[PondDescription] AS [PondDescription], 
+      [ActiveProductionCycleSamplingLogSummary].[ProductionCycleID] AS [ProductionCycleID], 
+      [ActiveProductionCycleSamplingLogSummary].[Current Age] AS [Current Age], 
+      [ActiveProductionCycleSamplingLogSummary].[Last Sampling Age] AS [Last Sampling Age], 
+      [ActiveProductionCycleSamplingLogSummary].[MBW] AS [MBW], 
+      [ActiveProductionCycleSamplingLogSummary].[Size] AS [Size], 
+      [ActiveProductionCycleSamplingLogSummary].[WeightPerWeek] AS [WeightPerWeek], 
+      [ActiveProductionCycleSamplingLogSummary].[AverageDailyGrowth] AS [AverageDailyGrowth], 
+      [ActiveProductionCycleSamplingLogSummary].[CummulativeADG] AS [CummulativeADG], 
+      [ActiveProductionCycleSamplingLogSummary].[FeedType] AS [FeedType], 
+      [ActiveProductionCycleSamplingLogSummary].[DailyFeed] AS [DailyFeed], 
+      [ActiveProductionCycleSamplingLogSummary].[CummulativeFeed] AS [CummulativeFeed], 
+      [ActiveProductionCycleSamplingLogSummary].[WeeklyFeed] AS [WeeklyFeed], 
+      [ActiveProductionCycleSamplingLogSummary].[FCR] AS [FCR], 
+      [ActiveProductionCycleSamplingLogSummary].[Biomass] AS [Biomass], 
+      [ActiveProductionCycleSamplingLogSummary].[FeedingRate] AS [FeedingRate], 
+      [ActiveProductionCycleSamplingLogSummary].[FeedConsumptions] AS [FeedConsumptions], 
+      [ActiveProductionCycleSamplingLogSummary].[Populations] AS [Populations], 
+      [ActiveProductionCycleSamplingLogSummary].[SurvivalRate] AS [SurvivalRate], 
+      [ActiveProductionCycleSamplingLogSummary].[weeklyfcr] AS [weeklyfcr]
+      FROM [dbo].[ActiveProductionCycleSamplingLogSummary] AS [ActiveProductionCycleSamplingLogSummary]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="batchQuantityView" EntityType="CPLModel.Store.batchQuantityView" store:Type="Views" store:Schema="dbo" store:Name="batchQuantityView">
       <DefiningQuery>SELECT 
       [batchQuantityView].[BatchID] AS [BatchID], 
@@ -906,6 +931,36 @@
     <Property Name="WhiteSpot" Type="bit" />
     <Property Name="isVibrioExist" Type="bit" />
     <Property Name="IMNV" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.ActiveProductionCycleSamplingLogSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ActiveProductionCycleSamplingLogSummary">
+    <Key>
+      <PropertyRef Name="PondID" />
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Name="PondID" Type="int" Nullable="false" />
+    <Property Name="PondDescription" Type="nvarchar(max)" />
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+    <Property Name="Current Age" Type="int" />
+    <Property Name="Last Sampling Age" Type="int" />
+    <Property Name="MBW" Type="float" />
+    <Property Name="Size" Type="float" />
+    <Property Name="WeightPerWeek" Type="float" />
+    <Property Name="AverageDailyGrowth" Type="float" />
+    <Property Name="CummulativeADG" Type="float" />
+    <Property Name="FeedType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DailyFeed" Type="decimal" Scale="2" />
+    <Property Name="CummulativeFeed" Type="int" />
+    <Property Name="WeeklyFeed" Type="int" />
+    <Property Name="FCR" Type="float" />
+    <Property Name="Biomass" Type="float" />
+    <Property Name="FeedingRate" Type="float" />
+    <Property Name="FeedConsumptions" Type="float" />
+    <Property Name="Populations" Type="float" />
+    <Property Name="SurvivalRate" Type="float" />
+    <Property Name="weeklyfcr" Type="decimal" Scale="2" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.batchQuantityView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.

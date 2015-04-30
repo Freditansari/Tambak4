@@ -158,6 +158,10 @@
                      case "Inventory Available":
                          this.ContentFrame.Navigate(new System.Uri("/Inventory/InventoryLevel", System.UriKind.Relative));
                          break;
+                     case "Production Summary":
+                         this.ContentFrame.Navigate(new System.Uri("/Production/GlobalProductionPageSummary", System.UriKind.Relative));
+                         break;
+
                  }
              }
         }
