@@ -1985,24 +1985,48 @@ namespace tambak.Web
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> weeklyfcr
+        public Nullable<global::System.Decimal> WeeklyFCR
         {
             get
             {
-                return _weeklyfcr;
+                return _WeeklyFCR;
             }
             set
             {
-                OnweeklyfcrChanging(value);
-                ReportPropertyChanging("weeklyfcr");
-                _weeklyfcr = StructuralObject.SetValidValue(value, "weeklyfcr");
-                ReportPropertyChanged("weeklyfcr");
-                OnweeklyfcrChanged();
+                OnWeeklyFCRChanging(value);
+                ReportPropertyChanging("WeeklyFCR");
+                _WeeklyFCR = StructuralObject.SetValidValue(value, "WeeklyFCR");
+                ReportPropertyChanged("WeeklyFCR");
+                OnWeeklyFCRChanged();
             }
         }
-        private Nullable<global::System.Decimal> _weeklyfcr;
-        partial void OnweeklyfcrChanging(Nullable<global::System.Decimal> value);
-        partial void OnweeklyfcrChanged();
+        private Nullable<global::System.Decimal> _WeeklyFCR;
+        partial void OnWeeklyFCRChanging(Nullable<global::System.Decimal> value);
+        partial void OnWeeklyFCRChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Density
+        {
+            get
+            {
+                return _Density;
+            }
+            set
+            {
+                OnDensityChanging(value);
+                ReportPropertyChanging("Density");
+                _Density = StructuralObject.SetValidValue(value, "Density");
+                ReportPropertyChanged("Density");
+                OnDensityChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Density;
+        partial void OnDensityChanging(Nullable<global::System.Double> value);
+        partial void OnDensityChanged();
 
         #endregion
 

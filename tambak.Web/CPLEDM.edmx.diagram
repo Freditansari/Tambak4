@@ -101,7 +101,7 @@
         <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" />
         <EntityTypeShape EntityType="CPLModel.FeedingAuditView" Width="1.5" PointX="4.0963037461490854" PointY="20.417754480809791" />
         <EntityTypeShape EntityType="CPLModel.CurrentInventoryView" Width="1.5" PointX="10.953521226976775" PointY="16.143599249489419" />
-        <EntityTypeShape EntityType="CPLModel.ActiveProductionCycleSamplingLogSummary" Width="1.5" PointX="9.1109004566031047" PointY="24.12002135446296" />
+        <EntityTypeShape EntityType="CPLModel.ActiveProductionCycleSamplingLogSummary" Width="1.5" PointX="0.74608951282971048" PointY="17.634978913532095" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

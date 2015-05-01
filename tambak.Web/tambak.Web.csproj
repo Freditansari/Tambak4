@@ -136,6 +136,7 @@
     <Content Include="Pythons\tablecheck.py" />
     <Content Include="ReportService.svc" />
     <Content Include="Scripts\ReleaseCandidate4SqlUpdate.txt" />
+    <Content Include="Scripts\ReleaseCandidate6sqlUpdatetxt.txt" />
     <Content Include="SqlScripts\UpdateSqlScripts.txt" />
     <Content Include="TambakEDM.edmx.sql" />
     <Content Include="tambakTestPage.aspx" />

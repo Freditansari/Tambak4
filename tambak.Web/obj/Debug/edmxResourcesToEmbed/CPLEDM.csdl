@@ -1553,6 +1553,7 @@
     <Property Type="Double" Name="FeedConsumptions" />
     <Property Type="Double" Name="Populations" />
     <Property Type="Double" Name="SurvivalRate" />
-    <Property Type="Decimal" Name="weeklyfcr" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="WeeklyFCR" Precision="18" Scale="2" />
+    <Property Type="Double" Name="Density" />
   </EntityType>
 </Schema>

@@ -69,7 +69,8 @@
       [ActiveProductionCycleSamplingLogSummary].[FeedConsumptions] AS [FeedConsumptions], 
       [ActiveProductionCycleSamplingLogSummary].[Populations] AS [Populations], 
       [ActiveProductionCycleSamplingLogSummary].[SurvivalRate] AS [SurvivalRate], 
-      [ActiveProductionCycleSamplingLogSummary].[weeklyfcr] AS [weeklyfcr]
+      [ActiveProductionCycleSamplingLogSummary].[WeeklyFCR] AS [WeeklyFCR], 
+      [ActiveProductionCycleSamplingLogSummary].[Density] AS [Density]
       FROM [dbo].[ActiveProductionCycleSamplingLogSummary] AS [ActiveProductionCycleSamplingLogSummary]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="batchQuantityView" EntityType="CPLModel.Store.batchQuantityView" store:Type="Views" store:Schema="dbo" store:Name="batchQuantityView">
@@ -965,7 +966,8 @@
           <Property Name="FeedConsumptions" Type="float" />
           <Property Name="Populations" Type="float" />
           <Property Name="SurvivalRate" Type="float" />
-          <Property Name="weeklyfcr" Type="decimal" Scale="2" />
+          <Property Name="WeeklyFCR" Type="decimal" Scale="2" />
+          <Property Name="Density" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.batchQuantityView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -3284,7 +3286,8 @@
           <Property Type="Double" Name="FeedConsumptions" />
           <Property Type="Double" Name="Populations" />
           <Property Type="Double" Name="SurvivalRate" />
-          <Property Type="Decimal" Name="weeklyfcr" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="WeeklyFCR" Precision="18" Scale="2" />
+          <Property Type="Double" Name="Density" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -4065,7 +4068,8 @@
           <EntitySetMapping Name="ActiveProductionCycleSamplingLogSummaries">
             <EntityTypeMapping TypeName="CPLModel.ActiveProductionCycleSamplingLogSummary">
               <MappingFragment StoreEntitySet="ActiveProductionCycleSamplingLogSummary">
-                <ScalarProperty Name="weeklyfcr" ColumnName="weeklyfcr" />
+                <ScalarProperty Name="Density" ColumnName="Density" />
+                <ScalarProperty Name="WeeklyFCR" ColumnName="WeeklyFCR" />
                 <ScalarProperty Name="SurvivalRate" ColumnName="SurvivalRate" />
                 <ScalarProperty Name="Populations" ColumnName="Populations" />
                 <ScalarProperty Name="FeedConsumptions" ColumnName="FeedConsumptions" />

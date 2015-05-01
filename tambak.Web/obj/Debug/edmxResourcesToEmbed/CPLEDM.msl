@@ -774,7 +774,8 @@
     <EntitySetMapping Name="ActiveProductionCycleSamplingLogSummaries">
       <EntityTypeMapping TypeName="CPLModel.ActiveProductionCycleSamplingLogSummary">
         <MappingFragment StoreEntitySet="ActiveProductionCycleSamplingLogSummary">
-          <ScalarProperty Name="weeklyfcr" ColumnName="weeklyfcr" />
+          <ScalarProperty Name="Density" ColumnName="Density" />
+          <ScalarProperty Name="WeeklyFCR" ColumnName="WeeklyFCR" />
           <ScalarProperty Name="SurvivalRate" ColumnName="SurvivalRate" />
           <ScalarProperty Name="Populations" ColumnName="Populations" />
           <ScalarProperty Name="FeedConsumptions" ColumnName="FeedConsumptions" />

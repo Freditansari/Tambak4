@@ -45,6 +45,8 @@ namespace tambak.Web
 
             public Nullable<decimal> DailyFeed { get; set; }
 
+            public Nullable<double> Density { get; set; }
+
             public Nullable<double> FCR { get; set; }
 
             public Nullable<double> FeedConsumptions { get; set; }
@@ -69,7 +71,7 @@ namespace tambak.Web
 
             public Nullable<double> SurvivalRate { get; set; }
 
-            public Nullable<decimal> weeklyfcr { get; set; }
+            public Nullable<decimal> WeeklyFCR { get; set; }
 
             public Nullable<int> WeeklyFeed { get; set; }
 

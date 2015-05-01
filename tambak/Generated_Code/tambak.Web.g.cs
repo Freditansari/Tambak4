@@ -113,6 +113,8 @@ namespace tambak.Web
         
         private Nullable<decimal> _dailyFeed;
         
+        private Nullable<double> _density;
+        
         private Nullable<double> _fcr;
         
         private Nullable<double> _feedConsumptions;
@@ -137,7 +139,7 @@ namespace tambak.Web
         
         private Nullable<double> _survivalRate;
         
-        private Nullable<decimal> _weeklyfcr;
+        private Nullable<decimal> _weeklyFCR;
         
         private Nullable<int> _weeklyFeed;
         
@@ -162,6 +164,8 @@ namespace tambak.Web
         partial void OnCurrent_AgeChanged();
         partial void OnDailyFeedChanging(Nullable<decimal> value);
         partial void OnDailyFeedChanged();
+        partial void OnDensityChanging(Nullable<double> value);
+        partial void OnDensityChanged();
         partial void OnFCRChanging(Nullable<double> value);
         partial void OnFCRChanged();
         partial void OnFeedConsumptionsChanging(Nullable<double> value);
@@ -186,8 +190,8 @@ namespace tambak.Web
         partial void OnSizeChanged();
         partial void OnSurvivalRateChanging(Nullable<double> value);
         partial void OnSurvivalRateChanged();
-        partial void OnweeklyfcrChanging(Nullable<decimal> value);
-        partial void OnweeklyfcrChanged();
+        partial void OnWeeklyFCRChanging(Nullable<decimal> value);
+        partial void OnWeeklyFCRChanged();
         partial void OnWeeklyFeedChanging(Nullable<int> value);
         partial void OnWeeklyFeedChanged();
         partial void OnWeightPerWeekChanging(Nullable<double> value);
@@ -344,6 +348,30 @@ namespace tambak.Web
                     this._dailyFeed = value;
                     this.RaiseDataMemberChanged("DailyFeed");
                     this.OnDailyFeedChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Density' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Density
+        {
+            get
+            {
+                return this._density;
+            }
+            set
+            {
+                if ((this._density != value))
+                {
+                    this.OnDensityChanging(value);
+                    this.RaiseDataMemberChanging("Density");
+                    this.ValidateProperty("Density", value);
+                    this._density = value;
+                    this.RaiseDataMemberChanged("Density");
+                    this.OnDensityChanged();
                 }
             }
         }
@@ -642,25 +670,25 @@ namespace tambak.Web
         }
         
         /// <summary>
-        /// Gets or sets the 'weeklyfcr' value.
+        /// Gets or sets the 'WeeklyFCR' value.
         /// </summary>
         [DataMember()]
-        public Nullable<decimal> weeklyfcr
+        public Nullable<decimal> WeeklyFCR
         {
             get
             {
-                return this._weeklyfcr;
+                return this._weeklyFCR;
             }
             set
             {
-                if ((this._weeklyfcr != value))
+                if ((this._weeklyFCR != value))
                 {
-                    this.OnweeklyfcrChanging(value);
-                    this.RaiseDataMemberChanging("weeklyfcr");
-                    this.ValidateProperty("weeklyfcr", value);
-                    this._weeklyfcr = value;
-                    this.RaiseDataMemberChanged("weeklyfcr");
-                    this.OnweeklyfcrChanged();
+                    this.OnWeeklyFCRChanging(value);
+                    this.RaiseDataMemberChanging("WeeklyFCR");
+                    this.ValidateProperty("WeeklyFCR", value);
+                    this._weeklyFCR = value;
+                    this.RaiseDataMemberChanged("WeeklyFCR");
+                    this.OnWeeklyFCRChanged();
                 }
             }
         }
