@@ -608,6 +608,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.ActiveProductionCycleSummaryViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.AverageDailyFeedSummaryDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchConsumptionJoinDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchDetailDS.datasource" />

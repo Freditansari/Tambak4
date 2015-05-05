@@ -8,6 +8,8 @@ namespace tambak.Web
     using System.Linq;
     using System.ServiceModel.DomainServices.Hosting;
     using System.ServiceModel.DomainServices.Server;
+    using DomainServices;
+    
 
 
     // The MetadataTypeAttribute identifies WaterParameterLogMetadata as the class
@@ -33,26 +35,31 @@ namespace tambak.Web
             {
             }
 
-            public Nullable<double> ammonium { get; set; }
-
-            public Nullable<double> Amonnia { get; set; }
+          
 
             public string Bacteria { get; set; }
 
+            public Nullable<double> Clarity { get; set; }
+
+            [Range(0.00,100.00)]
             public Nullable<double> DissolvedOxygen { get; set; }
 
             public Nullable<bool> IMNV { get; set; }
 
             public Nullable<bool> isVibrioExist { get; set; }
 
+            [Required]
             public Nullable<DateTime> LogDate { get; set; }
 
             public Nullable<double> nitrate { get; set; }
 
             public Nullable<double> nitrite { get; set; }
 
+            public string Note { get; set; }
+
             public Nullable<int> Paddlewheel { get; set; }
 
+            [Range(0.00,14.00)]
             public Nullable<double> pH { get; set; }
 
             public Nullable<double> Phospate { get; set; }
@@ -67,15 +74,26 @@ namespace tambak.Web
 
             public Nullable<double> Salinity { get; set; }
 
+            [Range(0.00,80.00)]
             public Nullable<double> Temperature { get; set; }
+
+            public Nullable<double> TotalOrganicMaterial { get; set; }
 
             public string UserID { get; set; }
 
             public string Vibrio { get; set; }
 
+            public string WaterColor { get; set; }
+
             public int WaterLogID { get; set; }
 
             public Nullable<bool> WhiteSpot { get; set; }
+            public Nullable<double> alkalinity { get; set; }
+
+            public Nullable<double> ammonium { get; set; }
+
+           // [CustomValidation(typeof(waterParameterValidator), "validateAmmonia")]
+            public Nullable<double> Amonnia { get; set; }
         }
     }
 }

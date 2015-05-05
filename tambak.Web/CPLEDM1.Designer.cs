@@ -946,22 +946,6 @@ namespace tambak.Web
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<WaterParameterLog> WaterParameterLogs
-        {
-            get
-            {
-                if ((_WaterParameterLogs == null))
-                {
-                    _WaterParameterLogs = base.CreateObjectSet<WaterParameterLog>("WaterParameterLogs");
-                }
-                return _WaterParameterLogs;
-            }
-        }
-        private ObjectSet<WaterParameterLog> _WaterParameterLogs;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<FeedingAuditView> FeedingAuditViews
         {
             get
@@ -1006,6 +990,22 @@ namespace tambak.Web
             }
         }
         private ObjectSet<ActiveProductionCycleSamplingLogSummary> _ActiveProductionCycleSamplingLogSummaries;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<WaterParameterLog> WaterParameterLogs
+        {
+            get
+            {
+                if ((_WaterParameterLogs == null))
+                {
+                    _WaterParameterLogs = base.CreateObjectSet<WaterParameterLog>("WaterParameterLogs");
+                }
+                return _WaterParameterLogs;
+            }
+        }
+        private ObjectSet<WaterParameterLog> _WaterParameterLogs;
 
         #endregion
 
@@ -1428,14 +1428,6 @@ namespace tambak.Web
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the WaterParameterLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToWaterParameterLogs(WaterParameterLog waterParameterLog)
-        {
-            base.AddObject("WaterParameterLogs", waterParameterLog);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the FeedingAuditViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToFeedingAuditViews(FeedingAuditView feedingAuditView)
@@ -1457,6 +1449,14 @@ namespace tambak.Web
         public void AddToActiveProductionCycleSamplingLogSummaries(ActiveProductionCycleSamplingLogSummary activeProductionCycleSamplingLogSummary)
         {
             base.AddObject("ActiveProductionCycleSamplingLogSummaries", activeProductionCycleSamplingLogSummary);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the WaterParameterLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToWaterParameterLogs(WaterParameterLog waterParameterLog)
+        {
+            base.AddObject("WaterParameterLogs", waterParameterLog);
         }
 
         #endregion
@@ -17048,6 +17048,126 @@ namespace tambak.Web
         private Nullable<global::System.Boolean> _IMNV;
         partial void OnIMNVChanging(Nullable<global::System.Boolean> value);
         partial void OnIMNVChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> alkalinity
+        {
+            get
+            {
+                return _alkalinity;
+            }
+            set
+            {
+                OnalkalinityChanging(value);
+                ReportPropertyChanging("alkalinity");
+                _alkalinity = StructuralObject.SetValidValue(value, "alkalinity");
+                ReportPropertyChanged("alkalinity");
+                OnalkalinityChanged();
+            }
+        }
+        private Nullable<global::System.Double> _alkalinity;
+        partial void OnalkalinityChanging(Nullable<global::System.Double> value);
+        partial void OnalkalinityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> TotalOrganicMaterial
+        {
+            get
+            {
+                return _TotalOrganicMaterial;
+            }
+            set
+            {
+                OnTotalOrganicMaterialChanging(value);
+                ReportPropertyChanging("TotalOrganicMaterial");
+                _TotalOrganicMaterial = StructuralObject.SetValidValue(value, "TotalOrganicMaterial");
+                ReportPropertyChanged("TotalOrganicMaterial");
+                OnTotalOrganicMaterialChanged();
+            }
+        }
+        private Nullable<global::System.Double> _TotalOrganicMaterial;
+        partial void OnTotalOrganicMaterialChanging(Nullable<global::System.Double> value);
+        partial void OnTotalOrganicMaterialChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String WaterColor
+        {
+            get
+            {
+                return _WaterColor;
+            }
+            set
+            {
+                OnWaterColorChanging(value);
+                ReportPropertyChanging("WaterColor");
+                _WaterColor = StructuralObject.SetValidValue(value, true, "WaterColor");
+                ReportPropertyChanged("WaterColor");
+                OnWaterColorChanged();
+            }
+        }
+        private global::System.String _WaterColor;
+        partial void OnWaterColorChanging(global::System.String value);
+        partial void OnWaterColorChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Clarity
+        {
+            get
+            {
+                return _Clarity;
+            }
+            set
+            {
+                OnClarityChanging(value);
+                ReportPropertyChanging("Clarity");
+                _Clarity = StructuralObject.SetValidValue(value, "Clarity");
+                ReportPropertyChanged("Clarity");
+                OnClarityChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Clarity;
+        partial void OnClarityChanging(Nullable<global::System.Double> value);
+        partial void OnClarityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Note
+        {
+            get
+            {
+                return _Note;
+            }
+            set
+            {
+                OnNoteChanging(value);
+                ReportPropertyChanging("Note");
+                _Note = StructuralObject.SetValidValue(value, true, "Note");
+                ReportPropertyChanged("Note");
+                OnNoteChanged();
+            }
+        }
+        private global::System.String _Note;
+        partial void OnNoteChanging(global::System.String value);
+        partial void OnNoteChanged();
 
         #endregion
 

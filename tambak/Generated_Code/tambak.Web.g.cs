@@ -15047,11 +15047,15 @@ namespace tambak.Web
     public sealed partial class WaterParameterLog : Entity
     {
         
+        private Nullable<double> _alkalinity;
+        
         private Nullable<double> _ammonium;
         
         private Nullable<double> _amonnia;
         
         private string _bacteria;
+        
+        private Nullable<double> _clarity;
         
         private Nullable<double> _dissolvedOxygen;
         
@@ -15064,6 +15068,8 @@ namespace tambak.Web
         private Nullable<double> _nitrate;
         
         private Nullable<double> _nitrite;
+        
+        private string _note;
         
         private Nullable<int> _paddlewheel;
         
@@ -15081,9 +15087,13 @@ namespace tambak.Web
         
         private Nullable<double> _temperature;
         
+        private Nullable<double> _totalOrganicMaterial;
+        
         private string _userID;
         
         private string _vibrio;
+        
+        private string _waterColor;
         
         private int _waterLogID;
         
@@ -15096,12 +15106,16 @@ namespace tambak.Web
         /// can be used for further object setup.
         /// </summary>
         partial void OnCreated();
+        partial void OnalkalinityChanging(Nullable<double> value);
+        partial void OnalkalinityChanged();
         partial void OnammoniumChanging(Nullable<double> value);
         partial void OnammoniumChanged();
         partial void OnAmonniaChanging(Nullable<double> value);
         partial void OnAmonniaChanged();
         partial void OnBacteriaChanging(string value);
         partial void OnBacteriaChanged();
+        partial void OnClarityChanging(Nullable<double> value);
+        partial void OnClarityChanged();
         partial void OnDissolvedOxygenChanging(Nullable<double> value);
         partial void OnDissolvedOxygenChanged();
         partial void OnIMNVChanging(Nullable<bool> value);
@@ -15114,6 +15128,8 @@ namespace tambak.Web
         partial void OnnitrateChanged();
         partial void OnnitriteChanging(Nullable<double> value);
         partial void OnnitriteChanged();
+        partial void OnNoteChanging(string value);
+        partial void OnNoteChanged();
         partial void OnPaddlewheelChanging(Nullable<int> value);
         partial void OnPaddlewheelChanged();
         partial void OnpHChanging(Nullable<double> value);
@@ -15130,10 +15146,14 @@ namespace tambak.Web
         partial void OnSalinityChanged();
         partial void OnTemperatureChanging(Nullable<double> value);
         partial void OnTemperatureChanged();
+        partial void OnTotalOrganicMaterialChanging(Nullable<double> value);
+        partial void OnTotalOrganicMaterialChanged();
         partial void OnUserIDChanging(string value);
         partial void OnUserIDChanged();
         partial void OnVibrioChanging(string value);
         partial void OnVibrioChanged();
+        partial void OnWaterColorChanging(string value);
+        partial void OnWaterColorChanged();
         partial void OnWaterLogIDChanging(int value);
         partial void OnWaterLogIDChanged();
         partial void OnWhiteSpotChanging(Nullable<bool> value);
@@ -15148,6 +15168,30 @@ namespace tambak.Web
         public WaterParameterLog()
         {
             this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'alkalinity' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> alkalinity
+        {
+            get
+            {
+                return this._alkalinity;
+            }
+            set
+            {
+                if ((this._alkalinity != value))
+                {
+                    this.OnalkalinityChanging(value);
+                    this.RaiseDataMemberChanging("alkalinity");
+                    this.ValidateProperty("alkalinity", value);
+                    this._alkalinity = value;
+                    this.RaiseDataMemberChanged("alkalinity");
+                    this.OnalkalinityChanged();
+                }
+            }
         }
         
         /// <summary>
@@ -15224,9 +15268,34 @@ namespace tambak.Web
         }
         
         /// <summary>
+        /// Gets or sets the 'Clarity' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> Clarity
+        {
+            get
+            {
+                return this._clarity;
+            }
+            set
+            {
+                if ((this._clarity != value))
+                {
+                    this.OnClarityChanging(value);
+                    this.RaiseDataMemberChanging("Clarity");
+                    this.ValidateProperty("Clarity", value);
+                    this._clarity = value;
+                    this.RaiseDataMemberChanged("Clarity");
+                    this.OnClarityChanged();
+                }
+            }
+        }
+        
+        /// <summary>
         /// Gets or sets the 'DissolvedOxygen' value.
         /// </summary>
         [DataMember()]
+        [Range(((double)(0D)), ((double)(100D)))]
         public Nullable<double> DissolvedOxygen
         {
             get
@@ -15298,8 +15367,8 @@ namespace tambak.Web
         /// <summary>
         /// Gets or sets the 'LogDate' value.
         /// </summary>
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataMember()]
+        [Required()]
         public Nullable<DateTime> LogDate
         {
             get
@@ -15369,6 +15438,30 @@ namespace tambak.Web
         }
         
         /// <summary>
+        /// Gets or sets the 'Note' value.
+        /// </summary>
+        [DataMember()]
+        public string Note
+        {
+            get
+            {
+                return this._note;
+            }
+            set
+            {
+                if ((this._note != value))
+                {
+                    this.OnNoteChanging(value);
+                    this.RaiseDataMemberChanging("Note");
+                    this.ValidateProperty("Note", value);
+                    this._note = value;
+                    this.RaiseDataMemberChanged("Note");
+                    this.OnNoteChanged();
+                }
+            }
+        }
+        
+        /// <summary>
         /// Gets or sets the 'Paddlewheel' value.
         /// </summary>
         [DataMember()]
@@ -15396,6 +15489,7 @@ namespace tambak.Web
         /// Gets or sets the 'pH' value.
         /// </summary>
         [DataMember()]
+        [Range(((double)(0D)), ((double)(14D)))]
         public Nullable<double> pH
         {
             get
@@ -15541,6 +15635,7 @@ namespace tambak.Web
         /// Gets or sets the 'Temperature' value.
         /// </summary>
         [DataMember()]
+        [Range(((double)(0D)), ((double)(80D)))]
         public Nullable<double> Temperature
         {
             get
@@ -15557,6 +15652,30 @@ namespace tambak.Web
                     this._temperature = value;
                     this.RaiseDataMemberChanged("Temperature");
                     this.OnTemperatureChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TotalOrganicMaterial' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> TotalOrganicMaterial
+        {
+            get
+            {
+                return this._totalOrganicMaterial;
+            }
+            set
+            {
+                if ((this._totalOrganicMaterial != value))
+                {
+                    this.OnTotalOrganicMaterialChanging(value);
+                    this.RaiseDataMemberChanging("TotalOrganicMaterial");
+                    this.ValidateProperty("TotalOrganicMaterial", value);
+                    this._totalOrganicMaterial = value;
+                    this.RaiseDataMemberChanged("TotalOrganicMaterial");
+                    this.OnTotalOrganicMaterialChanged();
                 }
             }
         }
@@ -15607,6 +15726,31 @@ namespace tambak.Web
                     this._vibrio = value;
                     this.RaiseDataMemberChanged("Vibrio");
                     this.OnVibrioChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'WaterColor' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(512)]
+        public string WaterColor
+        {
+            get
+            {
+                return this._waterColor;
+            }
+            set
+            {
+                if ((this._waterColor != value))
+                {
+                    this.OnWaterColorChanging(value);
+                    this.RaiseDataMemberChanging("WaterColor");
+                    this.ValidateProperty("WaterColor", value);
+                    this._waterColor = value;
+                    this.RaiseDataMemberChanged("WaterColor");
+                    this.OnWaterColorChanged();
                 }
             }
         }

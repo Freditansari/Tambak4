@@ -97,11 +97,11 @@
         <EntityTypeShape EntityType="CPLModel.EmployeeNameView" Width="1.5" PointX="0.38445913437030232" PointY="16.619161196341349" />
         <EntityTypeShape EntityType="CPLModel.TaskNotDoneView" Width="1.5" PointX="7.0074042319354621" PointY="27.186068249487349" />
         <EntityTypeShape EntityType="CPLModel.ProductionCycleCostDetailView" Width="1.5" PointX="10.5224687971745" PointY="2.922966824342947" />
-        <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="3.7284218872564017" PointY="27.786901770060371" />
-        <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" />
         <EntityTypeShape EntityType="CPLModel.FeedingAuditView" Width="1.5" PointX="4.0963037461490854" PointY="20.417754480809791" />
         <EntityTypeShape EntityType="CPLModel.CurrentInventoryView" Width="1.5" PointX="10.953521226976775" PointY="16.143599249489419" />
         <EntityTypeShape EntityType="CPLModel.ActiveProductionCycleSamplingLogSummary" Width="1.5" PointX="0.74608951282971048" PointY="17.634978913532095" />
+        <EntityTypeShape EntityType="CPLModel.WaterParameterLog" Width="1.5" PointX="9.7163767710870026" PointY="15.70208735005096" />
+        <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

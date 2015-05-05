@@ -1382,11 +1382,20 @@ namespace tambak.Views
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void newWaterParameterButton_Click(object sender, RoutedEventArgs e)
         {
             NewWaterParameterChildWindow newWaterParameterCW = new NewWaterParameterChildWindow();
             newWaterParameterCW.Show();
         }
+
+       
+
+        //private void Button_Click_2(object sender, RoutedEventArgs e)
+        //{
+        //    
+        //}
+
+       
 
 
         //SendMailServiceReference.SendMailsClient EmailClient = new SendMailServiceReference.SendMailsClient();

@@ -721,33 +721,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WaterParameterLogs">
-      <EntityTypeMapping TypeName="CPLModel.WaterParameterLog">
-        <MappingFragment StoreEntitySet="WaterParameterLogs">
-          <ScalarProperty Name="IMNV" ColumnName="IMNV" />
-          <ScalarProperty Name="isVibrioExist" ColumnName="isVibrioExist" />
-          <ScalarProperty Name="WhiteSpot" ColumnName="WhiteSpot" />
-          <ScalarProperty Name="PotentialRedox" ColumnName="PotentialRedox" />
-          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Paddlewheel" ColumnName="Paddlewheel" />
-          <ScalarProperty Name="nitrate" ColumnName="nitrate" />
-          <ScalarProperty Name="nitrite" ColumnName="nitrite" />
-          <ScalarProperty Name="ammonium" ColumnName="ammonium" />
-          <ScalarProperty Name="Phospate" ColumnName="Phospate" />
-          <ScalarProperty Name="Amonnia" ColumnName="Amonnia" />
-          <ScalarProperty Name="Vibrio" ColumnName="Vibrio" />
-          <ScalarProperty Name="Bacteria" ColumnName="Bacteria" />
-          <ScalarProperty Name="Salinity" ColumnName="Salinity" />
-          <ScalarProperty Name="Planktons" ColumnName="Planktons" />
-          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
-          <ScalarProperty Name="DissolvedOxygen" ColumnName="DissolvedOxygen" />
-          <ScalarProperty Name="pH" ColumnName="pH" />
-          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
-          <ScalarProperty Name="WaterLogID" ColumnName="WaterLogID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="FeedingAuditViews">
       <EntityTypeMapping TypeName="CPLModel.FeedingAuditView">
         <MappingFragment StoreEntitySet="FeedingAuditView">
@@ -796,6 +769,38 @@
           <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
           <ScalarProperty Name="PondDescription" ColumnName="PondDescription" />
           <ScalarProperty Name="PondID" ColumnName="PondID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaterParameterLogs">
+      <EntityTypeMapping TypeName="CPLModel.WaterParameterLog">
+        <MappingFragment StoreEntitySet="WaterParameterLogs">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Clarity" ColumnName="Clarity" />
+          <ScalarProperty Name="WaterColor" ColumnName="WaterColor" />
+          <ScalarProperty Name="TotalOrganicMaterial" ColumnName="TotalOrganicMaterial" />
+          <ScalarProperty Name="alkalinity" ColumnName="alkalinity" />
+          <ScalarProperty Name="IMNV" ColumnName="IMNV" />
+          <ScalarProperty Name="isVibrioExist" ColumnName="isVibrioExist" />
+          <ScalarProperty Name="WhiteSpot" ColumnName="WhiteSpot" />
+          <ScalarProperty Name="PotentialRedox" ColumnName="PotentialRedox" />
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Paddlewheel" ColumnName="Paddlewheel" />
+          <ScalarProperty Name="nitrate" ColumnName="nitrate" />
+          <ScalarProperty Name="nitrite" ColumnName="nitrite" />
+          <ScalarProperty Name="ammonium" ColumnName="ammonium" />
+          <ScalarProperty Name="Phospate" ColumnName="Phospate" />
+          <ScalarProperty Name="Amonnia" ColumnName="Amonnia" />
+          <ScalarProperty Name="Vibrio" ColumnName="Vibrio" />
+          <ScalarProperty Name="Bacteria" ColumnName="Bacteria" />
+          <ScalarProperty Name="Salinity" ColumnName="Salinity" />
+          <ScalarProperty Name="Planktons" ColumnName="Planktons" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="DissolvedOxygen" ColumnName="DissolvedOxygen" />
+          <ScalarProperty Name="pH" ColumnName="pH" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="WaterLogID" ColumnName="WaterLogID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

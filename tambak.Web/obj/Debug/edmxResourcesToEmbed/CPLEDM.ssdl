@@ -912,7 +912,7 @@
       <PropertyRef Name="WaterLogID" />
     </Key>
     <Property Name="WaterLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="LogDate" Type="datetime" StoreGeneratedPattern="Computed" />
+    <Property Name="LogDate" Type="datetime" />
     <Property Name="pH" Type="float" />
     <Property Name="DissolvedOxygen" Type="float" />
     <Property Name="Temperature" Type="float" />
@@ -932,6 +932,11 @@
     <Property Name="WhiteSpot" Type="bit" />
     <Property Name="isVibrioExist" Type="bit" />
     <Property Name="IMNV" Type="bit" />
+    <Property Name="alkalinity" Type="float" />
+    <Property Name="TotalOrganicMaterial" Type="float" />
+    <Property Name="WaterColor" Type="nvarchar" MaxLength="512" />
+    <Property Name="Clarity" Type="float" />
+    <Property Name="Note" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.ActiveProductionCycleSamplingLogSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.

@@ -917,7 +917,7 @@
             <PropertyRef Name="WaterLogID" />
           </Key>
           <Property Name="WaterLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="LogDate" Type="datetime" StoreGeneratedPattern="Computed" />
+          <Property Name="LogDate" Type="datetime" />
           <Property Name="pH" Type="float" />
           <Property Name="DissolvedOxygen" Type="float" />
           <Property Name="Temperature" Type="float" />
@@ -937,6 +937,11 @@
           <Property Name="WhiteSpot" Type="bit" />
           <Property Name="isVibrioExist" Type="bit" />
           <Property Name="IMNV" Type="bit" />
+          <Property Name="alkalinity" Type="float" />
+          <Property Name="TotalOrganicMaterial" Type="float" />
+          <Property Name="WaterColor" Type="nvarchar" MaxLength="512" />
+          <Property Name="Clarity" Type="float" />
+          <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'CPL.dbo.ActiveProductionCycleSamplingLogSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1946,14 +1951,14 @@
           <EntitySet Name="EmployeeNameViews" EntityType="CPLModel.EmployeeNameView" />
           <EntitySet Name="TaskNotDoneViews" EntityType="CPLModel.TaskNotDoneView" />
           <EntitySet Name="ProductionCycleCostDetailViews" EntityType="CPLModel.ProductionCycleCostDetailView" />
+          <EntitySet Name="FeedingAuditViews" EntityType="CPLModel.FeedingAuditView" />
+          <EntitySet Name="CurrentInventoryViews" EntityType="CPLModel.CurrentInventoryView" />
+          <EntitySet Name="ActiveProductionCycleSamplingLogSummaries" EntityType="CPLModel.ActiveProductionCycleSamplingLogSummary" />
           <EntitySet Name="WaterParameterLogs" EntityType="CPLModel.WaterParameterLog" />
           <AssociationSet Name="FK_WaterParameterLog_PondsProductionCycle" Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle">
             <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
             <End Role="WaterParameterLog" EntitySet="WaterParameterLogs" />
           </AssociationSet>
-          <EntitySet Name="FeedingAuditViews" EntityType="CPLModel.FeedingAuditView" />
-          <EntitySet Name="CurrentInventoryViews" EntityType="CPLModel.CurrentInventoryView" />
-          <EntitySet Name="ActiveProductionCycleSamplingLogSummaries" EntityType="CPLModel.ActiveProductionCycleSamplingLogSummary" />
           </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -3200,45 +3205,6 @@
           <Property Type="Double" Name="Cost" />
           <Property Type="Int32" Name="ProductionCycleID" />
         </EntityType>
-        <EntityType Name="WaterParameterLog">
-          <Key>
-            <PropertyRef Name="WaterLogID" />
-          </Key>
-          <Property Type="Int32" Name="WaterLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="LogDate" Precision="3" annotation:StoreGeneratedPattern="Computed" Nullable="true" />
-          <Property Type="Double" Name="pH" />
-          <Property Type="Double" Name="DissolvedOxygen" />
-          <Property Type="Double" Name="Temperature" />
-          <Property Type="Int32" Name="Planktons" />
-          <Property Type="Double" Name="Salinity" />
-          <Property Type="String" Name="Bacteria" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Vibrio" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="Amonnia" />
-          <Property Type="Double" Name="Phospate" />
-          <Property Type="Double" Name="ammonium" />
-          <Property Type="Double" Name="nitrite" />
-          <Property Type="Double" Name="nitrate" />
-          <Property Type="Int32" Name="Paddlewheel" />
-          <Property Type="String" Name="UserID" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
-          <Property Type="Double" Name="PotentialRedox" />
-          <Property Type="Boolean" Name="WhiteSpot" />
-          <Property Type="Boolean" Name="isVibrioExist" />
-          <Property Type="Boolean" Name="IMNV" />
-          <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="WaterParameterLog" ToRole="PondsProductionCycle" />
-        </EntityType>
-        <Association Name="FK_WaterParameterLog_PondsProductionCycle">
-          <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="1" />
-          <End Type="CPLModel.WaterParameterLog" Role="WaterParameterLog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PondsProductionCycle">
-              <PropertyRef Name="ProductionCycleID" />
-            </Principal>
-            <Dependent Role="WaterParameterLog">
-              <PropertyRef Name="ProductionCycleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="FeedingAuditView">
           <Key>
             <PropertyRef Name="FeedingHistoryID" />
@@ -3289,6 +3255,50 @@
           <Property Type="Decimal" Name="WeeklyFCR" Precision="18" Scale="2" />
           <Property Type="Double" Name="Density" />
         </EntityType>
+        <EntityType Name="WaterParameterLog">
+          <Key>
+            <PropertyRef Name="WaterLogID" />
+          </Key>
+          <Property Type="Int32" Name="WaterLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="LogDate" Precision="3" />
+          <Property Type="Double" Name="pH" />
+          <Property Type="Double" Name="DissolvedOxygen" />
+          <Property Type="Double" Name="Temperature" />
+          <Property Type="Int32" Name="Planktons" />
+          <Property Type="Double" Name="Salinity" />
+          <Property Type="String" Name="Bacteria" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Vibrio" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Amonnia" />
+          <Property Type="Double" Name="Phospate" />
+          <Property Type="Double" Name="ammonium" />
+          <Property Type="Double" Name="nitrite" />
+          <Property Type="Double" Name="nitrate" />
+          <Property Type="Int32" Name="Paddlewheel" />
+          <Property Type="String" Name="UserID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
+          <Property Type="Double" Name="PotentialRedox" />
+          <Property Type="Boolean" Name="WhiteSpot" />
+          <Property Type="Boolean" Name="isVibrioExist" />
+          <Property Type="Boolean" Name="IMNV" />
+          <Property Type="Double" Name="alkalinity" />
+          <Property Type="Double" Name="TotalOrganicMaterial" />
+          <Property Type="String" Name="WaterColor" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Clarity" />
+          <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="WaterParameterLog" ToRole="PondsProductionCycle" />
+        </EntityType>
+        <Association Name="FK_WaterParameterLog_PondsProductionCycle">
+          <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="1" />
+          <End Type="CPLModel.WaterParameterLog" Role="WaterParameterLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PondsProductionCycle">
+              <PropertyRef Name="ProductionCycleID" />
+            </Principal>
+            <Dependent Role="WaterParameterLog">
+              <PropertyRef Name="ProductionCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4015,33 +4025,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WaterParameterLogs">
-            <EntityTypeMapping TypeName="CPLModel.WaterParameterLog">
-              <MappingFragment StoreEntitySet="WaterParameterLogs">
-                <ScalarProperty Name="IMNV" ColumnName="IMNV" />
-                <ScalarProperty Name="isVibrioExist" ColumnName="isVibrioExist" />
-                <ScalarProperty Name="WhiteSpot" ColumnName="WhiteSpot" />
-                <ScalarProperty Name="PotentialRedox" ColumnName="PotentialRedox" />
-                <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Paddlewheel" ColumnName="Paddlewheel" />
-                <ScalarProperty Name="nitrate" ColumnName="nitrate" />
-                <ScalarProperty Name="nitrite" ColumnName="nitrite" />
-                <ScalarProperty Name="ammonium" ColumnName="ammonium" />
-                <ScalarProperty Name="Phospate" ColumnName="Phospate" />
-                <ScalarProperty Name="Amonnia" ColumnName="Amonnia" />
-                <ScalarProperty Name="Vibrio" ColumnName="Vibrio" />
-                <ScalarProperty Name="Bacteria" ColumnName="Bacteria" />
-                <ScalarProperty Name="Salinity" ColumnName="Salinity" />
-                <ScalarProperty Name="Planktons" ColumnName="Planktons" />
-                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
-                <ScalarProperty Name="DissolvedOxygen" ColumnName="DissolvedOxygen" />
-                <ScalarProperty Name="pH" ColumnName="pH" />
-                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
-                <ScalarProperty Name="WaterLogID" ColumnName="WaterLogID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FeedingAuditViews">
             <EntityTypeMapping TypeName="CPLModel.FeedingAuditView">
               <MappingFragment StoreEntitySet="FeedingAuditView">
@@ -4090,6 +4073,38 @@
                 <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
                 <ScalarProperty Name="PondDescription" ColumnName="PondDescription" />
                 <ScalarProperty Name="PondID" ColumnName="PondID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaterParameterLogs">
+            <EntityTypeMapping TypeName="CPLModel.WaterParameterLog">
+              <MappingFragment StoreEntitySet="WaterParameterLogs">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Clarity" ColumnName="Clarity" />
+                <ScalarProperty Name="WaterColor" ColumnName="WaterColor" />
+                <ScalarProperty Name="TotalOrganicMaterial" ColumnName="TotalOrganicMaterial" />
+                <ScalarProperty Name="alkalinity" ColumnName="alkalinity" />
+                <ScalarProperty Name="IMNV" ColumnName="IMNV" />
+                <ScalarProperty Name="isVibrioExist" ColumnName="isVibrioExist" />
+                <ScalarProperty Name="WhiteSpot" ColumnName="WhiteSpot" />
+                <ScalarProperty Name="PotentialRedox" ColumnName="PotentialRedox" />
+                <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Paddlewheel" ColumnName="Paddlewheel" />
+                <ScalarProperty Name="nitrate" ColumnName="nitrate" />
+                <ScalarProperty Name="nitrite" ColumnName="nitrite" />
+                <ScalarProperty Name="ammonium" ColumnName="ammonium" />
+                <ScalarProperty Name="Phospate" ColumnName="Phospate" />
+                <ScalarProperty Name="Amonnia" ColumnName="Amonnia" />
+                <ScalarProperty Name="Vibrio" ColumnName="Vibrio" />
+                <ScalarProperty Name="Bacteria" ColumnName="Bacteria" />
+                <ScalarProperty Name="Salinity" ColumnName="Salinity" />
+                <ScalarProperty Name="Planktons" ColumnName="Planktons" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="DissolvedOxygen" ColumnName="DissolvedOxygen" />
+                <ScalarProperty Name="pH" ColumnName="pH" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="WaterLogID" ColumnName="WaterLogID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
