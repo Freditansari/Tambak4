@@ -80,7 +80,7 @@ namespace tambak.Views.Charts
 
         private void loadFeedingAudit()
         {
-
+            FeedingAuditDomainContext = new FeedingAuditViewDS();
 			EntityQuery<FeedingAuditView> bb = from b in FeedingAuditDomainContext.GetFeedingAuditViewsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID select b;
             LoadOperation<FeedingAuditView> res = FeedingAuditDomainContext.Load(bb, new Action<LoadOperation<FeedingAuditView>>(loadFeedingAudit_Completed), true);
 			
