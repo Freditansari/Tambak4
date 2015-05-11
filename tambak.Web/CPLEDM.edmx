@@ -10,6 +10,7 @@
           <EntitySet Name="BatchConsumptionJoin" EntityType="CPLModel.Store.BatchConsumptionJoin" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BatchDetails" EntityType="CPLModel.Store.BatchDetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BatchHeader" EntityType="CPLModel.Store.BatchHeader" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Calendar" EntityType="CPLModel.Store.Calendar" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Category" EntityType="CPLModel.Store.Category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Companies" EntityType="CPLModel.Store.Companies" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Contacts" EntityType="CPLModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
@@ -249,6 +250,23 @@
       [TaskNotDoneView].[ReccurencePattern] AS [ReccurencePattern]
       FROM [dbo].[TaskNotDoneView] AS [TaskNotDoneView]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="WaterParameterRangeView" EntityType="CPLModel.Store.WaterParameterRangeView" store:Type="Views" store:Schema="dbo" store:Name="WaterParameterRangeView">
+            <DefiningQuery>SELECT 
+      [WaterParameterRangeView].[RowID] AS [RowID], 
+      [WaterParameterRangeView].[LogDate] AS [LogDate], 
+      [WaterParameterRangeView].[MinPH] AS [MinPH], 
+      [WaterParameterRangeView].[MaxPH] AS [MaxPH], 
+      [WaterParameterRangeView].[RangePH] AS [RangePH], 
+      [WaterParameterRangeView].[MinDO] AS [MinDO], 
+      [WaterParameterRangeView].[MaxDO] AS [MaxDO], 
+      [WaterParameterRangeView].[RangeDO] AS [RangeDO], 
+      [WaterParameterRangeView].[TotalOrganicMaterial] AS [TotalOrganicMaterial], 
+      [WaterParameterRangeView].[MaxTemp] AS [MaxTemp], 
+      [WaterParameterRangeView].[MinTemp] AS [MinTemp], 
+      [WaterParameterRangeView].[TemperatureRange] AS [TemperatureRange], 
+      [WaterParameterRangeView].[ProductionCycleID] AS [ProductionCycleID]
+      FROM [dbo].[WaterParameterRangeView] AS [WaterParameterRangeView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_BatchDetails_BatchHeader" Association="CPLModel.Store.FK_BatchDetails_BatchHeader">
             <End Role="BatchHeader" EntitySet="BatchHeader" />
             <End Role="BatchDetails" EntitySet="BatchDetails" />
@@ -458,6 +476,24 @@
           <Property Name="FacilitiesID" Type="int" />
           <Property Name="DeliveryLogID" Type="nvarchar" MaxLength="50" />
           <Property Name="PODetailID" Type="int" />
+        </EntityType>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="dt" />
+          </Key>
+          <Property Name="dt" Type="smalldatetime" Nullable="false" />
+          <Property Name="isWeekday" Type="bit" />
+          <Property Name="isHoliday" Type="bit" />
+          <Property Name="Y" Type="smallint" />
+          <Property Name="FY" Type="smallint" />
+          <Property Name="Q" Type="tinyint" />
+          <Property Name="M" Type="tinyint" />
+          <Property Name="D" Type="tinyint" />
+          <Property Name="DW" Type="tinyint" />
+          <Property Name="monthname" Type="varchar" MaxLength="9" />
+          <Property Name="dayname" Type="varchar" MaxLength="9" />
+          <Property Name="W" Type="tinyint" />
+          <Property Name="UTCOffset" Type="tinyint" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -1242,6 +1278,28 @@
           <Property Name="isDone" Type="bit" />
           <Property Name="ReccurencePattern" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.WaterParameterRangeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="WaterParameterRangeView">
+          <Key>
+            <PropertyRef Name="RowID" />
+            <PropertyRef Name="ProductionCycleID" />
+          </Key>
+          <Property Name="RowID" Type="bigint" Nullable="false" />
+          <Property Name="LogDate" Type="date" />
+          <Property Name="MinPH" Type="float" />
+          <Property Name="MaxPH" Type="float" />
+          <Property Name="RangePH" Type="float" />
+          <Property Name="MinDO" Type="float" />
+          <Property Name="MaxDO" Type="float" />
+          <Property Name="RangeDO" Type="float" />
+          <Property Name="TotalOrganicMaterial" Type="float" />
+          <Property Name="MaxTemp" Type="float" />
+          <Property Name="MinTemp" Type="float" />
+          <Property Name="TemperatureRange" Type="float" />
+          <Property Name="ProductionCycleID" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_BatchDetails_BatchHeader">
           <End Role="BatchHeader" Type="CPLModel.Store.BatchHeader" Multiplicity="1" />
           <End Role="BatchDetails" Type="CPLModel.Store.BatchDetails" Multiplicity="*" />
@@ -1959,6 +2017,8 @@
             <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
             <End Role="WaterParameterLog" EntitySet="WaterParameterLogs" />
           </AssociationSet>
+          <EntitySet Name="Calendars" EntityType="CPLModel.Calendar" />
+          <EntitySet Name="WaterParameterRangeViews" EntityType="CPLModel.WaterParameterRangeView" />
           </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -3299,6 +3359,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="dt" />
+          </Key>
+          <Property Type="DateTime" Name="dt" Nullable="false" Precision="0" />
+          <Property Type="Boolean" Name="isWeekday" />
+          <Property Type="Boolean" Name="isHoliday" />
+          <Property Type="Int16" Name="Y" />
+          <Property Type="Int16" Name="FY" />
+          <Property Type="Byte" Name="Q" />
+          <Property Type="Byte" Name="M" />
+          <Property Type="Byte" Name="D" />
+          <Property Type="Byte" Name="DW" />
+          <Property Type="String" Name="monthname" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dayname" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="W" />
+          <Property Type="Byte" Name="UTCOffset" />
+        </EntityType>
+        <EntityType Name="WaterParameterRangeView">
+          <Key>
+            <PropertyRef Name="RowID" />
+            <PropertyRef Name="ProductionCycleID" />
+          </Key>
+          <Property Type="Int64" Name="RowID" Nullable="false" />
+          <Property Type="DateTime" Name="LogDate" Precision="0" />
+          <Property Type="Double" Name="MinPH" />
+          <Property Type="Double" Name="MaxPH" />
+          <Property Type="Double" Name="RangePH" />
+          <Property Type="Double" Name="MinDO" />
+          <Property Type="Double" Name="MaxDO" />
+          <Property Type="Double" Name="RangeDO" />
+          <Property Type="Double" Name="TotalOrganicMaterial" />
+          <Property Type="Double" Name="MaxTemp" />
+          <Property Type="Double" Name="MinTemp" />
+          <Property Type="Double" Name="TemperatureRange" />
+          <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4105,6 +4202,44 @@
                 <ScalarProperty Name="pH" ColumnName="pH" />
                 <ScalarProperty Name="LogDate" ColumnName="LogDate" />
                 <ScalarProperty Name="WaterLogID" ColumnName="WaterLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calendars">
+            <EntityTypeMapping TypeName="CPLModel.Calendar">
+              <MappingFragment StoreEntitySet="Calendar">
+                <ScalarProperty Name="UTCOffset" ColumnName="UTCOffset" />
+                <ScalarProperty Name="W" ColumnName="W" />
+                <ScalarProperty Name="dayname" ColumnName="dayname" />
+                <ScalarProperty Name="monthname" ColumnName="monthname" />
+                <ScalarProperty Name="DW" ColumnName="DW" />
+                <ScalarProperty Name="D" ColumnName="D" />
+                <ScalarProperty Name="M" ColumnName="M" />
+                <ScalarProperty Name="Q" ColumnName="Q" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="isHoliday" ColumnName="isHoliday" />
+                <ScalarProperty Name="isWeekday" ColumnName="isWeekday" />
+                <ScalarProperty Name="dt" ColumnName="dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaterParameterRangeViews">
+            <EntityTypeMapping TypeName="CPLModel.WaterParameterRangeView">
+              <MappingFragment StoreEntitySet="WaterParameterRangeView">
+                <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+                <ScalarProperty Name="TemperatureRange" ColumnName="TemperatureRange" />
+                <ScalarProperty Name="MinTemp" ColumnName="MinTemp" />
+                <ScalarProperty Name="MaxTemp" ColumnName="MaxTemp" />
+                <ScalarProperty Name="TotalOrganicMaterial" ColumnName="TotalOrganicMaterial" />
+                <ScalarProperty Name="RangeDO" ColumnName="RangeDO" />
+                <ScalarProperty Name="MaxDO" ColumnName="MaxDO" />
+                <ScalarProperty Name="MinDO" ColumnName="MinDO" />
+                <ScalarProperty Name="RangePH" ColumnName="RangePH" />
+                <ScalarProperty Name="MaxPH" ColumnName="MaxPH" />
+                <ScalarProperty Name="MinPH" ColumnName="MinPH" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

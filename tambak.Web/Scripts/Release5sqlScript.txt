@@ -1,0 +1,25 @@
+﻿USE [CPL]
+GO
+
+/****** Object:  View [dbo].[WaterParameterRangeView]    Script Date: 5/11/2015 10:35:59 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE VIEW [dbo].[WaterParameterRangeView]
+AS
+SELECT       ISNULL(ROW_NUMBER() OVER(ORDER BY  CONVERT(date, LogDate) DESC), -1) AS RowID, CONVERT(date, LogDate) AS LogDate, MIN(pH) AS MinPH, MAX(pH) AS MaxPH, MAX(pH) - MIN(pH) AS RangePH, MIN(DissolvedOxygen) AS MinDO, 
+                         MAX(DissolvedOxygen) AS MaxDO, MAX(DissolvedOxygen) - MIN(DissolvedOxygen) AS RangeDO, MAX(TotalOrganicMaterial) AS TotalOrganicMaterial, 
+                         MAX(Temperature) AS MaxTemp, MIN(Temperature) AS MinTemp, MAX(Temperature) - MIN(Temperature) AS TemperatureRange, ProductionCycleID
+FROM            dbo.WaterParameterLogs
+GROUP BY CONVERT(date, LogDate), ProductionCycleID
+
+--Create unique clustered index WaterParameterRangeView_index	on dbo.waterparameterrangeview(RowID)
+
+
+GO
+
+

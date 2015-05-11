@@ -221,6 +221,8 @@
       <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
       <End Role="WaterParameterLog" EntitySet="WaterParameterLogs" />
     </AssociationSet>
+    <EntitySet Name="Calendars" EntityType="CPLModel.Calendar" />
+    <EntitySet Name="WaterParameterRangeViews" EntityType="CPLModel.WaterParameterRangeView" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -1561,4 +1563,41 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="dt" />
+    </Key>
+    <Property Type="DateTime" Name="dt" Nullable="false" Precision="0" />
+    <Property Type="Boolean" Name="isWeekday" />
+    <Property Type="Boolean" Name="isHoliday" />
+    <Property Type="Int16" Name="Y" />
+    <Property Type="Int16" Name="FY" />
+    <Property Type="Byte" Name="Q" />
+    <Property Type="Byte" Name="M" />
+    <Property Type="Byte" Name="D" />
+    <Property Type="Byte" Name="DW" />
+    <Property Type="String" Name="monthname" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="dayname" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="W" />
+    <Property Type="Byte" Name="UTCOffset" />
+  </EntityType>
+  <EntityType Name="WaterParameterRangeView">
+    <Key>
+      <PropertyRef Name="RowID" />
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Type="Int64" Name="RowID" Nullable="false" />
+    <Property Type="DateTime" Name="LogDate" Precision="0" />
+    <Property Type="Double" Name="MinPH" />
+    <Property Type="Double" Name="MaxPH" />
+    <Property Type="Double" Name="RangePH" />
+    <Property Type="Double" Name="MinDO" />
+    <Property Type="Double" Name="MaxDO" />
+    <Property Type="Double" Name="RangeDO" />
+    <Property Type="Double" Name="TotalOrganicMaterial" />
+    <Property Type="Double" Name="MaxTemp" />
+    <Property Type="Double" Name="MinTemp" />
+    <Property Type="Double" Name="TemperatureRange" />
+    <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
+  </EntityType>
 </Schema>

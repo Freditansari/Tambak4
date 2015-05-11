@@ -81,6 +81,7 @@ namespace tambak.Views.Production
         {
             List<Product> SelectedProduct = App.SelectedProduct;
             SelectedProductDataGrid.ItemsSource = SelectedProduct;
+            SelectedProductDataGrid.SelectedIndex = 0;
         }
 
         private void pondConsumptionsLogDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)

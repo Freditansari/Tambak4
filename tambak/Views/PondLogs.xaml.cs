@@ -1386,6 +1386,12 @@ namespace tambak.Views
         {
             NewWaterParameterChildWindow newWaterParameterCW = new NewWaterParameterChildWindow();
             newWaterParameterCW.Show();
+            newWaterParameterCW.Closed += newWaterParameterCW_Closed;
+        }
+
+        void newWaterParameterCW_Closed(object sender, EventArgs e)
+        {
+            LoadWaterParameter();
         }
 
        

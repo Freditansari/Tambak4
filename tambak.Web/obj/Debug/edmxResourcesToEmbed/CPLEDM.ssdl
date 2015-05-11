@@ -5,6 +5,7 @@
     <EntitySet Name="BatchConsumptionJoin" EntityType="CPLModel.Store.BatchConsumptionJoin" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BatchDetails" EntityType="CPLModel.Store.BatchDetails" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BatchHeader" EntityType="CPLModel.Store.BatchHeader" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Calendar" EntityType="CPLModel.Store.Calendar" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Category" EntityType="CPLModel.Store.Category" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Companies" EntityType="CPLModel.Store.Companies" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Contacts" EntityType="CPLModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
@@ -244,6 +245,23 @@
       [TaskNotDoneView].[ReccurencePattern] AS [ReccurencePattern]
       FROM [dbo].[TaskNotDoneView] AS [TaskNotDoneView]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="WaterParameterRangeView" EntityType="CPLModel.Store.WaterParameterRangeView" store:Type="Views" store:Schema="dbo" store:Name="WaterParameterRangeView">
+      <DefiningQuery>SELECT 
+      [WaterParameterRangeView].[RowID] AS [RowID], 
+      [WaterParameterRangeView].[LogDate] AS [LogDate], 
+      [WaterParameterRangeView].[MinPH] AS [MinPH], 
+      [WaterParameterRangeView].[MaxPH] AS [MaxPH], 
+      [WaterParameterRangeView].[RangePH] AS [RangePH], 
+      [WaterParameterRangeView].[MinDO] AS [MinDO], 
+      [WaterParameterRangeView].[MaxDO] AS [MaxDO], 
+      [WaterParameterRangeView].[RangeDO] AS [RangeDO], 
+      [WaterParameterRangeView].[TotalOrganicMaterial] AS [TotalOrganicMaterial], 
+      [WaterParameterRangeView].[MaxTemp] AS [MaxTemp], 
+      [WaterParameterRangeView].[MinTemp] AS [MinTemp], 
+      [WaterParameterRangeView].[TemperatureRange] AS [TemperatureRange], 
+      [WaterParameterRangeView].[ProductionCycleID] AS [ProductionCycleID]
+      FROM [dbo].[WaterParameterRangeView] AS [WaterParameterRangeView]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_BatchDetails_BatchHeader" Association="CPLModel.Store.FK_BatchDetails_BatchHeader">
       <End Role="BatchHeader" EntitySet="BatchHeader" />
       <End Role="BatchDetails" EntitySet="BatchDetails" />
@@ -453,6 +471,24 @@
     <Property Name="FacilitiesID" Type="int" />
     <Property Name="DeliveryLogID" Type="nvarchar" MaxLength="50" />
     <Property Name="PODetailID" Type="int" />
+  </EntityType>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="dt" />
+    </Key>
+    <Property Name="dt" Type="smalldatetime" Nullable="false" />
+    <Property Name="isWeekday" Type="bit" />
+    <Property Name="isHoliday" Type="bit" />
+    <Property Name="Y" Type="smallint" />
+    <Property Name="FY" Type="smallint" />
+    <Property Name="Q" Type="tinyint" />
+    <Property Name="M" Type="tinyint" />
+    <Property Name="D" Type="tinyint" />
+    <Property Name="DW" Type="tinyint" />
+    <Property Name="monthname" Type="varchar" MaxLength="9" />
+    <Property Name="dayname" Type="varchar" MaxLength="9" />
+    <Property Name="W" Type="tinyint" />
+    <Property Name="UTCOffset" Type="tinyint" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -1236,6 +1272,28 @@
     <Property Name="ProductionCycleID" Type="int" />
     <Property Name="isDone" Type="bit" />
     <Property Name="ReccurencePattern" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CPL.dbo.WaterParameterRangeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="WaterParameterRangeView">
+    <Key>
+      <PropertyRef Name="RowID" />
+      <PropertyRef Name="ProductionCycleID" />
+    </Key>
+    <Property Name="RowID" Type="bigint" Nullable="false" />
+    <Property Name="LogDate" Type="date" />
+    <Property Name="MinPH" Type="float" />
+    <Property Name="MaxPH" Type="float" />
+    <Property Name="RangePH" Type="float" />
+    <Property Name="MinDO" Type="float" />
+    <Property Name="MaxDO" Type="float" />
+    <Property Name="RangeDO" Type="float" />
+    <Property Name="TotalOrganicMaterial" Type="float" />
+    <Property Name="MaxTemp" Type="float" />
+    <Property Name="MinTemp" Type="float" />
+    <Property Name="TemperatureRange" Type="float" />
+    <Property Name="ProductionCycleID" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_BatchDetails_BatchHeader">
     <End Role="BatchHeader" Type="CPLModel.Store.BatchHeader" Multiplicity="1" />

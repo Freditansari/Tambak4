@@ -2445,6 +2445,7 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Home.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\MainPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\DeliveryLogPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\feedEstimation.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\InventoryLevel.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\NewCategoryChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\NewPOCOntrolChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\NewPurchaseOrder.g.cs
@@ -2471,6 +2472,7 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondStatus.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondsView.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondsProductionCycleView.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondLogs.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewContactChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewFeedingLogChildWindows.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewSamplingLogWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewWaterParameterChildWindow.g.cs
@@ -2478,6 +2480,7 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectFaci
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectProducts.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectTaxChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\ConsumeMaterialPage.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\GlobalProductionPageSummary.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\HarvestPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\ProductionCostsPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\TasksModule\ManageTasks.g.cs
@@ -2498,6 +2501,4 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.csproj.GenerateR
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.pdb
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\XapCacheFile.xml
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Inventory\InventoryLevel.g.cs
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewContactChildWindow.g.cs
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\GlobalProductionPageSummary.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.csprojResolveAssemblyReference.cache

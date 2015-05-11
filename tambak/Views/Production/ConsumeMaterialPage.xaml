@@ -14,7 +14,7 @@
             <sdk:TabItem Header="Consume Material">
                 <Grid>
                     <Button x:Name="SelectProductButton" Content="Select Products" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="126" Click="SelectProductButton_Click"/>
-                    <sdk:DataGrid x:Name="SelectedProductDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="312" Margin="16,63,0,0" VerticalAlignment="Top" Width="360" SelectionChanged="SelectedProductDataGrid_SelectionChanged">
+                    <sdk:DataGrid x:Name="SelectedProductDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="312" Margin="16,63,0,0" VerticalAlignment="Top" Width="360" SelectionChanged="SelectedProductDataGrid_SelectionChanged" SelectedIndex="0">
                         <sdk:DataGrid.Columns>
                             <sdk:DataGridTextColumn x:Name="productIDColumn1" Binding="{Binding ProductID, Mode=OneWay}" Header="Product ID" IsReadOnly="True" Width="SizeToHeader"/>
                             <sdk:DataGridTextColumn x:Name="productNameColumn1" Binding="{Binding ProductName}" Header="Product Name" Width="SizeToHeader"/>

@@ -614,6 +614,7 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchDetailDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchHeaderDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.BatchQuantityViewDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.CalendarDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CategoryDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.CompanyDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.ContactToUserLinkDS.datasource" />
@@ -649,6 +650,7 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.tenDaysFeedEstimate.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.TotalSevenDaysFeedDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.UnitofMeasurementDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.WaterParameterRangedDS.datasource" />
     <None Include="Service References\addRoleServiceReference\addRoleService.disco" />
     <None Include="Service References\addRoleServiceReference\configuration91.svcinfo" />
     <None Include="Service References\addRoleServiceReference\configuration.svcinfo" />

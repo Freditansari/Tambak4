@@ -1996,6 +1996,410 @@ namespace tambak.Web
     }
     
     /// <summary>
+    /// The 'Calendar' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class Calendar : Entity
+    {
+        
+        private Nullable<byte> _d;
+        
+        private string _dayname;
+        
+        private DateTime _dt;
+        
+        private Nullable<byte> _dw;
+        
+        private Nullable<short> _fy;
+        
+        private Nullable<bool> _isHoliday;
+        
+        private Nullable<bool> _isWeekday;
+        
+        private Nullable<byte> _m;
+        
+        private string _monthname;
+        
+        private Nullable<byte> _q;
+        
+        private Nullable<byte> _utcOffset;
+        
+        private Nullable<byte> _w;
+        
+        private Nullable<short> _y;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDChanging(Nullable<byte> value);
+        partial void OnDChanged();
+        partial void OndaynameChanging(string value);
+        partial void OndaynameChanged();
+        partial void OndtChanging(DateTime value);
+        partial void OndtChanged();
+        partial void OnDWChanging(Nullable<byte> value);
+        partial void OnDWChanged();
+        partial void OnFYChanging(Nullable<short> value);
+        partial void OnFYChanged();
+        partial void OnisHolidayChanging(Nullable<bool> value);
+        partial void OnisHolidayChanged();
+        partial void OnisWeekdayChanging(Nullable<bool> value);
+        partial void OnisWeekdayChanged();
+        partial void OnMChanging(Nullable<byte> value);
+        partial void OnMChanged();
+        partial void OnmonthnameChanging(string value);
+        partial void OnmonthnameChanged();
+        partial void OnQChanging(Nullable<byte> value);
+        partial void OnQChanged();
+        partial void OnUTCOffsetChanging(Nullable<byte> value);
+        partial void OnUTCOffsetChanged();
+        partial void OnWChanging(Nullable<byte> value);
+        partial void OnWChanged();
+        partial void OnYChanging(Nullable<short> value);
+        partial void OnYChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Calendar"/> class.
+        /// </summary>
+        public Calendar()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'D' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<byte> D
+        {
+            get
+            {
+                return this._d;
+            }
+            set
+            {
+                if ((this._d != value))
+                {
+                    this.OnDChanging(value);
+                    this.RaiseDataMemberChanging("D");
+                    this.ValidateProperty("D", value);
+                    this._d = value;
+                    this.RaiseDataMemberChanged("D");
+                    this.OnDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'dayname' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(9)]
+        public string dayname
+        {
+            get
+            {
+                return this._dayname;
+            }
+            set
+            {
+                if ((this._dayname != value))
+                {
+                    this.OndaynameChanging(value);
+                    this.RaiseDataMemberChanging("dayname");
+                    this.ValidateProperty("dayname", value);
+                    this._dayname = value;
+                    this.RaiseDataMemberChanged("dayname");
+                    this.OndaynameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'dt' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public DateTime dt
+        {
+            get
+            {
+                return this._dt;
+            }
+            set
+            {
+                if ((this._dt != value))
+                {
+                    this.OndtChanging(value);
+                    this.ValidateProperty("dt", value);
+                    this._dt = value;
+                    this.RaisePropertyChanged("dt");
+                    this.OndtChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'DW' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<byte> DW
+        {
+            get
+            {
+                return this._dw;
+            }
+            set
+            {
+                if ((this._dw != value))
+                {
+                    this.OnDWChanging(value);
+                    this.RaiseDataMemberChanging("DW");
+                    this.ValidateProperty("DW", value);
+                    this._dw = value;
+                    this.RaiseDataMemberChanged("DW");
+                    this.OnDWChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'FY' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<short> FY
+        {
+            get
+            {
+                return this._fy;
+            }
+            set
+            {
+                if ((this._fy != value))
+                {
+                    this.OnFYChanging(value);
+                    this.RaiseDataMemberChanging("FY");
+                    this.ValidateProperty("FY", value);
+                    this._fy = value;
+                    this.RaiseDataMemberChanged("FY");
+                    this.OnFYChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'isHoliday' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<bool> isHoliday
+        {
+            get
+            {
+                return this._isHoliday;
+            }
+            set
+            {
+                if ((this._isHoliday != value))
+                {
+                    this.OnisHolidayChanging(value);
+                    this.RaiseDataMemberChanging("isHoliday");
+                    this.ValidateProperty("isHoliday", value);
+                    this._isHoliday = value;
+                    this.RaiseDataMemberChanged("isHoliday");
+                    this.OnisHolidayChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'isWeekday' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<bool> isWeekday
+        {
+            get
+            {
+                return this._isWeekday;
+            }
+            set
+            {
+                if ((this._isWeekday != value))
+                {
+                    this.OnisWeekdayChanging(value);
+                    this.RaiseDataMemberChanging("isWeekday");
+                    this.ValidateProperty("isWeekday", value);
+                    this._isWeekday = value;
+                    this.RaiseDataMemberChanged("isWeekday");
+                    this.OnisWeekdayChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'M' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<byte> M
+        {
+            get
+            {
+                return this._m;
+            }
+            set
+            {
+                if ((this._m != value))
+                {
+                    this.OnMChanging(value);
+                    this.RaiseDataMemberChanging("M");
+                    this.ValidateProperty("M", value);
+                    this._m = value;
+                    this.RaiseDataMemberChanged("M");
+                    this.OnMChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'monthname' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(9)]
+        public string monthname
+        {
+            get
+            {
+                return this._monthname;
+            }
+            set
+            {
+                if ((this._monthname != value))
+                {
+                    this.OnmonthnameChanging(value);
+                    this.RaiseDataMemberChanging("monthname");
+                    this.ValidateProperty("monthname", value);
+                    this._monthname = value;
+                    this.RaiseDataMemberChanged("monthname");
+                    this.OnmonthnameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Q' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<byte> Q
+        {
+            get
+            {
+                return this._q;
+            }
+            set
+            {
+                if ((this._q != value))
+                {
+                    this.OnQChanging(value);
+                    this.RaiseDataMemberChanging("Q");
+                    this.ValidateProperty("Q", value);
+                    this._q = value;
+                    this.RaiseDataMemberChanged("Q");
+                    this.OnQChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'UTCOffset' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<byte> UTCOffset
+        {
+            get
+            {
+                return this._utcOffset;
+            }
+            set
+            {
+                if ((this._utcOffset != value))
+                {
+                    this.OnUTCOffsetChanging(value);
+                    this.RaiseDataMemberChanging("UTCOffset");
+                    this.ValidateProperty("UTCOffset", value);
+                    this._utcOffset = value;
+                    this.RaiseDataMemberChanged("UTCOffset");
+                    this.OnUTCOffsetChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'W' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<byte> W
+        {
+            get
+            {
+                return this._w;
+            }
+            set
+            {
+                if ((this._w != value))
+                {
+                    this.OnWChanging(value);
+                    this.RaiseDataMemberChanging("W");
+                    this.ValidateProperty("W", value);
+                    this._w = value;
+                    this.RaiseDataMemberChanged("W");
+                    this.OnWChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Y' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<short> Y
+        {
+            get
+            {
+                return this._y;
+            }
+            set
+            {
+                if ((this._y != value))
+                {
+                    this.OnYChanging(value);
+                    this.RaiseDataMemberChanging("Y");
+                    this.ValidateProperty("Y", value);
+                    this._y = value;
+                    this.RaiseDataMemberChanged("Y");
+                    this.OnYChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._dt;
+        }
+    }
+    
+    /// <summary>
     /// The 'Category' entity class.
     /// </summary>
     [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
@@ -15815,6 +16219,410 @@ namespace tambak.Web
             return this._waterLogID;
         }
     }
+    
+    /// <summary>
+    /// The 'WaterParameterRangeView' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class WaterParameterRangeView : Entity
+    {
+        
+        private Nullable<DateTime> _logDate;
+        
+        private Nullable<double> _maxDO;
+        
+        private Nullable<double> _maxPH;
+        
+        private Nullable<double> _maxTemp;
+        
+        private Nullable<double> _minDO;
+        
+        private Nullable<double> _minPH;
+        
+        private Nullable<double> _minTemp;
+        
+        private int _productionCycleID;
+        
+        private Nullable<double> _rangeDO;
+        
+        private Nullable<double> _rangePH;
+        
+        private long _rowID;
+        
+        private Nullable<double> _temperatureRange;
+        
+        private Nullable<double> _totalOrganicMaterial;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnLogDateChanging(Nullable<DateTime> value);
+        partial void OnLogDateChanged();
+        partial void OnMaxDOChanging(Nullable<double> value);
+        partial void OnMaxDOChanged();
+        partial void OnMaxPHChanging(Nullable<double> value);
+        partial void OnMaxPHChanged();
+        partial void OnMaxTempChanging(Nullable<double> value);
+        partial void OnMaxTempChanged();
+        partial void OnMinDOChanging(Nullable<double> value);
+        partial void OnMinDOChanged();
+        partial void OnMinPHChanging(Nullable<double> value);
+        partial void OnMinPHChanged();
+        partial void OnMinTempChanging(Nullable<double> value);
+        partial void OnMinTempChanged();
+        partial void OnProductionCycleIDChanging(int value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnRangeDOChanging(Nullable<double> value);
+        partial void OnRangeDOChanged();
+        partial void OnRangePHChanging(Nullable<double> value);
+        partial void OnRangePHChanged();
+        partial void OnRowIDChanging(long value);
+        partial void OnRowIDChanged();
+        partial void OnTemperatureRangeChanging(Nullable<double> value);
+        partial void OnTemperatureRangeChanged();
+        partial void OnTotalOrganicMaterialChanging(Nullable<double> value);
+        partial void OnTotalOrganicMaterialChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WaterParameterRangeView"/> class.
+        /// </summary>
+        public WaterParameterRangeView()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'LogDate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> LogDate
+        {
+            get
+            {
+                return this._logDate;
+            }
+            set
+            {
+                if ((this._logDate != value))
+                {
+                    this.OnLogDateChanging(value);
+                    this.RaiseDataMemberChanging("LogDate");
+                    this.ValidateProperty("LogDate", value);
+                    this._logDate = value;
+                    this.RaiseDataMemberChanged("LogDate");
+                    this.OnLogDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MaxDO' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MaxDO
+        {
+            get
+            {
+                return this._maxDO;
+            }
+            set
+            {
+                if ((this._maxDO != value))
+                {
+                    this.OnMaxDOChanging(value);
+                    this.RaiseDataMemberChanging("MaxDO");
+                    this.ValidateProperty("MaxDO", value);
+                    this._maxDO = value;
+                    this.RaiseDataMemberChanged("MaxDO");
+                    this.OnMaxDOChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MaxPH' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MaxPH
+        {
+            get
+            {
+                return this._maxPH;
+            }
+            set
+            {
+                if ((this._maxPH != value))
+                {
+                    this.OnMaxPHChanging(value);
+                    this.RaiseDataMemberChanging("MaxPH");
+                    this.ValidateProperty("MaxPH", value);
+                    this._maxPH = value;
+                    this.RaiseDataMemberChanged("MaxPH");
+                    this.OnMaxPHChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MaxTemp' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MaxTemp
+        {
+            get
+            {
+                return this._maxTemp;
+            }
+            set
+            {
+                if ((this._maxTemp != value))
+                {
+                    this.OnMaxTempChanging(value);
+                    this.RaiseDataMemberChanging("MaxTemp");
+                    this.ValidateProperty("MaxTemp", value);
+                    this._maxTemp = value;
+                    this.RaiseDataMemberChanged("MaxTemp");
+                    this.OnMaxTempChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MinDO' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MinDO
+        {
+            get
+            {
+                return this._minDO;
+            }
+            set
+            {
+                if ((this._minDO != value))
+                {
+                    this.OnMinDOChanging(value);
+                    this.RaiseDataMemberChanging("MinDO");
+                    this.ValidateProperty("MinDO", value);
+                    this._minDO = value;
+                    this.RaiseDataMemberChanged("MinDO");
+                    this.OnMinDOChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MinPH' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MinPH
+        {
+            get
+            {
+                return this._minPH;
+            }
+            set
+            {
+                if ((this._minPH != value))
+                {
+                    this.OnMinPHChanging(value);
+                    this.RaiseDataMemberChanging("MinPH");
+                    this.ValidateProperty("MinPH", value);
+                    this._minPH = value;
+                    this.RaiseDataMemberChanged("MinPH");
+                    this.OnMinPHChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'MinTemp' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> MinTemp
+        {
+            get
+            {
+                return this._minTemp;
+            }
+            set
+            {
+                if ((this._minTemp != value))
+                {
+                    this.OnMinTempChanging(value);
+                    this.RaiseDataMemberChanging("MinTemp");
+                    this.ValidateProperty("MinTemp", value);
+                    this._minTemp = value;
+                    this.RaiseDataMemberChanged("MinTemp");
+                    this.OnMinTempChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaisePropertyChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'RangeDO' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> RangeDO
+        {
+            get
+            {
+                return this._rangeDO;
+            }
+            set
+            {
+                if ((this._rangeDO != value))
+                {
+                    this.OnRangeDOChanging(value);
+                    this.RaiseDataMemberChanging("RangeDO");
+                    this.ValidateProperty("RangeDO", value);
+                    this._rangeDO = value;
+                    this.RaiseDataMemberChanged("RangeDO");
+                    this.OnRangeDOChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'RangePH' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> RangePH
+        {
+            get
+            {
+                return this._rangePH;
+            }
+            set
+            {
+                if ((this._rangePH != value))
+                {
+                    this.OnRangePHChanging(value);
+                    this.RaiseDataMemberChanging("RangePH");
+                    this.ValidateProperty("RangePH", value);
+                    this._rangePH = value;
+                    this.RaiseDataMemberChanged("RangePH");
+                    this.OnRangePHChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'RowID' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public long RowID
+        {
+            get
+            {
+                return this._rowID;
+            }
+            set
+            {
+                if ((this._rowID != value))
+                {
+                    this.OnRowIDChanging(value);
+                    this.ValidateProperty("RowID", value);
+                    this._rowID = value;
+                    this.RaisePropertyChanged("RowID");
+                    this.OnRowIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TemperatureRange' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> TemperatureRange
+        {
+            get
+            {
+                return this._temperatureRange;
+            }
+            set
+            {
+                if ((this._temperatureRange != value))
+                {
+                    this.OnTemperatureRangeChanging(value);
+                    this.RaiseDataMemberChanging("TemperatureRange");
+                    this.ValidateProperty("TemperatureRange", value);
+                    this._temperatureRange = value;
+                    this.RaiseDataMemberChanged("TemperatureRange");
+                    this.OnTemperatureRangeChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TotalOrganicMaterial' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> TotalOrganicMaterial
+        {
+            get
+            {
+                return this._totalOrganicMaterial;
+            }
+            set
+            {
+                if ((this._totalOrganicMaterial != value))
+                {
+                    this.OnTotalOrganicMaterialChanging(value);
+                    this.RaiseDataMemberChanging("TotalOrganicMaterial");
+                    this.ValidateProperty("TotalOrganicMaterial", value);
+                    this._totalOrganicMaterial = value;
+                    this.RaiseDataMemberChanged("TotalOrganicMaterial");
+                    this.OnTotalOrganicMaterialChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return EntityKey.Create(this._productionCycleID, this._rowID);
+        }
+    }
 }
 namespace tambak.Web.DomainServices
 {
@@ -16583,6 +17391,134 @@ namespace tambak.Web.DomainServices
             public BatchQuantityViewDSEntityContainer()
             {
                 this.CreateEntitySet<batchQuantityView>(EntitySetOperations.All);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'CalendarDS' DomainService.
+    /// </summary>
+    public sealed partial class CalendarDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarDS"/> class.
+        /// </summary>
+        public CalendarDS() : 
+                this(new WebDomainClient<ICalendarDSContract>(new Uri("tambak-Web-DomainServices-CalendarDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The CalendarDS service URI.</param>
+        public CalendarDS(Uri serviceUri) : 
+                this(new WebDomainClient<ICalendarDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public CalendarDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Calendar"/> entity instances that have been loaded into this <see cref="CalendarDS"/> instance.
+        /// </summary>
+        public EntitySet<Calendar> Calendars
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Calendar>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Calendar"/> entity instances using the 'GetCalendars' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Calendar"/> entity instances.</returns>
+        public EntityQuery<Calendar> GetCalendarsQuery()
+        {
+            this.ValidateMethod("GetCalendarsQuery", null);
+            return base.CreateQuery<Calendar>("GetCalendars", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new CalendarDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'CalendarDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface ICalendarDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetCalendars' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/CalendarDS/GetCalendarsDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/CalendarDS/GetCalendars", ReplyAction="http://tempuri.org/CalendarDS/GetCalendarsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetCalendars(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetCalendars'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetCalendars'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetCalendars' operation.</returns>
+            QueryResult<Calendar> EndGetCalendars(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'SubmitChanges' operation.
+            /// </summary>
+            /// <param name="changeSet">The change-set to submit.</param>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/CalendarDS/SubmitChangesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/CalendarDS/SubmitChanges", ReplyAction="http://tempuri.org/CalendarDS/SubmitChangesResponse")]
+            IAsyncResult BeginSubmitChanges(IEnumerable<ChangeSetEntry> changeSet, AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginSubmitChanges'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginSubmitChanges'.</param>
+            /// <returns>The collection of change-set entry elements returned from 'SubmitChanges'.</returns>
+            IEnumerable<ChangeSetEntry> EndSubmitChanges(IAsyncResult result);
+        }
+        
+        internal sealed class CalendarDSEntityContainer : EntityContainer
+        {
+            
+            public CalendarDSEntityContainer()
+            {
+                this.CreateEntitySet<Calendar>(EntitySetOperations.All);
             }
         }
     }
@@ -22366,6 +23302,117 @@ namespace tambak.Web.DomainServices
             public WaterParameterLogDSEntityContainer()
             {
                 this.CreateEntitySet<WaterParameterLog>(EntitySetOperations.All);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'WaterParameterRangeDS' DomainService.
+    /// </summary>
+    public sealed partial class WaterParameterRangeDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WaterParameterRangeDS"/> class.
+        /// </summary>
+        public WaterParameterRangeDS() : 
+                this(new WebDomainClient<IWaterParameterRangeDSContract>(new Uri("tambak-Web-DomainServices-WaterParameterRangeDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WaterParameterRangeDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The WaterParameterRangeDS service URI.</param>
+        public WaterParameterRangeDS(Uri serviceUri) : 
+                this(new WebDomainClient<IWaterParameterRangeDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WaterParameterRangeDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public WaterParameterRangeDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="WaterParameterRangeView"/> entity instances that have been loaded into this <see cref="WaterParameterRangeDS"/> instance.
+        /// </summary>
+        public EntitySet<WaterParameterRangeView> WaterParameterRangeViews
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<WaterParameterRangeView>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="WaterParameterRangeView"/> entity instances using the 'GetWaterParameterRangeViews' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="WaterParameterRangeView"/> entity instances.</returns>
+        public EntityQuery<WaterParameterRangeView> GetWaterParameterRangeViewsQuery()
+        {
+            this.ValidateMethod("GetWaterParameterRangeViewsQuery", null);
+            return base.CreateQuery<WaterParameterRangeView>("GetWaterParameterRangeViews", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new WaterParameterRangeDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'WaterParameterRangeDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface IWaterParameterRangeDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetWaterParameterRangeViews' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/WaterParameterRangeDS/GetWaterParameterRangeViewsDomainService" +
+                "Fault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/WaterParameterRangeDS/GetWaterParameterRangeViews", ReplyAction="http://tempuri.org/WaterParameterRangeDS/GetWaterParameterRangeViewsResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetWaterParameterRangeViews(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetWaterParameterRangeViews'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetWaterParameterRangeViews'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetWaterParameterRangeViews' operation.</returns>
+            QueryResult<WaterParameterRangeView> EndGetWaterParameterRangeViews(IAsyncResult result);
+        }
+        
+        internal sealed class WaterParameterRangeDSEntityContainer : EntityContainer
+        {
+            
+            public WaterParameterRangeDSEntityContainer()
+            {
+                this.CreateEntitySet<WaterParameterRangeView>(EntitySetOperations.None);
             }
         }
     }

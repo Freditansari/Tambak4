@@ -27,6 +27,11 @@ namespace tambak.Views.Charts
         FeedingAuditViewDS FeedingAuditDomainContext = new FeedingAuditViewDS();
         Pond selectedPond = new Pond();
         SamplingLogDS SamplingLogDomainContext = new SamplingLogDS();
+        WaterParameterRangeDS waterParameterRangeDomainContext = new WaterParameterRangeDS();
+        WaterParameterRangeView SelectedWaterParameterRange = new WaterParameterRangeView();
+
+
+        //List<WaterParameterRange> WaterParamRangeList = new List<WaterParameterRange>();
 
         public SamplingCharts()
         {
@@ -72,18 +77,111 @@ namespace tambak.Views.Charts
             LoadSurvivalRate();
             loadADG();
             loadCummulativeADG();
+            loadWaterParameterRange();
             
 
           
 
         }
 
+        private void loadWaterParameterRange()
+        {
+            waterParameterRangeDomainContext = new WaterParameterRangeDS();
+			EntityQuery<WaterParameterRangeView> bb = (from b in waterParameterRangeDomainContext.GetWaterParameterRangeViewsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID select b).OrderBy(b => b.LogDate);
+            LoadOperation<WaterParameterRangeView> res = waterParameterRangeDomainContext.Load(bb, new Action<LoadOperation<WaterParameterRangeView>>(loadWaterParameterRange_completed), true);
+			
+        }
+
+        private void loadWaterParameterRange_completed(LoadOperation<WaterParameterRangeView> obj)
+        {
+            //DataSeries lineSeries = new DataSeries();
+            //DataSeries StandardSeries = new DataSeries();
+
+            //FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Clear();
+            //FeedingAuditCharts.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            //FeedingAuditCharts.DefaultView.ChartTitle.Content = "Feeding Charts";
+            //lineSeries.Definition = new LineSeriesDefinition();
+            //StandardSeries.Definition = new LineSeriesDefinition();
+            //foreach (var b in FeedingAuditDomainContext.FeedingAuditViews)
+            //{
+            //    lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Total_Feed), XCategory = b.DayOfCulture.ToString() });
+            //    StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.FeedingPlan), XCategory = b.DayOfCulture.ToString() });
+            //}
+            //FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            //FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
+
+
+            DataSeries lineSeries = new DataSeries();
+            DataSeries StandardSeries = new DataSeries();
+
+            PHRangeChart.DefaultView.ChartArea.DataSeries.Clear();
+            PHRangeChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            PHRangeChart.DefaultView.ChartTitle.Content = "PH Range";
+            lineSeries.Definition = new LineSeriesDefinition();
+            //StandardSeries.Definition = new LineSeriesDefinition();
+
+            foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
+            {
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
+            }
+            PHRangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+
+            loadDoRange();
+
+        }
+
+        private void loadDoRange()
+        {
+            DataSeries lineSeries = new DataSeries();
+            DataSeries StandardSeries = new DataSeries();
+
+            DOrangeChart.DefaultView.ChartArea.DataSeries.Clear();
+            DOrangeChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            DOrangeChart.DefaultView.ChartTitle.Content = "DO Range";
+            lineSeries.Definition = new LineSeriesDefinition();
+            //StandardSeries.Definition = new LineSeriesDefinition();
+
+            foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
+            {
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangeDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
+            }
+            DOrangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+
+            loadTOMMax();
+        }
+
+        private void loadTOMMax()
+        {
+            DataSeries lineSeries = new DataSeries();
+            DataSeries StandardSeries = new DataSeries();
+
+            ToMChart.DefaultView.ChartArea.DataSeries.Clear();
+            ToMChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            ToMChart.DefaultView.ChartTitle.Content = "Total Organic Material";
+            lineSeries.Definition = new LineSeriesDefinition();
+            //StandardSeries.Definition = new LineSeriesDefinition();
+
+            foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
+            {
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.TotalOrganicMaterial), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
+            }
+            ToMChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+        }
+
         private void loadFeedingAudit()
         {
-            FeedingAuditDomainContext = new FeedingAuditViewDS();
-			EntityQuery<FeedingAuditView> bb = from b in FeedingAuditDomainContext.GetFeedingAuditViewsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID select b;
-            LoadOperation<FeedingAuditView> res = FeedingAuditDomainContext.Load(bb, new Action<LoadOperation<FeedingAuditView>>(loadFeedingAudit_Completed), true);
-			
+            try
+            {
+                FeedingAuditDomainContext = new FeedingAuditViewDS();
+                EntityQuery<FeedingAuditView> bb = from b in FeedingAuditDomainContext.GetFeedingAuditViewsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID select b;
+                LoadOperation<FeedingAuditView> res = FeedingAuditDomainContext.Load(bb, new Action<LoadOperation<FeedingAuditView>>(loadFeedingAudit_Completed), true);
+            }
+            catch (Exception g)
+            {
+            }
 
 
            
@@ -293,13 +391,23 @@ namespace tambak.Views.Charts
         private void loadPondproductionCycle_completed(LoadOperation<Web.PondsProductionCycle> obj)
         {
             productionCycleIDComboBox.ItemsSource = PondsProductionCycleDomainContext.PondsProductionCycles;
+            productionCycleIDComboBox.SelectedIndex = 0;
         }
 
         private void productionCycleIDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
-            loadSamplingLog();
-            loadFeedingAudit();
+            try
+            {
+                SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
+                loadSamplingLog();
+                loadFeedingAudit();
+
+               
+            }
+            catch (Exception)
+            { 
+            }
+
         }
 
         private void loadSamplingLog()
@@ -317,6 +425,16 @@ namespace tambak.Views.Charts
                 
             }
             
+        }
+
+        private void waterParameterRangeViewDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
         }
 
 

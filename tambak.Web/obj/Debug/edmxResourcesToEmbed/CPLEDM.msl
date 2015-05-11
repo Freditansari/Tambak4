@@ -804,5 +804,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Calendars">
+      <EntityTypeMapping TypeName="CPLModel.Calendar">
+        <MappingFragment StoreEntitySet="Calendar">
+          <ScalarProperty Name="UTCOffset" ColumnName="UTCOffset" />
+          <ScalarProperty Name="W" ColumnName="W" />
+          <ScalarProperty Name="dayname" ColumnName="dayname" />
+          <ScalarProperty Name="monthname" ColumnName="monthname" />
+          <ScalarProperty Name="DW" ColumnName="DW" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="M" ColumnName="M" />
+          <ScalarProperty Name="Q" ColumnName="Q" />
+          <ScalarProperty Name="FY" ColumnName="FY" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="isHoliday" ColumnName="isHoliday" />
+          <ScalarProperty Name="isWeekday" ColumnName="isWeekday" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaterParameterRangeViews">
+      <EntityTypeMapping TypeName="CPLModel.WaterParameterRangeView">
+        <MappingFragment StoreEntitySet="WaterParameterRangeView">
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="TemperatureRange" ColumnName="TemperatureRange" />
+          <ScalarProperty Name="MinTemp" ColumnName="MinTemp" />
+          <ScalarProperty Name="MaxTemp" ColumnName="MaxTemp" />
+          <ScalarProperty Name="TotalOrganicMaterial" ColumnName="TotalOrganicMaterial" />
+          <ScalarProperty Name="RangeDO" ColumnName="RangeDO" />
+          <ScalarProperty Name="MaxDO" ColumnName="MaxDO" />
+          <ScalarProperty Name="MinDO" ColumnName="MinDO" />
+          <ScalarProperty Name="RangePH" ColumnName="RangePH" />
+          <ScalarProperty Name="MaxPH" ColumnName="MaxPH" />
+          <ScalarProperty Name="MinPH" ColumnName="MinPH" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="RowID" ColumnName="RowID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
