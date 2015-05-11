@@ -5626,6 +5626,327 @@ namespace tambak.Web
     }
     
     /// <summary>
+    /// The 'FeedingTray' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
+    public sealed partial class FeedingTray : Entity
+    {
+        
+        private Nullable<double> _c10;
+        
+        private Nullable<double> _c14;
+        
+        private Nullable<double> _c18;
+        
+        private Nullable<double> _c6;
+        
+        private Nullable<DateTime> _lastUpdate;
+        
+        private Nullable<DateTime> _logDate;
+        
+        private int _logID;
+        
+        private string _note;
+        
+        private Nullable<int> _productionCycleID;
+        
+        private string _userName;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnC10Changing(Nullable<double> value);
+        partial void OnC10Changed();
+        partial void OnC14Changing(Nullable<double> value);
+        partial void OnC14Changed();
+        partial void OnC18Changing(Nullable<double> value);
+        partial void OnC18Changed();
+        partial void OnC6Changing(Nullable<double> value);
+        partial void OnC6Changed();
+        partial void OnlastUpdateChanging(Nullable<DateTime> value);
+        partial void OnlastUpdateChanged();
+        partial void OnLogDateChanging(Nullable<DateTime> value);
+        partial void OnLogDateChanged();
+        partial void OnlogIDChanging(int value);
+        partial void OnlogIDChanged();
+        partial void OnnoteChanging(string value);
+        partial void OnnoteChanged();
+        partial void OnProductionCycleIDChanging(Nullable<int> value);
+        partial void OnProductionCycleIDChanged();
+        partial void OnuserNameChanging(string value);
+        partial void OnuserNameChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingTray"/> class.
+        /// </summary>
+        public FeedingTray()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'C10' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> C10
+        {
+            get
+            {
+                return this._c10;
+            }
+            set
+            {
+                if ((this._c10 != value))
+                {
+                    this.OnC10Changing(value);
+                    this.RaiseDataMemberChanging("C10");
+                    this.ValidateProperty("C10", value);
+                    this._c10 = value;
+                    this.RaiseDataMemberChanged("C10");
+                    this.OnC10Changed();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'C14' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> C14
+        {
+            get
+            {
+                return this._c14;
+            }
+            set
+            {
+                if ((this._c14 != value))
+                {
+                    this.OnC14Changing(value);
+                    this.RaiseDataMemberChanging("C14");
+                    this.ValidateProperty("C14", value);
+                    this._c14 = value;
+                    this.RaiseDataMemberChanged("C14");
+                    this.OnC14Changed();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'C18' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> C18
+        {
+            get
+            {
+                return this._c18;
+            }
+            set
+            {
+                if ((this._c18 != value))
+                {
+                    this.OnC18Changing(value);
+                    this.RaiseDataMemberChanging("C18");
+                    this.ValidateProperty("C18", value);
+                    this._c18 = value;
+                    this.RaiseDataMemberChanged("C18");
+                    this.OnC18Changed();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'C6' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<double> C6
+        {
+            get
+            {
+                return this._c6;
+            }
+            set
+            {
+                if ((this._c6 != value))
+                {
+                    this.OnC6Changing(value);
+                    this.RaiseDataMemberChanging("C6");
+                    this.ValidateProperty("C6", value);
+                    this._c6 = value;
+                    this.RaiseDataMemberChanged("C6");
+                    this.OnC6Changed();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'lastUpdate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> lastUpdate
+        {
+            get
+            {
+                return this._lastUpdate;
+            }
+            set
+            {
+                if ((this._lastUpdate != value))
+                {
+                    this.OnlastUpdateChanging(value);
+                    this.RaiseDataMemberChanging("lastUpdate");
+                    this.ValidateProperty("lastUpdate", value);
+                    this._lastUpdate = value;
+                    this.RaiseDataMemberChanged("lastUpdate");
+                    this.OnlastUpdateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'LogDate' value.
+        /// </summary>
+        [DataMember()]
+        public Nullable<DateTime> LogDate
+        {
+            get
+            {
+                return this._logDate;
+            }
+            set
+            {
+                if ((this._logDate != value))
+                {
+                    this.OnLogDateChanging(value);
+                    this.RaiseDataMemberChanging("LogDate");
+                    this.ValidateProperty("LogDate", value);
+                    this._logDate = value;
+                    this.RaiseDataMemberChanged("LogDate");
+                    this.OnLogDateChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'logID' value.
+        /// </summary>
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int logID
+        {
+            get
+            {
+                return this._logID;
+            }
+            set
+            {
+                if ((this._logID != value))
+                {
+                    this.OnlogIDChanging(value);
+                    this.ValidateProperty("logID", value);
+                    this._logID = value;
+                    this.RaisePropertyChanged("logID");
+                    this.OnlogIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'note' value.
+        /// </summary>
+        [DataMember()]
+        public string note
+        {
+            get
+            {
+                return this._note;
+            }
+            set
+            {
+                if ((this._note != value))
+                {
+                    this.OnnoteChanging(value);
+                    this.RaiseDataMemberChanging("note");
+                    this.ValidateProperty("note", value);
+                    this._note = value;
+                    this.RaiseDataMemberChanged("note");
+                    this.OnnoteChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ProductionCycleID' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public Nullable<int> ProductionCycleID
+        {
+            get
+            {
+                return this._productionCycleID;
+            }
+            set
+            {
+                if ((this._productionCycleID != value))
+                {
+                    this.OnProductionCycleIDChanging(value);
+                    this.RaiseDataMemberChanging("ProductionCycleID");
+                    this.ValidateProperty("ProductionCycleID", value);
+                    this._productionCycleID = value;
+                    this.RaiseDataMemberChanged("ProductionCycleID");
+                    this.OnProductionCycleIDChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'userName' value.
+        /// </summary>
+        [DataMember()]
+        [StringLength(50)]
+        public string userName
+        {
+            get
+            {
+                return this._userName;
+            }
+            set
+            {
+                if ((this._userName != value))
+                {
+                    this.OnuserNameChanging(value);
+                    this.RaiseDataMemberChanging("userName");
+                    this.ValidateProperty("userName", value);
+                    this._userName = value;
+                    this.RaiseDataMemberChanged("userName");
+                    this.OnuserNameChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._logID;
+        }
+    }
+    
+    /// <summary>
     /// The 'FRGuide' entity class.
     /// </summary>
     [DataContract(Namespace="http://schemas.datacontract.org/2004/07/tambak.Web")]
@@ -19206,6 +19527,134 @@ namespace tambak.Web.DomainServices
             public FeedingRateGuideDSEntityContainer()
             {
                 this.CreateEntitySet<FRGuide>(EntitySetOperations.None);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The DomainContext corresponding to the 'FeedingTrayDS' DomainService.
+    /// </summary>
+    public sealed partial class FeedingTrayDS : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingTrayDS"/> class.
+        /// </summary>
+        public FeedingTrayDS() : 
+                this(new WebDomainClient<IFeedingTrayDSContract>(new Uri("tambak-Web-DomainServices-FeedingTrayDS.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingTrayDS"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The FeedingTrayDS service URI.</param>
+        public FeedingTrayDS(Uri serviceUri) : 
+                this(new WebDomainClient<IFeedingTrayDSContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedingTrayDS"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this DomainContext.</param>
+        public FeedingTrayDS(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="FeedingTray"/> entity instances that have been loaded into this <see cref="FeedingTrayDS"/> instance.
+        /// </summary>
+        public EntitySet<FeedingTray> FeedingTrays
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<FeedingTray>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="FeedingTray"/> entity instances using the 'GetFeedingTrays' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="FeedingTray"/> entity instances.</returns>
+        public EntityQuery<FeedingTray> GetFeedingTraysQuery()
+        {
+            this.ValidateMethod("GetFeedingTraysQuery", null);
+            return base.CreateQuery<FeedingTray>("GetFeedingTrays", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new EntityContainer for this DomainContext's EntitySets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new FeedingTrayDSEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'FeedingTrayDS' DomainService.
+        /// </summary>
+        [ServiceContract()]
+        public interface IFeedingTrayDSContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetFeedingTrays' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/FeedingTrayDS/GetFeedingTraysDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/FeedingTrayDS/GetFeedingTrays", ReplyAction="http://tempuri.org/FeedingTrayDS/GetFeedingTraysResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetFeedingTrays(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetFeedingTrays'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetFeedingTrays'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetFeedingTrays' operation.</returns>
+            QueryResult<FeedingTray> EndGetFeedingTrays(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'SubmitChanges' operation.
+            /// </summary>
+            /// <param name="changeSet">The change-set to submit.</param>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/FeedingTrayDS/SubmitChangesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/FeedingTrayDS/SubmitChanges", ReplyAction="http://tempuri.org/FeedingTrayDS/SubmitChangesResponse")]
+            IAsyncResult BeginSubmitChanges(IEnumerable<ChangeSetEntry> changeSet, AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginSubmitChanges'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginSubmitChanges'.</param>
+            /// <returns>The collection of change-set entry elements returned from 'SubmitChanges'.</returns>
+            IEnumerable<ChangeSetEntry> EndSubmitChanges(IAsyncResult result);
+        }
+        
+        internal sealed class FeedingTrayDSEntityContainer : EntityContainer
+        {
+            
+            public FeedingTrayDSEntityContainer()
+            {
+                this.CreateEntitySet<FeedingTray>(EntitySetOperations.All);
             }
         }
     }

@@ -19,6 +19,7 @@
     <EntitySet Name="DeliveryLog" EntityType="CPLModel.Store.DeliveryLog" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Facilities" EntityType="CPLModel.Store.Facilities" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="FeedingLogs" EntityType="CPLModel.Store.FeedingLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeedingTray" EntityType="CPLModel.Store.FeedingTray" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="FRGuide" EntityType="CPLModel.Store.FRGuide" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Harvest" EntityType="CPLModel.Store.Harvest" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MasterCurrency" EntityType="CPLModel.Store.MasterCurrency" store:Type="Tables" Schema="dbo" />
@@ -318,6 +319,10 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="FeedingLogs" EntitySet="FeedingLogs" />
     </AssociationSet>
+    <AssociationSet Name="FK_FeedingTray_PondsProductionCycles" Association="CPLModel.Store.FK_FeedingTray_PondsProductionCycles">
+      <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+      <End Role="FeedingTray" EntitySet="FeedingTray" />
+    </AssociationSet>
     <AssociationSet Name="FK_MasterCurrency_CurrencyShortCode" Association="CPLModel.Store.FK_MasterCurrency_CurrencyShortCode">
       <End Role="MasterCurrency" EntitySet="MasterCurrency" />
       <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
@@ -607,6 +612,21 @@
     <Property Name="ProductionCycleID" Type="int" Nullable="false" />
     <Property Name="UserID" Type="nvarchar" MaxLength="255" />
     <Property Name="ProductID" Type="int" />
+  </EntityType>
+  <EntityType Name="FeedingTray">
+    <Key>
+      <PropertyRef Name="logID" />
+    </Key>
+    <Property Name="logID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductionCycleID" Type="int" />
+    <Property Name="LogDate" Type="date" />
+    <Property Name="6" Type="float" />
+    <Property Name="10" Type="float" />
+    <Property Name="14" Type="float" />
+    <Property Name="18" Type="float" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastUpdate" Type="datetime" />
   </EntityType>
   <EntityType Name="FRGuide">
     <Key>
@@ -1460,6 +1480,18 @@
       </Principal>
       <Dependent Role="FeedingLogs">
         <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedingTray_PondsProductionCycles">
+    <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="0..1" />
+    <End Role="FeedingTray" Type="CPLModel.Store.FeedingTray" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycles">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="FeedingTray">
+        <PropertyRef Name="ProductionCycleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

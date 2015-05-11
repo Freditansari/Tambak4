@@ -38,4 +38,3 @@ C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.Ta
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.csproj.GenerateResource.Cache
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.pdb
-C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.csprojResolveAssemblyReference.cache

@@ -363,6 +363,69 @@
                     </Grid>
                 </Grid>
             </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Feeding Tray">
+                <Grid Background="Transparent">
+                    <riaControls:DomainDataSource x:Name="feedingTrayDomainDataSource" AutoLoad="False" Height="0" LoadedData="feedingTrayDomainDataSource_LoadedData" QueryName="GetFeedingTraysQuery" Width="0" d:DesignData="{d:DesignInstance Web:FeedingTray, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:FeedingTrayDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid8" DataContext="{Binding Data, ElementName=feedingTrayDomainDataSource}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="C 10:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <TextBox x:Name="c10TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding C10, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="C 14:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="c14TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding C14, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="C 18:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="c18TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding C18, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="C 6:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="c6TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding C6, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <sdk:DatePicker x:Name="logDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" SelectedDate="{Binding LogDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                        <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="last Update:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                        <sdk:DatePicker x:Name="lastUpdateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" SelectedDate="{Binding lastUpdate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
+                        <sdk:Label Content="log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                        <TextBox x:Name="logIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding logID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                        <sdk:Label Content="note:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <TextBox x:Name="noteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding note, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <sdk:Label Content="user Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                        <TextBox x:Name="userNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding userName, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="313" Margin="261,10,0,0" VerticalAlignment="Top" Width="793">
+                        <telerik:RadGridView AutoGenerateColumns="False" x:Name="feedingTrayRadGridView" ItemsSource="{Binding Data, ElementName=feedingTrayDomainDataSource}" Margin="2,2,10,10" SelectionChanged="feedingTrayRadGridView_SelectionChanged">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding LogID}" Header="LogID"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductionCycleID}" Header="CycleID"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding LogDate}" Header="Log Date"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding C6}" Header="6:00"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding C10}" Header="10:00"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding C14}" Header="14:00"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding C18}" Header="18:00"/>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding note}" Header="Note"/>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </Grid>
+                    <Button x:Name="NewFeedingTrayButton" Content="New" HorizontalAlignment="Left" Margin="181,315,0,0" VerticalAlignment="Top" Width="75" Click="NewFeedingTrayButton_Click"/>
+                    <Button x:Name="updateFeedingTrayButton" Content="Update" HorizontalAlignment="Left" Margin="101,315,0,0" VerticalAlignment="Top" Width="75" Click="updateFeedingTrayButton_Click"/>
+                </Grid>
+            </telerik:RadTabItem>
         </telerik:RadTabControl>
 
     </Grid>

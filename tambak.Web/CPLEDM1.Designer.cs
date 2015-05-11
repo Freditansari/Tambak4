@@ -60,6 +60,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_PondConsumptionsLog_PondsProductionCycle", "PondsProductionCycle", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.PondsProductionCycle), "PondConsumptionsLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.PondConsumptionsLog), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_PondConsumptionsLog_Products", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(tambak.Web.Product), "PondConsumptionsLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.PondConsumptionsLog), true)]
 [assembly: EdmRelationshipAttribute("CPLModel", "FK_WaterParameterLog_PondsProductionCycle", "PondsProductionCycle", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(tambak.Web.PondsProductionCycle), "WaterParameterLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.WaterParameterLog), true)]
+[assembly: EdmRelationshipAttribute("CPLModel", "FK_FeedingTray_PondsProductionCycles", "PondsProductionCycle", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(tambak.Web.PondsProductionCycle), "FeedingTray", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(tambak.Web.FeedingTray), true)]
 
 #endregion
 
@@ -1038,6 +1039,22 @@ namespace tambak.Web
             }
         }
         private ObjectSet<WaterParameterRangeView> _WaterParameterRangeViews;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FeedingTray> FeedingTrays
+        {
+            get
+            {
+                if ((_FeedingTrays == null))
+                {
+                    _FeedingTrays = base.CreateObjectSet<FeedingTray>("FeedingTrays");
+                }
+                return _FeedingTrays;
+            }
+        }
+        private ObjectSet<FeedingTray> _FeedingTrays;
 
         #endregion
 
@@ -1505,6 +1522,14 @@ namespace tambak.Web
         public void AddToWaterParameterRangeViews(WaterParameterRangeView waterParameterRangeView)
         {
             base.AddObject("WaterParameterRangeViews", waterParameterRangeView);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FeedingTrays EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFeedingTrays(FeedingTray feedingTray)
+        {
+            base.AddObject("FeedingTrays", feedingTray);
         }
 
         #endregion
@@ -6971,6 +6996,320 @@ namespace tambak.Web
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="FeedingTray")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FeedingTray : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new FeedingTray object.
+        /// </summary>
+        /// <param name="logID">Initial value of the logID property.</param>
+        public static FeedingTray CreateFeedingTray(global::System.Int32 logID)
+        {
+            FeedingTray feedingTray = new FeedingTray();
+            feedingTray.logID = logID;
+            return feedingTray;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 logID
+        {
+            get
+            {
+                return _logID;
+            }
+            set
+            {
+                if (_logID != value)
+                {
+                    OnlogIDChanging(value);
+                    ReportPropertyChanging("logID");
+                    _logID = StructuralObject.SetValidValue(value, "logID");
+                    ReportPropertyChanged("logID");
+                    OnlogIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _logID;
+        partial void OnlogIDChanging(global::System.Int32 value);
+        partial void OnlogIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ProductionCycleID
+        {
+            get
+            {
+                return _ProductionCycleID;
+            }
+            set
+            {
+                OnProductionCycleIDChanging(value);
+                ReportPropertyChanging("ProductionCycleID");
+                _ProductionCycleID = StructuralObject.SetValidValue(value, "ProductionCycleID");
+                ReportPropertyChanged("ProductionCycleID");
+                OnProductionCycleIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ProductionCycleID;
+        partial void OnProductionCycleIDChanging(Nullable<global::System.Int32> value);
+        partial void OnProductionCycleIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> LogDate
+        {
+            get
+            {
+                return _LogDate;
+            }
+            set
+            {
+                OnLogDateChanging(value);
+                ReportPropertyChanging("LogDate");
+                _LogDate = StructuralObject.SetValidValue(value, "LogDate");
+                ReportPropertyChanged("LogDate");
+                OnLogDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _LogDate;
+        partial void OnLogDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnLogDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> C6
+        {
+            get
+            {
+                return _C6;
+            }
+            set
+            {
+                OnC6Changing(value);
+                ReportPropertyChanging("C6");
+                _C6 = StructuralObject.SetValidValue(value, "C6");
+                ReportPropertyChanged("C6");
+                OnC6Changed();
+            }
+        }
+        private Nullable<global::System.Double> _C6;
+        partial void OnC6Changing(Nullable<global::System.Double> value);
+        partial void OnC6Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> C10
+        {
+            get
+            {
+                return _C10;
+            }
+            set
+            {
+                OnC10Changing(value);
+                ReportPropertyChanging("C10");
+                _C10 = StructuralObject.SetValidValue(value, "C10");
+                ReportPropertyChanged("C10");
+                OnC10Changed();
+            }
+        }
+        private Nullable<global::System.Double> _C10;
+        partial void OnC10Changing(Nullable<global::System.Double> value);
+        partial void OnC10Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> C14
+        {
+            get
+            {
+                return _C14;
+            }
+            set
+            {
+                OnC14Changing(value);
+                ReportPropertyChanging("C14");
+                _C14 = StructuralObject.SetValidValue(value, "C14");
+                ReportPropertyChanged("C14");
+                OnC14Changed();
+            }
+        }
+        private Nullable<global::System.Double> _C14;
+        partial void OnC14Changing(Nullable<global::System.Double> value);
+        partial void OnC14Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> C18
+        {
+            get
+            {
+                return _C18;
+            }
+            set
+            {
+                OnC18Changing(value);
+                ReportPropertyChanging("C18");
+                _C18 = StructuralObject.SetValidValue(value, "C18");
+                ReportPropertyChanged("C18");
+                OnC18Changed();
+            }
+        }
+        private Nullable<global::System.Double> _C18;
+        partial void OnC18Changing(Nullable<global::System.Double> value);
+        partial void OnC18Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String note
+        {
+            get
+            {
+                return _note;
+            }
+            set
+            {
+                OnnoteChanging(value);
+                ReportPropertyChanging("note");
+                _note = StructuralObject.SetValidValue(value, true, "note");
+                ReportPropertyChanged("note");
+                OnnoteChanged();
+            }
+        }
+        private global::System.String _note;
+        partial void OnnoteChanging(global::System.String value);
+        partial void OnnoteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String userName
+        {
+            get
+            {
+                return _userName;
+            }
+            set
+            {
+                OnuserNameChanging(value);
+                ReportPropertyChanging("userName");
+                _userName = StructuralObject.SetValidValue(value, true, "userName");
+                ReportPropertyChanged("userName");
+                OnuserNameChanged();
+            }
+        }
+        private global::System.String _userName;
+        partial void OnuserNameChanging(global::System.String value);
+        partial void OnuserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> lastUpdate
+        {
+            get
+            {
+                return _lastUpdate;
+            }
+            set
+            {
+                OnlastUpdateChanging(value);
+                ReportPropertyChanging("lastUpdate");
+                _lastUpdate = StructuralObject.SetValidValue(value, "lastUpdate");
+                ReportPropertyChanged("lastUpdate");
+                OnlastUpdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _lastUpdate;
+        partial void OnlastUpdateChanging(Nullable<global::System.DateTime> value);
+        partial void OnlastUpdateChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_FeedingTray_PondsProductionCycles", "PondsProductionCycle")]
+        public PondsProductionCycle PondsProductionCycle
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_FeedingTray_PondsProductionCycles", "PondsProductionCycle").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_FeedingTray_PondsProductionCycles", "PondsProductionCycle").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PondsProductionCycle> PondsProductionCycleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PondsProductionCycle>("CPLModel.FK_FeedingTray_PondsProductionCycles", "PondsProductionCycle");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PondsProductionCycle>("CPLModel.FK_FeedingTray_PondsProductionCycles", "PondsProductionCycle", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="CPLModel", Name="FRGuide")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -9974,6 +10313,28 @@ namespace tambak.Web
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WaterParameterLog>("CPLModel.FK_WaterParameterLog_PondsProductionCycle", "WaterParameterLog", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CPLModel", "FK_FeedingTray_PondsProductionCycles", "FeedingTray")]
+        public EntityCollection<FeedingTray> FeedingTrays
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FeedingTray>("CPLModel.FK_FeedingTray_PondsProductionCycles", "FeedingTray");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FeedingTray>("CPLModel.FK_FeedingTray_PondsProductionCycles", "FeedingTray", value);
                 }
             }
         }

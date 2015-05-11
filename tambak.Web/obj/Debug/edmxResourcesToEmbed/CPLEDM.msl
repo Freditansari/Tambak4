@@ -842,5 +842,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FeedingTrays">
+      <EntityTypeMapping TypeName="CPLModel.FeedingTray">
+        <MappingFragment StoreEntitySet="FeedingTray">
+          <ScalarProperty Name="lastUpdate" ColumnName="lastUpdate" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="C18" ColumnName="18" />
+          <ScalarProperty Name="C14" ColumnName="14" />
+          <ScalarProperty Name="C10" ColumnName="10" />
+          <ScalarProperty Name="C6" ColumnName="6" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+          <ScalarProperty Name="logID" ColumnName="logID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

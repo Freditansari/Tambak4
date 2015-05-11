@@ -223,6 +223,11 @@
     </AssociationSet>
     <EntitySet Name="Calendars" EntityType="CPLModel.Calendar" />
     <EntitySet Name="WaterParameterRangeViews" EntityType="CPLModel.WaterParameterRangeView" />
+    <EntitySet Name="FeedingTrays" EntityType="CPLModel.FeedingTray" />
+    <AssociationSet Name="FK_FeedingTray_PondsProductionCycles" Association="CPLModel.FK_FeedingTray_PondsProductionCycles">
+      <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
+      <End Role="FeedingTray" EntitySet="FeedingTrays" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -302,6 +307,7 @@
     <NavigationProperty Name="BatchDetails" Relationship="CPLModel.FK_BatchDetails_PondsProductionCycles" FromRole="PondsProductionCycle" ToRole="BatchDetail" />
     <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="PondConsumptionsLog" />
     <NavigationProperty Name="WaterParameterLogs" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="WaterParameterLog" />
+    <NavigationProperty Name="FeedingTrays" Relationship="CPLModel.FK_FeedingTray_PondsProductionCycles" FromRole="PondsProductionCycle" ToRole="FeedingTray" />
   </EntityType>
   <EntityType Name="ProductPurchaseLog">
     <Key>
@@ -1600,4 +1606,32 @@
     <Property Type="Double" Name="TemperatureRange" />
     <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
   </EntityType>
+  <EntityType Name="FeedingTray">
+    <Key>
+      <PropertyRef Name="logID" />
+    </Key>
+    <Property Type="Int32" Name="logID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductionCycleID" />
+    <Property Type="DateTime" Name="LogDate" Precision="0" />
+    <Property Type="Double" Name="C6" />
+    <Property Type="Double" Name="C10" />
+    <Property Type="Double" Name="C14" />
+    <Property Type="Double" Name="C18" />
+    <Property Type="String" Name="note" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="userName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="lastUpdate" Precision="3" />
+    <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_FeedingTray_PondsProductionCycles" FromRole="FeedingTray" ToRole="PondsProductionCycle" />
+  </EntityType>
+  <Association Name="FK_FeedingTray_PondsProductionCycles">
+    <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="0..1" />
+    <End Type="CPLModel.FeedingTray" Role="FeedingTray" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PondsProductionCycle">
+        <PropertyRef Name="ProductionCycleID" />
+      </Principal>
+      <Dependent Role="FeedingTray">
+        <PropertyRef Name="ProductionCycleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

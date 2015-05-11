@@ -1,0 +1,112 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" mc:Ignorable="d" x:Class="tambak.Views.Popups.NewFeedingTrayChildWindow"
+           Width="414" Height="528" 
+           Title="New Feeding Tray">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <riaControls:DomainDataSource x:Name="feedingTrayDomainDataSource" AutoLoad="False" Height="0" LoadedData="feedingTrayDomainDataSource_LoadedData" QueryName="GetFeedingTraysQuery" Width="0" d:DesignData="{d:DesignInstance Web:FeedingTray, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:FeedingTrayDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <Grid x:Name="grid1" DataContext="{Binding Data, ElementName=feedingTrayDomainDataSource}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="C 10:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="c10TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding C10, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+            <TextBox x:Name="c10TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="-1" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="C 14:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="c14TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding C14, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+            <TextBox x:Name="c14TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="-1" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="C 18:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="c18TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding C18, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+            <TextBox x:Name="c18TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="-1" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="C 6:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="c6TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding C6, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+            <TextBox x:Name="c6TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="-1" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Log Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <controls:DatePicker x:Name="logDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" SelectedDate="{Binding LogDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="Pond Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <ComboBox x:Name="pondDescriptionComboBox" Grid.Column="1"  DisplayMemberPath="PondDescription" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Data, ElementName=pondDomainDataSource}" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" SelectionChanged="pondDescriptionComboBox_SelectionChanged">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
+            <ComboBox x:Name="productionCycleIDComboBox" Grid.Column="1" DisplayMemberPath="ProductionCycleID" HorizontalAlignment="Left" Height="Auto" Margin="3,0,0,3" Grid.Row="6" VerticalAlignment="Bottom" Width="120" SelectionChanged="productionCycleIDComboBox_SelectionChanged">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+            <sdk:Label Content="last Update:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+            <controls:DatePicker x:Name="lastUpdateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" SelectedDate="{Binding lastUpdate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsEnabled="False"/>
+            <sdk:Label Content="log ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+            <TextBox x:Name="logIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding logID, Mode=OneWay}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <sdk:Label Content="note:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+            <TextBox x:Name="noteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding note, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <sdk:Label Content="user Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+            <TextBox x:Name="userNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding userName, Mode=TwoWay, NotifyOnValidationError=true, TargetNullValue='', ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+        </Grid>
+        <Button x:Name="NewFeedingTrayRecordButton" Content="New" HorizontalAlignment="Left" Margin="181,324,0,0" VerticalAlignment="Top" Width="75" Click="NewFeedingTrayRecordButton_Click"/>
+        <riaControls:DomainDataSource x:Name="pondDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondDomainDataSource_LoadedData" QueryName="GetPondsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Pond, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PondsDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <!--<Grid x:Name="grid2" DataContext="{Binding Data, ElementName=pondDomainDataSource}" HorizontalAlignment="Left" Margin="103,353,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+        </Grid>-->
+        <riaControls:DomainDataSource x:Name="pondsProductionCycleDomainDataSource" AutoLoad="True" Height="0" LoadedData="pondsProductionCycleDomainDataSource_LoadedData" QueryName="GetPondsProductionCyclesQuery" Width="0" d:DesignData="{d:DesignInstance Web:PondsProductionCycle, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:PondsProductionCycleDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <!--<Grid x:Name="grid3" DataContext="{Binding Data, ElementName=pondsProductionCycleDomainDataSource}" HorizontalAlignment="Left" Margin="103,384,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            
+        </Grid>-->
+    </Grid>
+</controls:ChildWindow>

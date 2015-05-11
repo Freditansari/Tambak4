@@ -303,6 +303,9 @@
     <Compile Include="Views\Popups\NewFeedingLogChildWindows.xaml.cs">
       <DependentUpon>NewFeedingLogChildWindows.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\NewFeedingTrayChildWindow.xaml.cs">
+      <DependentUpon>NewFeedingTrayChildWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\NewSamplingLogWindow.xaml.cs">
       <DependentUpon>NewSamplingLogWindow.xaml</DependentUpon>
     </Compile>
@@ -537,6 +540,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Popups\NewFeedingTrayChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Popups\NewSamplingLogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -628,6 +635,7 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FacilityDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingAuditViewDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingRateGuideDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.FeedingTrayDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.FourteenDaysFeedEstimateDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.HarvestDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.MasterCurrencyDS.datasource" />
@@ -651,6 +659,7 @@
     <None Include="Properties\DataSources\tambak.Web.DomainServices.TotalSevenDaysFeedDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.UnitofMeasurementDS.datasource" />
     <None Include="Properties\DataSources\tambak.Web.DomainServices.WaterParameterRangedDS.datasource" />
+    <None Include="Properties\DataSources\tambak.Web.DomainServices.WaterParameterRangeDS.datasource" />
     <None Include="Service References\addRoleServiceReference\addRoleService.disco" />
     <None Include="Service References\addRoleServiceReference\configuration91.svcinfo" />
     <None Include="Service References\addRoleServiceReference\configuration.svcinfo" />

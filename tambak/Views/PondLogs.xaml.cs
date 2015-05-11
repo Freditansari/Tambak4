@@ -48,8 +48,8 @@ namespace tambak.Views
         AverageDailyFeedSummaryDS averagedailyFeedContext = new AverageDailyFeedSummaryDS();
         FeedingRateGuideDS feedingRateGuideDomainContext = new FeedingRateGuideDS();
 
-        
-
+        FeedingTrayDS newFeedingTrayDomainContext = new FeedingTrayDS();
+        public FeedingTray SelectedFeedingTray { get; set; }
         //SamplingLogs samplinglogData = new SamplingLogs();
 
         tambak.Web.PondsProductionCycle selectedID = new Web.PondsProductionCycle();
@@ -282,6 +282,7 @@ namespace tambak.Views
 
             loadFeedingLog();
             LoadWaterParameter();
+            loadSelectedFeedingTray();
             
             //loadPreviousSamplingLog();
             //productionCycleIDTextBox2.Text = productionCycleIDTextBox3.Text;
@@ -1394,6 +1395,56 @@ namespace tambak.Views
             LoadWaterParameter();
         }
 
+        private void feedingTrayDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void NewFeedingTrayButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewFeedingTrayChildWindow feedingTrayChildWindow = new NewFeedingTrayChildWindow();
+            feedingTrayChildWindow.Show();
+            feedingTrayChildWindow.Closed += feedingTrayChildWindow_Closed;
+        }
+
+        void feedingTrayChildWindow_Closed(object sender, EventArgs e)
+        {
+            loadSelectedFeedingTray();
+        }
+
+        private void loadSelectedFeedingTray()
+        {
+            newFeedingTrayDomainContext = new FeedingTrayDS();
+			EntityQuery<FeedingTray> bb = from b in newFeedingTrayDomainContext.GetFeedingTraysQuery() where b.ProductionCycleID == Convert.ToInt32(productionCycleIDTextBox3.Text)  select b;
+            LoadOperation<FeedingTray> res = newFeedingTrayDomainContext.Load(bb, new Action<LoadOperation<FeedingTray>>(loadFeedingTray_Completed), true);
+			
+        }
+
+        private void loadFeedingTray_Completed(LoadOperation<FeedingTray> obj)
+        {
+            feedingTrayRadGridView.ItemsSource = newFeedingTrayDomainContext.FeedingTrays;
+        }
+
+        private void feedingTrayRadGridView_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
+        {
+            SelectedFeedingTray = this.feedingTrayRadGridView.SelectedItem as FeedingTray;
+            grid8.DataContext = SelectedFeedingTray;
+        }
+
+        private void updateFeedingTrayButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedFeedingTray.userName = WebContext.Current.User.ToString();
+            SelectedFeedingTray.lastUpdate = DateTime.Now;
+            newFeedingTrayDomainContext.SubmitChanges();
+        }
+
+        
+
        
 
         //private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -1424,5 +1475,7 @@ namespace tambak.Views
         //        MessageBox.Show(f.Message);
         //    }
         //}
+
+       
     }
 }

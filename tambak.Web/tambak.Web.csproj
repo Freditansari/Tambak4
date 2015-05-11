@@ -210,6 +210,8 @@
     <Compile Include="DomainServices\FeedingLogsDS.metadata.cs" />
     <Compile Include="DomainServices\FeedingRateGuideDS.cs" />
     <Compile Include="DomainServices\FeedingRateGuideDS.metadata.cs" />
+    <Compile Include="DomainServices\FeedingTrayDS.cs" />
+    <Compile Include="DomainServices\FeedingTrayDS.metadata.cs" />
     <Compile Include="DomainServices\FourteenDaysFeedEstimateDS.cs" />
     <Compile Include="DomainServices\FourteenDaysFeedEstimateDS.metadata.cs" />
     <Compile Include="DomainServices\HarvestDS.cs" />

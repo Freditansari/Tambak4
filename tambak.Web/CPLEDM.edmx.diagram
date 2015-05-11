@@ -104,6 +104,8 @@
         <AssociationConnector Association="CPLModel.FK_WaterParameterLog_PondsProductionCycle" />
         <EntityTypeShape EntityType="CPLModel.Calendar" Width="1.5" PointX="5.2095171591311304" PointY="27.095794735055321" />
         <EntityTypeShape EntityType="CPLModel.WaterParameterRangeView" Width="1.5" PointX="5.69585123550885" PointY="14.733973092741321" />
+        <EntityTypeShape EntityType="CPLModel.FeedingTray" Width="1.5" PointX="1.7251697656350069" PointY="30.857242762510314" />
+        <AssociationConnector Association="CPLModel.FK_FeedingTray_PondsProductionCycles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

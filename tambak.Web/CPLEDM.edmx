@@ -24,6 +24,7 @@
           <EntitySet Name="DeliveryLog" EntityType="CPLModel.Store.DeliveryLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Facilities" EntityType="CPLModel.Store.Facilities" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FeedingLogs" EntityType="CPLModel.Store.FeedingLogs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FeedingTray" EntityType="CPLModel.Store.FeedingTray" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FRGuide" EntityType="CPLModel.Store.FRGuide" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Harvest" EntityType="CPLModel.Store.Harvest" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MasterCurrency" EntityType="CPLModel.Store.MasterCurrency" store:Type="Tables" Schema="dbo" />
@@ -323,6 +324,10 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="FeedingLogs" EntitySet="FeedingLogs" />
           </AssociationSet>
+          <AssociationSet Name="FK_FeedingTray_PondsProductionCycles" Association="CPLModel.Store.FK_FeedingTray_PondsProductionCycles">
+            <End Role="PondsProductionCycles" EntitySet="PondsProductionCycles" />
+            <End Role="FeedingTray" EntitySet="FeedingTray" />
+          </AssociationSet>
           <AssociationSet Name="FK_MasterCurrency_CurrencyShortCode" Association="CPLModel.Store.FK_MasterCurrency_CurrencyShortCode">
             <End Role="MasterCurrency" EntitySet="MasterCurrency" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
@@ -612,6 +617,21 @@
           <Property Name="ProductionCycleID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="nvarchar" MaxLength="255" />
           <Property Name="ProductID" Type="int" />
+        </EntityType>
+        <EntityType Name="FeedingTray">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductionCycleID" Type="int" />
+          <Property Name="LogDate" Type="date" />
+          <Property Name="6" Type="float" />
+          <Property Name="10" Type="float" />
+          <Property Name="14" Type="float" />
+          <Property Name="18" Type="float" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastUpdate" Type="datetime" />
         </EntityType>
         <EntityType Name="FRGuide">
           <Key>
@@ -1468,6 +1488,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FeedingTray_PondsProductionCycles">
+          <End Role="PondsProductionCycles" Type="CPLModel.Store.PondsProductionCycles" Multiplicity="0..1" />
+          <End Role="FeedingTray" Type="CPLModel.Store.FeedingTray" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PondsProductionCycles">
+              <PropertyRef Name="ProductionCycleID" />
+            </Principal>
+            <Dependent Role="FeedingTray">
+              <PropertyRef Name="ProductionCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MasterCurrency_CurrencyShortCode">
           <End Role="MasterCurrency" Type="CPLModel.Store.MasterCurrency" Multiplicity="0..1" />
           <End Role="PurchaseOrders" Type="CPLModel.Store.PurchaseOrders" Multiplicity="*" />
@@ -2019,6 +2051,11 @@
           </AssociationSet>
           <EntitySet Name="Calendars" EntityType="CPLModel.Calendar" />
           <EntitySet Name="WaterParameterRangeViews" EntityType="CPLModel.WaterParameterRangeView" />
+          <EntitySet Name="FeedingTrays" EntityType="CPLModel.FeedingTray" />
+          <AssociationSet Name="FK_FeedingTray_PondsProductionCycles" Association="CPLModel.FK_FeedingTray_PondsProductionCycles">
+            <End Role="PondsProductionCycle" EntitySet="PondsProductionCycles" />
+            <End Role="FeedingTray" EntitySet="FeedingTrays" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -2098,6 +2135,7 @@
           <NavigationProperty Name="BatchDetails" Relationship="CPLModel.FK_BatchDetails_PondsProductionCycles" FromRole="PondsProductionCycle" ToRole="BatchDetail" />
           <NavigationProperty Name="PondConsumptionsLogs" Relationship="CPLModel.FK_PondConsumptionsLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="PondConsumptionsLog" />
           <NavigationProperty Name="WaterParameterLogs" Relationship="CPLModel.FK_WaterParameterLog_PondsProductionCycle" FromRole="PondsProductionCycle" ToRole="WaterParameterLog" />
+          <NavigationProperty Name="FeedingTrays" Relationship="CPLModel.FK_FeedingTray_PondsProductionCycles" FromRole="PondsProductionCycle" ToRole="FeedingTray" />
         </EntityType>
         <EntityType Name="ProductPurchaseLog">
           <Key>
@@ -3396,6 +3434,34 @@
           <Property Type="Double" Name="TemperatureRange" />
           <Property Type="Int32" Name="ProductionCycleID" Nullable="false" />
         </EntityType>
+        <EntityType Name="FeedingTray">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Type="Int32" Name="logID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProductionCycleID" />
+          <Property Type="DateTime" Name="LogDate" Precision="0" />
+          <Property Type="Double" Name="C6" />
+          <Property Type="Double" Name="C10" />
+          <Property Type="Double" Name="C14" />
+          <Property Type="Double" Name="C18" />
+          <Property Type="String" Name="note" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="userName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="lastUpdate" Precision="3" />
+          <NavigationProperty Name="PondsProductionCycle" Relationship="CPLModel.FK_FeedingTray_PondsProductionCycles" FromRole="FeedingTray" ToRole="PondsProductionCycle" />
+        </EntityType>
+        <Association Name="FK_FeedingTray_PondsProductionCycles">
+          <End Type="CPLModel.PondsProductionCycle" Role="PondsProductionCycle" Multiplicity="0..1" />
+          <End Type="CPLModel.FeedingTray" Role="FeedingTray" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PondsProductionCycle">
+              <PropertyRef Name="ProductionCycleID" />
+            </Principal>
+            <Dependent Role="FeedingTray">
+              <PropertyRef Name="ProductionCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4240,6 +4306,22 @@
                 <ScalarProperty Name="MinPH" ColumnName="MinPH" />
                 <ScalarProperty Name="LogDate" ColumnName="LogDate" />
                 <ScalarProperty Name="RowID" ColumnName="RowID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeedingTrays">
+            <EntityTypeMapping TypeName="CPLModel.FeedingTray">
+              <MappingFragment StoreEntitySet="FeedingTray">
+                <ScalarProperty Name="lastUpdate" ColumnName="lastUpdate" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="C18" ColumnName="18" />
+                <ScalarProperty Name="C14" ColumnName="14" />
+                <ScalarProperty Name="C10" ColumnName="10" />
+                <ScalarProperty Name="C6" ColumnName="6" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="ProductionCycleID" ColumnName="ProductionCycleID" />
+                <ScalarProperty Name="logID" ColumnName="logID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
