@@ -112,20 +112,26 @@ namespace tambak.Views.Charts
 
 
             DataSeries lineSeries = new DataSeries();
-            DataSeries StandardSeries = new DataSeries();
+            DataSeries MaxPHSeries = new DataSeries();
+            DataSeries minPHSeries = new DataSeries();
 
             PHRangeChart.DefaultView.ChartArea.DataSeries.Clear();
             PHRangeChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
             PHRangeChart.DefaultView.ChartTitle.Content = "PH Range";
             lineSeries.Definition = new LineSeriesDefinition();
-            //StandardSeries.Definition = new LineSeriesDefinition();
+            MaxPHSeries.Definition = new LineSeriesDefinition();
+            minPHSeries.Definition = new LineSeriesDefinition();
 
             foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                MaxPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                minPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
                 //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
             }
             PHRangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            PHRangeChart.DefaultView.ChartArea.DataSeries.Add(MaxPHSeries);
+            PHRangeChart.DefaultView.ChartArea.DataSeries.Add(minPHSeries);
 
             loadDoRange();
 
@@ -134,20 +140,26 @@ namespace tambak.Views.Charts
         private void loadDoRange()
         {
             DataSeries lineSeries = new DataSeries();
-            DataSeries StandardSeries = new DataSeries();
+            DataSeries MaxDOSeries = new DataSeries();
+            DataSeries minDOSeries = new DataSeries();
 
             DOrangeChart.DefaultView.ChartArea.DataSeries.Clear();
             DOrangeChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
             DOrangeChart.DefaultView.ChartTitle.Content = "DO Range";
             lineSeries.Definition = new LineSeriesDefinition();
+            MaxDOSeries.Definition = new LineSeriesDefinition();
+            minDOSeries.Definition = new LineSeriesDefinition();
             //StandardSeries.Definition = new LineSeriesDefinition();
 
             foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangeDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
+                MaxDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                minDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
             }
             DOrangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            DOrangeChart.DefaultView.ChartArea.DataSeries.Add(MaxDOSeries);
+            DOrangeChart.DefaultView.ChartArea.DataSeries.Add(minDOSeries);
 
             loadTOMMax();
         }
