@@ -109,5 +109,20 @@
             <!--<TextBox x:Name="plannedManHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding plannedManHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>-->
             <TextBox x:Name="plannedManHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="0" VerticalAlignment="Center" Width="120"/>
         </Grid>
+      
+        <Grid HorizontalAlignment="Left" Height="426" Margin="643,0,0,0" VerticalAlignment="Top" Width="701">
+            <!--<telerik:RadGridView x:Name="productRadGridView" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=productDomainDataSource}" Margin="0,0,23,209">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductName}" Header="Product Name"/>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding UOM}" Header="UOM"/>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>-->
+        </Grid>
+        
+        <riaControls:DomainDataSource x:Name="productRequiredViewDomainDataSource" AutoLoad="False" Height="0" LoadedData="productRequiredViewDomainDataSource_LoadedData" QueryName="GetProductRequiredViewsQuery" Width="0" d:DesignData="{d:DesignInstance Web:ProductRequiredView, CreateList=true}">
+            <riaControls:DomainDataSource.DomainContext>
+                <DomainServices:ProductRequiredViewDS/>
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
     </Grid>
 </controls:ChildWindow>

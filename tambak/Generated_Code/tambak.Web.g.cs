@@ -10018,6 +10018,7 @@ namespace tambak.Web
         /// Gets or sets the 'Amount' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         public Nullable<decimal> Amount
         {
             get

@@ -103,8 +103,62 @@
                         <sdk:Label Content="planned Man Hours:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
                         <TextBox x:Name="plannedManHoursTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding plannedManHours, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                     </Grid>
-                    <telerik:RadGridView x:Name="taskRadGridView" ItemsSource="{Binding Data, ElementName=taskDomainDataSource}" Margin="274,60,65,56" SelectionChanged="taskRadGridView_SelectionChanged" SelectionMode="Multiple"/>
+                    <telerik:RadGridView x:Name="taskRadGridView" ItemsSource="{Binding Data, ElementName=taskDomainDataSource}" Margin="274,60,10,244" SelectionChanged="taskRadGridView_SelectionChanged" SelectionMode="Single"/>
                     <Button x:Name="updateTaskButton" Content="Update" HorizontalAlignment="Left" Margin="354,14,0,0" VerticalAlignment="Top" Width="75" Click="updateTaskButton_Click"/>
+                    <riaControls:DomainDataSource x:Name="productRequiredViewDomainDataSource" AutoLoad="False" Height="0" LoadedData="productRequiredViewDomainDataSource_LoadedData" QueryName="GetProductRequiredViewsQuery" Width="0" d:DesignData="{d:DesignInstance Web:ProductRequiredView, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductRequiredViewDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid x:Name="productRequiredViewDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Data, ElementName=productRequiredViewDomainDataSource}" Margin="274,352,664,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <sdk:DataGrid.Columns>
+                            
+                            <!--<sdk:DataGridTemplateColumn x:Name="dueDateColumn" Header="Due Date" Width="SizeToHeader">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <sdk:DatePicker SelectedDate="{Binding DueDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>-->
+                            <!--<sdk:DataGridTextColumn x:Name="pondDescriptionColumn" Binding="{Binding PondDescription}" Header="Pond Description" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="pondIDColumn" Binding="{Binding PondID, Mode=OneWay}" Header="Pond ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="productIDColumn" Binding="{Binding ProductID, Mode=OneWay}" Header="Product ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="productNameColumn" Binding="{Binding ProductName}" Header="Product Name" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn x:Name="amountColumn" Binding="{Binding Amount}" Header="Amount" Width="SizeToHeader"/>
+                            <!--<sdk:DataGridTextColumn x:Name="productionCycleIDColumn" Binding="{Binding ProductionCycleID, Mode=OneWay}" Header="Production Cycle ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <!--<sdk:DataGridTextColumn x:Name="taskIDColumn" Binding="{Binding TaskID, Mode=OneWay}" Header="Task ID" IsReadOnly="True" Width="SizeToHeader"/>-->
+                            <sdk:DataGridTextColumn x:Name="uomColumn" Binding="{Binding Uom}" Header="Uom" Width="SizeToHeader"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <riaControls:DomainDataSource x:Name="productDomainDataSource" AutoLoad="True" Height="0" LoadedData="productDomainDataSource_LoadedData" QueryName="GetRawProductsQuery" Width="0" d:DesignData="{d:DesignInstance Web:Product, CreateList=true}">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <DomainServices:ProductDS/>
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                    <Grid x:Name="grid1_Copy" DataContext="{Binding Data, ElementName=productDomainDataSource}" HorizontalAlignment="Left" Margin="695,352,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <sdk:Label Content="Product Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="productNameComboBox" Grid.Column="1" DisplayMemberPath="ProductName" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="productNameComboBox_SelectionChanged">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <sdk:Label Content="Qty Needed:" Grid.Column="2" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="QtyNeededTextBox" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0"  VerticalAlignment="Center" Width="120"/>
+                    </Grid>
+                    <Button x:Name="AddRequiredProductButton" Content="Add Product" HorizontalAlignment="Left" Margin="1037,386,0,0" VerticalAlignment="Top" Width="75" Click="AddRequiredProductButton_Click"/>
                 </Grid>
 
             </sdk:TabItem>

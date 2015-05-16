@@ -34,6 +34,7 @@ namespace tambak.Web
             {
             }
 
+            [Required]
             public Nullable<decimal> Amount { get; set; }
 
             public Product Product { get; set; }

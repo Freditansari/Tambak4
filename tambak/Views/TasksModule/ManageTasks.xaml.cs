@@ -24,7 +24,11 @@ namespace tambak.Views.TasksModule
         TasksDS taskDomainContext = new TasksDS();
         Task selectedTask = new Task();
 
-        
+        ProductRequiredViewDS productRequiredDomainContext = new ProductRequiredViewDS();
+
+        ProductRequiredDS ProductRequirementDomainContext = new ProductRequiredDS();
+        public ProductRequired newProductRequirement { get; set; }
+        public Product selectedProduct { get; set; }
         
         public ManageTasks()
         {
@@ -171,6 +175,21 @@ namespace tambak.Views.TasksModule
             selectedTask = this.taskRadGridView.SelectedItem as Task;
             grid2.DataContext = selectedTask;
             this.TasksReportViewer.ReportServiceUri = new Uri("../ReportService.svc", UriKind.RelativeOrAbsolute);
+
+            loadRequiredProducts();
+        }
+
+        private void loadRequiredProducts()
+        {
+            productRequiredDomainContext = new ProductRequiredViewDS();
+			EntityQuery<ProductRequiredView> bb = from b in productRequiredDomainContext.GetProductRequiredViewsQuery() where b.TaskID == selectedTask.TaskID select b;
+            LoadOperation<ProductRequiredView> res = productRequiredDomainContext.Load(bb, new Action<LoadOperation<ProductRequiredView>>(getProductRequiredView_completed), true);
+			
+        }
+
+        private void getProductRequiredView_completed(LoadOperation<ProductRequiredView> obj)
+        {
+            productRequiredViewDataGrid.ItemsSource = productRequiredDomainContext.ProductRequiredViews;
         }
 
         private void updateTaskButton_Click(object sender, RoutedEventArgs e)
@@ -193,5 +212,56 @@ namespace tambak.Views.TasksModule
             }
         }
 
+        private void productRequiredViewDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void AddRequiredProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                newProductRequirement = new ProductRequired();
+                newProductRequirement.ProductID = selectedProduct.ProductID;
+                newProductRequirement.TaskID = selectedTask.TaskID;
+                newProductRequirement.Amount = Convert.ToInt32(QtyNeededTextBox.Text);
+
+                ProductRequirementDomainContext.ProductRequireds.Add(newProductRequirement);
+                ProductRequirementDomainContext.SubmitChanges().Completed += addProductRequirmentCompleted;
+            }
+            catch (Exception)
+            {
+            }
+            
+        }
+
+        private void addProductRequirmentCompleted(object sender, EventArgs e)
+        {
+            loadRequiredProducts();
+        }
+
+        
+
+        private void productNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedProduct = this.productNameComboBox.SelectedItem as Product;
+        }
+
+        private void productDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        
     }
 }
