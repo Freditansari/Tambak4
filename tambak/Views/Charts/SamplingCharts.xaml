@@ -66,6 +66,12 @@
                     <telerik:RadChart x:Name="CumulativeAdgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="319,397,0,0" Width="312"/>
                     <telerik:RadChart x:Name="FeedingAuditCharts" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="636,397,0,0" Width="312"/>
                     <telerik:RadChart x:Name="agetoMBWChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="317,10,0,0" Width="312"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="33,98,0,0" TextWrapping="Wrap" Text="Current DOC:" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="CurrentDOCTextBlock" HorizontalAlignment="Left" Margin="33,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="76" FontWeight="Bold"/>
+                    <TextBlock x:Name="InitialFryTextBox" HorizontalAlignment="Left" Margin="221,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBlock x:Name="DensityTextBlock" HorizontalAlignment="Left" Margin="138,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="138,98,0,0" TextWrapping="Wrap" Text="Density:" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="___No_Name_" HorizontalAlignment="Left" Margin="221,98,0,0" TextWrapping="Wrap" Text="Initial Fry:" VerticalAlignment="Top"/>
 
                 </Grid>
             </sdk:TabItem>
@@ -85,7 +91,7 @@
                     <telerik:RadChart x:Name="PHRangeChart" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
                     <telerik:RadChart x:Name="DOrangeChart" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
                     <telerik:RadChart x:Name="ToMChart" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
-                    
+
                 </Grid>
 
             </sdk:TabItem>

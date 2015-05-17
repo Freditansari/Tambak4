@@ -413,6 +413,10 @@ namespace tambak.Views.Charts
                 SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
                 loadSamplingLog();
                 loadFeedingAudit();
+                var currentDOC =(DateTime.Now - Convert.ToDateTime( SelectedPondProductionCycle.StartDate)).TotalDays;
+                CurrentDOCTextBlock.Text =Math.Floor(currentDOC).ToString();
+                DensityTextBlock.Text = SelectedPondProductionCycle.Density.ToString() ;
+                InitialFryTextBox.Text =Convert.ToDouble( SelectedPondProductionCycle.NumberOfFry).ToString("N");
 
                
             }
