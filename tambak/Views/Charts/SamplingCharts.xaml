@@ -6,7 +6,7 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:Web="clr-namespace:tambak.Web" xmlns:DomainServices="clr-namespace:tambak.Web.DomainServices" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="tambak.Views.Charts.SamplingCharts"
            mc:Ignorable="d"
-           d:DesignWidth="1366" d:DesignHeight="599"
+           d:DesignWidth="1366" d:DesignHeight="600"
            Title="SamplingCharts Page">
     <Grid x:Name="LayoutRoot">
         <sdk:TabControl HorizontalAlignment="Left" Height="599"  VerticalAlignment="Top" Width="1366">
@@ -56,16 +56,16 @@
                             </ComboBox.ItemsPanel>
                         </ComboBox>
                     </Grid>
-                    <telerik:RadChart x:Name="SizeChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="634,10,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="FCRChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="951,10,0,0" Width="312"/>
+                    <telerik:RadChart x:Name="SizeChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="634,0,0,0" Width="312"/>
+                    <telerik:RadChart x:Name="FCRChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="951,0,0,0" Width="312"/>
                     <telerik:RadChart x:Name="WeeklyFCR" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="0,203,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="BiomassChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="317,203,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="PopulationChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="634,203,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="SurvivalRateChart"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="951,203,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="adgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="0,396,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="CumulativeAdgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="319,397,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="FeedingAuditCharts" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="636,397,0,0" Width="312"/>
-                    <telerik:RadChart x:Name="agetoMBWChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="317,10,0,0" Width="312"/>
+                    <telerik:RadChart x:Name="BiomassChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="317,193,0,0" Width="312"/>
+                    <telerik:RadChart x:Name="PopulationChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="634,193,0,0" Width="312"/>
+                    <telerik:RadChart x:Name="SurvivalRateChart"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="951,193,0,0" Width="312"/>
+                    <telerik:RadChart x:Name="adgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="0,386,0,-4" Width="312"/>
+                    <telerik:RadChart x:Name="CumulativeAdgChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="319,387,0,-5" Width="312"/>
+                    <telerik:RadChart x:Name="FeedingAuditCharts" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="636,387,0,-5" Width="312"/>
+                    <telerik:RadChart x:Name="agetoMBWChart" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Margin="317,0,0,0" Width="312"/>
                     <TextBlock HorizontalAlignment="Left" Margin="33,98,0,0" TextWrapping="Wrap" Text="Current DOC:" VerticalAlignment="Top"/>
                     <TextBlock x:Name="CurrentDOCTextBlock" HorizontalAlignment="Left" Margin="33,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="76" FontWeight="Bold"/>
                     <TextBlock x:Name="InitialFryTextBox" HorizontalAlignment="Left" Margin="221,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold"/>

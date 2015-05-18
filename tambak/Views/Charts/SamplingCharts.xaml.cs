@@ -124,9 +124,16 @@ namespace tambak.Views.Charts
 
             foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
             {
-                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                MaxPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                minPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                var DOC = (Convert.ToDateTime(b.LogDate) - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                //lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //MaxPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //minPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+
+
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = Math.Floor(DOC).ToString() });
+                MaxPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxPH), XCategory = Math.Floor(DOC).ToString() });
+                minPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinPH), XCategory = Math.Floor(DOC).ToString() });
+
                 //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
             }
             PHRangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
@@ -153,9 +160,15 @@ namespace tambak.Views.Charts
 
             foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
             {
-                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangeDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                MaxDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                minDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangeDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //var currentDOC = (DateTime.Now - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                var DOC = ( Convert.ToDateTime( b.LogDate) - Convert.ToDateTime( SelectedPondProductionCycle.StartDate)).TotalDays;
+                //lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangeDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //MaxDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                //minDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinDO), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangeDO), XCategory = Math.Floor( DOC).ToString() });
+                MaxDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxDO), XCategory = Math.Floor(DOC).ToString() });
+                minDOSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinDO), XCategory = Math.Floor(DOC).ToString() });
             }
             DOrangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
             DOrangeChart.DefaultView.ChartArea.DataSeries.Add(MaxDOSeries);
@@ -177,7 +190,9 @@ namespace tambak.Views.Charts
 
             foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
             {
-                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.TotalOrganicMaterial), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                var DOC = (Convert.ToDateTime(b.LogDate) - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                //lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.TotalOrganicMaterial), XCategory = b.LogDate.ToString().Split(' ')[0] });
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.TotalOrganicMaterial), XCategory = Math.Floor(DOC).ToString() });
                 //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
             }
             ToMChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
