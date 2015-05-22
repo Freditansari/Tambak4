@@ -29,7 +29,7 @@ namespace tambak.Views.Charts
         SamplingLogDS SamplingLogDomainContext = new SamplingLogDS();
         WaterParameterRangeDS waterParameterRangeDomainContext = new WaterParameterRangeDS();
         WaterParameterRangeView SelectedWaterParameterRange = new WaterParameterRangeView();
-
+        WaterParameterLogDS waterParameterLogDomainContext = new WaterParameterLogDS();
 
         //List<WaterParameterRange> WaterParamRangeList = new List<WaterParameterRange>();
 
@@ -78,10 +78,69 @@ namespace tambak.Views.Charts
             loadADG();
             loadCummulativeADG();
             loadWaterParameterRange();
+            loadAmmonia();
+            loadNitrite();
+
             
 
           
 
+        }
+
+        private void loadNitrite()
+        {
+            waterParameterLogDomainContext = new WaterParameterLogDS();
+			EntityQuery<WaterParameterLog> bb = from b in waterParameterLogDomainContext.GetWaterParameterLogsQuery() where b.ProductionCycleID== SelectedPondProductionCycle.ProductionCycleID && b.nitrite != null select b;
+            LoadOperation<WaterParameterLog> res = waterParameterLogDomainContext.Load(bb, new Action<LoadOperation<WaterParameterLog>>(loadNitrite_completed), true);
+			
+        }
+
+        private void loadNitrite_completed(LoadOperation<WaterParameterLog> obj)
+        {
+           
+
+            DataSeries lineSeries = new DataSeries();
+
+            NitriteChart.DefaultView.ChartArea.DataSeries.Clear();
+            NitriteChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            NitriteChart.DefaultView.ChartTitle.Content = "Nitrite";
+            lineSeries.Definition = new LineSeriesDefinition();
+           
+            foreach (var b in waterParameterLogDomainContext.WaterParameterLogs)
+            {
+                var DOC = (Convert.ToDateTime(b.LogDate) - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.nitrite), XCategory =Math.Floor( DOC).ToString() });
+                
+            }
+            NitriteChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            
+
+        }
+
+        private void loadAmmonia()
+        {
+            waterParameterLogDomainContext = new WaterParameterLogDS();
+            EntityQuery<WaterParameterLog> bb = from b in waterParameterLogDomainContext.GetWaterParameterLogsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID && b.Amonnia != null select b;
+            LoadOperation<WaterParameterLog> res = waterParameterLogDomainContext.Load(bb, new Action<LoadOperation<WaterParameterLog>>(loadAmmonia_completed), true);
+			
+        }
+
+        private void loadAmmonia_completed(LoadOperation<WaterParameterLog> obj)
+        {
+            DataSeries lineSeries = new DataSeries();
+
+            AmmoniaChart.DefaultView.ChartArea.DataSeries.Clear();
+            AmmoniaChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            AmmoniaChart.DefaultView.ChartTitle.Content = "Ammonia";
+            lineSeries.Definition = new LineSeriesDefinition();
+
+            foreach (var b in waterParameterLogDomainContext.WaterParameterLogs)
+            {
+                var DOC = (Convert.ToDateTime(b.LogDate) - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Amonnia), XCategory = Math.Floor( DOC).ToString() });
+
+            }
+            AmmoniaChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
         }
 
         private void loadWaterParameterRange()
