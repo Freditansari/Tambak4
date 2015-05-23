@@ -46,7 +46,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <ComboBox x:Name="productionCycleIDComboBox" Grid.Column="1" DisplayMemberPath="ProductionCycleID" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="productionCycleIDComboBox_SelectionChanged">
+            <ComboBox x:Name="productionCycleIDComboBox" Grid.Column="1" DisplayMemberPath="ProductionCycleID" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="productionCycleIDComboBox_SelectionChanged" SelectedIndex="0">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>

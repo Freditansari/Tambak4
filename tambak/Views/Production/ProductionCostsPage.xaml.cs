@@ -102,6 +102,17 @@ namespace tambak.Views.Production
                 productionCycleIDComboBox.ItemsSource = PondsProductionCycleDomainContext.PondsProductionCycles;
                 productionCycleCostDetailViewRadGridView.ItemsSource = null;
                 TotalCostTextBlock.Text = "0";
+
+                try
+                {
+                    productionCycleIDComboBox.SelectedIndex = 0;
+                }
+                catch (Exception)
+                {
+                    
+                    
+                }
+                
             }
             catch (Exception g)
             {

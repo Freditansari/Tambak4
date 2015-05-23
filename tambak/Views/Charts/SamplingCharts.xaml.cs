@@ -81,10 +81,37 @@ namespace tambak.Views.Charts
             loadAmmonia();
             loadNitrite();
 
-            
+            loadClarityChart();
+
 
           
 
+        }
+
+        private void loadClarityChart()
+        {
+            waterParameterLogDomainContext = new WaterParameterLogDS();
+            EntityQuery<WaterParameterLog> bb = from b in waterParameterLogDomainContext.GetWaterParameterLogsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID && b.Clarity != null select b;
+            LoadOperation<WaterParameterLog> res = waterParameterLogDomainContext.Load(bb, new Action<LoadOperation<WaterParameterLog>>(loadClarity_completed), true);
+			
+        }
+
+        private void loadClarity_completed(LoadOperation<WaterParameterLog> obj)
+        {
+            DataSeries lineSeries = new DataSeries();
+
+            ClarityChart.DefaultView.ChartArea.DataSeries.Clear();
+            ClarityChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            ClarityChart.DefaultView.ChartTitle.Content = "Clarity";
+            lineSeries.Definition = new LineSeriesDefinition();
+
+            foreach (var b in waterParameterLogDomainContext.WaterParameterLogs)
+            {
+                var DOC = (Convert.ToDateTime(b.LogDate) - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Clarity), XCategory = Math.Floor(DOC).ToString() });
+
+            }
+            ClarityChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
         }
 
         private void loadNitrite()
@@ -141,6 +168,7 @@ namespace tambak.Views.Charts
 
             }
             AmmoniaChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+
         }
 
         private void loadWaterParameterRange()
@@ -477,7 +505,13 @@ namespace tambak.Views.Charts
         private void loadPondproductionCycle_completed(LoadOperation<Web.PondsProductionCycle> obj)
         {
             productionCycleIDComboBox.ItemsSource = PondsProductionCycleDomainContext.PondsProductionCycles;
-            productionCycleIDComboBox.SelectedIndex = 0;
+            try
+            {
+                productionCycleIDComboBox.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void productionCycleIDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

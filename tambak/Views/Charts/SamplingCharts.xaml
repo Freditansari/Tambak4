@@ -87,14 +87,16 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="2.5"/>
                         <RowDefinition Height="Auto"/>
                         
                     </Grid.RowDefinitions>
                     <telerik:RadChart x:Name="PHRangeChart" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
                     <telerik:RadChart x:Name="DOrangeChart" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
                     <telerik:RadChart x:Name="ToMChart" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
-                    <telerik:RadChart x:Name="NitriteChart" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
-                    <telerik:RadChart x:Name="AmmoniaChart" Grid.Column="1" Grid.Row="1 " HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
+                    <telerik:RadChart x:Name="NitriteChart" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
+                    <telerik:RadChart x:Name="AmmoniaChart" Grid.Column="1" Grid.Row="2 " HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
+                    <telerik:RadChart x:Name="ClarityChart" Grid.Column="2" Grid.Row="2 " HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
 
                 </Grid>
 
