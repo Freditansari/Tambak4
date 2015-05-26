@@ -301,20 +301,29 @@ namespace tambak.Views.Charts
             foreach (var b in waterParameterRangeDomainContext.WaterParameterRangeViews)
             {
                 var DOC = (Convert.ToDateTime(b.LogDate) - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
-                //lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                //MaxPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
-                //minPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinPH), XCategory = b.LogDate.ToString().Split(' ')[0] });
+               
 
 
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = Math.Floor(DOC).ToString() });
                 MaxPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MaxPH), XCategory = Math.Floor(DOC).ToString() });
                 minPHSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MinPH), XCategory = Math.Floor(DOC).ToString() });
 
-                //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.RangePH), XCategory = b.LogDate.ToString() });
+                
             }
             PHRangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
             PHRangeChart.DefaultView.ChartArea.DataSeries.Add(MaxPHSeries);
             PHRangeChart.DefaultView.ChartArea.DataSeries.Add(minPHSeries);
+
+
+            detailedPHChart.DefaultView.ChartArea.DataSeries.Clear();
+            detailedPHChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            detailedPHChart.DefaultView.ChartTitle.Content = "PH Range";
+            lineSeries.Definition = new LineSeriesDefinition();
+            MaxPHSeries.Definition = new LineSeriesDefinition();
+            minPHSeries.Definition = new LineSeriesDefinition();
+            detailedPHChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            detailedPHChart.DefaultView.ChartArea.DataSeries.Add(MaxPHSeries);
+            detailedPHChart.DefaultView.ChartArea.DataSeries.Add(minPHSeries);
 
             loadDoRange();
 
@@ -349,6 +358,17 @@ namespace tambak.Views.Charts
             DOrangeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
             DOrangeChart.DefaultView.ChartArea.DataSeries.Add(MaxDOSeries);
             DOrangeChart.DefaultView.ChartArea.DataSeries.Add(minDOSeries);
+            //detailedDOChart
+
+            detailedDOChart.DefaultView.ChartArea.DataSeries.Clear();
+            detailedDOChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+            detailedDOChart.DefaultView.ChartTitle.Content = "DO Range";
+            lineSeries.Definition = new LineSeriesDefinition();
+            MaxDOSeries.Definition = new LineSeriesDefinition();
+            minDOSeries.Definition = new LineSeriesDefinition();
+            detailedDOChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            detailedDOChart.DefaultView.ChartArea.DataSeries.Add(MaxDOSeries);
+            detailedDOChart.DefaultView.ChartArea.DataSeries.Add(minDOSeries);
 
             loadTOMMax();
         }
@@ -407,42 +427,18 @@ namespace tambak.Views.Charts
             }
            FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Add(lineSeries);
            FeedingAuditCharts.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
+
+
+           detailedFeedingChart.DefaultView.ChartArea.DataSeries.Clear();
+           detailedFeedingChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
+           detailedFeedingChart.DefaultView.ChartTitle.Content = "Feeding Charts(details)";
+           lineSeries.Definition = new LineSeriesDefinition();
+           StandardSeries.Definition = new LineSeriesDefinition();
+           detailedFeedingChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+           detailedFeedingChart.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
         }
 
-        private void loadDetailedFeedingAudit()
-        {
-            try
-            {
-                FeedingAuditDomainContext = new FeedingAuditViewDS();
-                EntityQuery<FeedingAuditView> bb = from b in FeedingAuditDomainContext.GetFeedingAuditViewsQuery() where b.ProductionCycleID == SelectedPondProductionCycle.ProductionCycleID select b;
-                LoadOperation<FeedingAuditView> res = FeedingAuditDomainContext.Load(bb, new Action<LoadOperation<FeedingAuditView>>(loadDetailedFeedingAudit_Completed), true);
-            }
-            catch (Exception g)
-            {
-            }
-
-
-
-        }
-
-        private void loadDetailedFeedingAudit_Completed(LoadOperation<FeedingAuditView> obj)
-        {
-            DataSeries lineSeries = new DataSeries();
-            DataSeries StandardSeries = new DataSeries();
-
-            detailedFeedingChart.DefaultView.ChartArea.DataSeries.Clear();
-            detailedFeedingChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
-            detailedFeedingChart.DefaultView.ChartTitle.Content = "Feeding Charts(details)";
-            lineSeries.Definition = new LineSeriesDefinition();
-            StandardSeries.Definition = new LineSeriesDefinition();
-            foreach (var b in FeedingAuditDomainContext.FeedingAuditViews)
-            {
-                lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Total_Feed), XCategory = b.DayOfCulture.ToString() });
-                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.FeedingPlan), XCategory = b.DayOfCulture.ToString() });
-            }
-            detailedFeedingChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
-            detailedFeedingChart.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
-        }
+       
 
         private void loadxFeedingAudit(int numberOfRecords)
         {
@@ -842,7 +838,8 @@ namespace tambak.Views.Charts
         private void pondDescriptionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedPond = this.pondDescriptionComboBox.SelectedItem as tambak.Web.Pond;
-
+            SevenDaysCheckBox.IsChecked = false;
+            FifteenDaysDataCheckBox.IsChecked = false;
             PondsProductionCycleDomainContext = new PondsProductionCycleDS();
 			EntityQuery<tambak.Web.PondsProductionCycle> bb = from b in PondsProductionCycleDomainContext.GetPondsProductionCyclesQuery() where b.PondID == selectedPond.PondID select b;
             LoadOperation<tambak.Web.PondsProductionCycle> res = PondsProductionCycleDomainContext.Load(bb, new Action<LoadOperation<tambak.Web.PondsProductionCycle>>(loadPondproductionCycle_completed), true);
@@ -856,6 +853,8 @@ namespace tambak.Views.Charts
             try
             {
                 productionCycleIDComboBox.SelectedIndex = 0;
+                SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
+                getAllDataFromProductionCycle();
             }
             catch (Exception)
             {
@@ -864,19 +863,47 @@ namespace tambak.Views.Charts
 
         private void productionCycleIDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
+           // getAllDataFromProductionCycle();
+        }
+
+        private void getAllDataFromProductionCycle()
+        {
             try
             {
-                SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
-                loadAllDataInChart();
-                var currentDOC =(DateTime.Now - Convert.ToDateTime( SelectedPondProductionCycle.StartDate)).TotalDays;
-                CurrentDOCTextBlock.Text =Math.Floor(currentDOC).ToString();
-                DensityTextBlock.Text = SelectedPondProductionCycle.Density.ToString() ;
-                InitialFryTextBox.Text =Convert.ToDouble( SelectedPondProductionCycle.NumberOfFry).ToString("N");
 
-               
+                loadAllDataInChart();
+                if (SevenDaysCheckBox.IsChecked == false && FifteenDaysDataCheckBox.IsChecked == false)
+                {
+                    loadAllDataInChart();
+                }
+                else
+                    if (SevenDaysCheckBox.IsChecked == true && FifteenDaysDataCheckBox.IsChecked == false)
+                    {
+                        loadSevenDaysData();
+                    }
+                    else
+                        if (SevenDaysCheckBox.IsChecked == false && FifteenDaysDataCheckBox.IsChecked == true)
+                        {
+                            loadFifteenDaysData();
+
+                        }
+                        else
+                            if (SevenDaysCheckBox.IsChecked == true && FifteenDaysDataCheckBox.IsChecked == true)
+                            {
+                                loadAllDataInChart();
+                            }
+
+                var currentDOC = (DateTime.Now - Convert.ToDateTime(SelectedPondProductionCycle.StartDate)).TotalDays;
+                CurrentDOCTextBlock.Text = Math.Floor(currentDOC).ToString();
+                DensityTextBlock.Text = SelectedPondProductionCycle.Density.ToString();
+                InitialFryTextBox.Text = Convert.ToDouble(SelectedPondProductionCycle.NumberOfFry).ToString("N");
+
+
             }
-            catch (Exception)
-            { 
+            catch (Exception g)
+            {
+               // MessageBox.Show(g.Message);
             }
 
         }
@@ -885,7 +912,7 @@ namespace tambak.Views.Charts
         {
             loadSamplingLog();
             loadFeedingAudit();
-            loadDetailedFeedingAudit();
+            //loadDetailedFeedingAudit();
         }
 
         private void loadSamplingLog()
@@ -1031,6 +1058,7 @@ namespace tambak.Views.Charts
 
         private void loadSevenDaysData()
         {
+            //SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
             int numberOfRecord = 7;
             loadXMBWChart(numberOfRecord);
             loadXWaterParameterRange(numberOfRecord);
@@ -1052,6 +1080,7 @@ namespace tambak.Views.Charts
 
         private void loadFifteenDaysData()
         {
+           // SelectedPondProductionCycle = this.productionCycleIDComboBox.SelectedItem as tambak.Web.PondsProductionCycle;
             int numberOfRecord = 15;
             loadXMBWChart(numberOfRecord);
             loadXWaterParameterRange(numberOfRecord);

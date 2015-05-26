@@ -2502,3 +2502,4 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.pdb
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\XapCacheFile.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewFeedingTrayChildWindow.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.csprojResolveAssemblyReference.cache

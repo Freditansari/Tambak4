@@ -108,6 +108,15 @@
                 <telerik:RadChart x:Name="detailedFeedingChart" Content="" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="1354"/>
 
             </sdk:TabItem>
+            <sdk:TabItem Header="PH Charts (Detail)">
+                <telerik:RadChart x:Name="detailedPHChart" Content="" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="1354"/>
+
+            </sdk:TabItem>
+            <sdk:TabItem Header="DO Charts (Detail)">
+                <telerik:RadChart x:Name="detailedDOChart" Content="" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="1354"/>
+
+            </sdk:TabItem>
+
         </sdk:TabControl>
 
 
