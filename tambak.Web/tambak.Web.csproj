@@ -139,6 +139,7 @@
     <Content Include="Scripts\ReleaseCandidat6SqlUpdatetxt.txt" />
     <Content Include="Scripts\ReleaseCandidate4SqlUpdate.txt" />
     <Content Include="Scripts\ReleaseCandidate5sqlUpdatetxt.txt" />
+    <Content Include="Scripts\Release 5 Supplement 8.txt" />
     <Content Include="SqlScripts\UpdateSqlScripts.txt" />
     <Content Include="TambakEDM.edmx.sql" />
     <Content Include="tambakTestPage.aspx" />

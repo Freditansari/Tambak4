@@ -48,7 +48,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="productionCycleIDComboBox" Grid.Column="1" DisplayMemberPath="ProductionCycleID" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="productionCycleIDComboBox_SelectionChanged" >
+                        <ComboBox x:Name="productionCycleIDComboBox" Grid.Column="1" DisplayMemberPath="ProductionCycleID" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Mode=OneWay}" Margin="3,3,0,0" Grid.Row="0" VerticalAlignment="Top" Width="120" SelectionChanged="productionCycleIDComboBox_SelectionChanged" >
                             <ComboBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel/>
@@ -72,6 +72,8 @@
                     <TextBlock x:Name="DensityTextBlock" HorizontalAlignment="Left" Margin="138,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold"/>
                     <TextBlock HorizontalAlignment="Left" Margin="138,98,0,0" TextWrapping="Wrap" Text="Density:" VerticalAlignment="Top"/>
                     <TextBlock x:Name="___No_Name_" HorizontalAlignment="Left" Margin="221,98,0,0" TextWrapping="Wrap" Text="Initial Fry:" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="FifteenDaysDataCheckBox" Content="15 Days" HorizontalAlignment="Left" Margin="85,10,0,0" VerticalAlignment="Top" Checked="FifteenDaysDataCheckBox_Checked" Unchecked="FifteenDaysDataCheckBox_Unchecked"/>
+                    <CheckBox x:Name="SevenDaysCheckBox" Content="7 Days" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="SevenDaysCheckBox_Checked" Unchecked="SevenDaysCheckBox_Unchecked"/>
 
                 </Grid>
             </sdk:TabItem>
@@ -89,7 +91,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="2.5"/>
                         <RowDefinition Height="Auto"/>
-                        
+
                     </Grid.RowDefinitions>
                     <telerik:RadChart x:Name="PHRangeChart" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
                     <telerik:RadChart x:Name="DOrangeChart" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
@@ -99,6 +101,11 @@
                     <telerik:RadChart x:Name="ClarityChart" Grid.Column="2" Grid.Row="2 " HorizontalAlignment="Center" VerticalAlignment="Top" Height="180" Width="312"/>
 
                 </Grid>
+
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="Feeding Charts (Detail)">
+                <telerik:RadChart x:Name="detailedFeedingChart" Content="" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="1354"/>
 
             </sdk:TabItem>
         </sdk:TabControl>
