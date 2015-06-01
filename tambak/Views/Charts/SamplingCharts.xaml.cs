@@ -574,7 +574,7 @@ namespace tambak.Views.Charts
             lineSeries.Definition = new LineSeriesDefinition();
 
             var TakeXSRRecord = (from b in SamplingLogDomainContext.SamplingLogs orderby b.LogDate descending select b).Take(NumberOfRecord);
-            var SortedSRRecord = from b in TakeXSRRecord orderby b.LogDate descending select b;
+            var SortedSRRecord = from b in TakeXSRRecord orderby b.LogDate select b;
             foreach (var b in SortedSRRecord)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.SurvivalRate), XCategory = b.Age.ToString() });
