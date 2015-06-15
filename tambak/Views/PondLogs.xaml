@@ -426,6 +426,17 @@
                     <Button x:Name="updateFeedingTrayButton" Content="Update" HorizontalAlignment="Left" Margin="101,315,0,0" VerticalAlignment="Top" Width="75" Click="updateFeedingTrayButton_Click"/>
                 </Grid>
             </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Water Parameter Report">
+                <Grid Background="Transparent">
+                    <Silverlight:ReportViewer x:Name="waterParameterReportViewer" HorizontalAlignment="Left" Height="562" VerticalAlignment="Top" Width="1354" ReportServiceUri="../ReportService.svc" ReportServerUri="../ReportService.svc" Report="TambakReports.CurrentWaterParameterReport, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Pond Status Report">
+                <Grid Background="Transparent">
+                    <Silverlight:ReportViewer HorizontalAlignment="Left" VerticalAlignment="Top" Height="673" Width="1364" ReportServiceUri="../ReportService.svc" ReportServerUri="../ReportService.svc" Report="TambakReports.ProductionReport, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+
+                </Grid>
+            </telerik:RadTabItem>
         </telerik:RadTabControl>
 
     </Grid>

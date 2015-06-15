@@ -135,6 +135,7 @@
     <Content Include="Pythons\perkiraanpakan.py" />
     <Content Include="Pythons\tablecheck.py" />
     <Content Include="ReportService.svc" />
+    <Content Include="Scripts\Release 5 supplement 10.txt" />
     <Content Include="Scripts\Release5sqlScript.txt" />
     <Content Include="Scripts\ReleaseCandidat6SqlUpdatetxt.txt" />
     <Content Include="Scripts\ReleaseCandidate4SqlUpdate.txt" />

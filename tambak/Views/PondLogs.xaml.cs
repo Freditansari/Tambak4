@@ -130,6 +130,7 @@ namespace tambak.Views
                     InitializeComponent();
                      // StartTimer();
                     getserverTime();
+                    Loaded += SamplingLogs_Loaded;
                     
 
                 }
@@ -145,6 +146,16 @@ namespace tambak.Views
 
             }
             
+            
+        }
+
+        private void SamplingLogs_Loaded(object sender, RoutedEventArgs e)
+        {
+            waterParameterReportViewer.RenderBegin += waterParameterReportViewer_RenderBegin;
+        }
+
+        void waterParameterReportViewer_RenderBegin(object sender, Telerik.ReportViewer.Silverlight.RenderBeginEventArgs args)
+        {
             
         }
 

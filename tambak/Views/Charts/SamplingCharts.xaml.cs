@@ -841,7 +841,7 @@ namespace tambak.Views.Charts
             SevenDaysCheckBox.IsChecked = false;
             FifteenDaysDataCheckBox.IsChecked = false;
             PondsProductionCycleDomainContext = new PondsProductionCycleDS();
-			EntityQuery<tambak.Web.PondsProductionCycle> bb = from b in PondsProductionCycleDomainContext.GetPondsProductionCyclesQuery() where b.PondID == selectedPond.PondID select b;
+			EntityQuery<tambak.Web.PondsProductionCycle> bb = from b in PondsProductionCycleDomainContext.GetPondsProductionCyclesQuery() where b.PondID == selectedPond.PondID && b.isInProduction == true select b;
             LoadOperation<tambak.Web.PondsProductionCycle> res = PondsProductionCycleDomainContext.Load(bb, new Action<LoadOperation<tambak.Web.PondsProductionCycle>>(loadPondproductionCycle_completed), true);
 			
             

@@ -43,6 +43,12 @@
     <Reference Include="Telerik.Reporting, Version=9.0.15.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrentWaterParameterReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CurrentWaterParameterReport.Designer.cs">
+      <DependentUpon>CurrentWaterParameterReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeliveryReceiptReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -55,11 +61,29 @@
     <Compile Include="FacilityReport.Designer.cs">
       <DependentUpon>FacilityReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="LastSamplingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LastSamplingReport.Designer.cs">
+      <DependentUpon>LastSamplingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LastSevenWaterParameterReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LastSevenWaterParameterReport.Designer.cs">
+      <DependentUpon>LastSevenWaterParameterReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="PODetailsReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="PODetailsReport.Designer.cs">
       <DependentUpon>PODetailsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProductionReport.Designer.cs">
+      <DependentUpon>ProductionReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductLabelReport.cs">
       <SubType>Component</SubType>
@@ -78,6 +102,12 @@
     </Compile>
     <Compile Include="PurchaseOrderReports.Designer.cs">
       <DependentUpon>PurchaseOrderReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report1.Designer.cs">
+      <DependentUpon>Report1.cs</DependentUpon>
     </Compile>
     <Compile Include="SamplingReports.cs">
       <SubType>Component</SubType>
@@ -106,20 +136,35 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CurrentWaterParameterReport.resx">
+      <DependentUpon>CurrentWaterParameterReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeliveryReceiptReport.resx">
       <DependentUpon>DeliveryReceiptReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FacilityReport.resx">
       <DependentUpon>FacilityReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LastSamplingReport.resx">
+      <DependentUpon>LastSamplingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LastSevenWaterParameterReport.resx">
+      <DependentUpon>LastSevenWaterParameterReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PODetailsReport.resx">
       <DependentUpon>PODetailsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionReport.resx">
+      <DependentUpon>ProductionReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductLabelReport.resx">
       <DependentUpon>ProductLabelReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrderReports.resx">
       <DependentUpon>PurchaseOrderReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.resx">
+      <DependentUpon>Report1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SamplingReports.resx">
       <DependentUpon>SamplingReports.cs</DependentUpon>
