@@ -28,13 +28,6 @@ namespace TambakReports
             Telerik.Reporting.Drawing.StyleRule styleRule5 = new Telerik.Reporting.Drawing.StyleRule();
             this.labelsGroupFooterSection = new Telerik.Reporting.GroupFooterSection();
             this.labelsGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
-            this.pondDescriptionCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.productionCycleIDCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.densityCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.startDateCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.endDateCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.numberOfFryCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.pondSizeCaptionTextBox = new Telerik.Reporting.TextBox();
             this.pondDescriptionGroupFooterSection = new Telerik.Reporting.GroupFooterSection();
             this.pondDescriptionGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.textBox1 = new Telerik.Reporting.TextBox();
@@ -45,6 +38,13 @@ namespace TambakReports
             this.textBox6 = new Telerik.Reporting.TextBox();
             this.textBox7 = new Telerik.Reporting.TextBox();
             this.textBox8 = new Telerik.Reporting.TextBox();
+            this.pondSizeCaptionTextBox = new Telerik.Reporting.TextBox();
+            this.numberOfFryCaptionTextBox = new Telerik.Reporting.TextBox();
+            this.endDateCaptionTextBox = new Telerik.Reporting.TextBox();
+            this.startDateCaptionTextBox = new Telerik.Reporting.TextBox();
+            this.densityCaptionTextBox = new Telerik.Reporting.TextBox();
+            this.productionCycleIDCaptionTextBox = new Telerik.Reporting.TextBox();
+            this.pondDescriptionCaptionTextBox = new Telerik.Reporting.TextBox();
             this.productionCycleIDGroupFooterSection = new Telerik.Reporting.GroupFooterSection();
             this.productionCycleIDGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.WaterParameterSubReport = new Telerik.Reporting.SubReport();
@@ -79,94 +79,9 @@ namespace TambakReports
             // 
             // labelsGroupHeaderSection
             // 
-            this.labelsGroupHeaderSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.30000004172325134D);
-            this.labelsGroupHeaderSection.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
-            this.pondDescriptionCaptionTextBox,
-            this.productionCycleIDCaptionTextBox,
-            this.densityCaptionTextBox,
-            this.startDateCaptionTextBox,
-            this.endDateCaptionTextBox,
-            this.numberOfFryCaptionTextBox,
-            this.pondSizeCaptionTextBox});
+            this.labelsGroupHeaderSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.052083343267440796D);
             this.labelsGroupHeaderSection.Name = "labelsGroupHeaderSection";
             this.labelsGroupHeaderSection.PrintOnEveryPage = true;
-            // 
-            // pondDescriptionCaptionTextBox
-            // 
-            this.pondDescriptionCaptionTextBox.CanGrow = true;
-            this.pondDescriptionCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.pondDescriptionCaptionTextBox.Name = "pondDescriptionCaptionTextBox";
-            this.pondDescriptionCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.pondDescriptionCaptionTextBox.Style.Font.Bold = true;
-            this.pondDescriptionCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.pondDescriptionCaptionTextBox.StyleName = "Caption";
-            this.pondDescriptionCaptionTextBox.Value = "Pond Description";
-            // 
-            // productionCycleIDCaptionTextBox
-            // 
-            this.productionCycleIDCaptionTextBox.CanGrow = true;
-            this.productionCycleIDCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.82552081346511841D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.productionCycleIDCaptionTextBox.Name = "productionCycleIDCaptionTextBox";
-            this.productionCycleIDCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.productionCycleIDCaptionTextBox.Style.Font.Bold = true;
-            this.productionCycleIDCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.productionCycleIDCaptionTextBox.StyleName = "Caption";
-            this.productionCycleIDCaptionTextBox.Value = "Cycle ID";
-            // 
-            // densityCaptionTextBox
-            // 
-            this.densityCaptionTextBox.CanGrow = true;
-            this.densityCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.6302083730697632D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.densityCaptionTextBox.Name = "densityCaptionTextBox";
-            this.densityCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.densityCaptionTextBox.Style.Font.Bold = true;
-            this.densityCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.densityCaptionTextBox.StyleName = "Caption";
-            this.densityCaptionTextBox.Value = "Density";
-            // 
-            // startDateCaptionTextBox
-            // 
-            this.startDateCaptionTextBox.CanGrow = true;
-            this.startDateCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.4348957538604736D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.startDateCaptionTextBox.Name = "startDateCaptionTextBox";
-            this.startDateCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.startDateCaptionTextBox.Style.Font.Bold = true;
-            this.startDateCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.startDateCaptionTextBox.StyleName = "Caption";
-            this.startDateCaptionTextBox.Value = "Start Date";
-            // 
-            // endDateCaptionTextBox
-            // 
-            this.endDateCaptionTextBox.CanGrow = true;
-            this.endDateCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(3.2395832538604736D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.endDateCaptionTextBox.Name = "endDateCaptionTextBox";
-            this.endDateCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.endDateCaptionTextBox.Style.Font.Bold = true;
-            this.endDateCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.endDateCaptionTextBox.StyleName = "Caption";
-            this.endDateCaptionTextBox.Value = "End Date";
-            // 
-            // numberOfFryCaptionTextBox
-            // 
-            this.numberOfFryCaptionTextBox.CanGrow = true;
-            this.numberOfFryCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.0442709922790527D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.numberOfFryCaptionTextBox.Name = "numberOfFryCaptionTextBox";
-            this.numberOfFryCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.numberOfFryCaptionTextBox.Style.Font.Bold = true;
-            this.numberOfFryCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.numberOfFryCaptionTextBox.StyleName = "Caption";
-            this.numberOfFryCaptionTextBox.Value = "Fry";
-            // 
-            // pondSizeCaptionTextBox
-            // 
-            this.pondSizeCaptionTextBox.CanGrow = true;
-            this.pondSizeCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.8489584922790527D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.pondSizeCaptionTextBox.Name = "pondSizeCaptionTextBox";
-            this.pondSizeCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
-            this.pondSizeCaptionTextBox.Style.Font.Bold = true;
-            this.pondSizeCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
-            this.pondSizeCaptionTextBox.StyleName = "Caption";
-            this.pondSizeCaptionTextBox.Value = "Pond Size";
             // 
             // pondDescriptionGroupFooterSection
             // 
@@ -175,7 +90,7 @@ namespace TambakReports
             // 
             // pondDescriptionGroupHeaderSection
             // 
-            this.pondDescriptionGroupHeaderSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.30000042915344238D);
+            this.pondDescriptionGroupHeaderSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.800000011920929D);
             this.pondDescriptionGroupHeaderSection.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.textBox1,
             this.textBox2,
@@ -184,13 +99,20 @@ namespace TambakReports
             this.textBox5,
             this.textBox6,
             this.textBox7,
-            this.textBox8});
+            this.textBox8,
+            this.pondSizeCaptionTextBox,
+            this.numberOfFryCaptionTextBox,
+            this.endDateCaptionTextBox,
+            this.startDateCaptionTextBox,
+            this.densityCaptionTextBox,
+            this.productionCycleIDCaptionTextBox,
+            this.pondDescriptionCaptionTextBox});
             this.pondDescriptionGroupHeaderSection.Name = "pondDescriptionGroupHeaderSection";
             // 
             // textBox1
             // 
             this.textBox1.CanGrow = true;
-            this.textBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
+            this.textBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.3999999463558197D));
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox1.Style.Font.Bold = true;
@@ -201,7 +123,7 @@ namespace TambakReports
             // textBox2
             // 
             this.textBox2.CanGrow = true;
-            this.textBox2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.82552081346511841D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
+            this.textBox2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.82552081346511841D), Telerik.Reporting.Drawing.Unit.Inch(0.3999999463558197D));
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox2.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
@@ -211,7 +133,7 @@ namespace TambakReports
             // textBox3
             // 
             this.textBox3.CanGrow = true;
-            this.textBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.6302083730697632D), Telerik.Reporting.Drawing.Unit.Inch(0.020833173766732216D));
+            this.textBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.6302083730697632D), Telerik.Reporting.Drawing.Unit.Inch(0.39999976754188538D));
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox3.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
@@ -222,7 +144,7 @@ namespace TambakReports
             // 
             this.textBox4.CanGrow = true;
             this.textBox4.Format = "{0:d}";
-            this.textBox4.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.4348957538604736D), Telerik.Reporting.Drawing.Unit.Inch(0.020833015441894531D));
+            this.textBox4.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.4348957538604736D), Telerik.Reporting.Drawing.Unit.Inch(0.39999961853027344D));
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox4.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
@@ -233,7 +155,7 @@ namespace TambakReports
             // 
             this.textBox5.CanGrow = true;
             this.textBox5.Format = "{0:d}";
-            this.textBox5.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(3.2395832538604736D), Telerik.Reporting.Drawing.Unit.Inch(0.020832857117056847D));
+            this.textBox5.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(3.2395832538604736D), Telerik.Reporting.Drawing.Unit.Inch(0.3999994695186615D));
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox5.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
@@ -244,7 +166,7 @@ namespace TambakReports
             // 
             this.textBox6.CanGrow = true;
             this.textBox6.Format = "{0:N0}";
-            this.textBox6.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.0442709922790527D), Telerik.Reporting.Drawing.Unit.Inch(0.020833492279052734D));
+            this.textBox6.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.0442709922790527D), Telerik.Reporting.Drawing.Unit.Inch(0.40000009536743164D));
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox6.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
@@ -255,7 +177,7 @@ namespace TambakReports
             // 
             this.textBox7.CanGrow = true;
             this.textBox7.Format = "{0:N0}";
-            this.textBox7.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.8489584922790527D), Telerik.Reporting.Drawing.Unit.Inch(0.00843191146850586D));
+            this.textBox7.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.8476486206054688D), Telerik.Reporting.Drawing.Unit.Inch(0.39999940991401672D));
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.45104220509529114D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox7.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
@@ -265,12 +187,89 @@ namespace TambakReports
             // textBox8
             // 
             this.textBox8.CanGrow = true;
-            this.textBox8.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(5.3947944641113281D), Telerik.Reporting.Drawing.Unit.Inch(0.00843191146850586D));
+            this.textBox8.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(5.3462629318237305D), Telerik.Reporting.Drawing.Unit.Inch(0.39999940991401672D));
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.24635444581508637D), Telerik.Reporting.Drawing.Unit.Inch(0.27916693687438965D));
             this.textBox8.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
             this.textBox8.StyleName = "Data";
             this.textBox8.Value = "= Fields.pondUOM";
+            // 
+            // pondSizeCaptionTextBox
+            // 
+            this.pondSizeCaptionTextBox.CanGrow = true;
+            this.pondSizeCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.8459672927856445D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.pondSizeCaptionTextBox.Name = "pondSizeCaptionTextBox";
+            this.pondSizeCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.pondSizeCaptionTextBox.Style.Font.Bold = true;
+            this.pondSizeCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.pondSizeCaptionTextBox.StyleName = "Caption";
+            this.pondSizeCaptionTextBox.Value = "Pond Size";
+            // 
+            // numberOfFryCaptionTextBox
+            // 
+            this.numberOfFryCaptionTextBox.CanGrow = true;
+            this.numberOfFryCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.04388427734375D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.numberOfFryCaptionTextBox.Name = "numberOfFryCaptionTextBox";
+            this.numberOfFryCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.numberOfFryCaptionTextBox.Style.Font.Bold = true;
+            this.numberOfFryCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.numberOfFryCaptionTextBox.StyleName = "Caption";
+            this.numberOfFryCaptionTextBox.Value = "Fry";
+            // 
+            // endDateCaptionTextBox
+            // 
+            this.endDateCaptionTextBox.CanGrow = true;
+            this.endDateCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(3.2313840389251709D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.endDateCaptionTextBox.Name = "endDateCaptionTextBox";
+            this.endDateCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.endDateCaptionTextBox.Style.Font.Bold = true;
+            this.endDateCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.endDateCaptionTextBox.StyleName = "Caption";
+            this.endDateCaptionTextBox.Value = "End Date";
+            // 
+            // startDateCaptionTextBox
+            // 
+            this.startDateCaptionTextBox.CanGrow = true;
+            this.startDateCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.4292986392974854D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.startDateCaptionTextBox.Name = "startDateCaptionTextBox";
+            this.startDateCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.startDateCaptionTextBox.Style.Font.Bold = true;
+            this.startDateCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.startDateCaptionTextBox.StyleName = "Caption";
+            this.startDateCaptionTextBox.Value = "Start Date";
+            // 
+            // densityCaptionTextBox
+            // 
+            this.densityCaptionTextBox.CanGrow = true;
+            this.densityCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.6272149085998535D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.densityCaptionTextBox.Name = "densityCaptionTextBox";
+            this.densityCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.densityCaptionTextBox.Style.Font.Bold = true;
+            this.densityCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.densityCaptionTextBox.StyleName = "Caption";
+            this.densityCaptionTextBox.Value = "Density";
+            // 
+            // productionCycleIDCaptionTextBox
+            // 
+            this.productionCycleIDCaptionTextBox.CanGrow = true;
+            this.productionCycleIDCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.825131893157959D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.productionCycleIDCaptionTextBox.Name = "productionCycleIDCaptionTextBox";
+            this.productionCycleIDCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.productionCycleIDCaptionTextBox.Style.Font.Bold = true;
+            this.productionCycleIDCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.productionCycleIDCaptionTextBox.StyleName = "Caption";
+            this.productionCycleIDCaptionTextBox.Value = "Cycle ID";
+            // 
+            // pondDescriptionCaptionTextBox
+            // 
+            this.pondDescriptionCaptionTextBox.CanGrow = true;
+            this.pondDescriptionCaptionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.019705086946487427D), Telerik.Reporting.Drawing.Unit.Inch(0.099999956786632538D));
+            this.pondDescriptionCaptionTextBox.Name = "pondDescriptionCaptionTextBox";
+            this.pondDescriptionCaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.78385418653488159D), Telerik.Reporting.Drawing.Unit.Inch(0.27916672825813293D));
+            this.pondDescriptionCaptionTextBox.Style.Font.Bold = true;
+            this.pondDescriptionCaptionTextBox.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.pondDescriptionCaptionTextBox.StyleName = "Caption";
+            this.pondDescriptionCaptionTextBox.Value = "Pond Description";
             // 
             // productionCycleIDGroupFooterSection
             // 
@@ -540,13 +539,6 @@ namespace TambakReports
 
         private Telerik.Reporting.SqlDataSource sqlDataSource1;
         private Telerik.Reporting.GroupHeaderSection labelsGroupHeaderSection;
-        private Telerik.Reporting.TextBox pondDescriptionCaptionTextBox;
-        private Telerik.Reporting.TextBox productionCycleIDCaptionTextBox;
-        private Telerik.Reporting.TextBox densityCaptionTextBox;
-        private Telerik.Reporting.TextBox startDateCaptionTextBox;
-        private Telerik.Reporting.TextBox endDateCaptionTextBox;
-        private Telerik.Reporting.TextBox numberOfFryCaptionTextBox;
-        private Telerik.Reporting.TextBox pondSizeCaptionTextBox;
         private Telerik.Reporting.GroupFooterSection labelsGroupFooterSection;
         private Telerik.Reporting.GroupHeaderSection pondDescriptionGroupHeaderSection;
         private Telerik.Reporting.TextBox textBox1;
@@ -581,6 +573,13 @@ namespace TambakReports
         private Telerik.Reporting.TextBox textBox8;
         private Telerik.Reporting.SubReport WaterParameterSubReport;
         private Telerik.Reporting.SubReport subReport2;
+        private Telerik.Reporting.TextBox pondSizeCaptionTextBox;
+        private Telerik.Reporting.TextBox numberOfFryCaptionTextBox;
+        private Telerik.Reporting.TextBox endDateCaptionTextBox;
+        private Telerik.Reporting.TextBox startDateCaptionTextBox;
+        private Telerik.Reporting.TextBox densityCaptionTextBox;
+        private Telerik.Reporting.TextBox productionCycleIDCaptionTextBox;
+        private Telerik.Reporting.TextBox pondDescriptionCaptionTextBox;
 
     }
 }
