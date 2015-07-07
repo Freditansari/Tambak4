@@ -420,7 +420,14 @@ namespace tambak.Views.Popups
                 //FIXED! populasi /jumlah tebar *100s
                 //survivalRateTextBox.Text = Convert.ToString((Convert.ToDouble(populationsTextBox.Text) / Convert.ToInt32(NumberOfFryTextBox.Text)) * 100);
                 survivalRateTextBox.Text = Convert.ToString((Convert.ToDouble(populationsTextBox.Text) / NumberOfFry) * 100);
+                
                 weeklyFCRTextBox.Text = Convert.ToString(((Convert.ToDouble(cummulativeFeedTextBox.Text) - previousCummulativeFeed) / (Convert.ToDouble(biomassTextBox.Text) - previousBiomass)));
+                //This part is a patch for infinity weekly fcr which caused by division by 0 in previous biomass.
+                if (weeklyFCRTextBox.Text == "Infinity")
+                {
+                    weeklyFCRTextBox.Text = "0";
+                }
+                //************************************************
             }
             catch (Exception g)
             {
