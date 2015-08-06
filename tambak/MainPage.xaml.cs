@@ -161,6 +161,10 @@
                      case "Production Summary":
                          this.ContentFrame.Navigate(new System.Uri("/Production/GlobalProductionPageSummary", System.UriKind.Relative));
                          break;
+                         //todo change the reference page
+                     case "Daily Feeding Report":
+                         this.ContentFrame.Navigate(new System.Uri("/TasksModule/TodayFeedingReportPage", System.UriKind.Relative));
+                         break;
 
                  }
              }

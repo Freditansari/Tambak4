@@ -1,0 +1,15 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Silverlight="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight" x:Class="tambak.Views.TasksModule.TodayFeedingReportPage"
+    mc:Ignorable="d"
+    d:DesignHeight="700" d:DesignWidth="1366">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Silverlight:ReportViewer HorizontalAlignment="Left" Width="1366" Height="700" VerticalAlignment="Top" ReportServiceUri="../ReportService.svc" ReportServerUri="../ReportService.svc"  Report="TambakReports.TodayFeedingPlanReports, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+
+    </Grid>
+</UserControl>

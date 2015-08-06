@@ -36,6 +36,7 @@ namespace tambak.Web
            // [Required]
             public Nullable<int> Age { get; set; }
 
+            [Required]
             public Nullable<DateTime> HarvestDate { get; set; }
 
             public Nullable<double> HarvestedPopulation { get; set; }

@@ -127,6 +127,12 @@
     <Compile Include="TaskReport.Designer.cs">
       <DependentUpon>TaskReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="TodayFeedingPlanReports.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TodayFeedingPlanReports.Designer.cs">
+      <DependentUpon>TodayFeedingPlanReports.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaskReport.resx">
       <DependentUpon>TaskReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TodayFeedingPlanReports.resx">
+      <DependentUpon>TodayFeedingPlanReports.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -44,3 +44,4 @@ C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.Cu
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.Report1.resources
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.LastSevenWaterParameterReport.resources
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.LastSamplingReport.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.TodayFeedingPlanReports.resources

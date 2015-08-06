@@ -236,6 +236,7 @@ namespace tambak.Views.Production
         private void saveHarvestLogButton_Click(object sender, RoutedEventArgs e)
         {
             Harvest newHarvest = new Harvest();
+            newHarvest.HarvestDate = harvestDateDatePicker.SelectedDate;
             newHarvest.Age = Convert.ToInt32(ageTextBox.Text);
             newHarvest.HarvestedPopulation = Convert.ToDouble(harvestedPopulationTextBox.Text);
             newHarvest.Month = Convert.ToInt32(monthTextBox.Text);

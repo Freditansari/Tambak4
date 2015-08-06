@@ -6171,6 +6171,7 @@ namespace tambak.Web
         /// Gets or sets the 'HarvestDate' value.
         /// </summary>
         [DataMember()]
+        [Required()]
         public Nullable<DateTime> HarvestDate
         {
             get
@@ -13051,7 +13052,7 @@ namespace tambak.Web
         /// Gets or sets the 'Age' value.
         /// </summary>
         [DataMember()]
-        [Range(0, 120, ErrorMessage="Day of culture must be on range of 0 to 120")]
+        [Range(0, 200, ErrorMessage="Day of culture must be on range of 0 to 200")]
         [Required()]
         public Nullable<int> Age
         {
@@ -13354,7 +13355,7 @@ namespace tambak.Web
         /// Gets or sets the 'MedianBodyWeight' value.
         /// </summary>
         [DataMember()]
-        [Range(0, 26, ErrorMessage="Enter range from 0-26")]
+        [Range(((double)(2.1D)), ((double)(40D)), ErrorMessage="Enter range from 2.1-40")]
         [Required()]
         public Nullable<double> MedianBodyWeight
         {

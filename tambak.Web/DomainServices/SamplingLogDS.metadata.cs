@@ -34,7 +34,7 @@ namespace tambak.Web
             }
 
             [Required]
-            [Range(0,120, ErrorMessage = "Day of culture must be on range of 0 to 120")]
+            [Range(0,200, ErrorMessage = "Day of culture must be on range of 0 to 200")]
             public Nullable<int> Age { get; set; }
 
             [Required]
@@ -68,7 +68,7 @@ namespace tambak.Web
             public int LogID { get; set; }
 
             [Required]
-            [Range(0,26, ErrorMessage= "Enter range from 0-26")]
+            [Range(2.1,40, ErrorMessage= "Enter range from 2.1-40")]
             public Nullable<double> MedianBodyWeight { get; set; }
 
            
