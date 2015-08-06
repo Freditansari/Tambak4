@@ -1,0 +1,10 @@
+﻿GO
+
+/****** Object:  View [dbo].[ActiveProductionCycleSamplingLogSummary]  */  
+
+alter table WaterParameterLogs 
+add [alkalinity] [float] NULL,
+	[TotalOrganicMaterial] [float] NULL,
+	[WaterColor] [nvarchar](512) NULL,
+	[Clarity] [float] NULL,
+	[Note] [nvarchar](max) NULL

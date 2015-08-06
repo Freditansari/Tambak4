@@ -31,6 +31,8 @@ namespace tambak.Views.Charts
         WaterParameterRangeView SelectedWaterParameterRange = new WaterParameterRangeView();
         WaterParameterLogDS waterParameterLogDomainContext = new WaterParameterLogDS();
 
+        
+
         int numberOfWaterParameter;
 
         //List<WaterParameterRange> WaterParamRangeList = new List<WaterParameterRange>();
@@ -590,11 +592,22 @@ namespace tambak.Views.Charts
             PopulationChart.DefaultView.ChartLegend.Visibility = System.Windows.Visibility.Collapsed;
             PopulationChart.DefaultView.ChartTitle.Content = "Population";
             lineSeries.Definition = new LineSeriesDefinition();
+            
             foreach (var b in SamplingLogDomainContext.SamplingLogs)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Populations), XCategory = b.Age.ToString() });
+
             }
             PopulationChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
+            try
+            {
+                var lastPopulation = SamplingLogDomainContext.SamplingLogs.Last();
+                CurrentDensityTextblock.Text = Convert.ToInt32(lastPopulation.Populations / Convert.ToInt32(selectedPond.pondSize)).ToString();
+            }
+            catch (Exception)
+            {
+            }
+            
         }
 
 
@@ -901,6 +914,7 @@ namespace tambak.Views.Charts
                 CurrentDOCTextBlock.Text = Math.Floor(currentDOC).ToString();
                 DensityTextBlock.Text = SelectedPondProductionCycle.Density.ToString();
                 InitialFryTextBox.Text = Convert.ToDouble(SelectedPondProductionCycle.NumberOfFry).ToString("N");
+                PondSizeTextBlock.Text = Convert.ToDouble( selectedPond.pondSize).ToString("N");
 
 
             }

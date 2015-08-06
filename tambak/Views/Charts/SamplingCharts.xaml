@@ -74,6 +74,10 @@
                     <TextBlock x:Name="___No_Name_" HorizontalAlignment="Left" Margin="221,98,0,0" TextWrapping="Wrap" Text="Initial Fry:" VerticalAlignment="Top"/>
                     <CheckBox x:Name="FifteenDaysDataCheckBox" Content="15 Days" HorizontalAlignment="Left" Margin="85,10,0,0" VerticalAlignment="Top" Checked="FifteenDaysDataCheckBox_Checked" Unchecked="FifteenDaysDataCheckBox_Unchecked"/>
                     <CheckBox x:Name="SevenDaysCheckBox" Content="7 Days" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="SevenDaysCheckBox_Checked" Unchecked="SevenDaysCheckBox_Unchecked"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="33,136,0,0" TextWrapping="Wrap" Text="Current Density:" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="CurrentDensityTextblock" HorizontalAlignment="Left" Margin="33,157,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="76" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="138,136,0,0" TextWrapping="Wrap" Text="Pond Size:" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="PondSizeTextBlock" HorizontalAlignment="Left" Margin="138,157,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="76" FontWeight="Bold"/>
 
                 </Grid>
             </sdk:TabItem>

@@ -1,0 +1,21 @@
+﻿USE [CPL]
+GO
+
+/****** Object:  View [dbo].[TodayFeedingPlanView]    Script Date: 8/6/2015 11:11:29 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[TodayFeedingPlanView]
+AS
+SELECT        dbo.FeedingPlan.ProductionCycleID, dbo.FeedingPlan.Age, dbo.FeedingPlan.Date, dbo.FeedingPlan.MBW, dbo.FeedingPlan.Population, dbo.FeedingPlan.UsingFR, 
+                         dbo.FeedingPlan.Using01M, dbo.FeedingPlan.Using05M, dbo.FeedingPlan.Using20M, dbo.FeedingPlan.Using30M, dbo.FeedingPlan.NoPakan, 
+                         dbo.FeedingPlan.UsingMax, dbo.Ponds.PondDescription
+FROM            dbo.FeedingPlan INNER JOIN
+                         dbo.PondsProductionCycles ON dbo.FeedingPlan.ProductionCycleID = dbo.PondsProductionCycles.ProductionCycleID INNER JOIN
+                         dbo.Ponds ON dbo.PondsProductionCycles.PondID = dbo.Ponds.PondID
+WHERE        (dbo.FeedingPlan.Date = CONVERT(date, GETDATE()))
+
+GO

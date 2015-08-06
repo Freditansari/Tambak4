@@ -131,10 +131,11 @@ namespace tambak.Views.Production
                 EntityQuery<CurrentActivePond> bb = from b in currentActivePondDomainContext.GetCurrentActivePondsQuery() where b.ProductionCycleID == SelectedProductionCycle.ProductionCycleID select b;
                 LoadOperation<CurrentActivePond> res = currentActivePondDomainContext.Load(bb, new Action<LoadOperation<CurrentActivePond>>(getCurrentActivePond_completed), true);
 
+                samplingLogDomainContext = new SamplingLogDS();
                 EntityQuery<SamplingLog> bz = from bk  in samplingLogDomainContext.GetSamplingLogsQuery() where bk.ProductionCycleID == SelectedProductionCycle.ProductionCycleID orderby bk.Age descending select bk;
                 LoadOperation<SamplingLog> resz = samplingLogDomainContext.Load(bz, new Action<LoadOperation<SamplingLog>>(getSamplingLog_completed), true);
 
-
+                HarvestDomainContext = new HarvestDS();
 			    EntityQuery<Harvest> bl = from c in HarvestDomainContext.GetHarvestsQuery() where c.ProductionCycleID == SelectedProductionCycle.ProductionCycleID select c;
                 LoadOperation<Harvest> resc = HarvestDomainContext.Load(bl, new Action<LoadOperation<Harvest>>(loadHarvest_completed), true);
 			
