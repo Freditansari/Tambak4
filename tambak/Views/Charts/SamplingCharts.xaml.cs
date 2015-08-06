@@ -734,7 +734,8 @@ namespace tambak.Views.Charts
             foreach (var b in SamplingLogDomainContext.SamplingLogs)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Size), XCategory = b.Age.ToString() });
-                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1000/(b.Age * 0.22)), XCategory = b.Age.ToString() });
+                //StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1000/(b.Age * 0.22)), XCategory = b.Age.ToString() });  Convert.ToDouble( 1.6165*(Math.Pow(2.71828,(0.0251*Convert.ToDouble( b.Age)))))
+                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1000 / Convert.ToDouble(1.6165 * (Math.Pow(2.71828, (0.0251 * Convert.ToDouble(b.Age)))))), XCategory = b.Age.ToString() });
             }
             SizeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
             SizeChart.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
@@ -756,7 +757,7 @@ namespace tambak.Views.Charts
             foreach (var b in SortedSizeChart)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Size), XCategory = b.Age.ToString() });
-                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1000 / (b.Age * 0.22)), XCategory = b.Age.ToString() });
+                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1000 / Convert.ToDouble(1.6165 * (Math.Pow(2.71828, (0.0251 * Convert.ToDouble(b.Age)))))), XCategory = b.Age.ToString() });
             }
             SizeChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
             SizeChart.DefaultView.ChartArea.DataSeries.Add(StandardSeries);
@@ -775,7 +776,8 @@ namespace tambak.Views.Charts
             foreach (var b in SamplingLogDomainContext.SamplingLogs)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MedianBodyWeight), XCategory = b.Age.ToString() });
-                StandardSeries.Add(new DataPoint() { YValue =Convert.ToDouble( b.Age *0.22), XCategory = b.Age.ToString() });
+               // StandardSeries.Add(new DataPoint() { YValue =Convert.ToDouble( b.Age *0.22), XCategory = b.Age.ToString() });
+                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble( 1.6165*(Math.Pow(2.71828,(0.0251*Convert.ToDouble( b.Age))))), XCategory = b.Age.ToString() });
             }
             
             agetoMBWChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
@@ -802,7 +804,8 @@ namespace tambak.Views.Charts
             foreach (var b in SortedLastSevenMBW)
             {
                 lineSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.MedianBodyWeight), XCategory = b.Age.ToString() });
-                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Age * 0.22), XCategory = b.Age.ToString() });
+               // StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(b.Age * 0.22), XCategory = b.Age.ToString() });
+                StandardSeries.Add(new DataPoint() { YValue = Convert.ToDouble(1.6165 * (Math.Pow(2.71828, (0.0251 * Convert.ToDouble(b.Age))))), XCategory = b.Age.ToString() });
             }
 
             agetoMBWChart.DefaultView.ChartArea.DataSeries.Add(lineSeries);
