@@ -333,6 +333,9 @@
     <Compile Include="Views\Production\ProductionCostsPage.xaml.cs">
       <DependentUpon>ProductionCostsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Production\ProductionReportPage.xaml.cs">
+      <DependentUpon>ProductionReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TasksModule\ManageTasks.xaml.cs">
       <DependentUpon>ManageTasks.xaml</DependentUpon>
     </Compile>
@@ -580,6 +583,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Production\ProductionCostsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Production\ProductionReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

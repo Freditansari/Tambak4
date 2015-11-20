@@ -88,6 +88,7 @@
                             <telerik:RadMenuItem Header="Harvest Log"/>
                             <telerik:RadMenuItem Header="Production Costs"/>
                             <telerik:RadMenuItem Header="Production Summary"/>
+                            <telerik:RadMenuItem Header="Harvest Reports"/>
                         </telerik:RadMenuItem>
                         
                     </telerik:RadMenu>

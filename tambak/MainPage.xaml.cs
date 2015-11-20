@@ -166,6 +166,10 @@
                          this.ContentFrame.Navigate(new System.Uri("/TasksModule/TodayFeedingReportPage", System.UriKind.Relative));
                          break;
 
+                     case "Harvest Reports":
+                         this.ContentFrame.Navigate(new System.Uri("/Production/ProductionReportPage", System.UriKind.Relative));
+                         break;
+
                  }
              }
         }

@@ -61,6 +61,12 @@
     <Compile Include="FacilityReport.Designer.cs">
       <DependentUpon>FacilityReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="HarvestReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HarvestReport.Designer.cs">
+      <DependentUpon>HarvestReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="LastSamplingReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacilityReport.resx">
       <DependentUpon>FacilityReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HarvestReport.resx">
+      <DependentUpon>HarvestReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LastSamplingReport.resx">
       <DependentUpon>LastSamplingReport.cs</DependentUpon>
