@@ -9,7 +9,7 @@
 
     <Grid x:Name="LayoutRoot" Background="White">
 
-        <Silverlight:ReportViewer HorizontalAlignment="Left" Width="1366" Height="700" VerticalAlignment="Top" ReportServiceUri="../ReportService.svc" ReportServerUri="../ReportService.svc"  Report="TambakReports.TodayFeedingPlanReports, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+        <Silverlight:ReportViewer HorizontalAlignment="Left" Width="1366" Height="700" VerticalAlignment="Top" ReportServiceUri="../ReportService.svc" ReportServerUri="../ReportService.svc"  Report="TambakReports.MaxFoodReports, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
 
     </Grid>
 </UserControl>

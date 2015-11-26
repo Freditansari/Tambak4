@@ -1,5 +1,0 @@
-﻿use CPL; 
-alter table SamplingLogs
-alter column CummulativeFeed Float;
-alter table SamplingLogs
-alter column WeeklyFeed Float;

@@ -2185,8 +2185,6 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\System.Windows.Controls
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\System.Windows.Data.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\System.Windows.Controls.Navigation.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\System.Xml.Linq.xml
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.ReportViewer.Silverlight.pdb
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.ReportViewer.Silverlight.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.Windows.Controls.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\telerik.windows.controls.chart.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\telerik.windows.controls.charting.xml
@@ -2198,6 +2196,8 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.Windows.Control
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.Windows.Controls.ScheduleView.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.Windows.Data.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.Windows.Scheduling.Core.xml
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.ReportViewer.Silverlight.pdb
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\Telerik.ReportViewer.Silverlight.xml
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\de\Microsoft.CSharp.resources.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\es\Microsoft.CSharp.resources.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\fr\Microsoft.CSharp.resources.dll
@@ -2474,6 +2474,7 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondsProductionCy
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\PondLogs.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewContactChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewFeedingLogChildWindows.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewFeedingTrayChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewSamplingLogWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewWaterParameterChildWindow.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\SelectFacilityChildWindow.g.cs
@@ -2483,8 +2484,10 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\Consum
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\GlobalProductionPageSummary.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\HarvestPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\ProductionCostsPage.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\ProductionReportPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\TasksModule\ManageTasks.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\TasksModule\NewTaskChildWindow.g.cs
+C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\TasksModule\TodayFeedingReportPage.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\TasksView.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\test.g.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\UnauthorizedAccess.g.cs
@@ -2501,7 +2504,3 @@ C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.csproj.GenerateR
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.pdb
 C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\XapCacheFile.xml
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Popups\NewFeedingTrayChildWindow.g.cs
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\TasksModule\TodayFeedingReportPage.g.cs
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.csprojResolveAssemblyReference.cache
-C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\Views\Production\ProductionReportPage.g.cs

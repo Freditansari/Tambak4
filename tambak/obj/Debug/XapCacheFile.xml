@@ -1,5 +1,5 @@
-﻿<xapCache source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\tambak.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="11/1/2015 10:12:12 AM">
-  <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.dll" archivePath="tambak.dll" lastWriteTime="11/1/2015 10:12:04 AM" />
+﻿<xapCache source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\tambak.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="11/26/2015 1:26:30 PM">
+  <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\obj\Debug\tambak.dll" archivePath="tambak.dll" lastWriteTime="11/26/2015 1:26:22 PM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\Microsoft.CSharp.dll" archivePath="Microsoft.CSharp.dll" lastWriteTime="11/18/2011 5:40:20 PM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll" archivePath="System.ComponentModel.DataAnnotations.dll" lastWriteTime="11/18/2011 5:40:20 PM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.dll" archivePath="System.ServiceModel.DomainServices.Client.dll" lastWriteTime="6/29/2012 12:04:48 PM" />
@@ -13,7 +13,7 @@
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Navigation.dll" archivePath="System.Windows.Controls.Navigation.dll" lastWriteTime="11/18/2011 5:40:20 PM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Data.dll" archivePath="System.Windows.Data.dll" lastWriteTime="11/18/2011 5:40:20 PM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Linq.dll" archivePath="System.Xml.Linq.dll" lastWriteTime="11/18/2011 5:40:20 PM" />
-  <file source="C:\Program Files (x86)\Telerik\Reporting Q1 2015\Bin\Telerik.ReportViewer.Silverlight.dll" archivePath="Telerik.ReportViewer.Silverlight.dll" lastWriteTime="2/25/2015 3:34:52 PM" />
+  <file source="C:\Program Files (x86)\Telerik\Reporting Q3 2015\bin\Telerik.ReportViewer.Silverlight.dll" archivePath="Telerik.ReportViewer.Silverlight.dll" lastWriteTime="11/5/2015 2:45:06 PM" />
   <file source="C:\Program Files (x86)\Telerik\UI for Silverlight Q3 2014\Binaries\Silverlight\telerik.windows.controls.chart.dll" archivePath="telerik.windows.controls.chart.dll" lastWriteTime="12/2/2014 2:41:26 AM" />
   <file source="C:\Program Files (x86)\Telerik\UI for Silverlight Q3 2014\Binaries\Silverlight\telerik.windows.controls.charting.dll" archivePath="telerik.windows.controls.charting.dll" lastWriteTime="12/2/2014 2:42:02 AM" />
   <file source="C:\Program Files (x86)\Telerik\UI for Silverlight Q3 2014\Binaries\Silverlight\telerik.windows.controls.data.dll" archivePath="telerik.windows.controls.data.dll" lastWriteTime="12/2/2014 2:40:52 AM" />
@@ -29,5 +29,5 @@
   <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\ServiceReferences.ClientConfig" archivePath="ServiceReferences.ClientConfig" lastWriteTime="4/17/2015 11:05:00 AM" />
   <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Views\Inventory\Todo Files.txt" archivePath="Views\Inventory\Todo Files.txt" lastWriteTime="4/13/2015 9:25:42 PM" />
   <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Views\TextFile1.txt" archivePath="Views\TextFile1.txt" lastWriteTime="4/13/2015 9:25:43 PM" />
-  <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="8/6/2015 2:59:44 PM" />
+  <file source="C:\Users\fredy\Documents\GitHub\Tambak4\tambak\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="11/26/2015 1:26:25 PM" />
 </xapCache>

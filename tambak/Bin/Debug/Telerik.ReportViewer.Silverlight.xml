@@ -1455,12 +1455,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Telerik.ReportViewer.Silverlight.ParameterModel.ConvertFrom(System.Object)">
-            <summary>
-            Converts a value to the type of the represented parameter. 
-            Throws FormatException if the specified value cannot be converted to the parameter type. 
-            </summary>
-        </member>
         <member name="P:Telerik.ReportViewer.Silverlight.ParameterModel.AvailableValues">
             <summary>
             Gets a list of the available <see cref="T:Telerik.ReportViewer.Silverlight.ParameterValueModel"/>s.
@@ -1929,7 +1923,7 @@
             <summary>
             Determines whether the given <see cref="T:System.Uri"/> is absolute. 
             If not, creates a new absolute <see cref="T:System.Uri"/> based on the combination of 
-            <see cref="!:SilverlightHost.Source"/> for the current application and the given relative URI.
+            <see cref="P:System.Windows.Interop.SilverlightHost.Source"/> for the current application and the given relative URI.
             </summary>
             <param name="uri">The <see cref="T:System.Uri"/> that is being checked.</param>
             <returns>An absolute <see cref="T:System.Uri"/>.</returns>
@@ -1939,13 +1933,13 @@
             </para>
             <para>
             If the URI is <b>relative</b>, a new absolute <see cref="T:System.Uri"/> based on the combination of 
-            <see cref="!:SilverlightHost.Source"/> of the current application and the given relative URI is created.
-            The <see cref="!:SilverlightHost.Source"/> usually points to the application package (XAP).
+            <see cref="P:System.Windows.Interop.SilverlightHost.Source"/> of the current application and the given relative URI is created.
+            The <see cref="P:System.Windows.Interop.SilverlightHost.Source"/> usually points to the application package (XAP).
             </para>
             </remarks>
             <example>
             The following example shows some common scenarios and the absolute Uris returned. 
-            Consider that the <see cref="!:SilverlightHost.Source"/> Uri points to <c>http://mydomain/MyWebSite/ClientBin/MyApp.xap</c>:
+            Consider that the <see cref="P:System.Windows.Interop.SilverlightHost.Source"/> Uri points to <c>http://mydomain/MyWebSite/ClientBin/MyApp.xap</c>:
             <code lang="C#">
             //Absolute Uri (no change):
             EnsureAbsoluteUri(new Uri("http://mydomain/MyWebSite/ReportService.svc", UriKind.Absolute));    // http://mydomain/MyWebSite/ReportService.svc
