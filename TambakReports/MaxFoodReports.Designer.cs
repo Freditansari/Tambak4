@@ -15,15 +15,15 @@ namespace TambakReports
             Telerik.Reporting.Drawing.StyleRule styleRule3 = new Telerik.Reporting.Drawing.StyleRule();
             Telerik.Reporting.Drawing.StyleRule styleRule4 = new Telerik.Reporting.Drawing.StyleRule();
             Telerik.Reporting.Drawing.StyleRule styleRule5 = new Telerik.Reporting.Drawing.StyleRule();
-            this.sqlDataSource1 = new Telerik.Reporting.SqlDataSource();
-            this.labelsGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.labelsGroupFooterSection = new Telerik.Reporting.GroupFooterSection();
+            this.labelsGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.pondDescriptionCaptionTextBox = new Telerik.Reporting.TextBox();
             this.productionCycleIDCaptionTextBox = new Telerik.Reporting.TextBox();
             this.textBox1 = new Telerik.Reporting.TextBox();
             this.targetSR20CaptionTextBox = new Telerik.Reporting.TextBox();
             this.targetSR30CaptionTextBox = new Telerik.Reporting.TextBox();
             this.targetSR50CaptionTextBox = new Telerik.Reporting.TextBox();
+            this.sqlDataSource1 = new Telerik.Reporting.SqlDataSource();
             this.reportFooter = new Telerik.Reporting.ReportFooterSection();
             this.textBox2 = new Telerik.Reporting.TextBox();
             this.productionCycleIDSumFunctionTextBox = new Telerik.Reporting.TextBox();
@@ -43,14 +43,15 @@ namespace TambakReports
             this.targetSR20DataTextBox = new Telerik.Reporting.TextBox();
             this.targetSR30DataTextBox = new Telerik.Reporting.TextBox();
             this.targetSR50DataTextBox = new Telerik.Reporting.TextBox();
+            this.textBox5 = new Telerik.Reporting.TextBox();
+            this.textBox6 = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // sqlDataSource1
+            // labelsGroupFooterSection
             // 
-            this.sqlDataSource1.ConnectionString = "TambakReports.Properties.Settings.CPL";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            this.sqlDataSource1.SelectCommand = "SELECT        MaxFoodDiminishingSRView.*\r\nFROM            MaxFoodDiminishingSRVie" +
-    "w";
+            this.labelsGroupFooterSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
+            this.labelsGroupFooterSection.Name = "labelsGroupFooterSection";
+            this.labelsGroupFooterSection.Style.Visible = false;
             // 
             // labelsGroupHeaderSection
             // 
@@ -64,12 +65,6 @@ namespace TambakReports
             this.targetSR50CaptionTextBox});
             this.labelsGroupHeaderSection.Name = "labelsGroupHeaderSection";
             this.labelsGroupHeaderSection.PrintOnEveryPage = true;
-            // 
-            // labelsGroupFooterSection
-            // 
-            this.labelsGroupFooterSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
-            this.labelsGroupFooterSection.Name = "labelsGroupFooterSection";
-            this.labelsGroupFooterSection.Style.Visible = false;
             // 
             // pondDescriptionCaptionTextBox
             // 
@@ -124,6 +119,13 @@ namespace TambakReports
             this.targetSR50CaptionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.46875D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
             this.targetSR50CaptionTextBox.StyleName = "Caption";
             this.targetSR50CaptionTextBox.Value = "Target SR50";
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionString = "TambakReports.Properties.Settings.CPL";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            this.sqlDataSource1.SelectCommand = "SELECT        MaxFoodDiminishingSRView.*\r\nFROM            MaxFoodDiminishingSRVie" +
+    "w";
             // 
             // reportFooter
             // 
@@ -224,16 +226,18 @@ namespace TambakReports
             // 
             // reportHeader
             // 
-            this.reportHeader.Height = Telerik.Reporting.Drawing.Unit.Inch(0.80823493003845215D);
+            this.reportHeader.Height = Telerik.Reporting.Drawing.Unit.Inch(0.90000009536743164D);
             this.reportHeader.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
-            this.titleTextBox});
+            this.titleTextBox,
+            this.textBox5,
+            this.textBox6});
             this.reportHeader.Name = "reportHeader";
             // 
             // titleTextBox
             // 
             this.titleTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0D), Telerik.Reporting.Drawing.Unit.Inch(0D));
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(8.9583330154418945D), Telerik.Reporting.Drawing.Unit.Inch(0.787401556968689D));
+            this.titleTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(8.9583330154418945D), Telerik.Reporting.Drawing.Unit.Inch(0.50000005960464478D));
             this.titleTextBox.StyleName = "Title";
             this.titleTextBox.Value = "Maximum daily feed";
             // 
@@ -306,6 +310,22 @@ namespace TambakReports
             this.targetSR50DataTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.46875D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
             this.targetSR50DataTextBox.StyleName = "Data";
             this.targetSR50DataTextBox.Value = "= Fields.TargetSR50";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.50007867813110352D));
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.37916669249534607D), Telerik.Reporting.Drawing.Unit.Inch(0.20000004768371582D));
+            this.textBox5.Value = "For:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Format = "{0:D}";
+            this.textBox6.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.40007877349853516D), Telerik.Reporting.Drawing.Unit.Inch(0.50007867813110352D));
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.0999212265014648D), Telerik.Reporting.Drawing.Unit.Inch(0.19999997317790985D));
+            this.textBox6.Style.Font.Bold = true;
+            this.textBox6.Value = "=Now().adddays(Cdbl(1))";
             // 
             // MaxFoodReports
             // 
@@ -396,6 +416,8 @@ namespace TambakReports
         private Telerik.Reporting.TextBox targetSR20DataTextBox;
         private Telerik.Reporting.TextBox targetSR30DataTextBox;
         private Telerik.Reporting.TextBox targetSR50DataTextBox;
+        private Telerik.Reporting.TextBox textBox5;
+        private Telerik.Reporting.TextBox textBox6;
 
     }
 }

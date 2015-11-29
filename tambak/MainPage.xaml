@@ -68,6 +68,8 @@
                         <telerik:RadMenuItem Header="Tasks">
                             <telerik:RadMenuItem Header="Manage Tasks"/>
                             <telerik:RadMenuItem Header="Daily Feeding Report"/>
+                            <telerik:RadMenuItem Header="Second Day Feeding Report"/>
+                            <telerik:RadMenuItem Header="Third Day Feeding Report"/>
                             <!--<telerik:RadMenuItem Header="New Tasks"/>
                             <telerik:RadMenuItem Header="Sub Item 5"/>-->
                         </telerik:RadMenuItem>

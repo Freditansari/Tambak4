@@ -342,8 +342,14 @@
     <Compile Include="Views\TasksModule\NewTaskChildWindow.xaml.cs">
       <DependentUpon>NewTaskChildWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TasksModule\ThirdDayFeedingReportPage.xaml.cs">
+      <DependentUpon>ThirdDayFeedingReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TasksModule\TodayFeedingReportPage.xaml.cs">
       <DependentUpon>TodayFeedingReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TasksModule\TwodaysFeedingReportPage.xaml.cs">
+      <DependentUpon>TwodaysFeedingReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TasksView.xaml.cs">
       <DependentUpon>TasksView.xaml</DependentUpon>
@@ -598,7 +604,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TasksModule\ThirdDayFeedingReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TasksModule\TodayFeedingReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TasksModule\TwodaysFeedingReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

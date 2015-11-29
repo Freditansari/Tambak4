@@ -81,6 +81,18 @@
     <Compile Include="LastSevenWaterParameterReport.Designer.cs">
       <DependentUpon>LastSevenWaterParameterReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaxFoodReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MaxFoodReport2.Designer.cs">
+      <DependentUpon>MaxFoodReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaxFoodReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MaxFoodReport3.Designer.cs">
+      <DependentUpon>MaxFoodReport3.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaxFoodReports.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LastSevenWaterParameterReport.resx">
       <DependentUpon>LastSevenWaterParameterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaxFoodReport2.resx">
+      <DependentUpon>MaxFoodReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaxFoodReport3.resx">
+      <DependentUpon>MaxFoodReport3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaxFoodReports.resx">
       <DependentUpon>MaxFoodReports.cs</DependentUpon>

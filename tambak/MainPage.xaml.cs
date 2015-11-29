@@ -170,6 +170,12 @@
                          this.ContentFrame.Navigate(new System.Uri("/Production/ProductionReportPage", System.UriKind.Relative));
                          break;
 
+                     case "Second Day Feeding Report":
+                         this.ContentFrame.Navigate(new System.Uri("/TasksModule/TwodaysFeedingReportPage", System.UriKind.Relative));
+                         break;
+                     case "Third Day Feeding Report":
+                         this.ContentFrame.Navigate(new System.Uri("/TasksModule/ThirdDayFeedingReportPage", System.UriKind.Relative));
+                         break;
                  }
              }
         }

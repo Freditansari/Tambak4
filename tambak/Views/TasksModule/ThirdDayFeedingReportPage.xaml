@@ -1,0 +1,16 @@
+﻿<navigation:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:Silverlight="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight" x:Class="tambak.Views.TasksModule.ThirdDayFeedingReportPage"
+           mc:Ignorable="d"
+           d:DesignWidth="1366" d:DesignHeight="700"
+           Title="ThirdDayFeedingReportPage Page">
+    <Grid x:Name="LayoutRoot">
+
+        <Silverlight:ReportViewer HorizontalAlignment="Left" Height="700" Width="1366" ReportServiceUri="../ReportService.svc" ReportServerUri="../ReportService.svc" VerticalAlignment="Top" Report="TambakReports.MaxFoodReport3, TambakReports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+
+    </Grid>
+</navigation:Page>
