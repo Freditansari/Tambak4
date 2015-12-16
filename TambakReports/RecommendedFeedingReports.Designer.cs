@@ -9,6 +9,7 @@ namespace TambakReports
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.Reporting.Drawing.FormattingRule formattingRule1 = new Telerik.Reporting.Drawing.FormattingRule();
             Telerik.Reporting.Group group1 = new Telerik.Reporting.Group();
             Telerik.Reporting.Group group2 = new Telerik.Reporting.Group();
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
@@ -16,22 +17,22 @@ namespace TambakReports
             Telerik.Reporting.Drawing.StyleRule styleRule3 = new Telerik.Reporting.Drawing.StyleRule();
             Telerik.Reporting.Drawing.StyleRule styleRule4 = new Telerik.Reporting.Drawing.StyleRule();
             Telerik.Reporting.Drawing.StyleRule styleRule5 = new Telerik.Reporting.Drawing.StyleRule();
-            this.sqlDataSource1 = new Telerik.Reporting.SqlDataSource();
-            this.labelsGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.labelsGroupFooterSection = new Telerik.Reporting.GroupFooterSection();
+            this.labelsGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.harikKeCaptionTextBox = new Telerik.Reporting.TextBox();
             this.pondDescriptionCaptionTextBox = new Telerik.Reporting.TextBox();
             this.feedTypeCaptionTextBox = new Telerik.Reporting.TextBox();
             this.maxFeedCaptionTextBox = new Telerik.Reporting.TextBox();
             this.recommendedFeedCaptionTextBox = new Telerik.Reporting.TextBox();
-            this.harikKeGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
             this.harikKeGroupFooterSection = new Telerik.Reporting.GroupFooterSection();
-            this.reportFooter = new Telerik.Reporting.ReportFooterSection();
-            this.textBox1 = new Telerik.Reporting.TextBox();
-            this.textBox2 = new Telerik.Reporting.TextBox();
             this.textBox3 = new Telerik.Reporting.TextBox();
             this.maxFeedSumFunctionTextBox = new Telerik.Reporting.TextBox();
             this.recommendedFeedSumFunctionTextBox = new Telerik.Reporting.TextBox();
+            this.harikKeGroupHeaderSection = new Telerik.Reporting.GroupHeaderSection();
+            this.textBox2 = new Telerik.Reporting.TextBox();
+            this.sqlDataSource1 = new Telerik.Reporting.SqlDataSource();
+            this.reportFooter = new Telerik.Reporting.ReportFooterSection();
+            this.textBox1 = new Telerik.Reporting.TextBox();
             this.maxFeedSumFunctionTextBox1 = new Telerik.Reporting.TextBox();
             this.recommendedFeedSumFunctionTextBox1 = new Telerik.Reporting.TextBox();
             this.pageFooter = new Telerik.Reporting.PageFooterSection();
@@ -46,12 +47,11 @@ namespace TambakReports
             this.recommendedFeedDataTextBox = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // sqlDataSource1
+            // labelsGroupFooterSection
             // 
-            this.sqlDataSource1.ConnectionString = "TambakReports.Properties.Settings.CPL";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            this.sqlDataSource1.SelectCommand = "SELECT        HarikKe, PondDescription, RecommendedFeed, MaxFeed, FeedType\r\nFROM " +
-    "           RecommendedFeedNext10";
+            this.labelsGroupFooterSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
+            this.labelsGroupFooterSection.Name = "labelsGroupFooterSection";
+            this.labelsGroupFooterSection.Style.Visible = false;
             // 
             // labelsGroupHeaderSection
             // 
@@ -64,12 +64,6 @@ namespace TambakReports
             this.recommendedFeedCaptionTextBox});
             this.labelsGroupHeaderSection.Name = "labelsGroupHeaderSection";
             this.labelsGroupHeaderSection.PrintOnEveryPage = true;
-            // 
-            // labelsGroupFooterSection
-            // 
-            this.labelsGroupFooterSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
-            this.labelsGroupFooterSection.Name = "labelsGroupFooterSection";
-            this.labelsGroupFooterSection.Style.Visible = false;
             // 
             // harikKeCaptionTextBox
             // 
@@ -116,13 +110,6 @@ namespace TambakReports
             this.recommendedFeedCaptionTextBox.StyleName = "Caption";
             this.recommendedFeedCaptionTextBox.Value = "Recommended Feed";
             // 
-            // harikKeGroupHeaderSection
-            // 
-            this.harikKeGroupHeaderSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
-            this.harikKeGroupHeaderSection.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
-            this.textBox2});
-            this.harikKeGroupHeaderSection.Name = "harikKeGroupHeaderSection";
-            // 
             // harikKeGroupFooterSection
             // 
             this.harikKeGroupFooterSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
@@ -131,6 +118,59 @@ namespace TambakReports
             this.maxFeedSumFunctionTextBox,
             this.recommendedFeedSumFunctionTextBox});
             this.harikKeGroupFooterSection.Name = "harikKeGroupFooterSection";
+            // 
+            // textBox3
+            // 
+            this.textBox3.CanGrow = true;
+            this.textBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
+            this.textBox3.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
+            this.textBox3.StyleName = "Caption";
+            this.textBox3.Value = "Sub-total:";
+            // 
+            // maxFeedSumFunctionTextBox
+            // 
+            this.maxFeedSumFunctionTextBox.CanGrow = true;
+            this.maxFeedSumFunctionTextBox.Format = "{0:N0}";
+            this.maxFeedSumFunctionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(5.9833331108093262D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
+            this.maxFeedSumFunctionTextBox.Name = "maxFeedSumFunctionTextBox";
+            this.maxFeedSumFunctionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
+            this.maxFeedSumFunctionTextBox.StyleName = "Data";
+            this.maxFeedSumFunctionTextBox.Value = "= Sum(Fields.MaxFeed)";
+            // 
+            // recommendedFeedSumFunctionTextBox
+            // 
+            this.recommendedFeedSumFunctionTextBox.CanGrow = true;
+            this.recommendedFeedSumFunctionTextBox.Format = "{0:N0}";
+            this.recommendedFeedSumFunctionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(7.9708333015441895D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
+            this.recommendedFeedSumFunctionTextBox.Name = "recommendedFeedSumFunctionTextBox";
+            this.recommendedFeedSumFunctionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
+            this.recommendedFeedSumFunctionTextBox.StyleName = "Data";
+            this.recommendedFeedSumFunctionTextBox.Value = "= Sum(Fields.RecommendedFeed)";
+            // 
+            // harikKeGroupHeaderSection
+            // 
+            this.harikKeGroupHeaderSection.Height = Telerik.Reporting.Drawing.Unit.Inch(0.28125D);
+            this.harikKeGroupHeaderSection.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
+            this.textBox2});
+            this.harikKeGroupHeaderSection.Name = "harikKeGroupHeaderSection";
+            // 
+            // textBox2
+            // 
+            this.textBox2.CanGrow = true;
+            this.textBox2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
+            this.textBox2.StyleName = "Data";
+            this.textBox2.Value = "= Fields.HarikKe";
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionString = "TambakReports.Properties.Settings.CPL";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            this.sqlDataSource1.SelectCommand = "SELECT        HarikKe, PondDescription, RecommendedFeed, MaxFeed, FeedType\r\nFROM " +
+    "           RecommendedFeedNext10";
             // 
             // reportFooter
             // 
@@ -152,46 +192,10 @@ namespace TambakReports
             this.textBox1.StyleName = "Caption";
             this.textBox1.Value = "Grand total:";
             // 
-            // textBox2
-            // 
-            this.textBox2.CanGrow = true;
-            this.textBox2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
-            this.textBox2.StyleName = "Data";
-            this.textBox2.Value = "= Fields.HarikKe";
-            // 
-            // textBox3
-            // 
-            this.textBox3.CanGrow = true;
-            this.textBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
-            this.textBox3.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox3.StyleName = "Caption";
-            this.textBox3.Value = "Sub-total:";
-            // 
-            // maxFeedSumFunctionTextBox
-            // 
-            this.maxFeedSumFunctionTextBox.CanGrow = true;
-            this.maxFeedSumFunctionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(5.9833331108093262D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.maxFeedSumFunctionTextBox.Name = "maxFeedSumFunctionTextBox";
-            this.maxFeedSumFunctionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
-            this.maxFeedSumFunctionTextBox.StyleName = "Data";
-            this.maxFeedSumFunctionTextBox.Value = "= Sum(Fields.MaxFeed)";
-            // 
-            // recommendedFeedSumFunctionTextBox
-            // 
-            this.recommendedFeedSumFunctionTextBox.CanGrow = true;
-            this.recommendedFeedSumFunctionTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(7.9708333015441895D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
-            this.recommendedFeedSumFunctionTextBox.Name = "recommendedFeedSumFunctionTextBox";
-            this.recommendedFeedSumFunctionTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
-            this.recommendedFeedSumFunctionTextBox.StyleName = "Data";
-            this.recommendedFeedSumFunctionTextBox.Value = "= Sum(Fields.RecommendedFeed)";
-            // 
             // maxFeedSumFunctionTextBox1
             // 
             this.maxFeedSumFunctionTextBox1.CanGrow = true;
+            this.maxFeedSumFunctionTextBox1.Format = "{0:N0}";
             this.maxFeedSumFunctionTextBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(5.9833331108093262D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
             this.maxFeedSumFunctionTextBox1.Name = "maxFeedSumFunctionTextBox1";
             this.maxFeedSumFunctionTextBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
@@ -201,6 +205,7 @@ namespace TambakReports
             // recommendedFeedSumFunctionTextBox1
             // 
             this.recommendedFeedSumFunctionTextBox1.CanGrow = true;
+            this.recommendedFeedSumFunctionTextBox1.Format = "{0:N0}";
             this.recommendedFeedSumFunctionTextBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(7.9708333015441895D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
             this.recommendedFeedSumFunctionTextBox1.Name = "recommendedFeedSumFunctionTextBox1";
             this.recommendedFeedSumFunctionTextBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
@@ -287,6 +292,10 @@ namespace TambakReports
             // recommendedFeedDataTextBox
             // 
             this.recommendedFeedDataTextBox.CanGrow = true;
+            formattingRule1.Filters.Add(new Telerik.Reporting.Filter("= Fields.RecommendedFeed", Telerik.Reporting.FilterOperator.LessThan, "= Fields.MaxFeed * 0.7"));
+            formattingRule1.Style.BackgroundColor = System.Drawing.Color.Yellow;
+            this.recommendedFeedDataTextBox.ConditionalFormatting.AddRange(new Telerik.Reporting.Drawing.FormattingRule[] {
+            formattingRule1});
             this.recommendedFeedDataTextBox.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(7.9708333015441895D), Telerik.Reporting.Drawing.Unit.Inch(0.02083333395421505D));
             this.recommendedFeedDataTextBox.Name = "recommendedFeedDataTextBox";
             this.recommendedFeedDataTextBox.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.9666666984558106D), Telerik.Reporting.Drawing.Unit.Inch(0.20000000298023224D));
