@@ -486,6 +486,49 @@ namespace tambak.Views.Popups
             newSamplingLogDomainContext.SamplingLogs.Remove(selectedsamplinglog);
         }
 
+        private void populationsTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //todo calculate sampling logs 
+            //CalculateSamplingLogswithoutPopulations();
+
+        }
+
+        private void CalculateSamplingLogswithoutPopulations()
+        {
+            try
+            {
+                Double biomass;
+                feedingRate = Convert.ToDouble(feedingRateTextBox.Text);
+                //biomass = Convert.ToDouble((Convert.ToDouble(dailyFeedTextBox.Text) / feedingRate) * 100);
+                biomass = Convert.ToDouble((Convert.ToDouble(populationsTextBox.Text)*Convert.ToDouble(medianBodyWeightTextBox.Text)/1000 ));
+                biomassTextBox.Text = biomass.ToString();
+
+                fCRTextBox.Text = Convert.ToString(CumulativeFeed / biomass);
+                feedConsumptionsTextBox.Text = Convert.ToString((Convert.ToDouble(medianBodyWeightTextBox.Text) / Convert.ToDouble(dailyFeedTextBox.Text) / Convert.ToDouble(feedingRateTextBox.Text) * 100));
+                //populationsTextBox.Text = Convert.ToString((Convert.ToDouble(biomassTextBox.Text) / Convert.ToDouble(medianBodyWeightTextBox.Text) * 1000));
+                //FIXED! populasi /jumlah tebar *100s
+                //survivalRateTextBox.Text = Convert.ToString((Convert.ToDouble(populationsTextBox.Text) / Convert.ToInt32(NumberOfFryTextBox.Text)) * 100);
+                survivalRateTextBox.Text = Convert.ToString((Convert.ToDouble(populationsTextBox.Text) / NumberOfFry) * 100);
+
+                weeklyFCRTextBox.Text = Convert.ToString(((Convert.ToDouble(cummulativeFeedTextBox.Text) - previousCummulativeFeed) / (Convert.ToDouble(biomassTextBox.Text) - previousBiomass)));
+                //This part is a patch for infinity weekly fcr which caused by division by 0 in previous biomass.
+                if (weeklyFCRTextBox.Text == "Infinity")
+                {
+                    weeklyFCRTextBox.Text = "0";
+                }
+                //************************************************
+            }
+            catch (Exception g)
+            {
+            }
+            // SaveSamplingLog.IsEnabled = true;
+        }
+
+        private void RecalculatePopluationsButton_Click(object sender, RoutedEventArgs e)
+        {
+            CalculateSamplingLogswithoutPopulations();
+        }
+
 
 
 

@@ -105,7 +105,7 @@
             <sdk:Label Content="Median Body Weight:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
             <TextBox x:Name="medianBodyWeightTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding MedianBodyWeight, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="medianBodyWeightTextBox_TextChanged" TabIndex="2"/>
             <sdk:Label Content="Populations:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
-            <TextBox x:Name="populationsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Populations, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
+            <TextBox x:Name="populationsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Populations, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextChanged="populationsTextBox_TextChanged"/>
             <sdk:Label Content="Production Cycle ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
             <TextBox x:Name="productionCycleIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding ProductionCycleID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" IsReadOnly="True"/>
             <sdk:Label Content="Size:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
@@ -166,6 +166,7 @@
         </riaControls:DomainDataSource>
         <Button x:Name="addRecordButton" Content="Add Record" HorizontalAlignment="Left" Margin="742,12,0,0" Grid.Row="1" Width="75" Click="addRecordButton_Click" Height="22" VerticalAlignment="Top"/>
         <Button x:Name="RemoveRecordB_utton" Content="Remove" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="RemoveRecordB_utton_Click"/>
+        <Button x:Name="RecalculatePopluationsButton" Content="Recalculate Populations" HorizontalAlignment="Left" Margin="575,12,0,0" Grid.Row="1" VerticalAlignment="Top" Width="153" Click="RecalculatePopluationsButton_Click"/>
 
     </Grid>
 </controls:ChildWindow>

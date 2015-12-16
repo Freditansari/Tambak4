@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[RecommendedFeedNext10] (
+[ProductionCycleID] int NOT NULL,
+[HarikKe] int NOT NULL,
+[PondDescription] nvarchar(50) NULL,
+[RecommendedFeed] int NULL,
+[MaxFeed] int NULL,
+[FeedType] nvarchar(50) NULL)
+ON [PRIMARY]
+WITH (DATA_COMPRESSION = NONE);
+
+CREATE VIEW dbo.ActiveProductionCycleView
+AS
+SELECT        dbo.PondsProductionCycles.ProductionCycleID, DATEDIFF(day, dbo.PondsProductionCycles.StartDate, GETDATE()) AS [Current Age], dbo.Ponds.PondDescription, 
+                         dbo.Ponds.pondSize, dbo.PondsProductionCycles.NumberOfFry
+FROM            dbo.PondsProductionCycles INNER JOIN
+                         dbo.Ponds ON dbo.PondsProductionCycles.PondID = dbo.Ponds.PondID
+WHERE        (dbo.PondsProductionCycles.isInProduction = 1)

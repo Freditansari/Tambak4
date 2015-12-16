@@ -140,6 +140,7 @@
     <Content Include="Pythons\tablecheck.py" />
     <Content Include="ReportService.svc" />
     <Content Include="Scripts\Release 5 supplement 10.txt" />
+    <Content Include="Scripts\Release 6 supplement 2.txt" />
     <Content Include="Scripts\Release5sqlScript.txt" />
     <Content Include="Scripts\Release5Supplement13.txt" />
     <Content Include="Scripts\ReleaseCandidat6SqlUpdatetxt.txt" />
