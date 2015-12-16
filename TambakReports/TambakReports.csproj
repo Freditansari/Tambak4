@@ -129,6 +129,12 @@
     <Compile Include="PurchaseOrderReports.Designer.cs">
       <DependentUpon>PurchaseOrderReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecommendedFeedingReports.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecommendedFeedingReports.Designer.cs">
+      <DependentUpon>RecommendedFeedingReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="PurchaseOrderReports.resx">
       <DependentUpon>PurchaseOrderReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecommendedFeedingReports.resx">
+      <DependentUpon>RecommendedFeedingReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.resx">
       <DependentUpon>Report1.cs</DependentUpon>

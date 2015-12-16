@@ -176,6 +176,9 @@
                      case "Third Day Feeding Report":
                          this.ContentFrame.Navigate(new System.Uri("/TasksModule/ThirdDayFeedingReportPage", System.UriKind.Relative));
                          break;
+                     case "Recommended Feeding Report":
+                         this.ContentFrame.Navigate(new System.Uri("/TasksModule/RecommendedFeedingPage", System.UriKind.Relative));
+                         break;
                  }
              }
         }

@@ -47,6 +47,6 @@ C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.cs
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.dll.licenses
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.dll
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.pdb
-C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.csprojResolveAssemblyReference.cache
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.MaxFoodReport2.resources
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.MaxFoodReport3.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.RecommendedFeedingReports.resources
