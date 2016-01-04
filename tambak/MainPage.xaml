@@ -71,6 +71,7 @@
                             <telerik:RadMenuItem Header="Second Day Feeding Report"/>
                             <telerik:RadMenuItem Header="Third Day Feeding Report"/>
                             <telerik:RadMenuItem Header="Recommended Feeding Report"/>
+                            <telerik:RadMenuItem Header="Harvest Schedule"/>
                             <!--<telerik:RadMenuItem Header="New Tasks"/>
                             <telerik:RadMenuItem Header="Sub Item 5"/>-->
                         </telerik:RadMenuItem>

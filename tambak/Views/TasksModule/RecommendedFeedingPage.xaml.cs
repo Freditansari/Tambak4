@@ -17,7 +17,25 @@ namespace tambak.Views.TasksModule
     {
         public RecommendedFeedingPage()
         {
-            InitializeComponent();
+            try
+            {
+                if (WebContext.Current.User.IsInRole("Manager") || WebContext.Current.User.IsInRole("Field Accounting") || WebContext.Current.User.IsInRole("Super Admin"))
+                {
+
+
+                    InitializeComponent();
+                    // Loaded += ManageTasks_Loaded;
+
+                }
+                else
+                {
+                    throw new ArgumentException("Insufficient Access. Please login with higher access.");
+                }
+            }
+            catch (Exception g)
+            {
+                MessageBox.Show(g.Message);
+            }
         }
 
         // Executes when the user navigates to this page.

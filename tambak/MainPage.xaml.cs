@@ -179,6 +179,9 @@
                      case "Recommended Feeding Report":
                          this.ContentFrame.Navigate(new System.Uri("/TasksModule/RecommendedFeedingPage", System.UriKind.Relative));
                          break;
+                     case "Harvest Schedule":
+                         this.ContentFrame.Navigate(new System.Uri("/TasksModule/harvestSchedule", System.UriKind.Relative));
+                         break;
                  }
              }
         }

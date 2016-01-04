@@ -9,6 +9,7 @@ namespace TambakReports
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.Reporting.TypeReportSource typeReportSource1 = new Telerik.Reporting.TypeReportSource();
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.pageHeaderSection1 = new Telerik.Reporting.PageHeaderSection();
             this.detail = new Telerik.Reporting.DetailSection();
@@ -32,6 +33,9 @@ namespace TambakReports
             // 
             this.subReport1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.5D), Telerik.Reporting.Drawing.Unit.Inch(0.40000009536743164D));
             this.subReport1.Name = "subReport1";
+            typeReportSource1.TypeName = "TambakReports.HarvestEstimateReport, TambakReports, Version=1.0.0.0, Culture=neut" +
+    "ral, PublicKeyToken=null";
+            this.subReport1.ReportSource = typeReportSource1;
             this.subReport1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(2D), Telerik.Reporting.Drawing.Unit.Inch(1.1999999284744263D));
             // 
             // pageFooterSection1

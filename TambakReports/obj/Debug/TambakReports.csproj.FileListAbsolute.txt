@@ -50,3 +50,5 @@ C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.pd
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.MaxFoodReport2.resources
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.MaxFoodReport3.resources
 C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.RecommendedFeedingReports.resources
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.csprojResolveAssemblyReference.cache
+C:\Users\fredy\Documents\GitHub\Tambak4\TambakReports\obj\Debug\TambakReports.HarvestEstimateReport.resources
